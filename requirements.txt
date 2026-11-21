@@ -1,0 +1,11 @@
+openai>=1.40
+streamlit>=1.40
+pyyaml>=6
+python-docx>=1.1
+pandas>=2
+pytest>=8
+requests>=2.31
+pymupdf>=1.24          # PDF -> text for the law library (only needed to rebuild the index)
+numpy>=1.26
+# Optional: dense embeddings + reranker for retrieval. Without these, retrieval falls back to BM25.
+sentence-transformers>=3.0

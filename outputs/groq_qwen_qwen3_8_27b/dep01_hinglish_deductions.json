@@ -1,0 +1,304 @@
+{
+  "input": {
+    "id": "dep01_hinglish_deductions",
+    "story": "Maine Bangalore mein 2 saal flat rent pe liya tha, rent 18000 tha aur 60000 deposit diya tha bank transfer se. March 2026 mein flat khali kar diya, keys bhi de di. Ab landlord bol raha hai painting aur cleaning ke 25000 katenge aur baaki bhi abhi nahi de raha, 6 mahine ho gaye. Agreement mere paas hai.\n",
+    "expected": {
+      "problem_type": "deposit",
+      "escalate": false,
+      "script": "latin",
+      "amounts": {
+        "deposit_paid": 60000,
+        "deductions_claimed": 25000
+      }
+    },
+    "draft": "legal_notice"
+  },
+  "output": {
+    "model": "groq:qwen/qwen3.8-27b",
+    "masked_story": "Maine Bangalore mein 2 saal flat rent pe liya tha, rent 18000 tha aur 60000 deposit diya tha bank transfer se. March 2026 mein flat khali kar diya, keys bhi de di. Ab landlord bol raha hai painting aur cleaning ke 25000 katenge aur baaki bhi abhi nahi de raha, 6 mahine ho gaye. Agreement mere paas hai.",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "deposit",
+      "problem_subtype": "security deposit withheld with disputed deductions",
+      "user_language": "Hinglish",
+      "state": "Karnataka",
+      "city": "Bangalore",
+      "summary": "The user rented a flat in Bangalore for two years with a monthly rent of 18,000 INR and a security deposit of 60,000 INR. After vacating the property in March 2026, the landlord is withholding the deposit, claiming 25,000 INR for painting and cleaning, and has not returned the balance for six months.",
+      "user_goal": "To recover the remaining security deposit from the landlord.",
+      "user_role": "tenant",
+      "other_party": {
+        "name": null,
+        "type": "landlord"
+      },
+      "timeline": [
+        {
+          "date": "2024-03",
+          "event": "Started renting the flat (inferred from '2 saal' before March 2026)",
+          "proof": null
+        },
+        {
+          "date": "2026-03",
+          "event": "Vacated the flat and handed over keys",
+          "proof": null
+        }
+      ],
+      "amounts": {
+        "deposit_paid": 60000,
+        "deductions_claimed": 25000,
+        "monthly_rent": 18000,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [
+        "Rent agreement",
+        "Bank transfer record for deposit"
+      ],
+      "evidence_missing": [
+        "Written communication from landlord regarding deductions",
+        "Inventory or condition report at the time of vacating",
+        "Proof of key handover (e.g., message or receipt)"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": null
+      },
+      "follow_up_questions": [
+        "Kya landlord ne painting/cleaning ke 25000 ke liye koi written estimate ya bill diya hai?",
+        "Flat khali karne ke time koi inventory list ya condition report sign kiya tha?",
+        "Abhi tak landlord se deposit wapas lene ke liye koi written notice ya message bheja hai?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [
+        "Deposit paid: Rs 60,000",
+        "Less deductions the landlord claims: - Rs 25,000",
+        "Amount to claim: Rs 35,000"
+      ],
+      "total": 35000.0,
+      "notes": [
+        "Deductions are only valid for unpaid rent/bills or damage beyond normal wear and tear. Ask the landlord for bills/photos for each deduction; if they can't show any, claim the full Rs 60,000.",
+        "Your deposit (Rs 60,000) is more than 2 months' rent (Rs 36,000). The Model Tenancy Act caps it at 2 months, but only in states that adopted it.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "ica_s73",
+      "mta_s11_deposit",
+      "deposit_civil_route",
+      "lsa_s12_legal_aid"
+    ],
+    "assessment": {
+      "where_you_stand": "Aapke paas strong case hai kyunki aapne deposit bank transfer se diya hai aur rent agreement bhi hai. Landlord abhi tak 6 mahine se paisa nahi de raha, jo galat hai. Aapka deposit (60,000) rent ke 2 mahine (36,000) se zyada hai, lekin Karnataka mein Model Tenancy Act [KB:mta_s11_deposit] adopt nahi hua hai, isliye aapka rent agreement aur state laws apply honge. Aapko abhi tak landlord se koi written proof nahi mila ki unhone painting/cleaning ke liye kitna kharcha kiya. Isliye, pehle unse written proof maangna zaroori hai.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Written Demand via WhatsApp/Email",
+          "what_to_do": "Landlord ko ek clear message bhejein ki aap 35,000 (ya 60,000 agar unke deductions valid nahi hain) wapas chahte hain. Unse painting/cleaning ke bills ya photos maangein. Deadline dein (e.g., 7 din).",
+          "time": "1-2 din",
+          "cost": "Free",
+          "needs": [
+            "Rent agreement",
+            "Bank transfer record",
+            "Landlord's contact details"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Legal Notice",
+          "what_to_do": "Agar landlord reply nahi karta, toh ek lawyer ke through legal notice bhejein. Isme aap apna case clearly likhenge aur deadline denge. Yeh step court case se pehle ka standard step hai.",
+          "time": "1-2 hafte",
+          "cost": "Low (lawyer's fee for notice)",
+          "needs": [
+            "All previous communication",
+            "Rent agreement",
+            "Proof of deposit"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route",
+            "KB:ica_s73"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Civil Money Recovery Suit",
+          "what_to_do": "Agar notice ke baad bhi paisa nahi milta, toh aap civil court mein money recovery suit file kar sakte hain. Yeh 3 saal ke andar hona chahiye [KB:deposit_civil_route].",
+          "time": "3-6 mahine ya zyada",
+          "cost": "Court fees + lawyer fees",
+          "needs": [
+            "Legal notice copy",
+            "All evidence",
+            "Lawyer's representation"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route",
+            "KB:ica_s73"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Landlord ko WhatsApp par message karein: 'Please send the bills for painting and cleaning you are deducting from my deposit.' Unka reply aapka proof ban jayega.",
+        "Agar aapke paas key handover ka koi proof nahi hai, toh kisi witness ka statement ya WhatsApp message jismein aapne bataya tha ki aapne keys de di hain, use karein.",
+        "Bank statement mein deposit transfer ki entry clearly mark karein."
+      ],
+      "what_i_dont_know": [
+        "Kya aapke rent agreement mein deposit return ke specific terms hain?",
+        "Kya landlord ne koi written estimate diya hai deductions ke liye?",
+        "Kya aapke paas key handover ka koi proof hai?"
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "Abhi ke liye aap khud written demand aur legal notice ke liye lawyer se baat kar sakte hain. Court case tak jaane se pehle lawyer zaroori hai, lekin pehle steps aap khud kar sakte hain.",
+      "reply": "Aapka case strong hai kyunki aapke paas rent agreement aur bank transfer proof hai. Landlord abhi tak 6 mahine se paisa nahi de raha, jo galat hai. Pehle unse WhatsApp/Email par written demand bhejein aur painting/cleaning ke bills maangein. Agar wo nahi dete, toh legal notice bhejein. Court case tak jaane se pehle yeh steps zaroori hain. Kya aapne abhi tak landlord se koi written message bheja hai deposit wapas lene ke liye?"
+    },
+    "assessment_raw": {
+      "where_you_stand": "Aapke paas strong case hai kyunki aapne deposit bank transfer se diya hai aur rent agreement bhi hai. Landlord abhi tak 6 mahine se paisa nahi de raha, jo galat hai. Aapka deposit (60,000) rent ke 2 mahine (36,000) se zyada hai, lekin Karnataka mein Model Tenancy Act adopt nahi hua hai, isliye aapka rent agreement aur state laws apply honge. Aapko abhi tak landlord se koi written proof nahi mila ki unhone painting/cleaning ke liye kitna kharcha kiya. Isliye, pehle unse written proof maangna zaroori hai.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Written Demand via WhatsApp/Email",
+          "what_to_do": "Landlord ko ek clear message bhejein ki aap 35,000 (ya 60,000 agar unke deductions valid nahi hain) wapas chahte hain. Unse painting/cleaning ke bills ya photos maangein. Deadline dein (e.g., 7 din).",
+          "time": "1-2 din",
+          "cost": "Free",
+          "needs": [
+            "Rent agreement",
+            "Bank transfer record",
+            "Landlord's contact details"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Legal Notice",
+          "what_to_do": "Agar landlord reply nahi karta, toh ek lawyer ke through legal notice bhejein. Isme aap apna case clearly likhenge aur deadline denge. Yeh step court case se pehle ka standard step hai.",
+          "time": "1-2 hafte",
+          "cost": "Low (lawyer's fee for notice)",
+          "needs": [
+            "All previous communication",
+            "Rent agreement",
+            "Proof of deposit"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route",
+            "KB:ica_s73"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Civil Money Recovery Suit",
+          "what_to_do": "Agar notice ke baad bhi paisa nahi milta, toh aap civil court mein money recovery suit file kar sakte hain. Yeh 3 saal ke andar hona chahiye [KB:deposit_civil_route].",
+          "time": "3-6 mahine ya zyada",
+          "cost": "Court fees + lawyer fees",
+          "needs": [
+            "Legal notice copy",
+            "All evidence",
+            "Lawyer's representation"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route",
+            "KB:ica_s73"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Landlord ko WhatsApp par message karein: 'Please send the bills for painting and cleaning you are deducting from my deposit.' Unka reply aapka proof ban jayega.",
+        "Agar aapke paas key handover ka koi proof nahi hai, toh kisi witness ka statement ya WhatsApp message jismein aapne bataya tha ki aapne keys de di hain, use karein.",
+        "Bank statement mein deposit transfer ki entry clearly mark karein."
+      ],
+      "what_i_dont_know": [
+        "Kya aapke rent agreement mein deposit return ke specific terms hain?",
+        "Kya landlord ne koi written estimate diya hai deductions ke liye?",
+        "Kya aapke paas key handover ka koi proof hai?"
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "Abhi ke liye aap khud written demand aur legal notice ke liye lawyer se baat kar sakte hain. Court case tak jaane se pehle lawyer zaroori hai, lekin pehle steps aap khud kar sakte hain.",
+      "reply": "Aapka case strong hai kyunki aapke paas rent agreement aur bank transfer proof hai. Landlord abhi tak 6 mahine se paisa nahi de raha, jo galat hai. Pehle unse WhatsApp/Email par written demand bhejein aur painting/cleaning ke bills maangein. Agar wo nahi dete, toh legal notice bhejein. Court case tak jaane se pehle yeh steps zaroori hain. Kya aapne abhi tak landlord se koi written message bheja hai deposit wapas lene ke liye?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "deposit_civil_route"
+      ]
+    },
+    "draft": {
+      "doc_type": "legal_notice",
+      "draft": {
+        "title": "Legal Notice for Recovery of Security Deposit",
+        "body": "Date: [Date]\n\nFrom:\n[Your Name]\n[Your Address]\n[Your Phone Number]\n\nTo:\n[Landlord's Name]\n[Landlord's Address]\n\nSubject: Legal Notice for Recovery of Security Deposit of Rs 35,000\n\nDear [Landlord's Name],\n\n1. I, [Your Name], am the tenant of the residential flat located at [Flat Address], Bangalore, Karnataka, which I rented from you, the landlord, for a period of two years. The monthly rent for the said property was Rs 18,000, and I paid a security deposit of Rs 60,000 at the commencement of the tenancy, as evidenced by the rent agreement and bank transfer records.\n\n2. I vacated the said flat and handed over the keys to you in March 2026, thereby fulfilling all my obligations as a tenant under the rent agreement.\n\n3. Despite the termination of the tenancy and the handover of the property, you have failed to return my security deposit. You have claimed a deduction of Rs 25,000 towards painting and cleaning, leaving a balance of Rs 35,000. However, you have not provided any written communication, bills, or estimates to substantiate these claimed deductions, nor have you returned the balance amount for the past six months.\n\n4. Under Section 73 of the Indian Contract Act, 1872 [KB:ica_s73], I am entitled to claim compensation for the loss that naturally arose from your breach of the agreement to return the deposit. Furthermore, as per the general civil procedure for deposit disputes [KB:deposit_civil_route], a written demand is a necessary step before initiating legal proceedings.\n\n5. In light of the above, I hereby demand that you pay the sum of Rs 35,000 (Rupees Thirty-Five Thousand only) within 15 days of the receipt of this notice. \n\n6. Please note that if the said amount is not paid within the stipulated period, I shall be constrained to initiate appropriate legal proceedings for the recovery of the said amount, along with any interest and costs that may be awarded by the competent court.\n\n7. This notice is issued without prejudice to my other rights and remedies available under the law.\n\nYours faithfully,\n\n[Your Name]\n[Your Signature]",
+        "explain_in_user_language": "Yeh ek legal notice hai jo aapko apne landlord ko bhejna hai. Isme aapne bataya hai ki aapne 60,000 ka deposit diya tha aur ab aap 35,000 wapas chahte ho kyunki landlord ne 25,000 ka deduction claim kiya hai bina kisi proof ke. Notice mein aapko 15 din ka time diya hai ki wo paisa wapas kare. Agar wo 15 din mein paisa nahi dete, toh aap court mein case kar sakte ho. Is notice ko bhejne se pehle, aapko apne naam, address aur landlord ki details fill karni hongi. Notice bhejne ke baad, aapko 15 din ka wait karna hoga.",
+        "attach_checklist": [
+          "Copy of the rent agreement",
+          "Bank transfer record for the security deposit",
+          "Proof of key handover (if available)",
+          "Any written communication from the landlord regarding the deductions (if available)"
+        ],
+        "placeholders_to_fill": [
+          "[Date]",
+          "[Your Name]",
+          "[Your Address]",
+          "[Your Phone Number]",
+          "[Landlord's Name]",
+          "[Landlord's Address]",
+          "[Flat Address]",
+          "[Your Signature]"
+        ]
+      },
+      "draft_raw": {
+        "title": "Legal Notice for Recovery of Security Deposit",
+        "body": "Date: [Date]\n\nFrom:\n[Your Name]\n[Your Address]\n[Your Phone Number]\n\nTo:\n[Landlord's Name]\n[Landlord's Address]\n\nSubject: Legal Notice for Recovery of Security Deposit of Rs 35,000\n\nDear [Landlord's Name],\n\n1. I, [Your Name], am the tenant of the residential flat located at [Flat Address], Bangalore, Karnataka, which I rented from you, the landlord, for a period of two years. The monthly rent for the said property was Rs 18,000, and I paid a security deposit of Rs 60,000 at the commencement of the tenancy, as evidenced by the rent agreement and bank transfer records.\n\n2. I vacated the said flat and handed over the keys to you in March 2026, thereby fulfilling all my obligations as a tenant under the rent agreement.\n\n3. Despite the termination of the tenancy and the handover of the property, you have failed to return my security deposit. You have claimed a deduction of Rs 25,000 towards painting and cleaning, leaving a balance of Rs 35,000. However, you have not provided any written communication, bills, or estimates to substantiate these claimed deductions, nor have you returned the balance amount for the past six months.\n\n4. Under Section 73 of the Indian Contract Act, 1872 [KB:ica_s73], I am entitled to claim compensation for the loss that naturally arose from your breach of the agreement to return the deposit. Furthermore, as per the general civil procedure for deposit disputes [KB:deposit_civil_route], a written demand is a necessary step before initiating legal proceedings.\n\n5. In light of the above, I hereby demand that you pay the sum of Rs 35,000 (Rupees Thirty-Five Thousand only) within 15 days of the receipt of this notice. \n\n6. Please note that if the said amount is not paid within the stipulated period, I shall be constrained to initiate appropriate legal proceedings for the recovery of the said amount, along with any interest and costs that may be awarded by the competent court.\n\n7. This notice is issued without prejudice to my other rights and remedies available under the law.\n\nYours faithfully,\n\n[Your Name]\n[Your Signature]",
+        "explain_in_user_language": "Yeh ek legal notice hai jo aapko apne landlord ko bhejna hai. Isme aapne bataya hai ki aapne 60,000 ka deposit diya tha aur ab aap 35,000 wapas chahte ho kyunki landlord ne 25,000 ka deduction claim kiya hai bina kisi proof ke. Notice mein aapko 15 din ka time diya hai ki wo paisa wapas kare. Agar wo 15 din mein paisa nahi dete, toh aap court mein case kar sakte ho. Is notice ko bhejne se pehle, aapko apne naam, address aur landlord ki details fill karni hongi. Notice bhejne ke baad, aapko 15 din ka wait karna hoga.",
+        "attach_checklist": [
+          "Copy of the rent agreement",
+          "Bank transfer record for the security deposit",
+          "Proof of key handover (if available)",
+          "Any written communication from the landlord regarding the deductions (if available)"
+        ],
+        "placeholders_to_fill": [
+          "[Date]",
+          "[Your Name]",
+          "[Your Address]",
+          "[Your Phone Number]",
+          "[Landlord's Name]",
+          "[Landlord's Address]",
+          "[Flat Address]",
+          "[Your Signature]"
+        ]
+      },
+      "guardrail_report": {
+        "removed_count": 0,
+        "items": [],
+        "kb_cited": [
+          "deposit_civil_route",
+          "ica_s73"
+        ]
+      }
+    }
+  },
+  "metrics": {
+    "model": "groq:qwen/qwen3.8-27b",
+    "case": "dep01_hinglish_deductions",
+    "secs": 94.6,
+    "prompt_tokens": 4889,
+    "completion_tokens": 2559,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 1,
+    "amounts_ok": "2/2",
+    "amounts_frac": 1.0
+  }
+}

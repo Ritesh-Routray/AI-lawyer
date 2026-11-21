@@ -1,0 +1,311 @@
+{
+  "input": {
+    "id": "not02_court_summons",
+    "story": "Mujhe court se summons aaya hai, bank ne loan recovery ka case kiya hai, hearing 28 November 2026 ko hai. Kya karun?\n",
+    "expected": {
+      "problem_type": "notice",
+      "escalate": true,
+      "script": "latin"
+    }
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "Mujhe court se summons aaya hai, bank ne loan recovery ka case kiya hai, hearing 28 November 2026 ko hai. Kya karun?",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "other",
+      "problem_subtype": "bank loan recovery court summons",
+      "user_language": "Hinglish",
+      "state": null,
+      "city": null,
+      "summary": "The user received a court summons regarding a loan recovery case filed by a bank, with a scheduled hearing on 28 November 2026. They are seeking guidance on what to do next.",
+      "user_goal": "Understand how to respond to the court summons and loan recovery case",
+      "user_role": "other",
+      "other_party": {
+        "name": null,
+        "type": "bank"
+      },
+      "timeline": [
+        {
+          "date": "2026-11-28",
+          "event": "Court hearing scheduled for loan recovery case",
+          "proof": "court summons"
+        }
+      ],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [
+        "court summons"
+      ],
+      "evidence_missing": [
+        "loan agreement",
+        "bank loan account statements",
+        "notice received from bank before the court case"
+      ],
+      "risk_signals": [
+        "court summons/hearing"
+      ],
+      "deadline_mentioned": {
+        "date": "2026-11-28",
+        "what": "Court hearing date"
+      },
+      "follow_up_questions": [
+        "Aap kaun se state aur city mein rehte hain?",
+        "Kya aapke paas bank ka loan agreement ya loan account statement hai?",
+        "Kya court summons ke sath bank ki taraf se koi notice ya copy mili thi?"
+      ]
+    },
+    "flags": [
+      {
+        "code": "COURT",
+        "severity": "lawyer",
+        "message": "A court process has started. Court deadlines are strict - get a lawyer now, even if only to file a reply."
+      },
+      {
+        "code": "URGENT_DEADLINE",
+        "severity": "lawyer",
+        "message": "There is a deadline on 2026-11-28 - within 15 days. Get a lawyer now."
+      },
+      {
+        "code": "OUT_OF_SCOPE",
+        "severity": "caution",
+        "message": "This problem is outside what this assistant covers in depth (deposits, consumer refunds, unpaid salary). I can only give general direction."
+      }
+    ],
+    "calculation": {
+      "lines": [],
+      "total": null,
+      "notes": [
+        "Not enough numbers to calculate. Tell me the amounts involved.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "lsa_s12_legal_aid",
+      "src_bnss_2023_69",
+      "src_constitution_39a",
+      "src_bnss_2023_68",
+      "src_constitution_43",
+      "src_bnss_2023_70",
+      "src_bnss_2023_63",
+      "src_bnss_2023_71",
+      "src_bnss_2023_91"
+    ],
+    "retrieval": {
+      "mode": "hybrid (BM25 + dense) + anchor queries",
+      "query": "bank loan recovery court summons The user received a court summons regarding a loan recovery case filed by a bank, with a scheduled hearing on 28 November 2026. They are seeking guidance on what to do next. Understand how to respond to the court summons and loan recovery case",
+      "hits": [
+        {
+          "id": "src_bnss_2023_69",
+          "act": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "unit": "Section",
+          "number": "69",
+          "title": "",
+          "page": 21,
+          "url": "https://prsindia.org/files/bills_acts/acts_parliament/2023/The%20Bharatiya%20Nagarik%20Suraksha%20Sanhita,%202023.pdf",
+          "excerpt": "69. When a Court desires that a summons issued by it shall be served at any place\noutside its local jurisdiction, it shall ordinarily send such summons in duplicate to a\nMagistrate within whose local jurisdiction the person summoned resides, or is, to be there\nserved."
+        },
+        {
+          "id": "src_constitution_39a",
+          "act": "Constitution of India",
+          "unit": "Article",
+          "number": "39A",
+          "title": "against moral and material abandonment.]",
+          "page": 2,
+          "url": "https://www.mea.gov.in/images/pdf1/Part4.pdf",
+          "excerpt": "2[39A. The State shall secure that the operation of the\nlegal system promotes justice, on a basis of equal\nopportunity, and shall, in particular, provide free legal\naid, by suitable legislation or schemes or in any other\nway, to ensure that opportunities for securing justice are\nnot denied to any citizen by reason of economic or other\ndisabilities.]"
+        },
+        {
+          "id": "src_bnss_2023_68",
+          "act": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "unit": "Section",
+          "number": "68",
+          "title": "",
+          "page": 21,
+          "url": "https://prsindia.org/files/bills_acts/acts_parliament/2023/The%20Bharatiya%20Nagarik%20Suraksha%20Sanhita,%202023.pdf",
+          "excerpt": "68. (1) Where the person summoned is in the active service of the Government, the\nCourt issuing the summons shall ordinarily send it in duplicate to the head of the office in\nwhich such person is employed; and such head shall thereupon cause the summons to be\nserved in the manner provided by section 64, and shall return it to the Court under his\nsignature with the endorsement required by that section.\n(2) Such signature shall be evidence of due service."
+        },
+        {
+          "id": "src_constitution_43",
+          "act": "Constitution of India",
+          "unit": "Article",
+          "number": "43",
+          "title": "",
+          "page": 2,
+          "url": "https://www.mea.gov.in/images/pdf1/Part4.pdf",
+          "excerpt": "43. The State shall endeavour to secure, by suitable\nlegislation or economic organisation or in any other way,\nto all workers, agricultural, industrial or otherwise, work,\na living wage, conditions of work ensuring a decent\n1Subs. by the Constitution (Forty-second Amendment) Act, 1976, s. 7, for cl. (f) (w.e.f.\n3-1-1977).\n2Ins. by s. 8, ibid. (w.e.f.  3-1-1977).\nEqual justice and\nfree legal aid.\nOrganisation of\nvillage panchayats.\nRight to work, to\neducation and to\npublic assistance\nin certain cases.\nProvision for just\nand humane\nconditions of work\nand maternity\nrelief.\nLiving wage, etc.,\nfor workers.\n(Part IV.-Directive Principles of State Policy.-\nArts. 39-43.)\nstandard of life and full en"
+        },
+        {
+          "id": "src_bnss_2023_70",
+          "act": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "unit": "Section",
+          "number": "70",
+          "title": "",
+          "page": 21,
+          "url": "https://prsindia.org/files/bills_acts/acts_parliament/2023/The%20Bharatiya%20Nagarik%20Suraksha%20Sanhita,%202023.pdf",
+          "excerpt": "70. (1) When a summons issued by a Court is served outside its local jurisdiction, and\nin any case where the officer who has served a summons is not present at the hearing of the\ncase, an affidavit, purporting to be made before a Magistrate, that such summons has been\nserved, and a duplicate of the summons purporting to be endorsed (in the manner provided\nby section 64 or section 66) by the person to whom it was delivered or tendered or with\nwhom it was left, shall be admissible in evidence, and the statements made therein shall be\ndeemed to be correct unless and until the contrary is proved.\n(2) The affidavit mentioned in this section may be attached to the duplicate of the\nsummons and retu"
+        },
+        {
+          "id": "src_bnss_2023_63",
+          "act": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "unit": "Section",
+          "number": "63",
+          "title": "A.-Summons",
+          "page": 20,
+          "url": "https://prsindia.org/files/bills_acts/acts_parliament/2023/The%20Bharatiya%20Nagarik%20Suraksha%20Sanhita,%202023.pdf",
+          "excerpt": "63. Every summons issued by a Court under this Sanhita shall be,-\n(i) in writing, in duplicate, signed by the presiding officer of such Court or by\nsuch other officer as the High Court may, from time to time, by rule direct, and shall\nbear the seal of the Court; or\n(ii) in an encrypted or any other form of electronic communication and shall\nbear the image of the seal of the Court or digital signature."
+        },
+        {
+          "id": "src_bnss_2023_71",
+          "act": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "unit": "Section",
+          "number": "71",
+          "title": "",
+          "page": 21,
+          "url": "https://prsindia.org/files/bills_acts/acts_parliament/2023/The%20Bharatiya%20Nagarik%20Suraksha%20Sanhita,%202023.pdf",
+          "excerpt": "71. (1) Notwithstanding anything contained in the preceding sections of this Chapter,\na Court issuing a summons to a witness may, in addition to and simultaneously with the\nissue of such summons, direct a copy of the summons to be served by electronic\ncommunication or by registered post addressed to the witness at the place where he ordinarily\nresides or carries on business or personally works for gain.\n(2) When an acknowledgement purporting to be signed by the witness or an\nendorsement purporting to be made by a postal employee that the witness refused to take\ndelivery of the summons has been received or on the proof of delivery of summons under\nsub-section (3) of section 70 by electronic c"
+        },
+        {
+          "id": "src_bnss_2023_91",
+          "act": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "unit": "Section",
+          "number": "91",
+          "title": "",
+          "page": 26,
+          "url": "https://prsindia.org/files/bills_acts/acts_parliament/2023/The%20Bharatiya%20Nagarik%20Suraksha%20Sanhita,%202023.pdf",
+          "excerpt": "91. When any person for whose appearance or arrest the officer presiding in any\nCourt is empowered to issue a summons or warrant, is present in such Court, such officer\nmay require such person to execute a bond or bail bond for his appearance in such Court, or\nany other Court to which the case may be transferred for trial."
+        }
+      ]
+    },
+    "assessment": {
+      "where_you_stand": "Aapko bank loan recovery case ke silsile mein court summons mila hai aur hearing 28 November 2026 ko hai. Kyunki yeh ek court matter hai aur deadline nazdeek hai, aapko turant ek lawyer ki zarurat hai taaki aap apna jawab sahi samay par daakhil kar sakein [KB:src_bnss_2023_63]. Hamare paas loan agreement ya bank statements nahi hain, isliye case ki gehraai se jaanch ek vakil hi kar sakte hain. Agar aap financially kamzor hain, toh aap District Legal Services Authority (DLSA) se free legal aid bhi le sakte hain [KB:lsa_s12_legal_aid].",
+      "options": [
+        {
+          "step": 1,
+          "title": "Free Legal Aid Contact",
+          "what_to_do": "District Legal Services Authority (DLSA) ya NALSA helpline (15100) par sampark karein agar aapko muft vakil ki madad chahiye.",
+          "time": "1-2 din",
+          "cost": "free",
+          "needs": [
+            "Income proof",
+            "Court summons copy"
+          ],
+          "kb_refs": [
+            "KB:lsa_s12_legal_aid",
+            "KB:src_constitution [KB:src_constitution_39a]_39a"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Hire a Lawyer",
+          "what_to_do": "Ek civil ya banking matters ke vakil se milein aur court summons unhe dikhakar agla kadam uthayein.",
+          "time": "Turant (hearing se pehle)",
+          "cost": "Lawyer ki fees par nirbhar hai",
+          "needs": [
+            "Court summons",
+            "Loan agreement",
+            "Bank statements",
+            "Bank ke notices"
+          ],
+          "kb_refs": []
+        }
+      ],
+      "proof_tips": [
+        "Bank se jude saare purane notices, loan agreement, aur account statements ek jagah jama karein.",
+        "Court summons ki copy ko sambhal kar rakhein aur check karein ki usme kaunsi court ka naam hai."
+      ],
+      "what_i_dont_know": [
+        "Loan ki exact rakam aur agreement ki shartein kya hain.",
+        "Kya bank ne pehle koi legal notice bheja tha ya nahi.",
+        "Kaunsa state aur local jurisdiction lagu hota hai."
+      ],
+      "needs_lawyer": true,
+      "needs_lawyer_reason": "Aapko court summons mil chuka hai aur hearing ki date fixed hai. Court ke mamlo mein strict deadlines hoti hain, isliye turant ek lawyer ki zarurat hai.",
+      "reply": "Namaste! Aapko bank loan recovery case mein court summons mila hai aur hearing 28 November 2026 ko hai. Kyunki yeh court ka mamla hai, ismein deri nahi karni chahiye aur turant ek vakil ki madad leni chahiye taaki aap court mein apna jawab time par de sakein. Agar aapke paas vakil ki fees ke liye paise nahi hain, toh aap NALSA helpline (15100) par call karke DLSA se free legal aid bhi le sakte hain. Kya aapne apne loan agreement ya bank ke notices ko ek jagah collect kar liya hai?"
+    },
+    "assessment_raw": {
+      "where_you_stand": "Aapko bank loan recovery case ke silsile mein court summons mila hai aur hearing 28 November 2026 ko hai. Kyunki yeh ek court matter hai aur deadline nazdeek hai, aapko turant ek lawyer ki zarurat hai taaki aap apna jawab sahi samay par daakhil kar sakein [KB:src_bnss_2023_63]. Hamare paas loan agreement ya bank statements nahi hain, isliye case ki gehraai se jaanch ek vakil hi kar sakte hain. Agar aap financially kamzor hain, toh aap District Legal Services Authority (DLSA) se free legal aid bhi le sakte hain [KB:lsa_s12_legal_aid].",
+      "options": [
+        {
+          "step": 1,
+          "title": "Free Legal Aid Contact",
+          "what_to_do": "District Legal Services Authority (DLSA) ya NALSA helpline (15100) par sampark karein agar aapko muft vakil ki madad chahiye.",
+          "time": "1-2 din",
+          "cost": "free",
+          "needs": [
+            "Income proof",
+            "Court summons copy"
+          ],
+          "kb_refs": [
+            "KB:lsa_s12_legal_aid",
+            "KB:src_constitution_39a"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Hire a Lawyer",
+          "what_to_do": "Ek civil ya banking matters ke vakil se milein aur court summons unhe dikhakar agla kadam uthayein.",
+          "time": "Turant (hearing se pehle)",
+          "cost": "Lawyer ki fees par nirbhar hai",
+          "needs": [
+            "Court summons",
+            "Loan agreement",
+            "Bank statements",
+            "Bank ke notices"
+          ],
+          "kb_refs": []
+        }
+      ],
+      "proof_tips": [
+        "Bank se jude saare purane notices, loan agreement, aur account statements ek jagah jama karein.",
+        "Court summons ki copy ko sambhal kar rakhein aur check karein ki usme kaunsi court ka naam hai."
+      ],
+      "what_i_dont_know": [
+        "Loan ki exact rakam aur agreement ki shartein kya hain.",
+        "Kya bank ne pehle koi legal notice bheja tha ya nahi.",
+        "Kaunsa state aur local jurisdiction lagu hota hai."
+      ],
+      "needs_lawyer": true,
+      "needs_lawyer_reason": "Aapko court summons mil chuka hai aur hearing ki date fixed hai. Court ke mamlo mein strict deadlines hoti hain, isliye turant ek lawyer ki zarurat hai.",
+      "reply": "Namaste! Aapko bank loan recovery case mein court summons mila hai aur hearing 28 November 2026 ko hai. Kyunki yeh court ka mamla hai, ismein deri nahi karni chahiye aur turant ek vakil ki madad leni chahiye taaki aap court mein apna jawab time par de sakein. Agar aapke paas vakil ki fees ke liye paise nahi hain, toh aap NALSA helpline (15100) par call karke DLSA se free legal aid bhi le sakte hain. Kya aapne apne loan agreement ya bank ke notices ko ek jagah collect kar liya hai?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "lsa_s12_legal_aid",
+        "src_bnss_2023_63"
+      ],
+      "support_check": "not auto-checked (non-English reply; cross-encoder is English-only)"
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "not02_court_summons",
+    "secs": 6.0,
+    "prompt_tokens": 4446,
+    "completion_tokens": 1235,
+    "error": null,
+    "type_ok": false,
+    "escalate_expected": true,
+    "escalated": true,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 2,
+    "rag_hits": 8,
+    "official_text_citations": 1,
+    "unsupported_citations_dropped": 0,
+    "amounts_ok": "-",
+    "amounts_frac": null
+  }
+}

@@ -1,0 +1,305 @@
+{
+  "input": {
+    "id": "sal03_bengali_shop",
+    "story": "আমি কলকাতায় একটা দোকানে কাজ করতাম, মাসে ১২০০০ টাকা বেতন। মালিক দুই মাসের বেতন দেয়নি এবং আমাকে কাজ থেকে বের করে দিয়েছে। কোনো লিখিত কাগজ নেই।\n",
+    "expected": {
+      "problem_type": "salary",
+      "escalate": false,
+      "script": "bengali",
+      "amounts": {
+        "monthly_salary": 12000,
+        "months_unpaid": 2
+      }
+    }
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "আমি কলকাতায় একটা দোকানে কাজ করতাম, মাসে ১২০০০ টাকা বেতন। মালিক দুই মাসের বেতন দেয়নি এবং আমাকে কাজ থেকে বের করে দিয়েছে। কোনো লিখিত কাগজ নেই।",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "salary",
+      "problem_subtype": "unpaid salary and wrongful termination",
+      "user_language": "Bengali written in Bengali script (not Roman letters), the way the person wrote",
+      "state": "West Bengal",
+      "city": "Kolkata",
+      "summary": "The user worked at a shop in Kolkata with a monthly salary of 12000 rupees. The employer terminated their employment and has not paid two months of salary, and there is no written employment contract.",
+      "user_goal": "Get the unpaid salary for two months",
+      "user_role": "employee",
+      "other_party": {
+        "name": null,
+        "type": "employer"
+      },
+      "timeline": [
+        {
+          "date": null,
+          "event": "Worked at a shop in Kolkata with a monthly salary of 12000 rupees",
+          "proof": null
+        },
+        {
+          "date": null,
+          "event": "Terminated from work and two months of salary not paid",
+          "proof": null
+        }
+      ],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": 12000,
+        "months_unpaid": 2,
+        "other_dues": null,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [],
+      "evidence_missing": [
+        "payslips",
+        "bank statements showing salary credits",
+        "appointment letter"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": null
+      },
+      "follow_up_questions": [
+        "মালিকের নাম বা দোকানের নাম কি আপনার জানা আছে?",
+        "কোন কোন মাসের বেতন বাকি আছে?",
+        "বেতন কি ব্যাঙ্কে জমা হতো নাকি নগদে দেওয়া হতো?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [
+        "Monthly salary Rs 12,000 x 2 unpaid month(s) = Rs 24,000",
+        "Amount to claim: Rs 24,000"
+      ],
+      "total": 24000.0,
+      "notes": [
+        "Check your offer letter/payslips for the exact gross vs in-hand salary. Gratuity, if any, has separate rules - ask a lawyer.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "ica_s73",
+      "cow_s17",
+      "cow_s45",
+      "lsa_s12_legal_aid",
+      "src_cow_2019_54",
+      "src_cow_2019_17",
+      "src_cow_2019_45",
+      "src_cow_2019_18",
+      "src_cow_2019_48",
+      "src_cow_2019_16",
+      "src_cow_2019_27",
+      "src_cow_2019_12"
+    ],
+    "retrieval": {
+      "mode": "hybrid (BM25 + dense) + anchor queries",
+      "query": "unpaid salary and wrongful termination The user worked at a shop in Kolkata with a monthly salary of 12000 rupees. The employer terminated their employment and has not paid two months of salary, and there is no written employment contract. Get the unpaid salary for two months",
+      "hits": [
+        {
+          "id": "src_cow_2019_54",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "54",
+          "title": "",
+          "page": 27,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "54. (1) Any employer who-\n(a) pays to any employee less than the amount due to such employee under the\nprovisions of this Code shall be punishable with fine which may extend to fifty\nthousand rupees;\n(b) having been convicted of an offence under clause (a) is again found guilty\nof similar offence under this clause, within five years from the date of the commission\nof the first or subsequent offence, he shall, on the second and the subsequent\ncommission of the offence, be punishable with imprisonment for a term which may\nextend to three months or with fine which may extend to one lakh rupees, or with\nboth;\n(c) contravenes any other provision of this Code or any rule made or order\nmade or issu"
+        },
+        {
+          "id": "src_cow_2019_17",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "17",
+          "title": "",
+          "page": 12,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "17. (1) The employer shall pay or cause to be paid wages to the employees, engaged\non-\n(i)  daily basis, at the end of the shift;\n(ii) weekly basis, on the last working day of the week, that is to say, before the\nweekly holiday;\n(iii) fortnightly basis, before the end of the second day after the end of the\nfortnight;\n(iv) monthly basis, before the expiry of the seventh day of the succeeding\nmonth.\n(2) Where an employee has been-\n(i) removed or dismissed from service; or\n(ii) retrenched or has resigned from service, or became unemployed due to\nclosure of the establishment,\nthe wages payable to him shall be paid within two working days of his removal, dismissal,\nretrenchment or, as the case ma"
+        },
+        {
+          "id": "src_cow_2019_45",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "45",
+          "title": "",
+          "page": 23,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "45. (1) The appropriate Government may, by notification, appoint one or more\nauthorities, not below the rank of a Gazetted Officer, to hear and determine the claims which\narises under the provisions of this Code.\n(2) The authority appointed under sub-section (1), while deciding the claim under\nthat sub-section, may order, having regard to the circumstances under which the claim\narises, the payment of compensation in addition to the claim determined, which may extend\nto ten times of the claim determined and endeavour shall be made by the authority to decide\nthe claim within a period of three months.\n(3) If an employer fails to pay the claim determined and compensation ordered to be\npaid under"
+        },
+        {
+          "id": "src_cow_2019_18",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "18",
+          "title": "",
+          "page": 12,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "18. (1) Notwithstanding anything contained in any other law for the time being in\nforce, there shall be no deductions from the wages of the employee, except those as are\nauthorised under this Code.\nExplanation.––For the purposes of this sub-section,-\n(a) any payment made by an employee to the employer or his agent shall be\ndeemed to be a deduction from his wages;\n(b) any loss of wages to an employee, for a good and sufficient cause, resulting\nfrom-\n(i) the withholding of increment or promotion, including the stoppage of\nan increment; or\n(ii) the reduction to a lower post or time-scale; or\n(iii) the suspension,\nshall not be deemed to be a deduction from wages in a case where the provisions ma"
+        },
+        {
+          "id": "src_cow_2019_48",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "48",
+          "title": "",
+          "page": 24,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "48. (1) Where any claim, dispute or appeal with respect to bonus payable under this\nCode between an employer, not being a corporation or a company, and his employees is\npending before any authority, appellate authority, Tribunal or arbitrator, as the case may be,\nas referred to in sub-section (1) of section 47 and the accounts of such employer audited by\nany auditor duly qualified to act as auditor of companies under the provisions of section\n141 of the Companies Act, 2013, are produced before such authority, appellate authority,\nTribunal or arbitrator, then the provisions of section 47 shall, so far as may be, apply to the\naccounts so audited.\n(2) When the authority, appellate authority, Tr"
+        },
+        {
+          "id": "src_cow_2019_16",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "16",
+          "title": "",
+          "page": 12,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "16. The employer shall fix the wage period for employees either as daily or weekly or\nfortnightly or monthly subject to the condition that no wage period in respect of any employee\nshall be more than a month:\nProvided that different wage periods may be fixed for different establishments."
+        },
+        {
+          "id": "src_cow_2019_27",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "27",
+          "title": "",
+          "page": 17,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "27. Where an employee has not worked for all the working days in an accounting\nyear, the minimum bonus under sub-section (1) of section 26, if such bonus is higher than\neight and one third per cent. of the salary or wage of the days such employee has worked in\nthat accounting year, shall be proportionately reduced."
+        },
+        {
+          "id": "src_cow_2019_12",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "12",
+          "title": "",
+          "page": 11,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "12. Where a person is employed on piece work for which minimum time rate and not a\nminimum piece rate has been fixed under this Code, the employer shall pay to such person\nwages at not less than the minimum time rate."
+        }
+      ]
+    },
+    "assessment": {
+      "where_when_stand": "",
+      "where_you_stand": "আপনার দুই মাসের বকেয়া বেতন (মোট ২৪০০০ টাকা) দাবি করার অধিকার আপনার আছে [KB:cow_s17], কারণ চাকরি থেকে বরখাস্ত করার পর দুই কার্যদিবসের মধ্যে পাওনা মিটিয়ে দেওয়ার নিয়ম রয়েছে [KB:src_cow_2019_17]। তবে আপনার কাছে নিয়োগপত্র বা পে-স্লিপের মতো প্রমাণ না থাকায় কিছুটা অসুবিধা হতে পারে [KB:cow_s45]। আপনি শ্রম দপ্তরে বা নির্ধারিত কর্তৃপক্ষের কাছে অভিযোগ জানাতে পারেন [KB:cow_s45], তবে লিখিত চুক্তি না থাকায় প্রমাণ জোগাড় করা জরুরি। নির্দিষ্ট সময়ের মধ্যে (সাধারণত ৩ বছরের মধ্যে) এই দাবি করতে হবে [KB:cow_s45]।",
+      "options": [
+        {
+          "step": 1,
+          "title": "মালিকের সাথে সরাসরি কথা বলুন বা লিখিত বার্তা পাঠান",
+          "what_to_do": "মালিককে হোয়াটসঅ্যাপে বা লিখিতভাবে আপনার বকেয়া দুই মাসের বেতনের কথা মনে করিয়ে দিন এবং মিটিয়ে দিতে বলুন।",
+          "time": "১-২ দিন",
+          "cost": "বিনামূল্যে",
+          "needs": [
+            "মালিকের ফোন নম্বর বা যোগাযোগের মাধ্যম"
+          ],
+          "kb_refs": [
+            "cow_s17",
+            "src_cow_2019_17"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "স্থানীয় শ্রম দপ্তরে যোগাযোগ করুন",
+          "what_to_do": "কলকাতার স্থানীয় শ্রম দপ্তরে বা লেবার কমিশনার অফিসে বকেয়া বেতনের জন্য অভিযোগ দায়ের করুন।",
+          "time": "কয়েক সপ্তাহ",
+          "cost": "কম খরচ / বিনামূল্যে",
+          "needs": [
+            "কাজের প্রমাণ, ব্যাঙ্কের পাসবুক, সাক্ষী"
+          ],
+          "kb_refs": [
+            "cow_s45",
+            "src_cow_2019_45"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "মালিককে হোয়াটসঅ্যাপে মেসেজ করে আপনার বেতনের অঙ্কটি লিখুন, যাতে তিনি উত্তরের মাধ্যমে তা স্বীকার করেন।",
+        "দাকানে কাজ করার সময়কার কোনো ছবি, ভিডিও বা অন্য কোনো কর্মীর নম্বর জোগাড় করার চেষ্টা করুন যিনি সাক্ষী দিতে পারেন।"
+      ],
+      "what_i_dont_know": [
+        "মালিকের সাথে আপনার মৌখিক বা অন্য কোনো লিখিত চুক্তি ছিল কিনা তা আমি জানি না।",
+        "আপনার বেतन কি ব্যাঙ্কে জমা হতো নাকি নগদে দেওয়া হতো তার কোনো প্রমাণ আছে কিনা তা স্পষ্ট নয়।"
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "যেহেতু এটি একটি সাধারণ বকেয়া বেতনের মামলা এবং কোনো পুলিশ বা আদালতের নোটিশ নেই, তাই আপনি নিজেই শ্রম দপ্তরে অভিযোগ বা মালিকের সাথে যোগাযোগ করতে পারেন।",
+      "reply": "নমস্কার। আপনার কলকাতার ওই দোকান থেকে দুই মাসের মোট ২৪০০০ টাকার বকেয়া বেতন পাওয়ার অধিকার রয়েছে [KB:cow_s17]। চাকরি চলে যাওয়ার পর দুই দিনের মধ্যে বقেয়া মেটানোর নিয়ম থাকলেও [KB:src_cow_2019_17], আপনার কাছে লিখিত চুক্তি বা পে-স্লিপ না থাকায় একটু সমস্যা হতে পারে [KB:cow_s45]। প্রথম ধাপে আপনি মালিককে হোয়াটসঅ্যাপ বা মেসেজ করে আপনার বকেয়া টাকার কথা লিখিতভাবে জানাতে পারেন, যাতে প্রমাণের একটি ভিত্তি তৈরি হয়। এরপরও কাজ না হলে শ্রম দপ্তরে অভিযোগ জানানোর রাস্তা খোলা আছে [KB:cow_s45]। আপনার কি মালিকের সাথে আগে বেতনের বিষয়ে কোনো চ্যাট বা মেসেজ হয়েছে যা প্রমাণ হিসেবে দেখানো যায়?"
+    },
+    "assessment_raw": {
+      "where_when_stand": "",
+      "where_you_stand": "আপনার দুই মাসের বকেয়া বেতন (মোট ২৪০০০ টাকা) দাবি করার অধিকার আপনার আছে [KB:cow_s17], কারণ চাকরি থেকে বরখাস্ত করার পর দুই কার্যদিবসের মধ্যে পাওনা মিটিয়ে দেওয়ার নিয়ম রয়েছে [KB:src_cow_2019_17]। তবে আপনার কাছে নিয়োগপত্র বা পে-স্লিপের মতো প্রমাণ না থাকায় কিছুটা অসুবিধা হতে পারে [KB:cow_s45]। আপনি শ্রম দপ্তরে বা নির্ধারিত কর্তৃপক্ষের কাছে অভিযোগ জানাতে পারেন [KB:cow_s45], তবে লিখিত চুক্তি না থাকায় প্রমাণ জোগাড় করা জরুরি। নির্দিষ্ট সময়ের মধ্যে (সাধারণত ৩ বছরের মধ্যে) এই দাবি করতে হবে [KB:cow_s45]।",
+      "options": [
+        {
+          "step": 1,
+          "title": "মালিকের সাথে সরাসরি কথা বলুন বা লিখিত বার্তা পাঠান",
+          "what_to_do": "মালিককে হোয়াটসঅ্যাপে বা লিখিতভাবে আপনার বকেয়া দুই মাসের বেতনের কথা মনে করিয়ে দিন এবং মিটিয়ে দিতে বলুন।",
+          "time": "১-২ দিন",
+          "cost": "বিনামূল্যে",
+          "needs": [
+            "মালিকের ফোন নম্বর বা যোগাযোগের মাধ্যম"
+          ],
+          "kb_refs": [
+            "cow_s17",
+            "src_cow_2019_17"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "স্থানীয় শ্রম দপ্তরে যোগাযোগ করুন",
+          "what_to_do": "কলকাতার স্থানীয় শ্রম দপ্তরে বা লেবার কমিশনার অফিসে বকেয়া বেতনের জন্য অভিযোগ দায়ের করুন।",
+          "time": "কয়েক সপ্তাহ",
+          "cost": "কম খরচ / বিনামূল্যে",
+          "needs": [
+            "কাজের প্রমাণ, ব্যাঙ্কের পাসবুক, সাক্ষী"
+          ],
+          "kb_refs": [
+            "cow_s45",
+            "src_cow_2019_45"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "মালিককে হোয়াটসঅ্যাপে মেসেজ করে আপনার বেতনের অঙ্কটি লিখুন, যাতে তিনি উত্তরের মাধ্যমে তা স্বীকার করেন।",
+        "দাকানে কাজ করার সময়কার কোনো ছবি, ভিডিও বা অন্য কোনো কর্মীর নম্বর জোগাড় করার চেষ্টা করুন যিনি সাক্ষী দিতে পারেন।"
+      ],
+      "what_i_dont_know": [
+        "মালিকের সাথে আপনার মৌখিক বা অন্য কোনো লিখিত চুক্তি ছিল কিনা তা আমি জানি না।",
+        "আপনার বেतन কি ব্যাঙ্কে জমা হতো নাকি নগদে দেওয়া হতো তার কোনো প্রমাণ আছে কিনা তা স্পষ্ট নয়।"
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "যেহেতু এটি একটি সাধারণ বকেয়া বেতনের মামলা এবং কোনো পুলিশ বা আদালতের নোটিশ নেই, তাই আপনি নিজেই শ্রম দপ্তরে অভিযোগ বা মালিকের সাথে যোগাযোগ করতে পারেন।",
+      "reply": "নমস্কার। আপনার কলকাতার ওই দোকান থেকে দুই মাসের মোট ২৪০০০ টাকার বকেয়া বেতন পাওয়ার অধিকার রয়েছে [KB:cow_s17]। চাকরি চলে যাওয়ার পর দুই দিনের মধ্যে বقেয়া মেটানোর নিয়ম থাকলেও [KB:src_cow_2019_17], আপনার কাছে লিখিত চুক্তি বা পে-স্লিপ না থাকায় একটু সমস্যা হতে পারে [KB:cow_s45]। প্রথম ধাপে আপনি মালিককে হোয়াটসঅ্যাপ বা মেসেজ করে আপনার বকেয়া টাকার কথা লিখিতভাবে জানাতে পারেন, যাতে প্রমাণের একটি ভিত্তি তৈরি হয়। এরপরও কাজ না হলে শ্রম দপ্তরে অভিযোগ জানানোর রাস্তা খোলা আছে [KB:cow_s45]। আপনার কি মালিকের সাথে আগে বেতনের বিষয়ে কোনো চ্যাট বা মেসেজ হয়েছে যা প্রমাণ হিসেবে দেখানো যায়?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "cow_s17",
+        "cow_s45",
+        "src_cow_2019_17"
+      ],
+      "support_check": "not auto-checked (non-English reply; cross-encoder is English-only)"
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "sal03_bengali_shop",
+    "secs": 9.8,
+    "prompt_tokens": 4940,
+    "completion_tokens": 1304,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 3,
+    "rag_hits": 8,
+    "official_text_citations": 1,
+    "unsupported_citations_dropped": 0,
+    "amounts_ok": "2/2",
+    "amounts_frac": 1.0
+  }
+}

@@ -1,0 +1,317 @@
+{
+  "input": {
+    "id": "dep02_no_agreement_delhi",
+    "story": "I rented a room in Laxmi Nagar, Delhi for 11 months. Paid 20,000 deposit in cash to the owner, no rent agreement, only WhatsApp chats where he mentions \"your deposit\". Left on 30 Sept 2026. Now he doesn't pick up calls.\n",
+    "expected": {
+      "problem_type": "deposit",
+      "escalate": false,
+      "script": "latin",
+      "amounts": {
+        "deposit_paid": 20000
+      }
+    }
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "I rented a room in Laxmi Nagar, Delhi for 11 months. Paid 20,000 deposit in cash to the owner, no rent agreement, only WhatsApp chats where he mentions \"your deposit\". Left on 30 Sept 2026. Now he doesn't pick up calls.",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "deposit",
+      "problem_subtype": "landlord not returning security deposit",
+      "user_language": "English",
+      "state": "Delhi",
+      "city": "Delhi",
+      "summary": "The user rented a room in Laxmi Nagar, Delhi, and paid a security deposit of 20000 in cash without a formal rent agreement. After vacating the room on 30 September 2026, the owner is ignoring phone calls and has not returned the deposit.",
+      "user_goal": "Get back the security deposit from the landlord",
+      "user_role": "tenant",
+      "other_party": {
+        "name": null,
+        "type": "landlord"
+      },
+      "timeline": [
+        {
+          "date": "2026-09-30",
+          "event": "Vacated the rented room",
+          "proof": null
+        }
+      ],
+      "amounts": {
+        "deposit_paid": 20000,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [
+        "WhatsApp chats mentioning the deposit"
+      ],
+      "evidence_missing": [
+        "rent agreement",
+        "receipt for cash payment"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": null
+      },
+      "follow_up_questions": [
+        "What is the name or phone number of the owner?",
+        "Do you have screenshots of the WhatsApp chats where he mentions your deposit?",
+        "Did you send any written reminder or notice to the owner after moving out?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [
+        "Deposit paid: Rs 20,000",
+        "Amount to claim: Rs 20,000"
+      ],
+      "total": 20000.0,
+      "notes": [
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "ica_s73",
+      "mta_s11_deposit",
+      "deposit_civil_route",
+      "lsa_s12_legal_aid",
+      "src_mta_2021_11",
+      "src_mta_2021_10",
+      "src_mta_2021_15_p2",
+      "src_mta_2021_14",
+      "src_mta_2021_24",
+      "src_mta_2021_8",
+      "src_mta_2021_23"
+    ],
+    "retrieval": {
+      "mode": "hybrid (BM25 + dense) + anchor queries",
+      "query": "landlord not returning security deposit The user rented a room in Laxmi Nagar, Delhi, and paid a security deposit of 20000 in cash without a formal rent agreement. After vacating the room on 30 September 2026, the owner is ignoring phone calls and has not returned the deposit. Get back the security deposit from the landlord",
+      "hits": [
+        {
+          "id": "src_mta_2021_11",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "11",
+          "title": "",
+          "page": 11,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": "11. (1) The security deposit to be paid by the tenant in advance shall\nbe such as may be agreed upon between the landlord and the tenant\nin the tenancy agreement, which shall ––\nRestriction on\nsub-letting.\nRent payable.\nRevision of rent.\nRent Authority to\ndetermine the\nrevised rent in\ncase of dispute.\nSecurity deposit.\n(a)   not exceed two months rent, in case of residential premises;\nand\n(b) not exceed six months rent, in case of non-residential\npremises.\n(2) The security deposit shall be refunded to the tenant on the date of\ntaking over vacant possession of the premises from the tenant, after\nmaking due deduction of any liability of the tenant.\nCHAPTER IV\nRIGHTS AND OBLIGATIONS OF LANDLORD"
+        },
+        {
+          "id": "src_mta_2021_10",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "10",
+          "title": "",
+          "page": 11,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": "10. In case of any dispute between landlord and tenant regarding\nrevision of rent, the Rent Authority may, on an application made by\nthe landlord or tenant, determine the revised rent and other charges\npayable by the tenant and also fix the date from which such revised\nrent becomes payable."
+        },
+        {
+          "id": "src_mta_2021_15_p2",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "15",
+          "title": "",
+          "page": 13,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": ", subject to the provisions of this section, to be inhabitable:\nProvided that where the rented premises becomes uninhabitable\nas specified in sub-section (5) or this sub-section and the landlord\nfails to carry out the required repairs to make it inhabitable or the said\npremises could not be made inhabitable, then, the security deposit\nand advance rent shall be refunded by the landlord to the tenant\nwithin a period of fifteen days of the expiry of the notice period, after\nmaking due deduction of liability of the tenant, if any.\nExplanation.–– For the purposes of this section, “force\nmajeure” means a situation of war, flood, drought, fire, cyclone,\nearthquake or any other calamity caused by na"
+        },
+        {
+          "id": "src_mta_2021_14",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "14",
+          "title": "",
+          "page": 12,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": "14. (1) Where the landlord refuses to accept any rent and other\ncharges payable or refuses to give a receipt, the rent and other\ncharges shall be paid to the landlord by postal money order or any\nother method, in such manner as may be prescribed, consecutively\nfor two months, and if the landlord refuses to accept the rent and\nother charges within such period, then the tenant may deposit the\nsame with the Rent Authority in such manner as may be prescribed.\n(2)  Where the tenant is unable to decide to whom the rent is payable\nduring the period of  tenancy agreement, the tenant may, in such\ncase, deposit the rent with the Rent Authority in such manner as may\nbe prescribed.\n(3) Where the rent is"
+        },
+        {
+          "id": "src_mta_2021_24",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "24",
+          "title": "",
+          "page": 18,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": "24. (1) Where a landlord exercises the right of recovery of\npossession under sub-section (2) of section 21 or under section 22,\nand he had received any rent or any other payment in advance from\nthe tenant, he shall before recovery of possession, refund to the\ntenant such amount after deducting the rent and other charges due\nto him.\n(2) If the landlord fails to make any refund, he shall be liable to pay\nsimple interest to the tenant at such rate as may be prescribed from\nRefund of\nadvance rent\nby landlord.\ntime to time on the amount which he has omitted or failed to refund."
+        },
+        {
+          "id": "src_mta_2021_8",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "8",
+          "title": "RENT",
+          "page": 11,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": "8. The rent payable in respect of a premises shall be the rent agreed\nto between the landlord and the tenant in accordance with the terms\nof the tenancy agreement."
+        },
+        {
+          "id": "src_mta_2021_23",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "23",
+          "title": "",
+          "page": 18,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": "23. Where the tenant fails to vacate the premises let out on rent in\naccordance with the tenancy agreement on the expiration of the\nperiod of tenancy or termination of tenancy by an order or notice\nunder the provisions of this Act, such tenant shall be liable to pay the\nlandlord ––\n(a) twice the monthly rent for the first two months; and\n(b) four times the monthly rent thereafter till the tenant continues to\noccupy the said premises.\nEnhancement of\nrent  in case of\nrefusal by tenant\nto vacate."
+        }
+      ]
+    },
+    "assessment": {
+      "where_u_stand": "You vacated your room in Delhi on 30 September 2026 and your landlord is ignoring calls regarding your Rs 20,000 security deposit . Your main strength is having WhatsApp chats mentioning the deposit, which helps prove you paid it. Your main weakness is the lack of a formal written rent agreement or a cash receipt, which can make things harder to prove if the landlord denies it. Generally, deposit disputes can be handled through written demands or civil recovery routes [KB:deposit_civil_route].",
+      "options": [
+        {
+          "step": 1,
+          "title": "Send a written reminder on WhatsApp",
+          "what_to_do": "Send a clear, polite message on WhatsApp reminding the owner about the Rs 20,000 deposit and asking for a date to return it. Keep screenshots of this chat.",
+          "time": "1 day",
+          "cost": "free",
+          "needs": [
+            "WhatsApp chat screenshots"
+          ],
+          "kb_refs": []
+        },
+        {
+          "step": 2,
+          "title": "Send a formal written demand notice",
+          "what_to_do": "Draft a formal demand letter asking for the return of your security deposit within a specific timeframe, mentioning your WhatsApp proof.",
+          "time": "3-5 days",
+          "cost": "low",
+          "needs": [
+            "WhatsApp chats",
+            "Owner's address/phone number"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Consult DLSA for free legal aid",
+          "what_to_do": "If the owner still refuses, approach the District Legal Services Authority (DLSA) for guidance or free legal assistance.",
+          "time": "1-2 weeks",
+          "cost": "free",
+          "needs": [
+            "ID proof",
+            "Chat records"
+          ],
+          "kb_refs": [
+            "KB:lsa_s12_legal_aid"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Ask the landlord explicitly on WhatsApp to confirm the Rs 20,000 deposit amount in writing so you have a digital record.",
+        "Save call logs showing your attempts to contact the owner."
+      ],
+      "what_i_dont_know": [
+        "Whether Delhi has formally adopted the Model Tenancy Act [KB:mta_s11_deposit] provisions for your specific locality.",
+        "If the landlord has any valid claims for deductions that you are unaware of."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "A lawyer is not needed right now because you can first try sending a written demand or approaching DLSA; a lawyer would only become necessary if you decide to file a formal civil recovery suit.",
+      "reply": "You are in a fair position to recover your Rs 20,000 security deposit since you have WhatsApp chats mentioning the amount, even though you lack a formal rent agreement or cash receipt. Landlords are generally expected to refund deposits upon handing over vacant possession [KB:src_mta_2021_11]. Your first step should be to send a clear written reminder on WhatsApp and keep screenshots of the conversation. If the owner continues to ignore you, you can send a formal demand notice or seek free legal guidance from the District Legal Services Authority [KB:lsa_s12_legal_aid] [KB:deposit_civil_route]. Do you currently have screenshots of the WhatsApp chats where the landlord acknowledges your deposit?"
+    },
+    "assessment_raw": {
+      "where_u_stand": "You vacated your room in Delhi on 30 September 2026 and your landlord is ignoring calls regarding your Rs 20,000 security deposit [KB:src_mta_2021_11]. Your main strength is having WhatsApp chats mentioning the deposit, which helps prove you paid it. Your main weakness is the lack of a formal written rent agreement or a cash receipt, which can make things harder to prove if the landlord denies it. Generally, deposit disputes can be handled through written demands or civil recovery routes [KB:deposit_civil_route].",
+      "options": [
+        {
+          "step": 1,
+          "title": "Send a written reminder on WhatsApp",
+          "what_to_do": "Send a clear, polite message on WhatsApp reminding the owner about the Rs 20,000 deposit and asking for a date to return it. Keep screenshots of this chat.",
+          "time": "1 day",
+          "cost": "free",
+          "needs": [
+            "WhatsApp chat screenshots"
+          ],
+          "kb_refs": []
+        },
+        {
+          "step": 2,
+          "title": "Send a formal written demand notice",
+          "what_to_do": "Draft a formal demand letter asking for the return of your security deposit within a specific timeframe, mentioning your WhatsApp proof.",
+          "time": "3-5 days",
+          "cost": "low",
+          "needs": [
+            "WhatsApp chats",
+            "Owner's address/phone number"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Consult DLSA for free legal aid",
+          "what_to_do": "If the owner still refuses, approach the District Legal Services Authority (DLSA) for guidance or free legal assistance.",
+          "time": "1-2 weeks",
+          "cost": "free",
+          "needs": [
+            "ID proof",
+            "Chat records"
+          ],
+          "kb_refs": [
+            "KB:lsa_s12_legal_aid"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Ask the landlord explicitly on WhatsApp to confirm the Rs 20,000 deposit amount in writing so you have a digital record.",
+        "Save call logs showing your attempts to contact the owner."
+      ],
+      "what_i_dont_know": [
+        "Whether Delhi has formally adopted the Model Tenancy Act provisions for your specific locality.",
+        "If the landlord has any valid claims for deductions that you are unaware of."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "A lawyer is not needed right now because you can first try sending a written demand or approaching DLSA; a lawyer would only become necessary if you decide to file a formal civil recovery suit.",
+      "reply": "You are in a fair position to recover your Rs 20,000 security deposit since you have WhatsApp chats mentioning the amount, even though you lack a formal rent agreement or cash receipt. Landlords are generally expected to refund deposits upon handing over vacant possession [KB:src_mta_2021_11]. Your first step should be to send a clear written reminder on WhatsApp and keep screenshots of the conversation. If the owner continues to ignore you, you can send a formal demand notice or seek free legal guidance from the District Legal Services Authority [KB:lsa_s12_legal_aid, KB:deposit_civil_route]. Do you currently have screenshots of the WhatsApp chats where the landlord acknowledges your deposit?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "deposit_civil_route",
+        "lsa_s12_legal_aid",
+        "src_mta_2021_11"
+      ],
+      "support_check": {
+        "checked": 2,
+        "unsupported": [
+          {
+            "id": "src_mta_2021_11",
+            "claim": "You vacated your room in Delhi on 30 September 2026 and your landlord is ignoring calls regarding your Rs 20,000 security deposit .",
+            "score": -5.31
+          }
+        ]
+      }
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "dep02_no_agreement_delhi",
+    "secs": 8.6,
+    "prompt_tokens": 4456,
+    "completion_tokens": 1294,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 3,
+    "rag_hits": 7,
+    "official_text_citations": 1,
+    "unsupported_citations_dropped": 1,
+    "amounts_ok": "1/1",
+    "amounts_frac": 1.0
+  }
+}

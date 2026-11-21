@@ -1,0 +1,186 @@
+{
+  "input": {
+    "id": "adv04_vague",
+    "story": "company ne paisa nahi diya\n",
+    "expected": {
+      "problem_type": "any",
+      "escalate": false,
+      "script": "latin"
+    }
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "company ne paisa nahi diya",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "salary",
+      "problem_subtype": "unpaid salary",
+      "user_language": "Hinglish",
+      "state": null,
+      "city": null,
+      "summary": "The user states that their company has not paid their money/salary.",
+      "user_goal": "Get the unpaid money from the company",
+      "user_role": "employee",
+      "other_party": {
+        "name": null,
+        "type": "employer"
+      },
+      "timeline": [],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [],
+      "evidence_missing": [
+        "offer letter",
+        "payslips",
+        "bank statement showing salary history"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": null
+      },
+      "follow_up_questions": [
+        "Aapko kitne mahine ka salary nahi mila hai aur total amount kitna hai?",
+        "Aap kaunse state aur city mein kaam karte hain?",
+        "Kya aapke paas offer letter, payslips ya koi written agreement hai?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [],
+      "total": null,
+      "notes": [
+        "Not enough numbers to calculate. Tell me the amounts involved.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "ica_s73",
+      "cow_s17",
+      "cow_s45",
+      "lsa_s12_legal_aid"
+    ],
+    "assessment": {
+      "where_who_stand": null,
+      "where_you_stand": "Aapka case unpaid salary ka hai. Code on Wages, 2019 [KB:cow_s17] ke mutabik wages time par milni chahiye, aur resign ya remove hone par 2 working days ke andar settlement hona chahiye [KB:cow_s17]. Aap 3 saal ke andar Labour Authority ke paas claim file kar sakte hain [KB:cow_s45]. Magar abhi aapke paas offer letter, payslips ya bank statement jaise proofs nahi hain, jo ki case strong karne ke liye zaroori hain.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Employer ko written reminder bhejein",
+          "what_to_do": "Company HR ya manager ko email ya WhatsApp par apni unpaid salary ke liye written request bhejein aur total amount mention karein.",
+          "time": "1-2 din",
+          "cost": "free",
+          "needs": [
+            "Email ya message draft"
+          ],
+          "kb_refs": [
+            "KB:ica_s73"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Labour Commissioner office ya helpline se baat karein",
+          "what_to_do": "Agar employer response na de, toh state Labour Department ya Inspector-cum-Facilitator ke paas complaint file karne ki taiyaari karein [KB:cow_s45].",
+          "time": "1-2 hafte",
+          "cost": "low",
+          "needs": [
+            "Bank statements",
+            "Offer letter ya chat history"
+          ],
+          "kb_refs": [
+            "KB:cow_s45"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Apne bank account ka statement download karein jisme salary credits aate the ya aane chahiye the.",
+        "HR ya manager ke sath WhatsApp ya email chats ka screenshot ya backup lein jisme salary ka zikr ho."
+      ],
+      "what_i_dont_know": [
+        "Exact unpaid amount kitna hai aur kitne mahine ki salary baki hai.",
+        "Aap kaunse state aur city mein kaam karte hain, jisse local jurisdiction pata chale."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "Abhi koi court case ya criminal matter nahi hai. Pehle aapko employer ko written demand bhejni chahiye aur proofs ikatthe karne chahiye. Lawyer ki zaroorat tab padegi jab Labour Authority mein formal case file karna ho.",
+      "reply": "Namaste! Main Nyay Saathi hoon. Main koi lawyer nahi hoon, par aapki madad kar sakta hoon. Aapki unpaid salary ke mamle mein, Code on Wages, 2019 [KB:cow_s17] ke mutabik resigned ya removed hone par wages 2 working days ke andar milni chahiye [KB:cow_s17], aur aap 3 saal ke andar Labour Authority ke paas claim kar sakte hain [KB:cow_s45]. Lekin abhi hamare paas yeh pakka karne ke liye zaroori proofs jaise offer letter aur payslips nahi hain. Pehla step yeh hoga ki aap employer ko written mein reminder bhejein aur apne bank statements check karein. Kya aap bata sakte hain ki aapko kitne mahine ka salary nahi mila hai aur total amount kitna hai?"
+    },
+    "assessment_raw": {
+      "where_who_stand": null,
+      "where_you_stand": "Aapka case unpaid salary ka hai. Code on Wages, 2019 [KB:cow_s17] ke mutabik wages time par milni chahiye, aur resign ya remove hone par 2 working days ke andar settlement hona chahiye [KB:cow_s17]. Aap 3 saal ke andar Labour Authority ke paas claim file kar sakte hain [KB:cow_s45]. Magar abhi aapke paas offer letter, payslips ya bank statement jaise proofs nahi hain, jo ki case strong karne ke liye zaroori hain.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Employer ko written reminder bhejein",
+          "what_to_do": "Company HR ya manager ko email ya WhatsApp par apni unpaid salary ke liye written request bhejein aur total amount mention karein.",
+          "time": "1-2 din",
+          "cost": "free",
+          "needs": [
+            "Email ya message draft"
+          ],
+          "kb_refs": [
+            "KB:ica_s73"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Labour Commissioner office ya helpline se baat karein",
+          "what_to_do": "Agar employer response na de, toh state Labour Department ya Inspector-cum-Facilitator ke paas complaint file karne ki taiyaari karein [KB:cow_s45].",
+          "time": "1-2 hafte",
+          "cost": "low",
+          "needs": [
+            "Bank statements",
+            "Offer letter ya chat history"
+          ],
+          "kb_refs": [
+            "KB:cow_s45"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Apne bank account ka statement download karein jisme salary credits aate the ya aane chahiye the.",
+        "HR ya manager ke sath WhatsApp ya email chats ka screenshot ya backup lein jisme salary ka zikr ho."
+      ],
+      "what_i_dont_know": [
+        "Exact unpaid amount kitna hai aur kitne mahine ki salary baki hai.",
+        "Aap kaunse state aur city mein kaam karte hain, jisse local jurisdiction pata chale."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "Abhi koi court case ya criminal matter nahi hai. Pehle aapko employer ko written demand bhejni chahiye aur proofs ikatthe karne chahiye. Lawyer ki zaroorat tab padegi jab Labour Authority mein formal case file karna ho.",
+      "reply": "Namaste! Main Nyay Saathi hoon. Main koi lawyer nahi hoon, par aapki madad kar sakta hoon. Aapki unpaid salary ke mamle mein, Code on Wages, 2019 [KB:cow_s17] ke mutabik resigned ya removed hone par wages 2 working days ke andar milni chahiye [KB:cow_s17], aur aap 3 saal ke andar Labour Authority ke paas claim kar sakte hain [KB:cow_s45]. Lekin abhi hamare paas yeh pakka karne ke liye zaroori proofs jaise offer letter aur payslips nahi hain. Pehla step yeh hoga ki aap employer ko written mein reminder bhejein aur apne bank statements check karein. Kya aap bata sakte hain ki aapko kitne mahine ka salary nahi mila hai aur total amount kitna hai?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "cow_s17",
+        "cow_s45"
+      ]
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "adv04_vague",
+    "secs": 4.1,
+    "prompt_tokens": 3014,
+    "completion_tokens": 1151,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 2,
+    "amounts_ok": "-",
+    "amounts_frac": null
+  }
+}

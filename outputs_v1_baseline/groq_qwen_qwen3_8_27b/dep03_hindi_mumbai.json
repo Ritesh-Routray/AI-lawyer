@@ -1,0 +1,237 @@
+{
+  "input": {
+    "id": "dep03_hindi_mumbai",
+    "story": "मैंने मुंबई में फ्लैट किराए पर लिया था। किराया 25000 और डिपॉजिट 1,00,000 रुपये था। जुलाई 2026 में घर खाली किया। मकान मालिक कहता है नया किरायेदार आएगा तब पैसे देगा। मेरे पास रजिस्टर्ड एग्रीमेंट और बैंक ट्रांसफर की रसीद है।\n",
+    "expected": {
+      "problem_type": "deposit",
+      "escalate": false,
+      "script": "devanagari",
+      "amounts": {
+        "deposit_paid": 100000
+      }
+    }
+  },
+  "output": {
+    "model": "groq:qwen/qwen3.8-27b",
+    "masked_story": "मैंने मुंबई में फ्लैट किराए पर लिया था। किराया 25000 और डिपॉजिट 1,00,000 रुपये था। जुलाई 2026 में घर खाली किया। मकान मालिक कहता है नया किरायेदार आएगा तब पैसे देगा। मेरे पास रजिस्टर्ड एग्रीमेंट और बैंक ट्रांसफर की रसीद है।",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "deposit",
+      "problem_subtype": "security deposit not returned after vacating",
+      "user_language": "Hindi",
+      "state": "Maharashtra",
+      "city": "Mumbai",
+      "summary": "The user rented a flat in Mumbai with a monthly rent of 25,000 INR and a security deposit of 1,00,000 INR. They vacated the property in July 2026, but the landlord is refusing to return the deposit, claiming it will be returned only when a new tenant is found. The user holds a registered agreement and bank transfer receipts.",
+      "user_goal": "To recover the security deposit of 1,00,000 INR from the landlord.",
+      "user_role": "tenant",
+      "other_party": {
+        "name": null,
+        "type": "landlord"
+      },
+      "timeline": [
+        {
+          "date": null,
+          "event": "Signed registered rent agreement and paid security deposit",
+          "proof": "Registered agreement, bank transfer receipt"
+        },
+        {
+          "date": "2026-07",
+          "event": "Vacated the flat",
+          "proof": null
+        }
+      ],
+      "amounts": {
+        "deposit_paid": 100000,
+        "deductions_claimed": null,
+        "monthly_rent": 25000,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [
+        "Registered rent agreement",
+        "Bank transfer receipt for deposit"
+      ],
+      "evidence_missing": [
+        "Written notice of vacating the property",
+        "Communication with landlord regarding deposit return (messages/emails)",
+        "Inventory/checklist of property condition at handover"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": null
+      },
+      "follow_up_questions": [
+        "क्या आपने मकान मालिक को घर खाली करने की लिखित सूचना (notice) दी थी?",
+        "मकान मालिक ने डिपॉजिट वापस करने से इनकार करने का कोई लिखित कारण दिया है या यह सिर्फ मौखिक बातचीत थी?",
+        "घर खाली करते समय क्या कोई लिखित हस्तान्तरण (handover) या चेकलिस्ट साइन की गई थी?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [
+        "Deposit paid: Rs 100,000",
+        "Amount to claim: Rs 100,000"
+      ],
+      "total": 100000.0,
+      "notes": [
+        "Your deposit (Rs 100,000) is more than 2 months' rent (Rs 50,000). The Model Tenancy Act caps it at 2 months, but only in states that adopted it.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "ica_s73",
+      "mta_s11_deposit",
+      "deposit_civil_route",
+      "lsa_s12_legal_aid"
+    ],
+    "assessment": {
+      "where_you_stand": "आपकी स्थिति काफी मजबूत है क्योंकि आपके पास रजिस्टर्ड एग्रीमेंट और बैंक ट्रांसफर रसीद है। मकान मालिक का नया किरायेदार ढूंढने का बहाना कानूनी रूप से कमजोर है, खासकर अगर एग्रीमेंट में डिपॉजिट वापसी की स्पष्ट शर्तें हैं। हालांकि, आपके पास घर खाली करने की लिखित सूचना (notice) और हस्तान्तरण (handover) की लिखित पुष्टि नहीं है, जो एक कमजोरी है। महाराष्ट्र में Model Tenancy Act लागू नहीं है, इसलिए आपका एग्रीमेंट और सामान्य सिविल कानून ही लागू होगा [KB:mta_s11_deposit]।",
+      "options": [
+        {
+          "step": 1,
+          "title": "लिखित डिमांड लेटर (WhatsApp/Email)",
+          "what_to_do": "मकान मालिक को एक स्पष्ट संदेश भेजें कि आपने घर खाली कर दिया है और डिपॉजिट वापस करने का अनुरोध है। उनसे लिखित में ही जवाब मांगें कि वे कब और कितना वापस करेंगे।",
+          "time": "1-2 दिन",
+          "cost": "free",
+          "needs": [
+            "मकान मालिक का संपर्क नंबर/ईमेल",
+            "एग्रीमेंट की कॉपी"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "लीगल नोटिस (Lawyer's Notice)",
+          "what_to_do": "एक वकील के जरिए औपचारिक नोटिस भेजें। इसमें साफ लिखा जाएगा कि अगर 7-15 दिनों में पैसा नहीं मिला तो आप सिविल कोर्ट में केस दर्ज करेंगे। यह अक्सर मालिकों को समझौते पर मजबूर करता है।",
+          "time": "1-2 हफ्ते",
+          "cost": "low (वकील की फीस)",
+          "needs": [
+            "रजिस्टर्ड एग्रीमेंट",
+            "बैंक स्टेटमेंट",
+            "संपर्क के सबूत"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route",
+            "KB:ica_s73"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "सिविल कोर्ट में रिक्वेस्ट",
+          "what_to_do": "अगर नोटिस का कोई असर नहीं पड़ता, तो आप अपने इलाके के सिविल कोर्ट (Small Causes Court) में पैसा वापस करने के लिए केस दर्ज कर सकते हैं।",
+          "time": "3-6 महीने या अधिक",
+          "cost": "court fee (राशि के हिसाब से)",
+          "needs": [
+            "सभी दस्तावेजों की प्रमाणित कॉपियां",
+            "वकील की मदद (अवश्य)"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "अगर आपने लिखित नोटिस नहीं दिया था, तो अभी WhatsApp पर मालिक को लिखें: 'मैंने [तारीख] को घर खाली कर दिया है, कृपया डिपॉजिट वापस करें।' इससे आपके पास कम से कम संपर्क का सबूत हो जाएगा।",
+        "अगर मालिक मौखिक रूप से कह रहा है कि नया किरायेदार ढूंढना है, तो उसे लिखित में ही यह कहने के लिए मजबूर करें ताकि बाद में वह कह न सके कि आपने नोटिस नहीं दिया था।"
+      ],
+      "what_i_dont_know": [
+        "आपके एग्रीमेंट में डिपॉजिट वापसी की शर्तें क्या हैं (क्या उसमें 'नया किरायेदार मिलने पर' वापसी की शर्त है?)",
+        "महाराष्ट्र के स्थानीय किराया नियमों की सटीक विवरण जो सिविल कोर्ट में लागू होंगे।"
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "अभी के लिए आप खुद लिखित डिमांड भेज सकते हैं। वकील तभी ज़रूरी होगा जब मालिक लिखित डिमांड का जवाब न दे या सिविल कोर्ट में केस दर्ज करने की तैयारी शुरू हो।",
+      "reply": "आपकी स्थिति अच्छी है क्योंकि आपके पास रजिस्टर्ड एग्रीमेंट और बैंक रसीद है। मकान मालिक का 'नया किरायेदार ढूंढने' का बहाना कानूनी रूप से कमजोर है, खासकर अगर एग्रीमेंट में डिपॉजिट वापसी की स्पष्ट शर्तें हैं। सबसे पहले, मकान मालिक को WhatsApp या ईमेल पर एक स्पष्ट संदेश भेजें कि आपने घर खाली कर दिया है और डिपॉजिट वापस करने का अनुरोध है। उनसे लिखित में ही जवाब मांगें। अगर वे 7-10 दिनों में जवाब न दें, तो एक वकील के जरिए लीगल नोटिस भेजें। क्या आपने घर खाली करने की कोई लिखित सूचना (notice) मालिक को दी थी या यह सिर्फ मौखिक बातचीत थी?"
+    },
+    "assessment_raw": {
+      "where_you_stand": "आपकी स्थिति काफी मजबूत है क्योंकि आपके पास रजिस्टर्ड एग्रीमेंट और बैंक ट्रांसफर रसीद है। मकान मालिक का नया किरायेदार ढूंढने का बहाना कानूनी रूप से कमजोर है, खासकर अगर एग्रीमेंट में डिपॉजिट वापसी की स्पष्ट शर्तें हैं। हालांकि, आपके पास घर खाली करने की लिखित सूचना (notice) और हस्तान्तरण (handover) की लिखित पुष्टि नहीं है, जो एक कमजोरी है। महाराष्ट्र में Model Tenancy Act लागू नहीं है, इसलिए आपका एग्रीमेंट और सामान्य सिविल कानून ही लागू होगा [KB:mta_s11_deposit]।",
+      "options": [
+        {
+          "step": 1,
+          "title": "लिखित डिमांड लेटर (WhatsApp/Email)",
+          "what_to_do": "मकान मालिक को एक स्पष्ट संदेश भेजें कि आपने घर खाली कर दिया है और डिपॉजिट वापस करने का अनुरोध है। उनसे लिखित में ही जवाब मांगें कि वे कब और कितना वापस करेंगे।",
+          "time": "1-2 दिन",
+          "cost": "free",
+          "needs": [
+            "मकान मालिक का संपर्क नंबर/ईमेल",
+            "एग्रीमेंट की कॉपी"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "लीगल नोटिस (Lawyer's Notice)",
+          "what_to_do": "एक वकील के जरिए औपचारिक नोटिस भेजें। इसमें साफ लिखा जाएगा कि अगर 7-15 दिनों में पैसा नहीं मिला तो आप सिविल कोर्ट में केस दर्ज करेंगे। यह अक्सर मालिकों को समझौते पर मजबूर करता है।",
+          "time": "1-2 हफ्ते",
+          "cost": "low (वकील की फीस)",
+          "needs": [
+            "रजिस्टर्ड एग्रीमेंट",
+            "बैंक स्टेटमेंट",
+            "संपर्क के सबूत"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route",
+            "KB:ica_s73"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "सिविल कोर्ट में रिक्वेस्ट",
+          "what_to_do": "अगर नोटिस का कोई असर नहीं पड़ता, तो आप अपने इलाके के सिविल कोर्ट (Small Causes Court) में पैसा वापस करने के लिए केस दर्ज कर सकते हैं।",
+          "time": "3-6 महीने या अधिक",
+          "cost": "court fee (राशि के हिसाब से)",
+          "needs": [
+            "सभी दस्तावेजों की प्रमाणित कॉपियां",
+            "वकील की मदद (अवश्य)"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "अगर आपने लिखित नोटिस नहीं दिया था, तो अभी WhatsApp पर मालिक को लिखें: 'मैंने [तारीख] को घर खाली कर दिया है, कृपया डिपॉजिट वापस करें।' इससे आपके पास कम से कम संपर्क का सबूत हो जाएगा।",
+        "अगर मालिक मौखिक रूप से कह रहा है कि नया किरायेदार ढूंढना है, तो उसे लिखित में ही यह कहने के लिए मजबूर करें ताकि बाद में वह कह न सके कि आपने नोटिस नहीं दिया था।"
+      ],
+      "what_i_dont_know": [
+        "आपके एग्रीमेंट में डिपॉजिट वापसी की शर्तें क्या हैं (क्या उसमें 'नया किरायेदार मिलने पर' वापसी की शर्त है?)",
+        "महाराष्ट्र के स्थानीय किराया नियमों की सटीक विवरण जो सिविल कोर्ट में लागू होंगे।"
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "अभी के लिए आप खुद लिखित डिमांड भेज सकते हैं। वकील तभी ज़रूरी होगा जब मालिक लिखित डिमांड का जवाब न दे या सिविल कोर्ट में केस दर्ज करने की तैयारी शुरू हो।",
+      "reply": "आपकी स्थिति अच्छी है क्योंकि आपके पास रजिस्टर्ड एग्रीमेंट और बैंक रसीद है। मकान मालिक का 'नया किरायेदार ढूंढने' का बहाना कानूनी रूप से कमजोर है, खासकर अगर एग्रीमेंट में डिपॉजिट वापसी की स्पष्ट शर्तें हैं। सबसे पहले, मकान मालिक को WhatsApp या ईमेल पर एक स्पष्ट संदेश भेजें कि आपने घर खाली कर दिया है और डिपॉजिट वापस करने का अनुरोध है। उनसे लिखित में ही जवाब मांगें। अगर वे 7-10 दिनों में जवाब न दें, तो एक वकील के जरिए लीगल नोटिस भेजें। क्या आपने घर खाली करने की कोई लिखित सूचना (notice) मालिक को दी थी या यह सिर्फ मौखिक बातचीत थी?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "mta_s11_deposit"
+      ]
+    }
+  },
+  "metrics": {
+    "model": "groq:qwen/qwen3.8-27b",
+    "case": "dep03_hindi_mumbai",
+    "secs": 92.1,
+    "prompt_tokens": 3241,
+    "completion_tokens": 2028,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 1,
+    "amounts_ok": "1/1",
+    "amounts_frac": 1.0
+  }
+}

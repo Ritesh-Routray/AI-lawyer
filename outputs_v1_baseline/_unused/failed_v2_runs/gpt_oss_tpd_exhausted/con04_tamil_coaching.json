@@ -1,0 +1,247 @@
+{
+  "input": {
+    "id": "con04_tamil_coaching",
+    "story": "நான் சென்னையில் ஒரு கோச்சிங் சென்டரில் 45000 ரூபாய் கட்டினேன். இரண்டு வாரத்தில் வகுப்புகளை நிறுத்திவிட்டார்கள். பணத்தை திருப்பி தர மறுக்கிறார்கள். ரசீது என்னிடம் உள்ளது.\n",
+    "expected": {
+      "problem_type": "consumer",
+      "escalate": false,
+      "script": "tamil",
+      "amounts": {
+        "order_value": 45000
+      }
+    }
+  },
+  "output": {
+    "model": "groq:openai/gpt-oss-120b",
+    "masked_story": "நான் சென்னையில் ஒரு கோச்சிங் சென்டரில் 45000 ரூபாய் கட்டினேன். இரண்டு வாரத்தில் வகுப்புகளை நிறுத்திவிட்டார்கள். பணத்தை திருப்பி தர மறுக்கிறார்கள். ரசீது என்னிடம் உள்ளது.",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "consumer",
+      "problem_subtype": "coaching fee refund",
+      "user_language": "Tamil",
+      "state": "Tamil Nadu",
+      "city": "Chennai",
+      "summary": "The user paid 45000 rupees to a coaching centre in Chennai. After two weeks the classes were stopped and the centre refuses to return the money. The user has the receipt.",
+      "user_goal": "Get a refund of the 45000 rupees paid.",
+      "user_role": "consumer",
+      "other_party": {
+        "name": null,
+        "type": "company"
+      },
+      "timeline": [
+        {
+          "date": null,
+          "event": "Paid 45000 rupees to the coaching centre",
+          "proof": "receipt"
+        },
+        {
+          "date": null,
+          "event": "Classes stopped after two weeks and the centre refused refund",
+          "proof": null
+        }
+      ],
+      "amounts": {
+        "deposit_paid": 45000,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [
+        "receipt"
+      ],
+      "evidence_missing": [
+        "coaching centre agreement or terms, any written communication (messages/emails) about class cancellation and refund refusal"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": null
+      },
+      "follow_up_questions": [
+        "கோச்சிங் சென்டருக்கு நீங்கள் பணம் செலுத்திய திகதி என்ன?",
+        "வகுப்புகள் நிறுத்தப்பட்ட திகதி மற்றும் அதற்கான எந்த எழுத்து அறிவிப்பு இருந்ததா?",
+        "சென்டரின் பெயர் மற்றும் தொடர்பு விவரங்கள் என்ன?",
+        "பணத்தை திருப்பி கொடுக்க வேண்டிய கடைசி தேதி ஏதேனும் குறிப்பிடப்பட்டதா?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [],
+      "total": null,
+      "notes": [
+        "Not enough numbers to calculate. Tell me the amounts involved.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "cpa_consumer_def",
+      "cpa_limitation",
+      "cpa_jurisdiction_2021",
+      "cpa_fee_nil_5lakh",
+      "ecom_grievance_officer",
+      "forum_nch",
+      "forum_ejagriti",
+      "rbi_ios_2026",
+      "ica_s73",
+      "lsa_s12_legal_aid"
+    ],
+    "assessment": {
+      "where_you_stand": "You are a consumer who paid Rs 45,000 for coaching services. The centre stopped classes after two weeks and now refuses to refund, which is a deficiency in service under the Consumer Protection Act, 2019 [KB:cpa_consumer_def]. You have a receipt as proof of payment, but lack the written agreement or any communication about the cancellation. The claim is within the 2‑year limitation period for filing a consumer complaint [KB:cpa_limitation]. Strength: clear payment proof and service not delivered. Weakness: missing written terms and any written refusal from the centre.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Call National Consumer Helpline [KB:forum_nch]",
+          "what_to_do": "Dial 1915 or file online at consumerhelpline.gov.in. Explain the issue and ask them to forward your complaint to the coaching centre. Keep a record of the call reference number.",
+          "time": "Same day",
+          "cost": "free",
+          "needs": [
+            "receipt of payment",
+            "details of centre (name, address, contact)"
+          ],
+          "kb_refs": [
+            "KB:forum_nch"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Send a written demand (legal notice) to the centre",
+          "what_to_do": "Draft a polite but firm letter stating the amount paid, the service deficiency, and a demand for refund within 7 days. Send by registered post or WhatsApp with read receipt. Attach the receipt copy.",
+          "time": "3‑5 days for delivery",
+          "cost": "low (post fee)",
+          "needs": [
+            "receipt",
+            "centre's address/contact",
+            "draft letter"
+          ],
+          "kb_refs": [
+            "KB:cpa_consumer_def"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "File a consumer complaint on e‑Jagriti",
+          "what_to_do": "Register on e‑Jagriti portal, fill the complaint form with details, upload the receipt and any correspondence, and submit. No filing fee for claims up to Rs 5 lakh [KB:cpa_fee_nil_5lakh]. The District Commission will handle it.",
+          "time": "1‑2 weeks for registration, hearing dates vary",
+          "cost": "free (no court fee)",
+          "needs": [
+            "receipt",
+            "centre details",
+            "copy of demand letter (if sent)"
+          ],
+          "kb_refs": [
+            "KB:cpa_jurisdiction_2021",
+            "KB:cpa_fee_nil_5lakh"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Ask the centre to confirm the cancellation and refund refusal in writing via WhatsApp or email.",
+        "Keep screenshots of any messages, notices, or the receipt posted on the portal.",
+        "If you paid by bank transfer or UPI, download the transaction statement as additional proof."
+      ],
+      "what_i_dont_know": [
+        "Exact dates of payment and class stoppage (needed for limitation calculation).",
+        "Whether the centre had any refund policy printed on its website or brochure.",
+        "If you qualify for free legal aid under the Legal Services Authorities Act [KB:lsa_s12_legal_aid]."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "The amount is within Rs 5 lakh, filing fee is nil and you can handle the first steps yourself. A lawyer may be needed only if the centre contests the complaint or you need representation at a hearing.",
+      "reply": "நீங்கள் 45,000 ரூபாய் கொடுத்து கோச்சிங் சேவையை வாங்கியுள்ளீர்கள், ஆனால் இரண்டு வாரம் கழித்து வகுப்புகள் நிறுத்தப்பட்டு, பணத்தை திருப்பி கொடுக்க மறுக்கப்படுகிறது. இது Consumer Protection Act, 2019‑இன் ‘service deficiency’ ஆகும் [KB:cpa_consumer_def] மற்றும் 2 ஆண்டுகளுக்குள் (இப்போது) புகார் தாக்கல் செய்யலாம் [KB:cpa_limitation]. முதலில், 1915 என்ற தேசிய நுகர்வோர் ஹெல்ப்லைனை அழைத்து, அவர்களின் உதவியைப் பெறுங்கள் (free) [KB:forum_nch]. பின்னர், கோச்சிங் சென்டருக்கு 7 நாட்களில் பணம் திருப்பி கொடுக்குமாறு எழுதப்பட்ட கோரிக்கை (legal notice) அனுப்புங்கள்; இது உங்கள் உரிமையை உறுதிப்படுத்தும். இதுவும் பயனில்லை என்றால், e‑Jagriti போர்டலில் (இலவசம்) நுகர்வோர் புகார் தாக்கல் செய்யலாம்; 5 லட்சம் வரை கட்டணம் இல்லை [KB:cpa_fee_nil_5lakh]. இந்த படிகளை முடித்த பிறகு, அடுத்தது என்ன செய்ய வேண்டும் என்று சொல்லுங்கள்?"
+    },
+    "assessment_raw": {
+      "where_you_stand": "You are a consumer who paid Rs 45,000 for coaching services. The centre stopped classes after two weeks and now refuses to refund, which is a deficiency in service under the Consumer Protection Act, 2019 [KB:cpa_consumer_def]. You have a receipt as proof of payment, but lack the written agreement or any communication about the cancellation. The claim is within the 2‑year limitation period for filing a consumer complaint [KB:cpa_limitation]. Strength: clear payment proof and service not delivered. Weakness: missing written terms and any written refusal from the centre.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Call National Consumer Helpline",
+          "what_to_do": "Dial 1915 or file online at consumerhelpline.gov.in. Explain the issue and ask them to forward your complaint to the coaching centre. Keep a record of the call reference number.",
+          "time": "Same day",
+          "cost": "free",
+          "needs": [
+            "receipt of payment",
+            "details of centre (name, address, contact)"
+          ],
+          "kb_refs": [
+            "KB:forum_nch"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Send a written demand (legal notice) to the centre",
+          "what_to_do": "Draft a polite but firm letter stating the amount paid, the service deficiency, and a demand for refund within 7 days. Send by registered post or WhatsApp with read receipt. Attach the receipt copy.",
+          "time": "3‑5 days for delivery",
+          "cost": "low (post fee)",
+          "needs": [
+            "receipt",
+            "centre's address/contact",
+            "draft letter"
+          ],
+          "kb_refs": [
+            "KB:cpa_consumer_def"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "File a consumer complaint on e‑Jagriti",
+          "what_to_do": "Register on e‑Jagriti portal, fill the complaint form with details, upload the receipt and any correspondence, and submit. No filing fee for claims up to Rs 5 lakh [KB:cpa_fee_nil_5lakh]. The District Commission will handle it.",
+          "time": "1‑2 weeks for registration, hearing dates vary",
+          "cost": "free (no court fee)",
+          "needs": [
+            "receipt",
+            "centre details",
+            "copy of demand letter (if sent)"
+          ],
+          "kb_refs": [
+            "KB:cpa_jurisdiction_2021",
+            "KB:cpa_fee_nil_5lakh"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Ask the centre to confirm the cancellation and refund refusal in writing via WhatsApp or email.",
+        "Keep screenshots of any messages, notices, or the receipt posted on the portal.",
+        "If you paid by bank transfer or UPI, download the transaction statement as additional proof."
+      ],
+      "what_i_dont_know": [
+        "Exact dates of payment and class stoppage (needed for limitation calculation).",
+        "Whether the centre had any refund policy printed on its website or brochure.",
+        "If you qualify for free legal aid under the Legal Services Authorities Act."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "The amount is within Rs 5 lakh, filing fee is nil and you can handle the first steps yourself. A lawyer may be needed only if the centre contests the complaint or you need representation at a hearing.",
+      "reply": "நீங்கள் 45,000 ரூபாய் கொடுத்து கோச்சிங் சேவையை வாங்கியுள்ளீர்கள், ஆனால் இரண்டு வாரம் கழித்து வகுப்புகள் நிறுத்தப்பட்டு, பணத்தை திருப்பி கொடுக்க மறுக்கப்படுகிறது. இது Consumer Protection Act, 2019‑இன் ‘service deficiency’ ஆகும் [KB:cpa_consumer_def] மற்றும் 2 ஆண்டுகளுக்குள் (இப்போது) புகார் தாக்கல் செய்யலாம் [KB:cpa_limitation]. முதலில், 1915 என்ற தேசிய நுகர்வோர் ஹெல்ப்லைனை அழைத்து, அவர்களின் உதவியைப் பெறுங்கள் (free) [KB:forum_nch]. பின்னர், கோச்சிங் சென்டருக்கு 7 நாட்களில் பணம் திருப்பி கொடுக்குமாறு எழுதப்பட்ட கோரிக்கை (legal notice) அனுப்புங்கள்; இது உங்கள் உரிமையை உறுதிப்படுத்தும். இதுவும் பயனில்லை என்றால், e‑Jagriti போர்டலில் (இலவசம்) நுகர்வோர் புகார் தாக்கல் செய்யலாம்; 5 லட்சம் வரை கட்டணம் இல்லை [KB:cpa_fee_nil_5lakh]. இந்த படிகளை முடித்த பிறகு, அடுத்தது என்ன செய்ய வேண்டும் என்று சொல்லுங்கள்?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "cpa_consumer_def",
+        "cpa_fee_nil_5lakh",
+        "cpa_limitation",
+        "forum_nch"
+      ]
+    }
+  },
+  "metrics": {
+    "model": "groq:openai/gpt-oss-120b",
+    "case": "con04_tamil_coaching",
+    "secs": 38.6,
+    "prompt_tokens": 3474,
+    "completion_tokens": 1646,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 4,
+    "amounts_ok": "0/1",
+    "amounts_frac": 0.0
+  }
+}

@@ -1,0 +1,25 @@
+# Watermelon theme: cream flesh-of-the-rind background, deep rind green, watermelon-red accent, seed-dark text.
+[theme]
+base = "light"
+primaryColor = "#C8374F"
+backgroundColor = "#FBF7F2"
+secondaryBackgroundColor = "#F4EDE5"
+textColor = "#2A2321"
+linkColor = "#2F5D46"
+borderColor = "#E6DBD0"
+showWidgetBorder = true
+baseRadius = "0.6rem"
+font = "'Inter', sans-serif"
+headingFont = "'Fraunces', serif"
+codeFont = "'JetBrains Mono', monospace"
+
+[theme.sidebar]
+backgroundColor = "#1E3A2D"
+secondaryBackgroundColor = "#284A3A"
+textColor = "#EFE7DC"
+primaryColor = "#F08A9B"
+borderColor = "#35574A"
+linkColor = "#F6B7C2"
+
+[client]
+toolbarMode = "minimal"

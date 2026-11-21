@@ -1,0 +1,334 @@
+{
+  "input": {
+    "id": "con02_upi_failed",
+    "story": "Bhai maine 8 October 2026 ko UPI se 15000 bheje, paise account se kat gaye par receiver ko nahi mile. Bank ko complaint ki, 3 hafte ho gaye koi jawab nahi. Kya karun?\n",
+    "expected": {
+      "problem_type": "consumer",
+      "escalate": false,
+      "script": "latin",
+      "amounts": {
+        "order_value": 15000
+      }
+    }
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "Bhai maine 8 October 2026 ko UPI se 15000 bheje, paise account se kat gaye par receiver ko nahi mile. Bank ko complaint ki, 3 hafte ho gaye koi jawab nahi. Kya karun?",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "consumer",
+      "problem_subtype": "failed UPI transaction refund not processed",
+      "user_language": "Hinglish",
+      "state": null,
+      "city": null,
+      "summary": "The user transferred 15000 via UPI on 8 October 2026, but the amount was debited without reaching the receiver. Although the bank was notified, no response has been received after 3 weeks.",
+      "user_goal": "Get a refund of the failed UPI transaction amount from the bank.",
+      "user_role": "consumer",
+      "other_party": {
+        "name": null,
+        "type": "bank"
+      },
+      "timeline": [
+        {
+          "date": "2026-10-08",
+          "event": "Transferred 15000 via UPI which was debited but not received by the payee",
+          "proof": "bank statement / UPI transaction screenshot"
+        },
+        {
+          "date": null,
+          "event": "Raised a complaint with the bank",
+          "proof": "complaint number"
+        }
+      ],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": 15000,
+        "amount_refunded": null
+      },
+      "evidence_have": [
+        "bank transaction record"
+      ],
+      "evidence_missing": [
+        "complaint number or copy",
+        "bank response or ticket reference"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": null
+      },
+      "follow_up_questions": [
+        "Aap kaunse state mein rehte hain?",
+        "Kya aapke paas bank complaint number ya complaint ki copy hai?",
+        "Kya aapne UPI app (jaise Google Pay, PhonePe, Paytm) par bhi ticket raise kiya tha?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [
+        "Amount paid: Rs 15,000",
+        "Refund due: Rs 15,000"
+      ],
+      "total": 15000.0,
+      "notes": [
+        "A Consumer Commission can also award compensation and litigation costs - we don't estimate that figure; it depends on the case.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "cpa_consumer_def",
+      "cpa_limitation",
+      "cpa_jurisdiction_2021",
+      "cpa_fee_nil_5lakh",
+      "ecom_grievance_officer",
+      "forum_nch",
+      "forum_ejagriti",
+      "rbi_ios_2026",
+      "ica_s73",
+      "lsa_s12_legal_aid",
+      "src_cpa_2019_88",
+      "src_cpa_2019_69",
+      "src_cpa_2019_35",
+      "src_cpa_2019_4",
+      "src_cpa_2019_34",
+      "src_cpa_2019_47_p2",
+      "src_cpa_2019_20",
+      "src_constitution_365"
+    ],
+    "retrieval": {
+      "mode": "hybrid (BM25 + dense) + anchor queries",
+      "query": "failed UPI transaction refund not processed The user transferred 15000 via UPI on 8 October 2026, but the amount was debited without reaching the receiver. Although the bank was notified, no response has been received after 3 weeks. Get a refund of the failed UPI transaction amount from the bank.",
+      "hits": [
+        {
+          "id": "src_cpa_2019_88",
+          "act": "Consumer Protection Act, 2019",
+          "unit": "Section",
+          "number": "88",
+          "title": "OFFENCES AND PENALTIES",
+          "page": 33,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+          "excerpt": "88. Whoever, fails to comply with any direction of the Central Authority under\nsections 20 and 21, shall be punished with imprisonment for a term which may extend to six\nmonths or with fine which may extend to twenty lakh rupees, or with both."
+        },
+        {
+          "id": "src_cpa_2019_69",
+          "act": "Consumer Protection Act, 2019",
+          "unit": "Section",
+          "number": "69",
+          "title": "",
+          "page": 28,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+          "excerpt": "69. (1) The District Commission, the State Commission or the National Commission\nshall not admit a complaint unless it is filed within two years from the date on which the\ncause of action has arisen.\n(2) Notwithstanding anything contained in sub-section (1), a complaint may be\nentertained after the period specified in sub-section (1), if the complainant satisfies the\nDistrict Commission, the State Commission or the National Commission, as the case may be,\nthat he had sufficient cause for not filing the complaint within such period:\nProvided that no such complaint shall be entertained unless the District Commission\nor the State Commission or the National Commission, as the case may be, record"
+        },
+        {
+          "id": "src_cpa_2019_35",
+          "act": "Consumer Protection Act, 2019",
+          "unit": "Section",
+          "number": "35",
+          "title": "",
+          "page": 18,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+          "excerpt": "35. (1) A complaint, in relation to any goods sold or delivered or agreed to be sold or\ndelivered or any service provided or agreed to be provided, may be filed with a District\nCommission by-\n(a) the consumer,-\n(i) to whom such goods are sold or delivered or agreed to be sold or\ndelivered or such service is provided or agreed to be provided; or\n(ii) who alleges unfair trade practice in respect of such goods or service;\n(b) any recognised consumer association, whether the consumer to whom such\ngoods are sold or delivered or agreed to be sold or delivered or such service is provided\nor agreed to be provided, or who alleges unfair trade practice in respect of such goods\nor service, is a member "
+        },
+        {
+          "id": "src_cpa_2019_4",
+          "act": "Consumer Protection Act, 2019",
+          "unit": "Section",
+          "number": "4",
+          "title": "",
+          "page": 10,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+          "excerpt": "4. (1) The Central Council shall meet as and when necessary, but at least one meeting\nof the Council shall be held every year.\n(2) The Central Council shall meet at such time and place as the Chairperson may think\nfit and shall observe such procedure in regard to the transaction of its business as may be\nprescribed."
+        },
+        {
+          "id": "src_cpa_2019_34",
+          "act": "Consumer Protection Act, 2019",
+          "unit": "Section",
+          "number": "34",
+          "title": "",
+          "page": 17,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+          "excerpt": "34. (1) Subject to the other provisions of this Act, the District Commission shall have\njurisdiction to entertain complaints where the value of the goods or services paid as\nconsideration does not exceed one crore rupees:\nProvided that where the Central Government deems it necessary so to do, it may\nprescribe such other value, as it deems fit.\n(2) A complaint shall be instituted in a District Commission within the local limits of\nwhose jurisdiction,-\n(a) the opposite party or each of the opposite parties, where there are more than\none, at the time of the institution of the complaint, ordinarily resides or carries on\nbusiness or has a branch office or personally works for gain; or\n(b) any of "
+        },
+        {
+          "id": "src_cpa_2019_47_p2",
+          "act": "Consumer Protection Act, 2019",
+          "unit": "Section",
+          "number": "47",
+          "title": "",
+          "page": 23,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+          "excerpt": "that the President or the other members, as the case may be, shall give\nopinion on the point or points so referred within a period of one month from the date of such\nreference.\n(4) A complaint shall be instituted in a State Commission within the limits of whose\njurisdiction,-\n(a) the opposite party or each of the opposite parties, where there are more than\none, at the time of the institution of the complaint, ordinarily resides or carries on\nbusiness or has a branch office or personally works for gain; or\n(b) any of the opposite parties, where there are more than one, at the time of the\ninstitution of the complaint, actually and voluntarily resides, or carries on business or\nhas a branch off"
+        },
+        {
+          "id": "src_cpa_2019_20",
+          "act": "Consumer Protection Act, 2019",
+          "unit": "Section",
+          "number": "20",
+          "title": "",
+          "page": 14,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+          "excerpt": "20. Where the Central Authority is satisfied on the basis of investigation that there is\nsufficient evidence to show violation of consumer rights or unfair trade practice by a person,\nit may pass such order as may be necessary, including-\n(a) recalling of goods or withdrawal of services which are dangerous, hazardous\nor unsafe;\n(b) reimbursement of the prices of goods or services so recalled to purchasers of\nsuch goods or services; and\n(c) discontinuation of practices which are unfair and prejudicial to consumers'\ninterest:\nProvided that the Central Authority shall give the person an opportunity of being\nheard before passing an order under this section."
+        },
+        {
+          "id": "src_constitution_365",
+          "act": "Constitution of India",
+          "unit": "Article",
+          "number": "365",
+          "title": "234",
+          "page": 5,
+          "url": "https://www.mea.gov.in/images/pdf1/Part19.pdf",
+          "excerpt": "365. Where any State has failed to comply with, or to\ngive effect to, any directions given in the exercise of the\nexecutive power of the Union under any of the provisions\nof this Constitution, it shall be lawful for the President to\nhold that a situation has arisen in which the Government\nof the State cannot be carried on in accordance with the\nprovisions of this Constitution."
+        }
+      ]
+    },
+    "assessment": {
+      "where_user_stands": "Aapka 15000 ka amount failed UPI transaction mein debit ho gaya hai aur abhi tak wapas nahi mila, jo ki ek banking service deficiency hai [KB:cpa_consumer_def]. Aapke paas bank transaction record hai, jo ek strong proof hai. Aapka case ka time limit bhi safe hai kyunki Consumer complaints 2 saal ke andar file ki ja sakti hain [KB:cpa_limitation], aur RBI rules ke mutabik bank ki taraf se reply na milne par aap Ombudsman ke paas ja sakte hain [KB:rbi_ios_2026]. Lekin abhi aapke paas bank complaint number ya ticket reference missing hai, jo ki agle steps ke liye zaroori hai.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Bank aur UPI App se follow-up karein",
+          "what_to_do": "Apne bank aur UPI app (jaise Google Pay, PhonePe, Paytm) par dobara contact karke complaint number ya ticket reference lein.",
+          "time": "1-2 days",
+          "cost": "free",
+          "needs": [
+            "bank transaction record"
+          ],
+          "kb_refs": [
+            "rbi_ios_2026"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "RBI Ombudsman [KB:rbi_ios_2026] par complaint karein",
+          "what_to_do": "Agar bank 30 din ke andar jawab na de ya refund na kare, toh cms.rbi.org.in par online complaint darj karein [KB:rbi_ios_2026].",
+          "time": "1 week",
+          "cost": "free",
+          "needs": [
+            "bank transaction record",
+            "complaint number"
+          ],
+          "kb_refs": [
+            "rbi_ios_2026"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "National Consumer Helpline [KB:forum_nch] (NCH)",
+          "what_to_do": "NCH helpline 1915 par call karein ya consumerhelpline.gov.in par apni shikayat darj karein [KB:forum_nch].",
+          "time": "1-2 weeks",
+          "cost": "free",
+          "needs": [
+            "bank transaction record"
+          ],
+          "kb_refs": [
+            "forum_nch"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Bank ke customer care se baat karte waqt call recording rakhein ya email par written mein baat karein.",
+        "UPI app ke history section se transaction ID ka screenshot zaroor save karke rakhein."
+      ],
+      "what_i_dont_know": [
+        "Kya bank ki taraf se koi internal technical error ki wajah se delay hua hai.",
+        "Kya aapne UPI app par bhi alag se ticket raise kiya tha ya nahi."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "Yeh ek simple failed UPI transaction ka mamla hai jise aap khud bank, NCH, ya RBI Ombudsman [KB:rbi_ios_2026] ke zariye solve kar sakte hain. Iske liye abhi lawyer ki zaroorat nahi hai.",
+      "reply": "Aapka 15,000 rupaye ka UPI transaction fail hone ke baad bhi account se debit ho gaya hai aur bank ne abhi tak koi response nahi diya hai. Yeh banking service mein deficiency maani ja sakti hai [KB:cpa_consumer_def]. Aapke paas transaction record hai jo ki ek accha proof hai. Sabse pehle aapko bank se contact karke complaint number ya ticket reference lena chahiye. Agar bank 30 din ke andar action na le, toh aap RBI Ombudsman portal (cms.rbi.org.in) par free mein complaint darj kar sakte hain [KB:rbi_ios_2026]. Kya aapne apne UPI app (jaise Google Pay ya PhonePe) par bhi iski koi complaint ya ticket raise kiya hai?"
+    },
+    "assessment_raw": {
+      "where_user_stands": "Aapka 15000 ka amount failed UPI transaction mein debit ho gaya hai aur abhi tak wapas nahi mila, jo ki ek banking service deficiency hai [KB:cpa_consumer_def]. Aapke paas bank transaction record hai, jo ek strong proof hai. Aapka case ka time limit bhi safe hai kyunki Consumer complaints 2 saal ke andar file ki ja sakti hain [KB:cpa_limitation], aur RBI rules ke mutabik bank ki taraf se reply na milne par aap Ombudsman ke paas ja sakte hain [KB:rbi_ios_2026]. Lekin abhi aapke paas bank complaint number ya ticket reference missing hai, jo ki agle steps ke liye zaroori hai.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Bank aur UPI App se follow-up karein",
+          "what_to_do": "Apne bank aur UPI app (jaise Google Pay, PhonePe, Paytm) par dobara contact karke complaint number ya ticket reference lein.",
+          "time": "1-2 days",
+          "cost": "free",
+          "needs": [
+            "bank transaction record"
+          ],
+          "kb_refs": [
+            "rbi_ios_2026"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "RBI Ombudsman par complaint karein",
+          "what_to_do": "Agar bank 30 din ke andar jawab na de ya refund na kare, toh cms.rbi.org.in par online complaint darj karein [KB:rbi_ios_2026].",
+          "time": "1 week",
+          "cost": "free",
+          "needs": [
+            "bank transaction record",
+            "complaint number"
+          ],
+          "kb_refs": [
+            "rbi_ios_2026"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "National Consumer Helpline (NCH)",
+          "what_to_do": "NCH helpline 1915 par call karein ya consumerhelpline.gov.in par apni shikayat darj karein [KB:forum_nch].",
+          "time": "1-2 weeks",
+          "cost": "free",
+          "needs": [
+            "bank transaction record"
+          ],
+          "kb_refs": [
+            "forum_nch"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Bank ke customer care se baat karte waqt call recording rakhein ya email par written mein baat karein.",
+        "UPI app ke history section se transaction ID ka screenshot zaroor save karke rakhein."
+      ],
+      "what_i_dont_know": [
+        "Kya bank ki taraf se koi internal technical error ki wajah se delay hua hai.",
+        "Kya aapne UPI app par bhi alag se ticket raise kiya tha ya nahi."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "Yeh ek simple failed UPI transaction ka mamla hai jise aap khud bank, NCH, ya RBI Ombudsman ke zariye solve kar sakte hain. Iske liye abhi lawyer ki zaroorat nahi hai.",
+      "reply": "Aapka 15,000 rupaye ka UPI transaction fail hone ke baad bhi account se debit ho gaya hai aur bank ne abhi tak koi response nahi diya hai. Yeh banking service mein deficiency maani ja sakti hai [KB:cpa_consumer_def]. Aapke paas transaction record hai jo ki ek accha proof hai. Sabse pehle aapko bank se contact karke complaint number ya ticket reference lena chahiye. Agar bank 30 din ke andar action na le, toh aap RBI Ombudsman portal (cms.rbi.org.in) par free mein complaint darj kar sakte hain [KB:rbi_ios_2026]. Kya aapne apne UPI app (jaise Google Pay ya PhonePe) par bhi iski koi complaint ya ticket raise kiya hai?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "cpa_consumer_def",
+        "cpa_limitation",
+        "forum_nch",
+        "rbi_ios_2026"
+      ],
+      "support_check": "not auto-checked (non-English reply; cross-encoder is English-only)"
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "con02_upi_failed",
+    "secs": 6.3,
+    "prompt_tokens": 5302,
+    "completion_tokens": 1410,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 4,
+    "rag_hits": 8,
+    "official_text_citations": 0,
+    "unsupported_citations_dropped": 0,
+    "amounts_ok": "1/1",
+    "amounts_frac": 1.0
+  }
+}

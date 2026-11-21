@@ -1,0 +1,308 @@
+{
+  "input": {
+    "id": "sal02_fnf_delay",
+    "story": "I resigned from an IT company in Gurgaon, last working day 15 Sept 2026. My full and final settlement of about 1,10,000 (last month salary + leave encashment) is still not paid. HR says F&F takes 90 days as per policy.\n",
+    "expected": {
+      "problem_type": "salary",
+      "escalate": false,
+      "script": "latin"
+    }
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "I resigned from an IT company in Gurgaon, last working day 15 Sept 2026. My full and final settlement of about 1,10,000 (last month salary + leave encashment) is still not paid. HR says F&F takes 90 days as per policy.",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "salary",
+      "problem_subtype": "delayed full and final settlement after resignation",
+      "user_language": "English",
+      "state": "Haryana",
+      "city": "Gurgaon",
+      "summary": "The user resigned from an IT company in Gurgaon with their last working day on 15 September 2026. The full and final settlement of approximately 110000, including the last month's salary and leave encashment, remains unpaid, and HR is citing a 90-day company policy.",
+      "user_goal": "Get the pending full and final settlement paid by the employer",
+      "user_role": "employee",
+      "other_party": {
+        "name": null,
+        "type": "employer"
+      },
+      "timeline": [
+        {
+          "date": "2026-09-15",
+          "event": "Last working day at the IT company",
+          "proof": "Resignation acceptance or relieving letter"
+        }
+      ],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": 110000,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [],
+      "evidence_missing": [
+        "offer letter",
+        "resignation email",
+        "relieving letter",
+        "payslips",
+        "employment agreement showing F&F timeline"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": "HR stated F&F takes 90 days as per company policy"
+      },
+      "follow_up_questions": [
+        "Do you have a copy of your employment agreement or company policy stating the 90-day F&F clause?",
+        "Do you have your relieving letter and written communication with HR regarding the pending dues?",
+        "Did you sign any settlement papers or get an official F&F calculation statement from the company?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [
+        "Other dues (leave encashment, reimbursements, etc.): Rs 110,000",
+        "Amount to claim: Rs 110,000"
+      ],
+      "total": 110000.0,
+      "notes": [
+        "Check your offer letter/payslips for the exact gross vs in-hand salary. Gratuity, if any, has separate rules - ask a lawyer.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "ica_s73",
+      "cow_s17",
+      "cow_s45",
+      "lsa_s12_legal_aid",
+      "src_constitution_311_p2",
+      "src_cow_2019_17",
+      "src_cow_2019_45",
+      "src_cow_2019_18",
+      "src_cow_2019_48",
+      "src_constitution_68",
+      "src_constitution_62",
+      "src_cow_2019_28"
+    ],
+    "retrieval": {
+      "mode": "hybrid (BM25 + dense) + anchor queries",
+      "query": "delayed full and final settlement after resignation The user resigned from an IT company in Gurgaon with their last working day on 15 September 2026. The full and final settlement of approximately 110000, including the last month's salary and leave encashment, remains unpaid, and HR is citing a 90-day company policy. Get the pending full and final settlement paid by the employer",
+      "hits": [
+        {
+          "id": "src_constitution_311_p2",
+          "act": "Constitution of India",
+          "unit": "Article",
+          "number": "311",
+          "title": "",
+          "page": 2,
+          "url": "https://www.mea.gov.in/images/pdf1/Part14.pdf",
+          "excerpt": "mpowered to dismiss or remove\nsuch person or to reduce him in rank shall be final.]"
+        },
+        {
+          "id": "src_cow_2019_17",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "17",
+          "title": "",
+          "page": 12,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "17. (1) The employer shall pay or cause to be paid wages to the employees, engaged\non-\n(i)  daily basis, at the end of the shift;\n(ii) weekly basis, on the last working day of the week, that is to say, before the\nweekly holiday;\n(iii) fortnightly basis, before the end of the second day after the end of the\nfortnight;\n(iv) monthly basis, before the expiry of the seventh day of the succeeding\nmonth.\n(2) Where an employee has been-\n(i) removed or dismissed from service; or\n(ii) retrenched or has resigned from service, or became unemployed due to\nclosure of the establishment,\nthe wages payable to him shall be paid within two working days of his removal, dismissal,\nretrenchment or, as the case ma"
+        },
+        {
+          "id": "src_cow_2019_45",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "45",
+          "title": "",
+          "page": 23,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "45. (1) The appropriate Government may, by notification, appoint one or more\nauthorities, not below the rank of a Gazetted Officer, to hear and determine the claims which\narises under the provisions of this Code.\n(2) The authority appointed under sub-section (1), while deciding the claim under\nthat sub-section, may order, having regard to the circumstances under which the claim\narises, the payment of compensation in addition to the claim determined, which may extend\nto ten times of the claim determined and endeavour shall be made by the authority to decide\nthe claim within a period of three months.\n(3) If an employer fails to pay the claim determined and compensation ordered to be\npaid under"
+        },
+        {
+          "id": "src_cow_2019_18",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "18",
+          "title": "",
+          "page": 12,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "18. (1) Notwithstanding anything contained in any other law for the time being in\nforce, there shall be no deductions from the wages of the employee, except those as are\nauthorised under this Code.\nExplanation.––For the purposes of this sub-section,-\n(a) any payment made by an employee to the employer or his agent shall be\ndeemed to be a deduction from his wages;\n(b) any loss of wages to an employee, for a good and sufficient cause, resulting\nfrom-\n(i) the withholding of increment or promotion, including the stoppage of\nan increment; or\n(ii) the reduction to a lower post or time-scale; or\n(iii) the suspension,\nshall not be deemed to be a deduction from wages in a case where the provisions ma"
+        },
+        {
+          "id": "src_cow_2019_48",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "48",
+          "title": "",
+          "page": 24,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "48. (1) Where any claim, dispute or appeal with respect to bonus payable under this\nCode between an employer, not being a corporation or a company, and his employees is\npending before any authority, appellate authority, Tribunal or arbitrator, as the case may be,\nas referred to in sub-section (1) of section 47 and the accounts of such employer audited by\nany auditor duly qualified to act as auditor of companies under the provisions of section\n141 of the Companies Act, 2013, are produced before such authority, appellate authority,\nTribunal or arbitrator, then the provisions of section 47 shall, so far as may be, apply to the\naccounts so audited.\n(2) When the authority, appellate authority, Tr"
+        },
+        {
+          "id": "src_constitution_68",
+          "act": "Constitution of India",
+          "unit": "Article",
+          "number": "68",
+          "title": "",
+          "page": 8,
+          "url": "https://www.mea.gov.in/images/pdf1/Part5.pdf",
+          "excerpt": "68. (1) An election to fill a vacancy caused by the\nexpiration of the term of office of Vice-President shall be\ncompleted before the expiration of the term.\n(2) An election to fill a vacancy in the office of Vice-\nPresident occurring by reason of his death, resignation or\nremoval, or otherwise shall be held as soon as possible\nafter the occurrence of the vacancy, and the person elected\nto fill the vacancy shall, subject to the provisions of\narticle 67, be entitled to hold office for the full term of five\nyears from the date on which he enters upon his office."
+        },
+        {
+          "id": "src_constitution_62",
+          "act": "Constitution of India",
+          "unit": "Article",
+          "number": "62",
+          "title": "",
+          "page": 5,
+          "url": "https://www.mea.gov.in/images/pdf1/Part5.pdf",
+          "excerpt": "62. (1) An election to fill a vacancy caused by the\nexpiration of the term of office of President shall be\ncompleted before the expiration of the term.\n(2) An election to fill a vacancy in the office of\nPresident occurring by reason of his death, resignation or\nremoval, or otherwise shall be held as soon as possible\nafter,  and in no case later than six months from, the date\nof occurrence of the vacancy; and the person elected to fill\nthe vacancy shall, subject to the provisions of article 56,\nProcedure for\nimpeachment of\nthe President.\nTime of holding\nelection to fill\nvacancy in the\noffice of President\nand the term of\noffice of person\nelected to fill\ncasual vacancy.\nbe entitled to hold offi"
+        },
+        {
+          "id": "src_cow_2019_28",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "28",
+          "title": "",
+          "page": 17,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "28. For the purposes of section 27, an employee shall be deemed to have worked in an\nestablishment in any accounting year also on the days on which,––\n(a) he has been laid off under an agreement or as permitted by standing orders\nunder the Industrial Employment (Standing Orders) Act, 1946, or under the Industrial\nDisputes Act, 1947, or under any other law applicable to the establishment;\n(b) he has been on leave with salary or wages;\n(c) he has been absent due to temporary disablement caused by accident arising\nout of and in the course of his employment; and\n(d) the employee has been on maternity leave with salary or wages, during the\naccounting year."
+        }
+      ]
+    },
+    "assessment": {
+      "where_you_stand": "As an employee who has resigned, you have a strong legal right to receive your full and final settlement. Under the law, when an employee resigns, wages due must be paid within two working days [KB:src_cow_2019_17], making the company's 90-day policy legally questionable. Your strength is the clear timeline of your exit, while your weakness is the lack of written proof gathered so far, such as payslips and your employment agreement. You can formally claim unpaid wages before the government-appointed authority within 3 years [KB:cow_s45].",
+      "options": [
+        {
+          "step": 1,
+          "title": "Send a formal written demand email",
+          "what_to_do": "Write an email to HR and management demanding your pending full and final settlement of Rs 110,000 immediately, citing that delayed payments cause financial loss.",
+          "time": "1-2 days",
+          "cost": "free",
+          "needs": [
+            "resignation acceptance or relieving letter",
+            "bank statements showing last salary"
+          ],
+          "kb_refs": [
+            "KB:src_cow_2019_17",
+            "KB:ica_s73"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "File a complaint with the Labour Department",
+          "what_to_do": "If HR does not respond or refuses to pay, approach the local Labour Commissioner office in Gurgaon to file a formal claim for unpaid wages.",
+          "time": "1-3 months",
+          "cost": "low",
+          "needs": [
+            "offer letter",
+            "payslips",
+            "resignation email",
+            "relieving letter"
+          ],
+          "kb_refs": [
+            "KB:cow_s45",
+            "KB:src_cow_2019_45"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Send a WhatsApp message or email to HR asking them to confirm the exact calculated full and final amount in writing.",
+        "Download your bank statements showing the credit of your previous monthly salaries from the company.",
+        "Request your relieving letter and official F&F statement via email if you haven't received them yet."
+      ],
+      "what_i_dont_know": [
+        "Whether your signed employment contract explicitly includes a valid 90-day F&F clause agreed upon by you",
+        "Exact breakup of the Rs 110,000 pending amount into salary, leave encashment, or other components"
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "A lawyer is not needed at this initial stage since you can first send a written demand or approach the Labour Department yourself. A lawyer would only be necessary if the company initiates legal proceedings against you or refuses completely after a formal labour complaint.",
+      "reply": "You have a strong legal basis to claim your pending full and final settlement of Rs 110,000. Although HR is citing a 90-day company policy, the law requires wages to be paid within two working days of resignation [KB:src_cow_2019_17]. Your first step is to send a formal written email to HR demanding your dues and pointing out this delay. If they still fail to pay, you can approach the Labour Department in Gurgaon to file a formal claim within 3 years [KB:cow_s45]. Do you currently have a copy of your employment agreement or company policy stating the 90-day F&F clause?"
+    },
+    "assessment_raw": {
+      "where_you_stand": "As an employee who has resigned, you have a strong legal right to receive your full and final settlement. Under the law, when an employee resigns, wages due must be paid within two working days [KB:src_cow_2019_17], making the company's 90-day policy legally questionable. Your strength is the clear timeline of your exit, while your weakness is the lack of written proof gathered so far, such as payslips and your employment agreement. You can formally claim unpaid wages before the government-appointed authority within 3 years [KB:cow_s45].",
+      "options": [
+        {
+          "step": 1,
+          "title": "Send a formal written demand email",
+          "what_to_do": "Write an email to HR and management demanding your pending full and final settlement of Rs 110,000 immediately, citing that delayed payments cause financial loss.",
+          "time": "1-2 days",
+          "cost": "free",
+          "needs": [
+            "resignation acceptance or relieving letter",
+            "bank statements showing last salary"
+          ],
+          "kb_refs": [
+            "KB:src_cow_2019_17",
+            "KB:ica_s73"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "File a complaint with the Labour Department",
+          "what_to_do": "If HR does not respond or refuses to pay, approach the local Labour Commissioner office in Gurgaon to file a formal claim for unpaid wages.",
+          "time": "1-3 months",
+          "cost": "low",
+          "needs": [
+            "offer letter",
+            "payslips",
+            "resignation email",
+            "relieving letter"
+          ],
+          "kb_refs": [
+            "KB:cow_s45",
+            "KB:src_cow_2019_45"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Send a WhatsApp message or email to HR asking them to confirm the exact calculated full and final amount in writing.",
+        "Download your bank statements showing the credit of your previous monthly salaries from the company.",
+        "Request your relieving letter and official F&F statement via email if you haven't received them yet."
+      ],
+      "what_i_dont_know": [
+        "Whether your signed employment contract explicitly includes a valid 90-day F&F clause agreed upon by you",
+        "Exact breakup of the Rs 110,000 pending amount into salary, leave encashment, or other components"
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "A lawyer is not needed at this initial stage since you can first send a written demand or approach the Labour Department yourself. A lawyer would only be necessary if the company initiates legal proceedings against you or refuses completely after a formal labour complaint.",
+      "reply": "You have a strong legal basis to claim your pending full and final settlement of Rs 110,000. Although HR is citing a 90-day company policy, the law requires wages to be paid within two working days of resignation [KB:src_cow_2019_17]. Your first step is to send a formal written email to HR demanding your dues and pointing out this delay. If they still fail to pay, you can approach the Labour Department in Gurgaon to file a formal claim within 3 years [KB:cow_s45]. Do you currently have a copy of your employment agreement or company policy stating the 90-day F&F clause?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "cow_s45",
+        "src_cow_2019_17"
+      ],
+      "support_check": {
+        "checked": 2,
+        "unsupported": []
+      }
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "sal02_fnf_delay",
+    "secs": 5.7,
+    "prompt_tokens": 5077,
+    "completion_tokens": 1354,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 2,
+    "rag_hits": 8,
+    "official_text_citations": 1,
+    "unsupported_citations_dropped": 0,
+    "amounts_ok": "-",
+    "amounts_frac": null
+  }
+}

@@ -1,0 +1,1 @@
+RateLimitError: Error code: 429 - Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m7246d14e9narqh3581c2ejz` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199220, Requested 1533. Please try again in 5m25.296s. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing

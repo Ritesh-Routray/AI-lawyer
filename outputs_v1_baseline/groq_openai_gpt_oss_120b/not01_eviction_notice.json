@@ -1,0 +1,212 @@
+{
+  "input": {
+    "id": "not01_eviction_notice",
+    "story": "I got this letter from my landlord's lawyer: \"Take notice that my client hereby terminates your tenancy and calls upon you to vacate the premises within 30 days failing which my client shall initiate eviction proceedings.\" What does it mean? I have paid all rent.\n",
+    "expected": {
+      "problem_type": "notice",
+      "escalate": true,
+      "script": "latin"
+    }
+  },
+  "output": {
+    "model": "groq:openai/gpt-oss-120b",
+    "masked_story": "I got this letter from my landlord's lawyer: \"Take notice that my client hereby terminates your tenancy and calls upon you to vacate the premises within 30 days failing which my client shall initiate eviction proceedings.\" What does it mean? I have paid all rent.",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "notice",
+      "problem_subtype": "termination notice",
+      "user_language": "English",
+      "state": null,
+      "city": null,
+      "summary": "The user received a legal notice from the landlord's lawyer stating that the tenancy is being terminated and they must vacate within 30 days. The user claims all rent has been paid and seeks clarification of the notice.",
+      "user_goal": "to understand the meaning and legal implications of the eviction notice and what steps to take",
+      "user_role": "tenant",
+      "other_party": {
+        "name": null,
+        "type": "landlord"
+      },
+      "timeline": [
+        {
+          "date": null,
+          "event": "Received termination notice from landlord's lawyer",
+          "proof": "letter"
+        }
+      ],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [
+        "letter from landlord's lawyer"
+      ],
+      "evidence_missing": [
+        "rental agreement/lease document",
+        "rent payment receipts"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": "vacate premises within 30 days of notice"
+      },
+      "follow_up_questions": [
+        "When did you receive the notice (date)?",
+        "Which state and city is the rental property located in?",
+        "Do you have a copy of the rental agreement or lease?",
+        "Do you have any written proof of rent payments (receipts, bank statements)?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [],
+      "total": null,
+      "notes": [
+        "Not enough numbers to calculate. Tell me the amounts involved.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "lsa_s12_legal_aid"
+    ],
+    "assessment": {
+      "where_you_stand": "You have received a termination notice from your landlord's lawyer demanding you vacate within 30 days. You say you have paid all rent, but you do not have the lease document or rent payment receipts to prove it. Without the lease, it is hard to check the notice period required under the tenancy agreement or the law. Your main strength is that you apparently have no unpaid rent; your weakness is the lack of written proof of payments and the missing lease.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Ask landlord for lease and payment proof",
+          "what_to_do": "Send a polite written request (email or WhatsApp) to the landlord asking for a copy of the rental agreement and any rent receipts or bank statements that show your payments. Mention that you want to verify the notice terms before taking any action.",
+          "time": "1-2 days for draft and send; response may take a few days",
+          "cost": "free",
+          "needs": [
+            "draft of request message",
+            "your contact details"
+          ],
+          "kb_refs": []
+        },
+        {
+          "step": 2,
+          "title": "Send a legal notice disputing eviction",
+          "what_to_do": "If the landlord does not respond or refuses to provide documents, draft a formal notice stating that you have paid all rent, that you have not received a valid notice period (if applicable), and that you will not vacate until the matter is clarified. You can send it by registered post or email with read receipt.",
+          "time": "3-5 days to prepare and send",
+          "cost": "low (postage or courier fee)",
+          "needs": [
+            "copy of the landlord's notice",
+            "any payment proof you can gather",
+            "draft notice"
+          ],
+          "kb_refs": []
+        },
+        {
+          "step": 3,
+          "title": "Approach free legal aid",
+          "what_to_do": "If the dispute escalates or you are unsure about the notice period, contact the Legal Services Authority for free legal aid. Call 15100 or visit the nearest Common Service Centre for advice.",
+          "time": "same day to call, appointment may be within a week",
+          "cost": "free",
+          "needs": [
+            "details of the notice, any documents you have"
+          ],
+          "kb_refs": [
+            "KB:lsa_s12_legal_aid"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Check your bank statements for rent transfers and screenshot them.",
+        "Ask the landlord to confirm the amount of rent paid in writing (WhatsApp or email).",
+        "If you paid cash, request a written receipt now; if none was given, note the date, amount, and witnesses."
+      ],
+      "what_i_dont_know": [
+        "Exact date you received the notice",
+        "State and city of the rental property (which may affect notice period)",
+        "Whether a written lease exists and its terms"
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "The dispute can start with a written request and a self‑drafted notice. A lawyer becomes necessary if the landlord files an eviction suit or if you need to appear in court.",
+      "reply": "You have a termination notice asking you to leave in 30 days. Since you say all rent is paid, your first step is to get the lease and any rent receipts from the landlord. Send a polite written request asking for those documents; this often clears up misunderstandings. If the landlord does not respond or the notice is still unclear, you can send a formal notice stating that you have paid all dues and that you will not vacate until the notice is legally valid. Should the matter become more serious—like a court filing—or if you need help drafting the notice, you can get free legal aid by calling 15100. When you contact the landlord, keep a copy of all messages and any bank statements showing rent payments. Do you have the exact date you received the notice and the location of the property?"
+    },
+    "assessment_raw": {
+      "where_you_stand": "You have received a termination notice from your landlord's lawyer demanding you vacate within 30 days. You say you have paid all rent, but you do not have the lease document or rent payment receipts to prove it. Without the lease, it is hard to check the notice period required under the tenancy agreement or the law. Your main strength is that you apparently have no unpaid rent; your weakness is the lack of written proof of payments and the missing lease.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Ask landlord for lease and payment proof",
+          "what_to_do": "Send a polite written request (email or WhatsApp) to the landlord asking for a copy of the rental agreement and any rent receipts or bank statements that show your payments. Mention that you want to verify the notice terms before taking any action.",
+          "time": "1-2 days for draft and send; response may take a few days",
+          "cost": "free",
+          "needs": [
+            "draft of request message",
+            "your contact details"
+          ],
+          "kb_refs": []
+        },
+        {
+          "step": 2,
+          "title": "Send a legal notice disputing eviction",
+          "what_to_do": "If the landlord does not respond or refuses to provide documents, draft a formal notice stating that you have paid all rent, that you have not received a valid notice period (if applicable), and that you will not vacate until the matter is clarified. You can send it by registered post or email with read receipt.",
+          "time": "3-5 days to prepare and send",
+          "cost": "low (postage or courier fee)",
+          "needs": [
+            "copy of the landlord's notice",
+            "any payment proof you can gather",
+            "draft notice"
+          ],
+          "kb_refs": []
+        },
+        {
+          "step": 3,
+          "title": "Approach free legal aid",
+          "what_to_do": "If the dispute escalates or you are unsure about the notice period, contact the Legal Services Authority for free legal aid. Call 15100 or visit the nearest Common Service Centre for advice.",
+          "time": "same day to call, appointment may be within a week",
+          "cost": "free",
+          "needs": [
+            "details of the notice, any documents you have"
+          ],
+          "kb_refs": [
+            "KB:lsa_s12_legal_aid"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Check your bank statements for rent transfers and screenshot them.",
+        "Ask the landlord to confirm the amount of rent paid in writing (WhatsApp or email).",
+        "If you paid cash, request a written receipt now; if none was given, note the date, amount, and witnesses."
+      ],
+      "what_i_dont_know": [
+        "Exact date you received the notice",
+        "State and city of the rental property (which may affect notice period)",
+        "Whether a written lease exists and its terms"
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "The dispute can start with a written request and a self‑drafted notice. A lawyer becomes necessary if the landlord files an eviction suit or if you need to appear in court.",
+      "reply": "You have a termination notice asking you to leave in 30 days. Since you say all rent is paid, your first step is to get the lease and any rent receipts from the landlord. Send a polite written request asking for those documents; this often clears up misunderstandings. If the landlord does not respond or the notice is still unclear, you can send a formal notice stating that you have paid all dues and that you will not vacate until the notice is legally valid. Should the matter become more serious—like a court filing—or if you need help drafting the notice, you can get free legal aid by calling 15100. When you contact the landlord, keep a copy of all messages and any bank statements showing rent payments. Do you have the exact date you received the notice and the location of the property?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": []
+    }
+  },
+  "metrics": {
+    "model": "groq:openai/gpt-oss-120b",
+    "case": "not01_eviction_notice",
+    "secs": 31.5,
+    "prompt_tokens": 2622,
+    "completion_tokens": 1295,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": true,
+    "escalated": false,
+    "escalate_ok": false,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 0,
+    "amounts_ok": "-",
+    "amounts_frac": null
+  }
+}

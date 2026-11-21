@@ -1,0 +1,228 @@
+{
+  "input": {
+    "id": "adv04_vague",
+    "story": "company ne paisa nahi diya\n",
+    "expected": {
+      "problem_type": "any",
+      "escalate": false,
+      "script": "latin"
+    }
+  },
+  "output": {
+    "model": "groq:qwen/qwen3.8-27b",
+    "masked_story": "company ne paisa nahi diya",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "salary",
+      "problem_subtype": "unpaid salary",
+      "user_language": "Hinglish",
+      "state": null,
+      "city": null,
+      "summary": "The user states that their company has not paid them money. No specific details regarding the amount, duration, or nature of the dues were provided.",
+      "user_goal": "To recover unpaid money from the company.",
+      "user_role": "employee",
+      "other_party": {
+        "name": null,
+        "type": "employer"
+      },
+      "timeline": [
+        {
+          "date": null,
+          "event": "Company failed to pay dues",
+          "proof": null
+        }
+      ],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [],
+      "evidence_missing": [
+        "Offer letter or employment contract",
+        "Payslips",
+        "Bank statements showing missing credits",
+        "Exit settlement letter (if applicable)"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": null
+      },
+      "follow_up_questions": [
+        "Aap kis state aur city mein rehte hain?",
+        "Kitne mahine ka paisa baaki hai aur total amount kitna hai?",
+        "Kya aapke paas offer letter, payslips ya bank statement jaisa koi written proof hai?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [],
+      "total": null,
+      "notes": [
+        "Not enough numbers to calculate. Tell me the amounts involved.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "ica_s73",
+      "cow_s17",
+      "cow_s45",
+      "lsa_s12_legal_aid"
+    ],
+    "assessment": {
+      "where_you_stand": "Aapki company ne aapka paisa nahi diya hai, jo ki galat hai. Code on Wages ke hisaab se salary agle mahine ke 7 tareekh se pehle deni hoti hai [KB:cow_s17]. Agar aapki naukri khatam ho chuki hai, toh final dues 2 working days mein deni chahiye thi [KB:cow_s17]. Abhi aapke paas specific amount ya months ke baare mein koi detail nahi hai, isliye hum exact claim calculate nahi kar sakte. Aapke paas written proof (jaise payslips ya bank statement) hona chahiye taaki aapki baat strong ho.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Written Demand to Employer",
+          "what_to_do": "Company ke HR ya manager ko ek clear written message (email/WhatsApp) bhejein jismein aap batayein ki kitne mahine ka paisa baaki hai aur total amount kitna hai. Unse 7 din ke andar payment karne ko kahein.",
+          "time": "1-2 din",
+          "cost": "Free",
+          "needs": [
+            "Exact amount of unpaid salary",
+            "Months for which salary is pending"
+          ],
+          "kb_refs": [
+            "KB:cow_s17"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "File Complaint with Labour Department",
+          "what_to_do": "Agar company ne 7 din mein paisa nahi diya, toh aap apne state ke Labour Commissioner office mein complaint file kar sakte hain. Yeh claim 3 saal ke andar file kiya ja sakta hai [KB:cow_s45].",
+          "time": "2-4 weeks for resolution",
+          "cost": "Free / Low (filing fees may apply)",
+          "needs": [
+            "Offer letter or employment contract",
+            "Payslips",
+            "Bank statements showing missing credits"
+          ],
+          "kb_refs": [
+            "KB:cow_s45"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Seek Free Legal Aid",
+          "what_to_do": "Agar aap SC/ST hain, industrial workman hain, ya income limit ke neeche hain, toh aap District Legal Services Authority (DLSA) se free lawyer le sakte hain. NALSA helpline 15100 par call karke bhi free advice mil sakti hai [KB:lsa_s12_legal_aid].",
+          "time": "Immediate advice",
+          "cost": "Free",
+          "needs": [
+            "Aadhaar card",
+            "Proof of income or category (if applicable)"
+          ],
+          "kb_refs": [
+            "KB:lsa_s12_legal_aid"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Apne bank account ka statement nikalein jahan salary credit honi chahiye thi par nahi hui.",
+        "Pichle 6 mahine ke payslips collect karein (HR se ya company portal se).",
+        "Agar koi written proof nahi hai, toh WhatsApp ya email par HR se confirm karwa lein ki kitna paisa baaki hai."
+      ],
+      "what_i_dont_know": [
+        "Aap kis state aur city mein rehte hain (kyunki local labour office ka address uspar depend karta hai).",
+        "Total unpaid amount kitna hai aur kitne mahine ke liye baaki hai.",
+        "Kya aapke paas koi written proof (contract/payslip) hai ya nahi."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "Abhi ke liye aap khud written demand bhej sakte hain aur Labour Department mein complaint file kar sakte hain. Lawyer tab zaroori hoga agar company ne court case file kiya ho, ya amount bahut bada ho, ya aapko free legal aid ke liye qualify karna ho.",
+      "reply": "Namaste! Aapki company ne salary nahi di, jo ki Code on Wages ke against hai [KB:cow_s17]. Pehle aap company ko ek clear written message (email/WhatsApp) bhejein jismein batayein ki kitne mahine ka paisa baaki hai aur total amount kitna hai. Unse 7 din ke andar payment karne ko kahein. Agar wo nahi dete, toh aap Labour Commissioner office mein complaint file kar sakte hain [KB:cow_s45]. Kripya mujhe batayein: Aap kis state mein hain aur total unpaid amount kitna hai? Isse main aapko sahi office ka address aur next steps bata paunga."
+    },
+    "assessment_raw": {
+      "where_you_stand": "Aapki company ne aapka paisa nahi diya hai, jo ki galat hai. Code on Wages ke hisaab se salary agle mahine ke 7 tareekh se pehle deni hoti hai [KB:cow_s17]. Agar aapki naukri khatam ho chuki hai, toh final dues 2 working days mein deni chahiye thi [KB:cow_s17]. Abhi aapke paas specific amount ya months ke baare mein koi detail nahi hai, isliye hum exact claim calculate nahi kar sakte. Aapke paas written proof (jaise payslips ya bank statement) hona chahiye taaki aapki baat strong ho.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Written Demand to Employer",
+          "what_to_do": "Company ke HR ya manager ko ek clear written message (email/WhatsApp) bhejein jismein aap batayein ki kitne mahine ka paisa baaki hai aur total amount kitna hai. Unse 7 din ke andar payment karne ko kahein.",
+          "time": "1-2 din",
+          "cost": "Free",
+          "needs": [
+            "Exact amount of unpaid salary",
+            "Months for which salary is pending"
+          ],
+          "kb_refs": [
+            "KB:cow_s17"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "File Complaint with Labour Department",
+          "what_to_do": "Agar company ne 7 din mein paisa nahi diya, toh aap apne state ke Labour Commissioner office mein complaint file kar sakte hain. Yeh claim 3 saal ke andar file kiya ja sakta hai [KB:cow_s45].",
+          "time": "2-4 weeks for resolution",
+          "cost": "Free / Low (filing fees may apply)",
+          "needs": [
+            "Offer letter or employment contract",
+            "Payslips",
+            "Bank statements showing missing credits"
+          ],
+          "kb_refs": [
+            "KB:cow_s45"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Seek Free Legal Aid",
+          "what_to_do": "Agar aap SC/ST hain, industrial workman hain, ya income limit ke neeche hain, toh aap District Legal Services Authority (DLSA) se free lawyer le sakte hain. NALSA helpline 15100 par call karke bhi free advice mil sakti hai [KB:lsa_s12_legal_aid].",
+          "time": "Immediate advice",
+          "cost": "Free",
+          "needs": [
+            "Aadhaar card",
+            "Proof of income or category (if applicable)"
+          ],
+          "kb_refs": [
+            "KB:lsa_s12_legal_aid"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Apne bank account ka statement nikalein jahan salary credit honi chahiye thi par nahi hui.",
+        "Pichle 6 mahine ke payslips collect karein (HR se ya company portal se).",
+        "Agar koi written proof nahi hai, toh WhatsApp ya email par HR se confirm karwa lein ki kitna paisa baaki hai."
+      ],
+      "what_i_dont_know": [
+        "Aap kis state aur city mein rehte hain (kyunki local labour office ka address uspar depend karta hai).",
+        "Total unpaid amount kitna hai aur kitne mahine ke liye baaki hai.",
+        "Kya aapke paas koi written proof (contract/payslip) hai ya nahi."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "Abhi ke liye aap khud written demand bhej sakte hain aur Labour Department mein complaint file kar sakte hain. Lawyer tab zaroori hoga agar company ne court case file kiya ho, ya amount bahut bada ho, ya aapko free legal aid ke liye qualify karna ho.",
+      "reply": "Namaste! Aapki company ne salary nahi di, jo ki Code on Wages ke against hai [KB:cow_s17]. Pehle aap company ko ek clear written message (email/WhatsApp) bhejein jismein batayein ki kitne mahine ka paisa baaki hai aur total amount kitna hai. Unse 7 din ke andar payment karne ko kahein. Agar wo nahi dete, toh aap Labour Commissioner office mein complaint file kar sakte hain [KB:cow_s45]. Kripya mujhe batayein: Aap kis state mein hain aur total unpaid amount kitna hai? Isse main aapko sahi office ka address aur next steps bata paunga."
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "cow_s17",
+        "cow_s45",
+        "lsa_s12_legal_aid"
+      ]
+    }
+  },
+  "metrics": {
+    "model": "groq:qwen/qwen3.8-27b",
+    "case": "adv04_vague",
+    "secs": 20.5,
+    "prompt_tokens": 2934,
+    "completion_tokens": 1556,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 3,
+    "amounts_ok": "-",
+    "amounts_frac": null
+  }
+}

@@ -1,0 +1,412 @@
+{
+  "input": {
+    "id": "con01_ecom_refund",
+    "story": "I ordered a phone worth Rs 32,999 on an e-commerce site on 2 Sept 2026. It was delivered with a cracked screen, I returned it on 5 Sept and they picked it up, but the refund still hasn't come. Customer care keeps saying 7-10 days. I have the order invoice and pickup receipt. I live in Hyderabad.\n",
+    "expected": {
+      "problem_type": "consumer",
+      "escalate": false,
+      "script": "latin",
+      "amounts": {
+        "order_value": 32999
+      }
+    },
+    "draft": "consumer_complaint"
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "I ordered a phone worth Rs 32,999 on an e-commerce site on 2 Sept 2026. It was delivered with a cracked screen, I returned it on 5 Sept and they picked it up, but the refund still hasn't come. Customer care keeps saying 7-10 days. I have the order invoice and pickup receipt. I live in Hyderabad.",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "consumer",
+      "problem_subtype": "e-commerce refund not processed for damaged product",
+      "user_language": "English",
+      "state": "Telangana",
+      "city": "Hyderabad",
+      "summary": "The user ordered a phone worth Rs 32,999 on an e-commerce site on 2026-09-02, which arrived with a cracked screen. They returned it on 2026-09-05, but the refund is still pending despite customer care delays.",
+      "user_goal": "Get the full refund for the returned damaged phone",
+      "user_role": "consumer",
+      "other_party": {
+        "name": null,
+        "type": "company"
+      },
+      "timeline": [
+        {
+          "date": "2026-09-02",
+          "event": "Ordered a phone worth Rs 32,999 on an e-commerce site",
+          "proof": "order invoice"
+        },
+        {
+          "date": "2026-09-05",
+          "event": "Returned the phone with a cracked screen and it was picked up",
+          "proof": "pickup receipt"
+        }
+      ],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": 32999,
+        "amount_refunded": null
+      },
+      "evidence_have": [
+        "order invoice",
+        "pickup receipt"
+      ],
+      "evidence_missing": [
+        "customer care chat transcripts or complaint reference numbers"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": "Customer care says 7-10 days"
+      },
+      "follow_up_questions": [
+        "Do you have any written communication, chat transcripts, or complaint reference numbers from customer care regarding the refund?",
+        "What is the name of the e-commerce platform where you placed the order?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [
+        "Amount paid: Rs 32,999",
+        "Refund due: Rs 32,999"
+      ],
+      "total": 32999.0,
+      "notes": [
+        "A Consumer Commission can also award compensation and litigation costs - we don't estimate that figure; it depends on the case.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "cpa_consumer_def",
+      "cpa_limitation",
+      "cpa_jurisdiction_2021",
+      "cpa_fee_nil_5lakh",
+      "ecom_grievance_officer",
+      "forum_nch",
+      "forum_ejagriti",
+      "rbi_ios_2026",
+      "ica_s73",
+      "lsa_s12_legal_aid",
+      "src_cpa_2019_94",
+      "src_cpa_2019_69",
+      "src_cpa_2019_35",
+      "src_cpa_2019_89",
+      "src_cpa_2019_34",
+      "src_cpa_2019_47_p2",
+      "src_cpa_2019_20",
+      "src_cpa_2019_84"
+    ],
+    "retrieval": {
+      "mode": "hybrid (BM25 + dense) + anchor queries",
+      "query": "e-commerce refund not processed for damaged product The user ordered a phone worth Rs 32,999 on an e-commerce site on 2026-09-02, which arrived with a cracked screen. They returned it on 2026-09-05, but the refund is still pending despite customer care delays. Get the full refund for the returned damaged phone",
+      "hits": [
+        {
+          "id": "src_cpa_2019_94",
+          "act": "Consumer Protection Act, 2019",
+          "unit": "Section",
+          "number": "94",
+          "title": "MISCELLANEOUS",
+          "page": 34,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+          "excerpt": "94. For the purposes of preventing unfair trade practices in e-commerce, direct selling\nand also to protect the interest and rights of consumers, the Central Government may take\nsuch measures in the manner as may be prescribed."
+        },
+        {
+          "id": "src_cpa_2019_69",
+          "act": "Consumer Protection Act, 2019",
+          "unit": "Section",
+          "number": "69",
+          "title": "",
+          "page": 28,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+          "excerpt": "69. (1) The District Commission, the State Commission or the National Commission\nshall not admit a complaint unless it is filed within two years from the date on which the\ncause of action has arisen.\n(2) Notwithstanding anything contained in sub-section (1), a complaint may be\nentertained after the period specified in sub-section (1), if the complainant satisfies the\nDistrict Commission, the State Commission or the National Commission, as the case may be,\nthat he had sufficient cause for not filing the complaint within such period:\nProvided that no such complaint shall be entertained unless the District Commission\nor the State Commission or the National Commission, as the case may be, record"
+        },
+        {
+          "id": "src_cpa_2019_35",
+          "act": "Consumer Protection Act, 2019",
+          "unit": "Section",
+          "number": "35",
+          "title": "",
+          "page": 18,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+          "excerpt": "35. (1) A complaint, in relation to any goods sold or delivered or agreed to be sold or\ndelivered or any service provided or agreed to be provided, may be filed with a District\nCommission by-\n(a) the consumer,-\n(i) to whom such goods are sold or delivered or agreed to be sold or\ndelivered or such service is provided or agreed to be provided; or\n(ii) who alleges unfair trade practice in respect of such goods or service;\n(b) any recognised consumer association, whether the consumer to whom such\ngoods are sold or delivered or agreed to be sold or delivered or such service is provided\nor agreed to be provided, or who alleges unfair trade practice in respect of such goods\nor service, is a member "
+        },
+        {
+          "id": "src_cpa_2019_89",
+          "act": "Consumer Protection Act, 2019",
+          "unit": "Section",
+          "number": "89",
+          "title": "",
+          "page": 33,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+          "excerpt": "89. Any manufacturer or service provider who causes a false or misleading\nadvertisement to be made which is prejudicial to the interest of consumers shall be punished\nwith imprisonment for a term which may extend to two years and with fine which may extend\nto ten lakh rupees; and for every subsequent offence, be punished with imprisonment for a\nterm which may extend to five years and with fine which may extend to fifty lakh rupees."
+        },
+        {
+          "id": "src_cpa_2019_34",
+          "act": "Consumer Protection Act, 2019",
+          "unit": "Section",
+          "number": "34",
+          "title": "",
+          "page": 17,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+          "excerpt": "34. (1) Subject to the other provisions of this Act, the District Commission shall have\njurisdiction to entertain complaints where the value of the goods or services paid as\nconsideration does not exceed one crore rupees:\nProvided that where the Central Government deems it necessary so to do, it may\nprescribe such other value, as it deems fit.\n(2) A complaint shall be instituted in a District Commission within the local limits of\nwhose jurisdiction,-\n(a) the opposite party or each of the opposite parties, where there are more than\none, at the time of the institution of the complaint, ordinarily resides or carries on\nbusiness or has a branch office or personally works for gain; or\n(b) any of "
+        },
+        {
+          "id": "src_cpa_2019_47_p2",
+          "act": "Consumer Protection Act, 2019",
+          "unit": "Section",
+          "number": "47",
+          "title": "",
+          "page": 23,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+          "excerpt": "that the President or the other members, as the case may be, shall give\nopinion on the point or points so referred within a period of one month from the date of such\nreference.\n(4) A complaint shall be instituted in a State Commission within the limits of whose\njurisdiction,-\n(a) the opposite party or each of the opposite parties, where there are more than\none, at the time of the institution of the complaint, ordinarily resides or carries on\nbusiness or has a branch office or personally works for gain; or\n(b) any of the opposite parties, where there are more than one, at the time of the\ninstitution of the complaint, actually and voluntarily resides, or carries on business or\nhas a branch off"
+        },
+        {
+          "id": "src_cpa_2019_20",
+          "act": "Consumer Protection Act, 2019",
+          "unit": "Section",
+          "number": "20",
+          "title": "",
+          "page": 14,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+          "excerpt": "20. Where the Central Authority is satisfied on the basis of investigation that there is\nsufficient evidence to show violation of consumer rights or unfair trade practice by a person,\nit may pass such order as may be necessary, including-\n(a) recalling of goods or withdrawal of services which are dangerous, hazardous\nor unsafe;\n(b) reimbursement of the prices of goods or services so recalled to purchasers of\nsuch goods or services; and\n(c) discontinuation of practices which are unfair and prejudicial to consumers'\ninterest:\nProvided that the Central Authority shall give the person an opportunity of being\nheard before passing an order under this section."
+        },
+        {
+          "id": "src_cpa_2019_84",
+          "act": "Consumer Protection Act, 2019",
+          "unit": "Section",
+          "number": "84",
+          "title": "",
+          "page": 31,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+          "excerpt": "84. (1) A product manufacturer shall be liable in a product liability action, if-\n(a) the product contains a manufacturing defect; or\n(b) the product is defective in design; or\n(c) there is a deviation from manufacturing specifications; or\n(d) the product does not conform to the express warranty; or\n(e) the product fails to contain adequate instructions of correct usage to prevent\nany harm or any warning regarding improper or incorrect usage.\nProcedure for\nmediation.\nSettlement\nthrough\nmediation.\nRecording\nsettlement and\npassing of\norder.\nApplication of\nChapter.\nProduct\nliability\naction.\nLiability of\nproduct\nmanufacturer.\n[PART II-\n(2) A product manufacturer shall be liable in a product liab"
+        }
+      ]
+    },
+    "assessment": {
+      "where_type": "consumer",
+      "where_you_stand": "You are a consumer who purchased a defective product that arrived with a cracked screen, making you eligible for a full refund of Rs 32,999 under the Consumer Protection Act [KB:cpa_consumer_def]. Having your order invoice and pickup receipt gives you strong initial proof of the purchase and return. However, your case would be even stronger with customer care chat transcripts or complaint reference numbers [KB:ecom_grievance_officer]. Since the return was completed recently on September 5, 2026, you are well within the standard 2-year time limit to pursue a consumer complaint [KB:cpa_limitation].",
+      "options": [
+        {
+          "step": 1,
+          "title": "Contact E-commerce Grievance Officer",
+          "what_to_do": "Write a formal email to the platform's grievance officer demanding your refund of Rs 32,999, attaching your order invoice and pickup receipt.",
+          "time": "1-2 days",
+          "cost": "free",
+          "needs": [
+            "order invoice",
+            "pickup receipt"
+          ],
+          "kb_refs": [
+            "KB:ecom_grievance_officer"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "File a complaint on National Consumer Helpline [KB:forum_nch]",
+          "what_to_do": "Call 1915 or file your grievance online at consumerhelpline.gov.in to get pre-litigation mediation help.",
+          "time": "1-2 weeks",
+          "cost": "free",
+          "needs": [
+            "order invoice",
+            "pickup receipt"
+          ],
+          "kb_refs": [
+            "KB:forum_nch"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "File a Consumer Commission Complaint",
+          "what_to_do": "File a complaint online through the e-Jagriti [KB:forum_ejagriti] portal if the company fails to refund your money.",
+          "time": "1-3 months",
+          "cost": "free",
+          "needs": [
+            "order invoice",
+            "pickup receipt",
+            "written complaint copy"
+          ],
+          "kb_refs": [
+            "KB:cpa_fee_nil_5lakh",
+            "KB:forum_ejagriti",
+            "KB:src_cpa_2019_35"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Check your email and SMS for any return confirmation messages or ticket numbers from customer care.",
+        "If you chatted with support previously, take screenshots of those conversations to use as proof."
+      ],
+      "what_i_dont_know": [
+        "Whether the e-commerce platform's internal warehouse team has already processed or rejected the return.",
+        "The exact name of the e-commerce platform and their specific refund policies."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "You can handle the initial grievance steps and consumer helpline complaints yourself without a lawyer, especially since no court case has been filed yet.",
+      "reply": "As a consumer who returned a damaged phone worth Rs 32,999, you have a strong right to a full refund [KB:cpa_consumer_def]. Because you have your order invoice and pickup receipt, you already possess key proof of the transaction and return. E-commerce platforms are required to resolve grievances within a specific timeframe once notified in writing [KB:ecom_grievance_officer]. Since your refund is delayed, your best first step is to write directly to the platform's grievance officer or file a free complaint with the National Consumer Helpline [KB:forum_nch]. If that does not work, you can file a complaint online on the e-Jagriti portal without paying any court fee for claims under Rs 5 lakh [KB:cpa_fee_nil_5lakh] [KB:forum_ejagriti]. Do you have any complaint reference numbers or chat transcripts from when you previously spoke with customer care?"
+    },
+    "assessment_raw": {
+      "where_type": "consumer",
+      "where_you_stand": "You are a consumer who purchased a defective product that arrived with a cracked screen, making you eligible for a full refund of Rs 32,999 under the Consumer Protection Act [KB:cpa_consumer_def]. Having your order invoice and pickup receipt gives you strong initial proof of the purchase and return. However, your case would be even stronger with customer care chat transcripts or complaint reference numbers [KB:ecom_grievance_officer]. Since the return was completed recently on September 5, 2026, you are well within the standard 2-year time limit to pursue a consumer complaint [KB:cpa_limitation].",
+      "options": [
+        {
+          "step": 1,
+          "title": "Contact E-commerce Grievance Officer",
+          "what_to_do": "Write a formal email to the platform's grievance officer demanding your refund of Rs 32,999, attaching your order invoice and pickup receipt.",
+          "time": "1-2 days",
+          "cost": "free",
+          "needs": [
+            "order invoice",
+            "pickup receipt"
+          ],
+          "kb_refs": [
+            "KB:ecom_grievance_officer"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "File a complaint on National Consumer Helpline",
+          "what_to_do": "Call 1915 or file your grievance online at consumerhelpline.gov.in to get pre-litigation mediation help.",
+          "time": "1-2 weeks",
+          "cost": "free",
+          "needs": [
+            "order invoice",
+            "pickup receipt"
+          ],
+          "kb_refs": [
+            "KB:forum_nch"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "File a Consumer Commission Complaint",
+          "what_to_do": "File a complaint online through the e-Jagriti portal if the company fails to refund your money.",
+          "time": "1-3 months",
+          "cost": "free",
+          "needs": [
+            "order invoice",
+            "pickup receipt",
+            "written complaint copy"
+          ],
+          "kb_refs": [
+            "KB:cpa_fee_nil_5lakh",
+            "KB:forum_ejagriti",
+            "KB:src_cpa_2019_35"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Check your email and SMS for any return confirmation messages or ticket numbers from customer care.",
+        "If you chatted with support previously, take screenshots of those conversations to use as proof."
+      ],
+      "what_i_dont_know": [
+        "Whether the e-commerce platform's internal warehouse team has already processed or rejected the return.",
+        "The exact name of the e-commerce platform and their specific refund policies."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "You can handle the initial grievance steps and consumer helpline complaints yourself without a lawyer, especially since no court case has been filed yet.",
+      "reply": "As a consumer who returned a damaged phone worth Rs 32,999, you have a strong right to a full refund [KB:cpa_consumer_def]. Because you have your order invoice and pickup receipt, you already possess key proof of the transaction and return. E-commerce platforms are required to resolve grievances within a specific timeframe once notified in writing [KB:ecom_grievance_officer]. Since your refund is delayed, your best first step is to write directly to the platform's grievance officer or file a free complaint with the National Consumer Helpline [KB:forum_nch]. If that does not work, you can file a complaint online on the e-Jagriti portal without paying any court fee for claims under Rs 5 lakh [KB:cpa_fee_nil_5lakh, KB:forum_ejagriti]. Do you have any complaint reference numbers or chat transcripts from when you previously spoke with customer care?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "cpa_consumer_def",
+        "cpa_fee_nil_5lakh",
+        "cpa_limitation",
+        "ecom_grievance_officer",
+        "forum_ejagriti",
+        "forum_nch"
+      ],
+      "support_check": {
+        "checked": 0,
+        "unsupported": []
+      }
+    },
+    "draft": {
+      "doc_type": "consumer_complaint",
+      "draft": {
+        "title": "Consumer Complaint before the District Consumer Disputes Redressal Commission, Hyderabad",
+        "body": "BEFORE THE DISTRICT CONSUMER DISPUTES REDRESSAL COMMISSION, HYDERABAD, TELANGANA\n\nConsumer Complaint No. [Insert Year if any, or leave blank]/2026\n\nIN THE MATTER OF:\n[Your Name]\n[Your Address]\nHyderabad, Telangana - [PIN Code]\n...Complainant\n\nVERSUS\n\n[Name of E-Commerce Company]\n[Address of E-Commerce Company / Corporate Office]\n...Opposite Party\n\nCOMPLAINT UNDER SECTION 35 OF THE CONSUMER PROTECTION ACT, 2019 [KB:src_cpa_2019_35]\n\nMOST RESPECTFULLY SHOWETH:\n\n1. That the Complainant is an ordinary resident of Hyderabad, Telangana, and falls within the definition of a \"consumer\" under Section 2(7) of the Consumer Protection Act, 2019 [KB:cpa_consumer_def], having purchased goods for consideration from the Opposite Party.\n\n2. That on 2026-09-02, the Complainant ordered a phone worth Rs 32,999 on the e-commerce site of the Opposite Party, vide order invoice [mention order number if available].\n\n3. That upon delivery, the said phone arrived with a cracked screen, rendering it defective and unusable.\n\n4. That the Complainant promptly initiated a return through the platform, and the defective phone was picked up by the Opposite Party's logistics partner on 2026-09-05, as evidenced by the pickup receipt.\n\n5. That despite the successful return and passage of the stipulated time frame, the Opposite Party has failed to process the refund of Rs 32,999. Customer care has delayed the matter indefinitely under the pretext that it takes 7-10 days, amounting to a deficiency in service and unfair trade practice under Section 2(11) and Section 2(47) of the Consumer Protection Act, 2019 [KB:cpa_consumer_def].\n\n6. That the cause of action arose continuously starting from 2026-09-02 when the order was placed, on 2026-09-05 when the defective product was returned, and persists daily as the refund remains unpaid. The complaint is being filed well within the two-year limitation period under Section 69 of the Consumer Protection Act, 2019 [KB:cpa_limitation].\n\n7. That this Commission has territorial and pecuniary jurisdiction to entertain this complaint under Section 34 of the Consumer Protection Act, 2019 [KB:src_cpa_2019_34], as the Opposite Party carries on business within Hyderabad and the value of the goods paid as consideration does not exceed one crore rupees.\n\nPRAYER\n\nIn light of the facts mentioned above, the Complainant prays that this Hon'ble Commission may be pleased to:\n\na) Direct the Opposite Party to refund the principal amount of Rs 32,999 to the Complainant;\n\nb) Award appropriate compensation for mental agony and harassment, along with litigation costs, as this Hon'ble Commission deems fit.\n\nLIST OF DOCUMENTS TO ATTACH:\n1. Copy of the order invoice dated 2026-09-02\n2. Copy of the pickup receipt dated 2026-09-05\n3. Any customer care chat transcripts or complaint reference numbers [if available]\n\nVERIFICATION\n\nI, [Your Name], the Complainant above named, do hereby verify that the contents of paragraphs 1 to 7 are true to my personal knowledge and belief, and no part of it is false and nothing material has been concealed therein.\n\nVerified at Hyderabad on this [date] day of [month], 2026.\n\n[Your Signature]\n[Your Name]",
+        "explain_in_user_language": "This document is a formal consumer complaint drafted for the District Consumer Disputes Redressal Commission in Hyderabad under the Consumer Protection Act, 2019. It details how you ordered a phone, received a damaged product, returned it successfully, but failed to get your refund of Rs 32,999 despite customer care delays. It requests the Commission to order the e-commerce company to refund your money along with compensation and costs. After filling in all the bracketed placeholders and attaching your proofs, you can file this complaint online through the e-Jagriti portal or physically at your local District Commission.",
+        "attach_checklist": [
+          "Copy of the order invoice dated 2026-09-02",
+          "Copy of the pickup receipt dated 2026-09-05",
+          "Customer care chat transcripts or complaint reference numbers (if available)",
+          "Valid ID proof of the complainant"
+        ],
+        "placeholders_to_fill": [
+          "[Insert Year if any, or leave blank]",
+          "[Your Name]",
+          "[Your Address]",
+          "[PIN Code]",
+          "[Name of E-Commerce Company]",
+          "[Address of E-Commerce Company / Corporate Office]",
+          "[mention order number if available]",
+          "[if available]",
+          "[date]",
+          "[month]",
+          "[Your Signature]"
+        ]
+      },
+      "draft_raw": {
+        "title": "Consumer Complaint before the District Consumer Disputes Redressal Commission, Hyderabad",
+        "body": "BEFORE THE DISTRICT CONSUMER DISPUTES REDRESSAL COMMISSION, HYDERABAD, TELANGANA\n\nConsumer Complaint No. [Insert Year if any, or leave blank]/2026\n\nIN THE MATTER OF:\n[Your Name]\n[Your Address]\nHyderabad, Telangana - [PIN Code]\n...Complainant\n\nVERSUS\n\n[Name of E-Commerce Company]\n[Address of E-Commerce Company / Corporate Office]\n...Opposite Party\n\nCOMPLAINT UNDER SECTION 35 OF THE CONSUMER PROTECTION ACT, 2019 [KB:src_cpa_2019_35]\n\nMOST RESPECTFULLY SHOWETH:\n\n1. That the Complainant is an ordinary resident of Hyderabad, Telangana, and falls within the definition of a \"consumer\" under Section 2(7) of the Consumer Protection Act, 2019 [KB:cpa_consumer_def], having purchased goods for consideration from the Opposite Party.\n\n2. That on 2026-09-02, the Complainant ordered a phone worth Rs 32,999 on the e-commerce site of the Opposite Party, vide order invoice [mention order number if available].\n\n3. That upon delivery, the said phone arrived with a cracked screen, rendering it defective and unusable.\n\n4. That the Complainant promptly initiated a return through the platform, and the defective phone was picked up by the Opposite Party's logistics partner on 2026-09-05, as evidenced by the pickup receipt.\n\n5. That despite the successful return and passage of the stipulated time frame, the Opposite Party has failed to process the refund of Rs 32,999. Customer care has delayed the matter indefinitely under the pretext that it takes 7-10 days, amounting to a deficiency in service and unfair trade practice under Section 2(11) and Section 2(47) of the Consumer Protection Act, 2019 [KB:cpa_consumer_def].\n\n6. That the cause of action arose continuously starting from 2026-09-02 when the order was placed, on 2026-09-05 when the defective product was returned, and persists daily as the refund remains unpaid. The complaint is being filed well within the two-year limitation period under Section 69 of the Consumer Protection Act, 2019 [KB:cpa_limitation].\n\n7. That this Commission has territorial and pecuniary jurisdiction to entertain this complaint under Section 34 of the Consumer Protection Act, 2019 [KB:src_cpa_2019_34], as the Opposite Party carries on business within Hyderabad and the value of the goods paid as consideration does not exceed one crore rupees.\n\nPRAYER\n\nIn light of the facts mentioned above, the Complainant prays that this Hon'ble Commission may be pleased to:\n\na) Direct the Opposite Party to refund the principal amount of Rs 32,999 to the Complainant;\n\nb) Award appropriate compensation for mental agony and harassment, along with litigation costs, as this Hon'ble Commission deems fit.\n\nLIST OF DOCUMENTS TO ATTACH:\n1. Copy of the order invoice dated 2026-09-02\n2. Copy of the pickup receipt dated 2026-09-05\n3. Any customer care chat transcripts or complaint reference numbers [if available]\n\nVERIFICATION\n\nI, [Your Name], the Complainant above named, do hereby verify that the contents of paragraphs 1 to 7 are true to my personal knowledge and belief, and no part of it is false and nothing material has been concealed therein.\n\nVerified at Hyderabad on this [date] day of [month], 2026.\n\n[Your Signature]\n[Your Name]",
+        "explain_in_user_language": "This document is a formal consumer complaint drafted for the District Consumer Disputes Redressal Commission in Hyderabad under the Consumer Protection Act, 2019. It details how you ordered a phone, received a damaged product, returned it successfully, but failed to get your refund of Rs 32,999 despite customer care delays. It requests the Commission to order the e-commerce company to refund your money along with compensation and costs. After filling in all the bracketed placeholders and attaching your proofs, you can file this complaint online through the e-Jagriti portal or physically at your local District Commission.",
+        "attach_checklist": [
+          "Copy of the order invoice dated 2026-09-02",
+          "Copy of the pickup receipt dated 2026-09-05",
+          "Customer care chat transcripts or complaint reference numbers (if available)",
+          "Valid ID proof of the complainant"
+        ],
+        "placeholders_to_fill": [
+          "[Insert Year if any, or leave blank]",
+          "[Your Name]",
+          "[Your Address]",
+          "[PIN Code]",
+          "[Name of E-Commerce Company]",
+          "[Address of E-Commerce Company / Corporate Office]",
+          "[mention order number if available]",
+          "[if available]",
+          "[date]",
+          "[month]",
+          "[Your Signature]"
+        ]
+      },
+      "guardrail_report": {
+        "removed_count": 0,
+        "items": [],
+        "kb_cited": [
+          "cpa_consumer_def",
+          "cpa_limitation",
+          "src_cpa_2019_34",
+          "src_cpa_2019_35"
+        ]
+      }
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "con01_ecom_refund",
+    "secs": 10.0,
+    "prompt_tokens": 9072,
+    "completion_tokens": 2715,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 6,
+    "rag_hits": 8,
+    "official_text_citations": 0,
+    "unsupported_citations_dropped": 0,
+    "amounts_ok": "1/1",
+    "amounts_frac": 1.0
+  }
+}

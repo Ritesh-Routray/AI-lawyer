@@ -1,0 +1,199 @@
+{
+  "input": {
+    "id": "sal02_fnf_delay",
+    "story": "I resigned from an IT company in Gurgaon, last working day 15 Sept 2026. My full and final settlement of about 1,10,000 (last month salary + leave encashment) is still not paid. HR says F&F takes 90 days as per policy.\n",
+    "expected": {
+      "problem_type": "salary",
+      "escalate": false,
+      "script": "latin"
+    }
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "I resigned from an IT company in Gurgaon, last working day 15 Sept 2026. My full and final settlement of about 1,10,000 (last month salary + leave encashment) is still not paid. HR says F&F takes 90 days as per policy.",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "salary",
+      "problem_subtype": "unpaid full and final settlement",
+      "user_language": "English",
+      "state": "Haryana",
+      "city": "Gurgaon",
+      "summary": "The user resigned from an IT company in Gurgaon with their last working day on September 15, 2026. The employer has not paid their full and final settlement amounting to approximately 1,10,000, citing a 90-day company policy.",
+      "user_goal": "Get the full and final settlement amount paid by the employer",
+      "user_role": "employee",
+      "other_party": {
+        "name": null,
+        "type": "employer"
+      },
+      "timeline": [
+        {
+          "date": "2026-09-15",
+          "event": "Last working day at the IT company",
+          "proof": null
+        }
+      ],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": 110000,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [],
+      "evidence_missing": [
+        "offer letter",
+        "resignation email/acceptance",
+        "payslips",
+        "full and final calculation sheet"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": "HR stated F&F takes 90 days as per policy"
+      },
+      "follow_up_questions": [
+        "Do you have a copy of your employment offer letter or resignation acceptance email?",
+        "Did HR share any written breakdown or confirmation of the 1,10,000 F&F amount?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [
+        "Other dues (leave encashment, reimbursements, etc.): Rs 110,000",
+        "Amount to claim: Rs 110,000"
+      ],
+      "total": 110000.0,
+      "notes": [
+        "Check your offer letter/payslips for the exact gross vs in-hand salary. Gratuity, if any, has separate rules - ask a lawyer.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "ica_s73",
+      "cow_s17",
+      "cow_s45",
+      "lsa_s12_legal_aid"
+    ],
+    "assessment": {
+      "where_you_stand": "You resigned from your IT company in Gurgaon on September 15, 2026, and are owed approximately Rs 110,000 in full and final settlement. The employer claims a 90-day policy, but under the law, wages due upon resignation should ideally be cleared quickly [KB:cow_s17]. Your main strength is the clear employment record, though your position is currently weakened by missing documents like your offer letter, resignation email, and payslips. You have up to 3 years to file a formal claim before the labour authority if the company refuses to pay [KB:cow_s45].",
+      "options": [
+        {
+          "step": 1,
+          "title": "Send a written email reminder to HR",
+          "what_to_do": "Write a polite email to HR and management asking for the written calculation sheet and the exact date when the Rs 110,000 will be credited.",
+          "time": "1-2 days",
+          "cost": "free",
+          "needs": [
+            "email draft"
+          ],
+          "kb_refs": [
+            "cow_s17"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "File a complaint at the Labour Department",
+          "what_to_do": "If the company fails to pay after reminders, you can file a claim for unpaid wages before the appointed labour authority under the Code on Wages [KB:cow_s45].",
+          "time": "1-3 months",
+          "cost": "low",
+          "needs": [
+            "offer letter",
+            "payslips",
+            "resignation email",
+            "calculation sheet"
+          ],
+          "kb_refs": [
+            "cow_s45"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Download your resignation email and acceptance from your personal email archive.",
+        "Take screenshots of any WhatsApp chats or email threads where HR mentions the Rs 110,000 amount or the 90-day policy.",
+        "Request your salary slips and offer letter from your personal backups or former colleagues."
+      ],
+      "what_i_dont_know": [
+        "Whether your employment contract has a legally enforceable clause regarding a 90-day settlement window.",
+        "The exact breakdown of the Rs 110,000 (whether it includes notice pay, leave encashment, or bonus)."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "A lawyer is not needed right now because you can first request the dues in writing and approach the Labour Department yourself if needed. A lawyer would only be necessary if the company initiates legal proceedings or refuses outright after formal complaints.",
+      "reply": "Hello! Based on your situation, your employer in Gurgaon owes you approximately Rs 110,000 for your full and final settlement. While HR claims a 90-day policy, wage laws require prompt clearance of dues upon resignation [KB:cow_s17]. Your main challenge right now is that you are missing key documents like your offer letter, resignation email, and payslips, which you will need to gather. Your first step is to send a polite written email to HR requesting a clear calculation sheet and the exact payment date. If they fail to pay, you have up to 3 years to file a claim with the Labour Department [KB:cow_s45]. Do you currently have copies of your resignation acceptance email or any written confirmation of the Rs 110,000 amount from HR?"
+    },
+    "assessment_raw": {
+      "where_you_stand": "You resigned from your IT company in Gurgaon on September 15, 2026, and are owed approximately Rs 110,000 in full and final settlement. The employer claims a 90-day policy, but under the law, wages due upon resignation should ideally be cleared quickly [KB:cow_s17]. Your main strength is the clear employment record, though your position is currently weakened by missing documents like your offer letter, resignation email, and payslips. You have up to 3 years to file a formal claim before the labour authority if the company refuses to pay [KB:cow_s45].",
+      "options": [
+        {
+          "step": 1,
+          "title": "Send a written email reminder to HR",
+          "what_to_do": "Write a polite email to HR and management asking for the written calculation sheet and the exact date when the Rs 110,000 will be credited.",
+          "time": "1-2 days",
+          "cost": "free",
+          "needs": [
+            "email draft"
+          ],
+          "kb_refs": [
+            "cow_s17"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "File a complaint at the Labour Department",
+          "what_to_do": "If the company fails to pay after reminders, you can file a claim for unpaid wages before the appointed labour authority under the Code on Wages [KB:cow_s45].",
+          "time": "1-3 months",
+          "cost": "low",
+          "needs": [
+            "offer letter",
+            "payslips",
+            "resignation email",
+            "calculation sheet"
+          ],
+          "kb_refs": [
+            "cow_s45"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Download your resignation email and acceptance from your personal email archive.",
+        "Take screenshots of any WhatsApp chats or email threads where HR mentions the Rs 110,000 amount or the 90-day policy.",
+        "Request your salary slips and offer letter from your personal backups or former colleagues."
+      ],
+      "what_i_dont_know": [
+        "Whether your employment contract has a legally enforceable clause regarding a 90-day settlement window.",
+        "The exact breakdown of the Rs 110,000 (whether it includes notice pay, leave encashment, or bonus)."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "A lawyer is not needed right now because you can first request the dues in writing and approach the Labour Department yourself if needed. A lawyer would only be necessary if the company initiates legal proceedings or refuses outright after formal complaints.",
+      "reply": "Hello! Based on your situation, your employer in Gurgaon owes you approximately Rs 110,000 for your full and final settlement. While HR claims a 90-day policy, wage laws require prompt clearance of dues upon resignation [KB:cow_s17]. Your main challenge right now is that you are missing key documents like your offer letter, resignation email, and payslips, which you will need to gather. Your first step is to send a polite written email to HR requesting a clear calculation sheet and the exact payment date. If they fail to pay, you have up to 3 years to file a claim with the Labour Department [KB:cow_s45]. Do you currently have copies of your resignation acceptance email or any written confirmation of the Rs 110,000 amount from HR?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "cow_s17",
+        "cow_s45"
+      ]
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "sal02_fnf_delay",
+    "secs": 4.7,
+    "prompt_tokens": 3262,
+    "completion_tokens": 1263,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 2,
+    "amounts_ok": "-",
+    "amounts_frac": null
+  }
+}

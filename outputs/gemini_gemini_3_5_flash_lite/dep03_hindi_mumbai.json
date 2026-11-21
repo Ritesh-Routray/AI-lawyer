@@ -1,0 +1,318 @@
+{
+  "input": {
+    "id": "dep03_hindi_mumbai",
+    "story": "मैंने मुंबई में फ्लैट किराए पर लिया था। किराया 25000 और डिपॉजिट 1,00,000 रुपये था। जुलाई 2026 में घर खाली किया। मकान मालिक कहता है नया किरायेदार आएगा तब पैसे देगा। मेरे पास रजिस्टर्ड एग्रीमेंट और बैंक ट्रांसफर की रसीद है।\n",
+    "expected": {
+      "problem_type": "deposit",
+      "escalate": false,
+      "script": "devanagari",
+      "amounts": {
+        "deposit_paid": 100000
+      }
+    }
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "मैंने मुंबई में फ्लैट किराए पर लिया था। किराया 25000 और डिपॉजिट 1,00,000 रुपये था। जुलाई 2026 में घर खाली किया। मकान मालिक कहता है नया किरायेदार आएगा तब पैसे देगा। मेरे पास रजिस्टर्ड एग्रीमेंट और बैंक ट्रांसफर की रसीद है।",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "deposit",
+      "problem_subtype": "landlord refusing to return security deposit after vacating",
+      "user_language": "Hindi written in Devanagari script (not Roman letters), the way the person wrote",
+      "state": "Maharashtra",
+      "city": "Mumbai",
+      "summary": "The user vacated their rented flat in Mumbai in July 2026. The landlord is withholding the 100000 rupees security deposit until a new tenant is found.",
+      "user_goal": "Get the security deposit returned from the landlord",
+      "user_role": "tenant",
+      "other_party": {
+        "name": null,
+        "type": "landlord"
+      },
+      "timeline": [
+        {
+          "date": "2026-07",
+          "event": "Vacated the rented flat",
+          "proof": null
+        }
+      ],
+      "amounts": {
+        "deposit_paid": 100000,
+        "deductions_claimed": null,
+        "monthly_rent": 25000,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [
+        "registered agreement",
+        "bank transfer receipt"
+      ],
+      "evidence_missing": [
+        "move-out inspection photos or handover receipt",
+        "written communication with landlord regarding deposit return"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": null
+      },
+      "follow_up_questions": [
+        "क्या मकान मालिक के साथ डिपॉजिट वापसी को लेकर कोई लिखित बातचीत (WhatsApp या मैसेज) हुई है?",
+        "घर खाली करते समय क्या मकान मालिक ने कोई हैंडओवर रसीद या लिखित दस्तावेज दिया था?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [
+        "Deposit paid: Rs 100,000",
+        "Amount to claim: Rs 100,000"
+      ],
+      "total": 100000.0,
+      "notes": [
+        "Your deposit (Rs 100,000) is more than 2 months' rent (Rs 50,000). The Model Tenancy Act caps it at 2 months, but only in states that adopted it.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "ica_s73",
+      "mta_s11_deposit",
+      "deposit_civil_route",
+      "lsa_s12_legal_aid",
+      "src_mta_2021_23",
+      "src_mta_2021_11",
+      "src_mta_2021_10",
+      "src_mta_2021_15_p2",
+      "src_mta_2021_14",
+      "src_mta_2021_20",
+      "src_mta_2021_28"
+    ],
+    "retrieval": {
+      "mode": "hybrid (BM25 + dense) + anchor queries",
+      "query": "landlord refusing to return security deposit after vacating The user vacated their rented flat in Mumbai in July 2026. The landlord is withholding the 100000 rupees security deposit until a new tenant is found. Get the security deposit returned from the landlord",
+      "hits": [
+        {
+          "id": "src_mta_2021_23",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "23",
+          "title": "",
+          "page": 18,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": "23. Where the tenant fails to vacate the premises let out on rent in\naccordance with the tenancy agreement on the expiration of the\nperiod of tenancy or termination of tenancy by an order or notice\nunder the provisions of this Act, such tenant shall be liable to pay the\nlandlord ––\n(a) twice the monthly rent for the first two months; and\n(b) four times the monthly rent thereafter till the tenant continues to\noccupy the said premises.\nEnhancement of\nrent  in case of\nrefusal by tenant\nto vacate."
+        },
+        {
+          "id": "src_mta_2021_11",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "11",
+          "title": "",
+          "page": 11,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": "11. (1) The security deposit to be paid by the tenant in advance shall\nbe such as may be agreed upon between the landlord and the tenant\nin the tenancy agreement, which shall ––\nRestriction on\nsub-letting.\nRent payable.\nRevision of rent.\nRent Authority to\ndetermine the\nrevised rent in\ncase of dispute.\nSecurity deposit.\n(a)   not exceed two months rent, in case of residential premises;\nand\n(b) not exceed six months rent, in case of non-residential\npremises.\n(2) The security deposit shall be refunded to the tenant on the date of\ntaking over vacant possession of the premises from the tenant, after\nmaking due deduction of any liability of the tenant.\nCHAPTER IV\nRIGHTS AND OBLIGATIONS OF LANDLORD"
+        },
+        {
+          "id": "src_mta_2021_10",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "10",
+          "title": "",
+          "page": 11,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": "10. In case of any dispute between landlord and tenant regarding\nrevision of rent, the Rent Authority may, on an application made by\nthe landlord or tenant, determine the revised rent and other charges\npayable by the tenant and also fix the date from which such revised\nrent becomes payable."
+        },
+        {
+          "id": "src_mta_2021_15_p2",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "15",
+          "title": "",
+          "page": 13,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": ", subject to the provisions of this section, to be inhabitable:\nProvided that where the rented premises becomes uninhabitable\nas specified in sub-section (5) or this sub-section and the landlord\nfails to carry out the required repairs to make it inhabitable or the said\npremises could not be made inhabitable, then, the security deposit\nand advance rent shall be refunded by the landlord to the tenant\nwithin a period of fifteen days of the expiry of the notice period, after\nmaking due deduction of liability of the tenant, if any.\nExplanation.–– For the purposes of this section, “force\nmajeure” means a situation of war, flood, drought, fire, cyclone,\nearthquake or any other calamity caused by na"
+        },
+        {
+          "id": "src_mta_2021_14",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "14",
+          "title": "",
+          "page": 12,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": "14. (1) Where the landlord refuses to accept any rent and other\ncharges payable or refuses to give a receipt, the rent and other\ncharges shall be paid to the landlord by postal money order or any\nother method, in such manner as may be prescribed, consecutively\nfor two months, and if the landlord refuses to accept the rent and\nother charges within such period, then the tenant may deposit the\nsame with the Rent Authority in such manner as may be prescribed.\n(2)  Where the tenant is unable to decide to whom the rent is payable\nduring the period of  tenancy agreement, the tenant may, in such\ncase, deposit the rent with the Rent Authority in such manner as may\nbe prescribed.\n(3) Where the rent is"
+        },
+        {
+          "id": "src_mta_2021_20",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "20",
+          "title": "",
+          "page": 15,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": "20. (1) No landlord or property manager shall, either by himself or\nthrough any other person, withhold any essential supply or service in\nthe premises occupied by the tenant.\n(2) In case of contravention of provisions of sub-section (1) and on\napplication made by the tenant in this behalf, the Rent Authority after\nWithholding\nessential\nsupply or\nservice.\nexamining the matter, may pass an interim order directing the\nrestoration of supply of essential services immediately on service of\nsuch order upon the landlord or property manager, as the case may\nbe, pending the inquiry referred to in sub-section (3).\n(3) The Rent Authority shall conduct an enquiry in respect of the\napplication made by the"
+        },
+        {
+          "id": "src_mta_2021_28",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "28",
+          "title": "",
+          "page": 20,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": "28. Notwithstanding anything contained in any other law for the time\nbeing in force, where the interest, of a landlord or in case of death of\nthe landlord, of his legal heirs in any premises is determined for any\nreason whatsoever and any order is made by the Rent Court under\nthis Act for the recovery of possession of such premises, such order\nshall, subject to the provisions of sub-section (3) of section 21, be\nbinding on all occupants who may be in occupation of the premises\nand vacant possession thereof shall be given by all such occupants\nto the landlord or to the legal heirs of the landlord.\nVacant\npossession\nto landlord."
+        }
+      ]
+    },
+    "assessment": {
+      "where_you_stand": "आपकी स्थिति यह है कि आपने मुंबई में जुलाई 2026 में अपना किराए का मकान खाली कर दिया था और आपका 100,000 रुपये का सिक्योरिटी डिपॉजिट मकान मालिक के पास बकाया है। मकान मालिक का यह कहना कि नया tenant मिलने पर पैसे देंगे, कानूनन सही नहीं है क्योंकि मकान खाली करते ही डिपॉजिट वापस मिलना चाहिए [KB:src_mta_2021_11]। आपके पास रजिस्टर्ड एग्रीमेंट और बैंक ट्रांसफर रसीद जैसी मजबूत proof हैं, लेकिन मकान खाली करते समय की तस्वीरें या लिखित बातचीत की कमी थोड़ी कमजोरी है। आप मकान मालिक को लिखित नोटिस दे सकते हैं और अगर वे नहीं मानते हैं तो सिविल कोर्ट या रेंट अथॉरिटी का रुख कर सकते हैं [KB:deposit_civil_route]।",
+      "options": [
+        {
+          "step": 1,
+          "title": "लिखित मांग (Written Demand)",
+          "what_to_do": "मकान मालिक को व्हाट्सएप या ईमेल पर लिखित रूप से अपना डिपॉजिट तुरंत वापस करने के लिए कहें और एग्रीमेंट का हवाला दें।",
+          "time": "1-2 दिन",
+          "cost": "free",
+          "needs": [
+            "रजिस्टर्ड एग्रीमेंट",
+            "बैंक ट्रांसफर रसीद"
+          ],
+          "kb_refs": [
+            "KB:src_mta_2021_11",
+            "KB:deposit_civil_route"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "वकील का कानूनी नोटिस (Legal Notice)",
+          "what_to_do": "यदि मकान मालिक पैसे देने से मना करे, तो किसी वकील के जरिए आधिकारिक कानूनी नोटिस भेजें।",
+          "time": "1 हफ्ते",
+          "cost": "low",
+          "needs": [
+            "रजिस्टर्ड एग्रीमेंट",
+            "बैंक रसीद"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route",
+            "KB:ica_s73"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "सिविल कोर्ट या रेंट अथॉरिटी में मामला दर्ज करना",
+          "what_to_do": "नोटिस का जवाब न मिलने पर सिविल कोर्ट में रिकवरी का मुकदमा दायर करें।",
+          "time": "कुछ महीने",
+          "cost": "court fee",
+          "needs": [
+            "एग्रीमेंट",
+            "रसीद",
+            "नोटिस की कॉपी"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "मकान मालिक से व्हाट्सएप पर स्पष्ट रूप से बात करें और चैट में डिपॉजिट की रकम का जिक्र करें ताकि आपके पास लिखित सबूत हो सके।"
+      ],
+      "what_i_dont_know": [
+        "क्या मकान मालिक ने घर में किसी नुकसान के नाम पर कटौती का दावा किया है?",
+        "क्या महाराष्ट्र सरकार ने मॉडल टेनेंसी एक्ट के इस प्रावधान को पूरी तरह से लागू किया है?"
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "फिलहाल यह पैसों की रिकवरी का साधारण मामला है और आप खुद लिखित मांग या नोटिस से शुरुआत कर सकते हैं। कोर्ट जाने या कानूनी नोटिस भेजने के समय वकील की जरूरत पड़ेगी।",
+      "reply": "नमस्ते! आपका मामला मुंबई में मकान मालिक द्वारा 100,000 रुपये का सिक्योरिटी डिपॉजिट न लौटाने से जुड़ा है। मकान मालिक का यह कहना कि 'नया tenant मिलने पर पैसे देंगे' कानूनन गलत है, क्योंकि मकान खाली करते ही डिपॉजिट वापस मिलना नियम है [KB:src_mta_2021_11]। आपके पास रजिस्टर्ड एग्रीमेंट और बैंक रसीद जैसे अच्छे सबूत हैं। आप सबसे पहले मकान मालिक को व्हाट्सएप या लिखित संदेश भेजकर अपने पैसे तुरंत वापस मांगें [KB:deposit_civil_route]। अगर वे फिर भी न मानें, तो हम कानूनी नोटिस या सिविल कोर्ट के रास्ते जा सकते हैं। क्या मकान मालिक के साथ डिपॉजिट वापसी को लेकर आपकी पहले कोई लिखित बातचीत (WhatsApp या मैसेज) हुई है?"
+    },
+    "assessment_raw": {
+      "where_you_stand": "आपकी स्थिति यह है कि आपने मुंबई में जुलाई 2026 में अपना किराए का मकान खाली कर दिया था और आपका 100,000 रुपये का सिक्योरिटी डिपॉजिट मकान मालिक के पास बकाया है। मकान मालिक का यह कहना कि नया tenant मिलने पर पैसे देंगे, कानूनन सही नहीं है क्योंकि मकान खाली करते ही डिपॉजिट वापस मिलना चाहिए [KB:src_mta_2021_11]। आपके पास रजिस्टर्ड एग्रीमेंट और बैंक ट्रांसफर रसीद जैसी मजबूत proof हैं, लेकिन मकान खाली करते समय की तस्वीरें या लिखित बातचीत की कमी थोड़ी कमजोरी है। आप मकान मालिक को लिखित नोटिस दे सकते हैं और अगर वे नहीं मानते हैं तो सिविल कोर्ट या रेंट अथॉरिटी का रुख कर सकते हैं [KB:deposit_civil_route]।",
+      "options": [
+        {
+          "step": 1,
+          "title": "लिखित मांग (Written Demand)",
+          "what_to_do": "मकान मालिक को व्हाट्सएप या ईमेल पर लिखित रूप से अपना डिपॉजिट तुरंत वापस करने के लिए कहें और एग्रीमेंट का हवाला दें।",
+          "time": "1-2 दिन",
+          "cost": "free",
+          "needs": [
+            "रजिस्टर्ड एग्रीमेंट",
+            "बैंक ट्रांसफर रसीद"
+          ],
+          "kb_refs": [
+            "KB:src_mta_2021_11",
+            "KB:deposit_civil_route"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "वकील का कानूनी नोटिस (Legal Notice)",
+          "what_to_do": "यदि मकान मालिक पैसे देने से मना करे, तो किसी वकील के जरिए आधिकारिक कानूनी नोटिस भेजें।",
+          "time": "1 हफ्ते",
+          "cost": "low",
+          "needs": [
+            "रजिस्टर्ड एग्रीमेंट",
+            "बैंक रसीद"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route",
+            "KB:ica_s73"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "सिविल कोर्ट या रेंट अथॉरिटी में मामला दर्ज करना",
+          "what_to_do": "नोटिस का जवाब न मिलने पर सिविल कोर्ट में रिकवरी का मुकदमा दायर करें।",
+          "time": "कुछ महीने",
+          "cost": "court fee",
+          "needs": [
+            "एग्रीमेंट",
+            "रसीद",
+            "नोटिस की कॉपी"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "मकान मालिक से व्हाट्सएप पर स्पष्ट रूप से बात करें और चैट में डिपॉजिट की रकम का जिक्र करें ताकि आपके पास लिखित सबूत हो सके।"
+      ],
+      "what_i_dont_know": [
+        "क्या मकान मालिक ने घर में किसी नुकसान के नाम पर कटौती का दावा किया है?",
+        "क्या महाराष्ट्र सरकार ने मॉडल टेनेंसी एक्ट के इस प्रावधान को पूरी तरह से लागू किया है?"
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "फिलहाल यह पैसों की रिकवरी का साधारण मामला है और आप खुद लिखित मांग या नोटिस से शुरुआत कर सकते हैं। कोर्ट जाने या कानूनी नोटिस भेजने के समय वकील की जरूरत पड़ेगी।",
+      "reply": "नमस्ते! आपका मामला मुंबई में मकान मालिक द्वारा 100,000 रुपये का सिक्योरिटी डिपॉजिट न लौटाने से जुड़ा है। मकान मालिक का यह कहना कि 'नया tenant मिलने पर पैसे देंगे' कानूनन गलत है, क्योंकि मकान खाली करते ही डिपॉजिट वापस मिलना नियम है [KB:src_mta_2021_11]। आपके पास रजिस्टर्ड एग्रीमेंट और बैंक रसीद जैसे अच्छे सबूत हैं। आप सबसे पहले मकान मालिक को व्हाट्सएप या लिखित संदेश भेजकर अपने पैसे तुरंत वापस मांगें [KB:deposit_civil_route]। अगर वे फिर भी न मानें, तो हम कानूनी नोटिस या सिविल कोर्ट के रास्ते जा सकते हैं। क्या मकान मालिक के साथ डिपॉजिट वापसी को लेकर आपकी पहले कोई लिखित बातचीत (WhatsApp या मैसेज) हुई है?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "deposit_civil_route",
+        "src_mta_2021_11"
+      ],
+      "support_check": "not auto-checked (non-English reply; cross-encoder is English-only)"
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "dep03_hindi_mumbai",
+    "secs": 6.2,
+    "prompt_tokens": 4736,
+    "completion_tokens": 1375,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 2,
+    "rag_hits": 7,
+    "official_text_citations": 1,
+    "unsupported_citations_dropped": 0,
+    "amounts_ok": "1/1",
+    "amounts_frac": 1.0
+  }
+}

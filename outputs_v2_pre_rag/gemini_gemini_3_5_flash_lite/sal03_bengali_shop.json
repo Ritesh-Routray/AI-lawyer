@@ -1,0 +1,195 @@
+{
+  "input": {
+    "id": "sal03_bengali_shop",
+    "story": "আমি কলকাতায় একটা দোকানে কাজ করতাম, মাসে ১২০০০ টাকা বেতন। মালিক দুই মাসের বেতন দেয়নি এবং আমাকে কাজ থেকে বের করে দিয়েছে। কোনো লিখিত কাগজ নেই।\n",
+    "expected": {
+      "problem_type": "salary",
+      "escalate": false,
+      "script": "bengali",
+      "amounts": {
+        "monthly_salary": 12000,
+        "months_unpaid": 2
+      }
+    }
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "আমি কলকাতায় একটা দোকানে কাজ করতাম, মাসে ১২০০০ টাকা বেতন। মালিক দুই মাসের বেতন দেয়নি এবং আমাকে কাজ থেকে বের করে দিয়েছে। কোনো লিখিত কাগজ নেই।",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "salary",
+      "problem_subtype": "unpaid salary and termination without notice",
+      "user_language": "Bengali written in Bengali script (not Roman letters), the way the person wrote",
+      "state": "West Bengal",
+      "city": "Kolkata",
+      "summary": "The user worked at a shop in Kolkata with a monthly salary of 12000 rupees. The employer has not paid for two months of work and terminated the user without any written documentation.",
+      "user_goal": "to get the unpaid salary for two months",
+      "user_role": "employee",
+      "other_party": {
+        "name": null,
+        "type": "employer"
+      },
+      "timeline": [
+        {
+          "date": null,
+          "event": "Terminated from work by the employer without paying two months of salary",
+          "proof": null
+        }
+      ],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": 12000,
+        "months_unpaid": 2,
+        "other_dues": null,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [],
+      "evidence_missing": [
+        "appointment letter",
+        "salary slips",
+        "bank statements showing salary payments",
+        "identity card of the shop"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": null
+      },
+      "follow_up_questions": [
+        "মালিকের নাম বা দোকানের নাম কি আপনার মনে আছে?",
+        "শেষ কবে আপনি বেতন পেয়েছিলেন বা কত মাস ধরে কাজ করেছেন?",
+        "আপনার কি কোনো চ্যাট বা অডিও রেকর্ড আছে মালিকের সাথে?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [
+        "Monthly salary Rs 12,000 x 2 unpaid month(s) = Rs 24,000",
+        "Amount to claim: Rs 24,000"
+      ],
+      "total": 24000.0,
+      "notes": [
+        "Check your offer letter/payslips for the exact gross vs in-hand salary. Gratuity, if any, has separate rules - ask a lawyer.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "ica_s73",
+      "cow_s17",
+      "cow_s45",
+      "lsa_s12_legal_aid"
+    ],
+    "assessment": {
+      "where_summary": "আপনার মালিকের কাছে দুই মাসের ১২০০০ টাকা করে মোট ২৪০০০ টাকা বকেয়া রয়েছে [KB:cow_s17]। Code on Wages, 2019 অনুযায়ী কাজ ছাড়ার বা বরখাস্ত হওয়ার ২ দিনের মধ্যে সমস্ত পাওনা টাকা মিটিয়ে দেওয়ার নিয়ম আছে [KB:cow_s17]। আপনার মূল সমস্যা হলো আপনার কাছে কোনো লিখিত নিয়োগপত্র বা বেতন স্লিপ নেই, যা প্রমাণ করা একটু কঠিন হতে পারে। তবে আপনি চাইলে শ্রম দপ্তরে ৩ বছরের মধ্যে অভিযোগ জানাতে পারেন [KB:cow_s45]। চুক্তি ভঙ্গের জন্য আপনি ক্ষতিপূরণও দাবি করতে পারেন [KB:ica_s73]।",
+      "where_you_stand": "আপনার মালিকের কাছে দুই মাসের ১২০০০ টাকা করে মোট ২৪০০০ টাকা বকেয়া রয়েছে [KB:cow_s17]। Code on Wages, 2019 অনুযায়ী কাজ ছাড়ার বা বরখাস্ত হওয়ার ২ দিনের মধ্যে সমস্ত পাওনা টাকা মিটিয়ে দেওয়ার নিয়ম আছে [KB:cow_s17]। আপনার মূল সমস্যা হলো আপনার কাছে কোনো লিখিত নিয়োগপত্র বা বেতন স্লিপ নেই, যা প্রমাণ করা একটু কঠিন হতে পারে। তবে আপনি চাইলে শ্রম দপ্তরে ৩ বছরের মধ্যে অভিযোগ জানাতে পারেন [KB:cow_s45]। চুক্তি ভঙ্গের জন্য আপনি ক্ষতিপূরণও দাবি করতে পারেন [KB:ica_s73]।",
+      "options": [
+        {
+          "step": 1,
+          "title": "মালিকের সাথে সরাসরি কথা বলুন বা মেসেজ করুন",
+          "what_to_do": "মালিককে ফোন করে বা হোয়াটসঅ্যাপে বকেয়া ২৪০০০ টাকা মিটিয়ে দেওয়ার অনুরোধ করুন এবং লিখিতভাবে উত্তর চান।",
+          "time": "১-২ দিন",
+          "cost": "free",
+          "needs": [
+            "মালিকের ফোন নম্বর বা চ্যাট রেকর্ড"
+          ],
+          "kb_refs": [
+            "cow_s17"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "শ্রম দপ্তরে অভিযোগ দায়ের করুন",
+          "what_to_do": "নির্দিষ্ট সরকারি কর্তৃপক্ষের কাছে বকেয়া বেতনের জন্য আবেদন করুন [KB:cow_s45]।",
+          "time": "কয়েক সপ্তাহ",
+          "cost": "low",
+          "needs": [
+            "কাজের প্রমাণ, চ্যাট বা অন্য কোনো সাক্ষী"
+          ],
+          "kb_refs": [
+            "cow_s45"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "মালিককে হোয়াটসঅ্যাপে মেসেজ করে বলুন যে আপনার দুই মাসের বেতন বকেয়া আছে, যাতে তার উত্তরের স্ক্রিনশট প্রমাণ হিসেবে রাখা যায়।"
+      ],
+      "what_i_dont_know": [
+        "মালিকের কাছ থেকে কোনো লিখিত প্রমাণ না থাকায় আদালতে বা দপ্তরে তা প্রমাণ করা কতটা সহজ হবে তা নিশ্চিত নয়।"
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "প্রাথমিক পর্যায়ে আপনি নিজে বা শ্রম দপ্তরের সাহায্যে অভিযোগ করতে পারেন, তাই এখনই আইনজীবীর প্রয়োজন নেই। তবে পরিস্থিতি জটিল হলে বা আইনি নোটিশ পাঠানোর দরকার পড়লে আইনজীবীর সাহায্য নিতে পারেন।",
+      "reply": "আপনার দুই মাসের মোট ২৪০০০ টাকা বেতন বকেয়া রয়েছে, যা মালিকের নিয়ম অনুযায়ী বরখাস্ত হওয়ার ২ দিনের মধ্যে দেওয়ার কথা ছিল [KB:cow_s17]। আপনার কাছে নিয়োগপত্র বা বেতন স্লিপ না থাকায় প্রমাণ জোগাড় করা একটু জরুরি। আপনি চাইলে শ্রম দপ্তরে অভিযোগ জানাতে পারেন [KB:cow_s45]। আপনার কি মালিকের সাথে কথা বলার বা টাকা পাওয়ার কোনো চ্যাট বা অডিও রেকর্ড আছে?"
+    },
+    "assessment_raw": {
+      "where_summary": "আপনার মালিকের কাছে দুই মাসের ১২০০০ টাকা করে মোট ২৪০০০ টাকা বকেয়া রয়েছে [KB:cow_s17]। Code on Wages, 2019 অনুযায়ী কাজ ছাড়ার বা বরখাস্ত হওয়ার ২ দিনের মধ্যে সমস্ত পাওনা টাকা মিটিয়ে দেওয়ার নিয়ম আছে [KB:cow_s17]। আপনার মূল সমস্যা হলো আপনার কাছে কোনো লিখিত নিয়োগপত্র বা বেতন স্লিপ নেই, যা প্রমাণ করা একটু কঠিন হতে পারে। তবে আপনি চাইলে শ্রম দপ্তরে ৩ বছরের মধ্যে অভিযোগ জানাতে পারেন [KB:cow_s45]। চুক্তি ভঙ্গের জন্য আপনি ক্ষতিপূরণও দাবি করতে পারেন [KB:ica_s73]।",
+      "where_you_stand": "আপনার মালিকের কাছে দুই মাসের ১২০০০ টাকা করে মোট ২৪০০০ টাকা বকেয়া রয়েছে [KB:cow_s17]। Code on Wages, 2019 অনুযায়ী কাজ ছাড়ার বা বরখাস্ত হওয়ার ২ দিনের মধ্যে সমস্ত পাওনা টাকা মিটিয়ে দেওয়ার নিয়ম আছে [KB:cow_s17]। আপনার মূল সমস্যা হলো আপনার কাছে কোনো লিখিত নিয়োগপত্র বা বেতন স্লিপ নেই, যা প্রমাণ করা একটু কঠিন হতে পারে। তবে আপনি চাইলে শ্রম দপ্তরে ৩ বছরের মধ্যে অভিযোগ জানাতে পারেন [KB:cow_s45]। চুক্তি ভঙ্গের জন্য আপনি ক্ষতিপূরণও দাবি করতে পারেন [KB:ica_s73]।",
+      "options": [
+        {
+          "step": 1,
+          "title": "মালিকের সাথে সরাসরি কথা বলুন বা মেসেজ করুন",
+          "what_to_do": "মালিককে ফোন করে বা হোয়াটসঅ্যাপে বকেয়া ২৪০০০ টাকা মিটিয়ে দেওয়ার অনুরোধ করুন এবং লিখিতভাবে উত্তর চান।",
+          "time": "১-২ দিন",
+          "cost": "free",
+          "needs": [
+            "মালিকের ফোন নম্বর বা চ্যাট রেকর্ড"
+          ],
+          "kb_refs": [
+            "cow_s17"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "শ্রম দপ্তরে অভিযোগ দায়ের করুন",
+          "what_to_do": "নির্দিষ্ট সরকারি কর্তৃপক্ষের কাছে বকেয়া বেতনের জন্য আবেদন করুন [KB:cow_s45]।",
+          "time": "কয়েক সপ্তাহ",
+          "cost": "low",
+          "needs": [
+            "কাজের প্রমাণ, চ্যাট বা অন্য কোনো সাক্ষী"
+          ],
+          "kb_refs": [
+            "cow_s45"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "মালিককে হোয়াটসঅ্যাপে মেসেজ করে বলুন যে আপনার দুই মাসের বেতন বকেয়া আছে, যাতে তার উত্তরের স্ক্রিনশট প্রমাণ হিসেবে রাখা যায়।"
+      ],
+      "what_i_dont_know": [
+        "মালিকের কাছ থেকে কোনো লিখিত প্রমাণ না থাকায় আদালতে বা দপ্তরে তা প্রমাণ করা কতটা সহজ হবে তা নিশ্চিত নয়।"
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "প্রাথমিক পর্যায়ে আপনি নিজে বা শ্রম দপ্তরের সাহায্যে অভিযোগ করতে পারেন, তাই এখনই আইনজীবীর প্রয়োজন নেই। তবে পরিস্থিতি জটিল হলে বা আইনি নোটিশ পাঠানোর দরকার পড়লে আইনজীবীর সাহায্য নিতে পারেন।",
+      "reply": "আপনার দুই মাসের মোট ২৪০০০ টাকা বেতন বকেয়া রয়েছে, যা মালিকের নিয়ম অনুযায়ী বরখাস্ত হওয়ার ২ দিনের মধ্যে দেওয়ার কথা ছিল [KB:cow_s17]। আপনার কাছে নিয়োগপত্র বা বেতন স্লিপ না থাকায় প্রমাণ জোগাড় করা একটু জরুরি। আপনি চাইলে শ্রম দপ্তরে অভিযোগ জানাতে পারেন [KB:cow_s45]। আপনার কি মালিকের সাথে কথা বলার বা টাকা পাওয়ার কোনো চ্যাট বা অডিও রেকর্ড আছে?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "cow_s17",
+        "cow_s45",
+        "ica_s73"
+      ]
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "sal03_bengali_shop",
+    "secs": 6.2,
+    "prompt_tokens": 3236,
+    "completion_tokens": 1236,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 3,
+    "amounts_ok": "2/2",
+    "amounts_frac": 1.0
+  }
+}

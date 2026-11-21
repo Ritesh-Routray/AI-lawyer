@@ -1,0 +1,291 @@
+{
+  "input": {
+    "id": "dep01_hinglish_deductions",
+    "story": "Maine Bangalore mein 2 saal flat rent pe liya tha, rent 18000 tha aur 60000 deposit diya tha bank transfer se. March 2026 mein flat khali kar diya, keys bhi de di. Ab landlord bol raha hai painting aur cleaning ke 25000 katenge aur baaki bhi abhi nahi de raha, 6 mahine ho gaye. Agreement mere paas hai.\n",
+    "expected": {
+      "problem_type": "deposit",
+      "escalate": false,
+      "script": "latin",
+      "amounts": {
+        "deposit_paid": 60000,
+        "deductions_claimed": 25000
+      }
+    },
+    "draft": "legal_notice"
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "Maine Bangalore mein 2 saal flat rent pe liya tha, rent 18000 tha aur 60000 deposit diya tha bank transfer se. March 2026 mein flat khali kar diya, keys bhi de di. Ab landlord bol raha hai painting aur cleaning ke 25000 katenge aur baaki bhi abhi nahi de raha, 6 mahine ho gaye. Agreement mere paas hai.",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "deposit",
+      "problem_subtype": "landlord withholding security deposit and making deductions for painting and cleaning",
+      "user_language": "Hinglish",
+      "state": "Karnataka",
+      "city": "Bangalore",
+      "summary": "The user rented a flat in Bangalore for 2 years with a monthly rent of 18000 and a security deposit of 60000 paid via bank transfer. They vacated the flat and handed over the keys in March 2026, but 6 months have passed and the landlord is refusing to return the full deposit, claiming a deduction of 25000 for painting and cleaning.",
+      "user_goal": "Get back the full security deposit without unjustified deductions from the landlord",
+      "user_role": "tenant",
+      "other_party": {
+        "name": null,
+        "type": "landlord"
+      },
+      "timeline": [
+        {
+          "date": "2026-03",
+          "event": "Vacated the flat and handed over keys to the landlord",
+          "proof": "keys handed over"
+        }
+      ],
+      "amounts": {
+        "deposit_paid": 60000,
+        "deductions_claimed": 25000,
+        "monthly_rent": 18000,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [
+        "rent agreement",
+        "bank transfer receipt for deposit"
+      ],
+      "evidence_missing": [
+        "photos or videos of flat condition when vacating",
+        "written communication with landlord regarding the deposit"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": null
+      },
+      "follow_up_questions": [
+        "Kya aapke paas deposit transfer ka bank statement hai?",
+        "Kya landlord ke sath chat ya messages mein koi baat hui hai deposit ya painting charges ko lekar?",
+        "Kya flat khali karte waqt ki koi photos ya videos hain aapke paas?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [
+        "Deposit paid: Rs 60,000",
+        "Less deductions the landlord claims: - Rs 25,000",
+        "Amount to claim: Rs 35,000"
+      ],
+      "total": 35000.0,
+      "notes": [
+        "Deductions are only valid for unpaid rent/bills or damage beyond normal wear and tear. Ask the landlord for bills/photos for each deduction; if they can't show any, claim the full Rs 60,000.",
+        "Your deposit (Rs 60,000) is more than 2 months' rent (Rs 36,000). The Model Tenancy Act caps it at 2 months, but only in states that adopted it.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "ica_s73",
+      "mta_s11_deposit",
+      "deposit_civil_route",
+      "lsa_s12_legal_aid"
+    ],
+    "assessment": {
+      "where_type": "deposit",
+      "where_you_stand": "Aapka 60,000 ka deposit landlord ke paas hai aur unhone 25,000 paint aur cleaning ke naam par kaat liya hai, jabki 6 mahine beet chuke hain. Aapke paas rent agreement aur deposit transfer ki bank receipt hai, jo ki strong proof hain. Lekin flat khali karte waqt ki photos ya videos aur landlord ke sath written chat nahi hona aapki thodi weak point hai. Normal wear and tear ke liye deductions nahi ki ja sakti [KB:mta_s11_deposit], aur agreement todne ya deposit na lautane par compensation manga ja sakta hai [KB:ica_s73].",
+      "options": [
+        {
+          "step": 1,
+          "title": "WhatsApp ya Written Message bhejein",
+          "what_to_do": "Landlord ko WhatsApp ya message karke clear puchiye ki 25,000 ka breakdown aur bills kya hain, aur apna bacha hua deposit wapas maangein.",
+          "time": "1-2 din",
+          "cost": "free",
+          "needs": [
+            "rent agreement",
+            "bank transfer receipt"
+          ],
+          "kb_refs": [
+            "KB:mta_s11_deposit"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Formal Written Demand Notice",
+          "what_to_do": "Ek formal written demand notice bhejein jismein clear likha ho ki deduction unjustified hai aur poora paisa wapas kiya jaye.",
+          "time": "1 hafta",
+          "cost": "low",
+          "needs": [
+            "rent agreement",
+            "bank transfer receipt",
+            "previous messages"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route",
+            "KB:ica_s73"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Civil Recovery / Legal Route",
+          "what_to_do": "Agar landlord paise na de, toh civil court ya rent authority mein money recovery ka rasta apna sakte hain.",
+          "time": "Kuch mahine",
+          "cost": "court fee",
+          "needs": [
+            "rent agreement",
+            "bank statement",
+            "written notice copy"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Landlord ko WhatsApp par message karke puchiye ki painting aur cleaning ke bills ya receipts share karein.",
+        "Bank statement ya receipt ko sambhal kar rakhein jisse yeh sabit ho ki aapne 60,000 deposit diya tha."
+      ],
+      "what_i_dont_know": [
+        "Kya Karnataka government ne Model Tenancy Act [KB:mta_s11_deposit] ko poori tarah adopt kiya hai ya nahi.",
+        "Kya flat mein koi sach mein aisi damage thi jo normal wear and tear se zyada ho."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "Abhi koi court case, police matter ya legal notice landlord ki taraf se nahi aaya hai. Aap pehle khud written message ya demand bhej kar koshish kar sakte hain.",
+      "reply": "Hello! Aapne Bangalore mein 2 saal flat rent par rakha aur 60,000 deposit diya tha, jisme se landlord ne 25,000 paint aur cleaning ke naam par rok liya hai. Aapke paas rent agreement aur bank transfer receipt hai, jo ki achha proof hai. Normal wear and tear ke liye landlord deduction nahi kar sakta [KB:mta_s11_deposit], aur agreement ke mutabiq deposit na lautana breach of contract hai [KB:ica_s73]. Aapka pehla kadam yeh hona chahiye ki aap landlord ko WhatsApp ya written message bhejiye aur 25,000 ke kharche ke bills ya receipts maangte hue apna poora deposit wapas maangein. Agar woh jawab na dein toh ek formal demand notice bhejna padega [KB:deposit_civil_route]. Kya landlord ke sath pehle WhatsApp ya phone par deposit ko lekar koi baat hui hai?"
+    },
+    "assessment_raw": {
+      "where_type": "deposit",
+      "where_you_stand": "Aapka 60,000 ka deposit landlord ke paas hai aur unhone 25,000 paint aur cleaning ke naam par kaat liya hai, jabki 6 mahine beet chuke hain. Aapke paas rent agreement aur deposit transfer ki bank receipt hai, jo ki strong proof hain. Lekin flat khali karte waqt ki photos ya videos aur landlord ke sath written chat nahi hona aapki thodi weak point hai. Normal wear and tear ke liye deductions nahi ki ja sakti [KB:mta_s11_deposit], aur agreement todne ya deposit na lautane par compensation manga ja sakta hai [KB:ica_s73].",
+      "options": [
+        {
+          "step": 1,
+          "title": "WhatsApp ya Written Message bhejein",
+          "what_to_do": "Landlord ko WhatsApp ya message karke clear puchiye ki 25,000 ka breakdown aur bills kya hain, aur apna bacha hua deposit wapas maangein.",
+          "time": "1-2 din",
+          "cost": "free",
+          "needs": [
+            "rent agreement",
+            "bank transfer receipt"
+          ],
+          "kb_refs": [
+            "KB:mta_s11_deposit"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Formal Written Demand Notice",
+          "what_to_do": "Ek formal written demand notice bhejein jismein clear likha ho ki deduction unjustified hai aur poora paisa wapas kiya jaye.",
+          "time": "1 hafta",
+          "cost": "low",
+          "needs": [
+            "rent agreement",
+            "bank transfer receipt",
+            "previous messages"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route",
+            "KB:ica_s73"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Civil Recovery / Legal Route",
+          "what_to_do": "Agar landlord paise na de, toh civil court ya rent authority mein money recovery ka rasta apna sakte hain.",
+          "time": "Kuch mahine",
+          "cost": "court fee",
+          "needs": [
+            "rent agreement",
+            "bank statement",
+            "written notice copy"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Landlord ko WhatsApp par message karke puchiye ki painting aur cleaning ke bills ya receipts share karein.",
+        "Bank statement ya receipt ko sambhal kar rakhein jisse yeh sabit ho ki aapne 60,000 deposit diya tha."
+      ],
+      "what_i_dont_know": [
+        "Kya Karnataka government ne Model Tenancy Act ko poori tarah adopt kiya hai ya nahi.",
+        "Kya flat mein koi sach mein aisi damage thi jo normal wear and tear se zyada ho."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "Abhi koi court case, police matter ya legal notice landlord ki taraf se nahi aaya hai. Aap pehle khud written message ya demand bhej kar koshish kar sakte hain.",
+      "reply": "Hello! Aapne Bangalore mein 2 saal flat rent par rakha aur 60,000 deposit diya tha, jisme se landlord ne 25,000 paint aur cleaning ke naam par rok liya hai. Aapke paas rent agreement aur bank transfer receipt hai, jo ki achha proof hai. Normal wear and tear ke liye landlord deduction nahi kar sakta [KB:mta_s11_deposit], aur agreement ke mutabiq deposit na lautana breach of contract hai [KB:ica_s73]. Aapka pehla kadam yeh hona chahiye ki aap landlord ko WhatsApp ya written message bhejiye aur 25,000 ke kharche ke bills ya receipts maangte hue apna poora deposit wapas maangein. Agar woh jawab na dein toh ek formal demand notice bhejna padega [KB:deposit_civil_route]. Kya landlord ke sath pehle WhatsApp ya phone par deposit ko lekar koi baat hui hai?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "deposit_civil_route",
+        "ica_s73",
+        "mta_s11_deposit"
+      ]
+    },
+    "draft": {
+      "doc_type": "legal_notice",
+      "draft": {
+        "title": "Legal Demand Notice for Refund of Security Deposit",
+        "body": "Date: [Date of sending notice]\n\nFrom:\n[Your Name]\n[Your Address]\nPhone: [PHONE_1]\n\nTo:\n[Landlord's Name]\n[Landlord's Address]\n\nSubject: Demand for Refund of Security Deposit amounting to Rs. 35,000\n\nDear [Landlord's Name],\n\n1. That I, the undersigned, was a tenant at your property located at [Property Address, Bangalore] under a rent agreement for a period of 2 years with a monthly rent of Rs. 18,000.\n\n2. That at the commencement of the tenancy, I paid a security deposit of Rs. 60,000 via bank transfer.\n\n3. That I vacated the said flat and handed over the keys to you in March 2026.\n\n4. That a period of 6 months has passed since I vacated the premises, but you have failed to refund the full security deposit and have wrongfully claimed a deduction of Rs. 25,000 towards painting and cleaning, leaving an unjustified withheld amount.\n\n5. That as per Section 73 of the Indian Contract Act, 1872 [KB:ica_s73], compensation is due for loss caused by the breach of terms regarding the return of the deposit. Furthermore, under the general principles of tenancy and the Model Tenancy Act, 2021 [KB:mta_s11_deposit], security deposits are expected to be returned upon handing back the premises minus lawful dues for actual damage beyond normal wear and tear, which has not been substantiated with valid bills or proof.\n\n6. Therefore, through this notice, I demand that you pay the total outstanding amount of Rs. 35,000 within 15 days of receiving this notice.\n\n7. If you fail to clear the said amount within the stipulated 15 days, I shall be constrained to initiate lawful next steps, including filing a civil money recovery suit or approaching the appropriate forum as per the civil recovery route [KB:deposit_civil_route], and you shall be liable for all additional costs and legal consequences.\n\nSincerely,\n\n[Your Name]\n[Your Signature]",
+        "explain_in_user_language": "Yeh document ek formal legal demand notice hai jo aapke landlord ko bheja jayega. Isme aapne apne 60,000 rupaye ke deposit, 25,000 ki galat deduction, aur bache hue 35,000 rupaye wapas maangne ki baat ki hai. Isme Section 73 of the Indian Contract Act, 1872 [KB:ica_s73] ka hawala diya gaya hai ki agreement todne par nuksaan ka compensation banta hai. Landlord ko 15 din ka samay diya gaya hai payment karne ke liye. Agar woh nahi mante, toh aap aage civil court ya legal proceedings shuru kar sakte hain.",
+        "attach_checklist": [
+          "Copy of the rent agreement",
+          "Bank transfer receipt for the security deposit of Rs. 60,000",
+          "Any written communication or chat logs with the landlord"
+        ],
+        "placeholders_to_fill": [
+          "[Date of sending notice]",
+          "[Your Name]",
+          "[Your Address]",
+          "[Landlord's Name]",
+          "[Landlord's Address]",
+          "[Property Address, Bangalore]",
+          "[Your Signature]"
+        ]
+      },
+      "draft_raw": {
+        "title": "Legal Demand Notice for Refund of Security Deposit",
+        "body": "Date: [Date of sending notice]\n\nFrom:\n[Your Name]\n[Your Address]\nPhone: [PHONE_1]\n\nTo:\n[Landlord's Name]\n[Landlord's Address]\n\nSubject: Demand for Refund of Security Deposit amounting to Rs. 35,000\n\nDear [Landlord's Name],\n\n1. That I, the undersigned, was a tenant at your property located at [Property Address, Bangalore] under a rent agreement for a period of 2 years with a monthly rent of Rs. 18,000.\n\n2. That at the commencement of the tenancy, I paid a security deposit of Rs. 60,000 via bank transfer.\n\n3. That I vacated the said flat and handed over the keys to you in March 2026.\n\n4. That a period of 6 months has passed since I vacated the premises, but you have failed to refund the full security deposit and have wrongfully claimed a deduction of Rs. 25,000 towards painting and cleaning, leaving an unjustified withheld amount.\n\n5. That as per Section 73 of the Indian Contract Act, 1872 [KB:ica_s73], compensation is due for loss caused by the breach of terms regarding the return of the deposit. Furthermore, under the general principles of tenancy and the Model Tenancy Act, 2021 [KB:mta_s11_deposit], security deposits are expected to be returned upon handing back the premises minus lawful dues for actual damage beyond normal wear and tear, which has not been substantiated with valid bills or proof.\n\n6. Therefore, through this notice, I demand that you pay the total outstanding amount of Rs. 35,000 within 15 days of receiving this notice.\n\n7. If you fail to clear the said amount within the stipulated 15 days, I shall be constrained to initiate lawful next steps, including filing a civil money recovery suit or approaching the appropriate forum as per the civil recovery route [KB:deposit_civil_route], and you shall be liable for all additional costs and legal consequences.\n\nSincerely,\n\n[Your Name]\n[Your Signature]",
+        "explain_in_user_language": "Yeh document ek formal legal demand notice hai jo aapke landlord ko bheja jayega. Isme aapne apne 60,000 rupaye ke deposit, 25,000 ki galat deduction, aur bache hue 35,000 rupaye wapas maangne ki baat ki hai. Isme Section 73 of the Indian Contract Act, 1872 [KB:ica_s73] ka hawala diya gaya hai ki agreement todne par nuksaan ka compensation banta hai. Landlord ko 15 din ka samay diya gaya hai payment karne ke liye. Agar woh nahi mante, toh aap aage civil court ya legal proceedings shuru kar sakte hain.",
+        "attach_checklist": [
+          "Copy of the rent agreement",
+          "Bank transfer receipt for the security deposit of Rs. 60,000",
+          "Any written communication or chat logs with the landlord"
+        ],
+        "placeholders_to_fill": [
+          "[Date of sending notice]",
+          "[Your Name]",
+          "[Your Address]",
+          "[Landlord's Name]",
+          "[Landlord's Address]",
+          "[Property Address, Bangalore]",
+          "[Your Signature]"
+        ]
+      },
+      "guardrail_report": {
+        "removed_count": 0,
+        "items": [],
+        "kb_cited": [
+          "deposit_civil_route",
+          "ica_s73",
+          "mta_s11_deposit"
+        ]
+      }
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "dep01_hinglish_deductions",
+    "secs": 10.1,
+    "prompt_tokens": 4908,
+    "completion_tokens": 2310,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 3,
+    "amounts_ok": "2/2",
+    "amounts_frac": 1.0
+  }
+}

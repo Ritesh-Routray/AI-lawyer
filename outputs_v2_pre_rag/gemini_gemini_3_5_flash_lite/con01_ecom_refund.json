@@ -1,0 +1,310 @@
+{
+  "input": {
+    "id": "con01_ecom_refund",
+    "story": "I ordered a phone worth Rs 32,999 on an e-commerce site on 2 Sept 2026. It was delivered with a cracked screen, I returned it on 5 Sept and they picked it up, but the refund still hasn't come. Customer care keeps saying 7-10 days. I have the order invoice and pickup receipt. I live in Hyderabad.\n",
+    "expected": {
+      "problem_type": "consumer",
+      "escalate": false,
+      "script": "latin",
+      "amounts": {
+        "order_value": 32999
+      }
+    },
+    "draft": "consumer_complaint"
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "I ordered a phone worth Rs 32,999 on an e-commerce site on 2 Sept 2026. It was delivered with a cracked screen, I returned it on 5 Sept and they picked it up, but the refund still hasn't come. Customer care keeps saying 7-10 days. I have the order invoice and pickup receipt. I live in Hyderabad.",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "consumer",
+      "problem_subtype": "e-commerce refund not processed for damaged product",
+      "user_language": "English",
+      "state": "Telangana",
+      "city": "Hyderabad",
+      "summary": "The user ordered a phone worth Rs 32,999 on September 2, 2026, which arrived with a cracked screen. They returned it on September 5, 2026, but the e-commerce platform has not yet processed the refund despite customer care promising a 7-10 day turnaround.",
+      "user_goal": "Get the full refund of Rs 32,999 processed and credited.",
+      "user_role": "consumer",
+      "other_party": {
+        "name": null,
+        "type": "company"
+      },
+      "timeline": [
+        {
+          "date": "2026-09-02",
+          "event": "Ordered a phone worth Rs 32,999 on an e-commerce site",
+          "proof": "order invoice"
+        },
+        {
+          "date": "2026-09-05",
+          "event": "Returned the phone with a cracked screen and handed it over for pickup",
+          "proof": "pickup receipt"
+        }
+      ],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": 32999,
+        "amount_refunded": null
+      },
+      "evidence_have": [
+        "order invoice",
+        "pickup receipt"
+      ],
+      "evidence_missing": [
+        "chat or email transcripts with customer care"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": "Customer care stated 7-10 days for refund"
+      },
+      "follow_up_questions": [
+        "What is the name of the e-commerce website?",
+        "Do you have any written chat or email communication with customer care regarding the delayed refund?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [
+        "Amount paid: Rs 32,999",
+        "Refund due: Rs 32,999"
+      ],
+      "total": 32999.0,
+      "notes": [
+        "A Consumer Commission can also award compensation and litigation costs - we don't estimate that figure; it depends on the case.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "cpa_consumer_def",
+      "cpa_limitation",
+      "cpa_jurisdiction_2021",
+      "cpa_fee_nil_5lakh",
+      "ecom_grievance_officer",
+      "forum_nch",
+      "forum_ejagriti",
+      "rbi_ios_2026",
+      "ica_s73",
+      "lsa_s12_legal_aid"
+    ],
+    "assessment": {
+      "where_you_stand": "You are in a strong position as a consumer since you have the order invoice and the pickup receipt proving the damaged item was returned [KB:cpa_consumer_def]. The e-commerce platform's failure to process your refund within the promised window constitutes a deficiency in service [KB:cpa_consumer_def]. You have up to 2 years from the date the problem arose to file a formal consumer complaint if needed [KB:cpa_limitation]. However, your case would be even stronger if you had written chat or email transcripts with customer care confirming your follow-ups [KB:ecom_grievance_officer].",
+      "options": [
+        {
+          "step": 1,
+          "title": "Contact E-commerce Grievance Officer",
+          "what_to_do": "Send a written complaint to the platform's Grievance Officer detailing your order number, return date, and the missing refund. They are required to acknowledge it within 48 hours and resolve it within a month [KB:ecom_grievance_officer].",
+          "time": "1 to 30 days",
+          "cost": "free",
+          "needs": [
+            "order invoice",
+            "pickup receipt"
+          ],
+          "kb_refs": [
+            "ecom_grievance_officer"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "File a National Consumer Helpline [KB:forum_nch] Complaint",
+          "what_to_do": "File a free pre-litigation complaint online at consumerhelpline.gov.in or call 1915 to have them escalate the matter to the company [KB:forum_nch].",
+          "time": "1 to 4 weeks",
+          "cost": "free",
+          "needs": [
+            "order invoice",
+            "pickup receipt"
+          ],
+          "kb_refs": [
+            "forum_nch"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "File a Consumer Commission Complaint",
+          "what_to_do": "If the company still refuses the refund, file a consumer complaint online on the e-Jagriti portal [KB:forum_ejagriti]. For claims up to Rs 5 lakh, the District Commission filing fee is nil [KB:cpa_fee_nil_5lakh].",
+          "time": "Several months",
+          "cost": "free filing fee up to Rs 5 lakh [KB:cpa_fee_nil_5lakh]",
+          "needs": [
+            "order invoice",
+            "pickup receipt",
+            "written communication with customer care or grievance officer"
+          ],
+          "kb_refs": [
+            "cpa_consumer_def",
+            "cpa_limitation",
+            "cpa_jurisdiction_2021",
+            "cpa_fee_nil_5lakh",
+            "forum_ejagriti"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Check your email and chat history to gather any transcripts with customer support and save screenshots of your return status.",
+        "If you spoke on the phone, send a follow-up email summarizing the conversation to create a written record."
+      ],
+      "what_i_dont_know": [
+        "Whether the e-commerce platform claims they received a different item or if there is any hidden policy clause they rely on for rejection.",
+        "Whether you have any written records of your past customer care chats."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "No court case or formal legal notice has been filed against you, and you can handle the initial grievance officer and consumer helpline complaints yourself without a lawyer.",
+      "reply": "You have a solid consumer case to recover your Rs 32,999 refund because you possess the order invoice and the pickup receipt proving you returned the damaged phone [KB:cpa_consumer_def]. Since customer care missed their turnaround time, your first step is to file a written complaint with the platform's designated Grievance Officer, who is required to resolve it within a month [KB:ecom_grievance_officer]. If that fails, you can raise a free dispute on the National Consumer Helpline [KB:forum_nch], and eventually file a complaint on the e-Jagriti [KB:forum_ejagriti] portal without any court fee since your claim is under Rs 5 lakh [KB:cpa_fee_nil_5lakh, KB:forum_ejagriti]. Do you currently have any written chat or email transcripts from your previous conversations with customer care regarding this delayed refund?"
+    },
+    "assessment_raw": {
+      "where_you_stand": "You are in a strong position as a consumer since you have the order invoice and the pickup receipt proving the damaged item was returned [KB:cpa_consumer_def]. The e-commerce platform's failure to process your refund within the promised window constitutes a deficiency in service [KB:cpa_consumer_def]. You have up to 2 years from the date the problem arose to file a formal consumer complaint if needed [KB:cpa_limitation]. However, your case would be even stronger if you had written chat or email transcripts with customer care confirming your follow-ups [KB:ecom_grievance_officer].",
+      "options": [
+        {
+          "step": 1,
+          "title": "Contact E-commerce Grievance Officer",
+          "what_to_do": "Send a written complaint to the platform's Grievance Officer detailing your order number, return date, and the missing refund. They are required to acknowledge it within 48 hours and resolve it within a month [KB:ecom_grievance_officer].",
+          "time": "1 to 30 days",
+          "cost": "free",
+          "needs": [
+            "order invoice",
+            "pickup receipt"
+          ],
+          "kb_refs": [
+            "ecom_grievance_officer"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "File a National Consumer Helpline Complaint",
+          "what_to_do": "File a free pre-litigation complaint online at consumerhelpline.gov.in or call 1915 to have them escalate the matter to the company [KB:forum_nch].",
+          "time": "1 to 4 weeks",
+          "cost": "free",
+          "needs": [
+            "order invoice",
+            "pickup receipt"
+          ],
+          "kb_refs": [
+            "forum_nch"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "File a Consumer Commission Complaint",
+          "what_to_do": "If the company still refuses the refund, file a consumer complaint online on the e-Jagriti portal [KB:forum_ejagriti]. For claims up to Rs 5 lakh, the District Commission filing fee is nil [KB:cpa_fee_nil_5lakh].",
+          "time": "Several months",
+          "cost": "free filing fee up to Rs 5 lakh [KB:cpa_fee_nil_5lakh]",
+          "needs": [
+            "order invoice",
+            "pickup receipt",
+            "written communication with customer care or grievance officer"
+          ],
+          "kb_refs": [
+            "cpa_consumer_def",
+            "cpa_limitation",
+            "cpa_jurisdiction_2021",
+            "cpa_fee_nil_5lakh",
+            "forum_ejagriti"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Check your email and chat history to gather any transcripts with customer support and save screenshots of your return status.",
+        "If you spoke on the phone, send a follow-up email summarizing the conversation to create a written record."
+      ],
+      "what_i_dont_know": [
+        "Whether the e-commerce platform claims they received a different item or if there is any hidden policy clause they rely on for rejection.",
+        "Whether you have any written records of your past customer care chats."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "No court case or formal legal notice has been filed against you, and you can handle the initial grievance officer and consumer helpline complaints yourself without a lawyer.",
+      "reply": "You have a solid consumer case to recover your Rs 32,999 refund because you possess the order invoice and the pickup receipt proving you returned the damaged phone [KB:cpa_consumer_def]. Since customer care missed their turnaround time, your first step is to file a written complaint with the platform's designated Grievance Officer, who is required to resolve it within a month [KB:ecom_grievance_officer]. If that fails, you can raise a free dispute on the National Consumer Helpline [KB:forum_nch], and eventually file a complaint on the e-Jagriti portal without any court fee since your claim is under Rs 5 lakh [KB:cpa_fee_nil_5lakh, KB:forum_ejagriti]. Do you currently have any written chat or email transcripts from your previous conversations with customer care regarding this delayed refund?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "cpa_consumer_def",
+        "cpa_fee_nil_5lakh",
+        "cpa_limitation",
+        "ecom_grievance_officer",
+        "forum_ejagriti",
+        "forum_nch"
+      ]
+    },
+    "draft": {
+      "doc_type": "consumer_complaint",
+      "draft": {
+        "title": "Consumer Complaint Draft - District Consumer Disputes Redressal Commission",
+        "body": "BEFORE THE DISTRICT CONSUMER DISPUTES REDRESSAL COMMISSION,\nHYDERABAD, TELANGANA\n\nConsumer Complaint No. ______ of 2026\n\nIN THE MATTER OF:\n[Your Full Name]\n[Your Address]\nHyderabad, Telangana - [PIN]\nPhone: [PHONE_1] | Email: [EMAIL_1]\n...Complainant\n\nVERSUS\n\n[Name of E-Commerce Company / Platform], \nRepresented by its Managing Director / Grievance Officer,\n[Address of Company if known, else [Company Address]]\n...Opposite Party\n\nCOMPLAINT UNDER SECTION 2(7), 2(11), 2(47) OF THE CONSUMER PROTECTION ACT, 2019 [KB:cpa_consumer_def] READ WITH APPLICABLE RULES FOR DEFICIENCY IN SERVICE AND UNFAIR TRADE PRACTICE\n\nMOST RESPECTFULLY SHOWETH:\n\n1. That the Complainant is an individual residing at Hyderabad, Telangana, and falls within the definition of a \"consumer\" under Section 2(7) of the Consumer Protection Act, 2019 [KB:cpa_consumer_def], having purchased goods for consideration.\n\n2. That the Opposite Party is an e-commerce platform engaged in online retail and delivery of goods, and is bound by the Consumer Protection (E-Commerce) Rules, 2020 [KB:ecom_grievance_officer].\n\n3. That on September 2, 2026, the Complainant ordered a phone worth Rs 32,999 on the Opposite Party's e-commerce platform. The said transaction was duly completed, and an order invoice was generated [Proof: order invoice].\n\n4. That upon delivery, the Complainant found that the phone arrived with a cracked screen, rendering it completely defective and unusable.\n\n5. That the Complainant promptly initiated a return request, and on September 5, 2026, the defective phone was handed over to the Opposite Party's designated pickup agent, for which a pickup receipt was duly issued [Proof: pickup receipt].\n\n6. That customer care representatives of the Opposite Party stated a turnaround time of 7-10 days for processing the refund of the paid amount.\n\n7. That despite the lapse of the promised timeline and repeated follow-ups, the Opposite Party has failed and neglected to process or credit the refund of Rs 32,999 to the Complainant's account.\n\n8. That the failure of the Opposite Party to refund the amount for a returned defective product constitutes a clear \"deficiency in service\" and an \"unfair trade practice\" under Section 2(11) and Section 2(47) of the Consumer Protection Act, 2019 [KB:cpa_consumer_def].\n\n9. That the cause of action for the present complaint arose on September 2, 2026 (date of order), September 5, 2026 (date of return pickup), and continues daily as the Opposite Party has withheld the legitimate refund. The complaint is being filed well within the two-year limitation period prescribed under Section 69 of the Consumer Protection Act, 2019 [KB:cpa_limitation].\n\n10. That this Commission has the pecuniary and territorial jurisdiction to entertain and try the present complaint under Section 3 of the Consumer Protection (Jurisdiction of the District Commission, the State Commission and the National Commission) Rules, 2021 [KB:cpa_jurisdiction_2021], as the value of the goods paid for is Rs 32,999 (which is up to Rs 50 lakh) and the cause of action arose within Hyderabad, Telangana.\n\n11. That the value of the goods paid for is Rs 32,999, and therefore, under the Consumer Protection (Consumer Disputes Redressal Commissions) Rules, 2020 [KB:cpa_fee_nil_5lakh], the filing fee for this complaint is nil.\n\nPRAYER\nIn view of the facts and circumstances mentioned above, the Complainant respectfully prays that this Hon'ble Commission may be pleased to:\n\na) Direct the Opposite Party to immediately refund the principal amount of Rs 32,999 to the Complainant;\nb) Award appropriate compensation for mental agony and harassment, along with litigation costs, as this Hon'ble Commission deems fit and proper in the interests of justice.\n\nVERIFICATION\nVerified at Hyderabad on this [date] day of [month], 2026, that the contents of paragraphs 1 to 11 are true and correct to the best of my knowledge and belief, and nothing material has been concealed therefrom.\n\n\n________________________\n[Your Full Name]\nComplainant",
+        "explain_in_user_language": "This document is a formal consumer complaint drafted for the District Consumer Disputes Redressal Commission in Hyderabad. It details how you ordered a phone for Rs 32,999, received a damaged product, returned it on September 5, 2026, but never received your refund despite promises from customer care. It cites the Consumer Protection Act to demand your full refund of Rs 32,999 along with compensation and costs. After finalising and reviewing this draft, you can file it online through the e-Jagriti portal or submit it physically to the District Commission.",
+        "attach_checklist": [
+          "Order invoice",
+          "Pickup receipt for the returned item",
+          "Any available chat transcripts, emails, or call logs with customer care (if available)",
+          "Copy of your valid ID proof"
+        ],
+        "placeholders_to_fill": [
+          "[Your Full Name]",
+          "[Your Address]",
+          "[PIN]",
+          "[PHONE_1]",
+          "[EMAIL_1]",
+          "[Name of E-Commerce Company / Platform]",
+          "[Company Address]",
+          "[date]",
+          "[month]"
+        ]
+      },
+      "draft_raw": {
+        "title": "Consumer Complaint Draft - District Consumer Disputes Redressal Commission",
+        "body": "BEFORE THE DISTRICT CONSUMER DISPUTES REDRESSAL COMMISSION,\nHYDERABAD, TELANGANA\n\nConsumer Complaint No. ______ of 2026\n\nIN THE MATTER OF:\n[Your Full Name]\n[Your Address]\nHyderabad, Telangana - [PIN]\nPhone: [PHONE_1] | Email: [EMAIL_1]\n...Complainant\n\nVERSUS\n\n[Name of E-Commerce Company / Platform], \nRepresented by its Managing Director / Grievance Officer,\n[Address of Company if known, else [Company Address]]\n...Opposite Party\n\nCOMPLAINT UNDER SECTION 2(7), 2(11), 2(47) OF THE CONSUMER PROTECTION ACT, 2019 [KB:cpa_consumer_def] READ WITH APPLICABLE RULES FOR DEFICIENCY IN SERVICE AND UNFAIR TRADE PRACTICE\n\nMOST RESPECTFULLY SHOWETH:\n\n1. That the Complainant is an individual residing at Hyderabad, Telangana, and falls within the definition of a \"consumer\" under Section 2(7) of the Consumer Protection Act, 2019 [KB:cpa_consumer_def], having purchased goods for consideration.\n\n2. That the Opposite Party is an e-commerce platform engaged in online retail and delivery of goods, and is bound by the Consumer Protection (E-Commerce) Rules, 2020 [KB:ecom_grievance_officer].\n\n3. That on September 2, 2026, the Complainant ordered a phone worth Rs 32,999 on the Opposite Party's e-commerce platform. The said transaction was duly completed, and an order invoice was generated [Proof: order invoice].\n\n4. That upon delivery, the Complainant found that the phone arrived with a cracked screen, rendering it completely defective and unusable.\n\n5. That the Complainant promptly initiated a return request, and on September 5, 2026, the defective phone was handed over to the Opposite Party's designated pickup agent, for which a pickup receipt was duly issued [Proof: pickup receipt].\n\n6. That customer care representatives of the Opposite Party stated a turnaround time of 7-10 days for processing the refund of the paid amount.\n\n7. That despite the lapse of the promised timeline and repeated follow-ups, the Opposite Party has failed and neglected to process or credit the refund of Rs 32,999 to the Complainant's account.\n\n8. That the failure of the Opposite Party to refund the amount for a returned defective product constitutes a clear \"deficiency in service\" and an \"unfair trade practice\" under Section 2(11) and Section 2(47) of the Consumer Protection Act, 2019 [KB:cpa_consumer_def].\n\n9. That the cause of action for the present complaint arose on September 2, 2026 (date of order), September 5, 2026 (date of return pickup), and continues daily as the Opposite Party has withheld the legitimate refund. The complaint is being filed well within the two-year limitation period prescribed under Section 69 of the Consumer Protection Act, 2019 [KB:cpa_limitation].\n\n10. That this Commission has the pecuniary and territorial jurisdiction to entertain and try the present complaint under Section 3 of the Consumer Protection (Jurisdiction of the District Commission, the State Commission and the National Commission) Rules, 2021 [KB:cpa_jurisdiction_2021], as the value of the goods paid for is Rs 32,999 (which is up to Rs 50 lakh) and the cause of action arose within Hyderabad, Telangana.\n\n11. That the value of the goods paid for is Rs 32,999, and therefore, under the Consumer Protection (Consumer Disputes Redressal Commissions) Rules, 2020 [KB:cpa_fee_nil_5lakh], the filing fee for this complaint is nil.\n\nPRAYER\nIn view of the facts and circumstances mentioned above, the Complainant respectfully prays that this Hon'ble Commission may be pleased to:\n\na) Direct the Opposite Party to immediately refund the principal amount of Rs 32,999 to the Complainant;\nb) Award appropriate compensation for mental agony and harassment, along with litigation costs, as this Hon'ble Commission deems fit and proper in the interests of justice.\n\nVERIFICATION\nVerified at Hyderabad on this [date] day of [month], 2026, that the contents of paragraphs 1 to 11 are true and correct to the best of my knowledge and belief, and nothing material has been concealed therefrom.\n\n\n________________________\n[Your Full Name]\nComplainant",
+        "explain_in_user_language": "This document is a formal consumer complaint drafted for the District Consumer Disputes Redressal Commission in Hyderabad. It details how you ordered a phone for Rs 32,999, received a damaged product, returned it on September 5, 2026, but never received your refund despite promises from customer care. It cites the Consumer Protection Act to demand your full refund of Rs 32,999 along with compensation and costs. After finalising and reviewing this draft, you can file it online through the e-Jagriti portal or submit it physically to the District Commission.",
+        "attach_checklist": [
+          "Order invoice",
+          "Pickup receipt for the returned item",
+          "Any available chat transcripts, emails, or call logs with customer care (if available)",
+          "Copy of your valid ID proof"
+        ],
+        "placeholders_to_fill": [
+          "[Your Full Name]",
+          "[Your Address]",
+          "[PIN]",
+          "[PHONE_1]",
+          "[EMAIL_1]",
+          "[Name of E-Commerce Company / Platform]",
+          "[Company Address]",
+          "[date]",
+          "[month]"
+        ]
+      },
+      "guardrail_report": {
+        "removed_count": 0,
+        "items": [],
+        "kb_cited": [
+          "cpa_consumer_def",
+          "cpa_fee_nil_5lakh",
+          "cpa_jurisdiction_2021",
+          "cpa_limitation",
+          "ecom_grievance_officer"
+        ]
+      }
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "con01_ecom_refund",
+    "secs": 10.1,
+    "prompt_tokens": 5838,
+    "completion_tokens": 2975,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 6,
+    "amounts_ok": "1/1",
+    "amounts_frac": 1.0
+  }
+}

@@ -1,0 +1,336 @@
+{
+  "input": {
+    "id": "dep04_threat_police",
+    "story": "Landlord in Noida is refusing to return my 40000 deposit and when I went to ask, his son pushed me and threatened to beat me up if I come again. Should I go to the police? I also want my money.\n",
+    "expected": {
+      "problem_type": "deposit",
+      "escalate": true,
+      "script": "latin",
+      "amounts": {
+        "deposit_paid": 40000
+      }
+    }
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "Landlord in Noida is refusing to return my 40000 deposit and when I went to ask, his son pushed me and threatened to beat me up if I come again. Should I go to the police? I also want my money.",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "deposit",
+      "problem_subtype": "landlord refusing security deposit refund and threatening tenant",
+      "user_language": "English",
+      "state": "Uttar Pradesh",
+      "city": "Noida",
+      "summary": "The user states that their landlord in Noida is refusing to return their security deposit of 40000. When the user went to ask for the money, the landlord's son pushed them and threatened them.",
+      "user_goal": "Get the security deposit back and understand whether to approach the police regarding the threats",
+      "user_role": "tenant",
+      "other_party": {
+        "name": null,
+        "type": "landlord"
+      },
+      "timeline": [
+        {
+          "date": null,
+          "event": "Landlord refused to return the security deposit and landlord's son pushed and threatened the user",
+          "proof": null
+        }
+      ],
+      "amounts": {
+        "deposit_paid": 40000,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [],
+      "evidence_missing": [
+        "rent agreement",
+        "bank statement showing deposit transfer",
+        "chat history or call recordings regarding the deposit"
+      ],
+      "risk_signals": [
+        "threats",
+        "violence",
+        "police"
+      ],
+      "deadline_mentioned": {
+        "date": null,
+        "what": null
+      },
+      "follow_up_questions": [
+        "Do you have a written rent agreement or receipts showing you paid the 40000 deposit?",
+        "Which state and city did this happen in?",
+        "When did you vacate the property and ask for the refund?"
+      ]
+    },
+    "flags": [
+      {
+        "code": "CRIMINAL",
+        "severity": "lawyer",
+        "message": "This involves police or possible criminal matters. Talk to a lawyer before you act or say anything."
+      }
+    ],
+    "calculation": {
+      "lines": [
+        "Deposit paid: Rs 40,000",
+        "Amount to claim: Rs 40,000"
+      ],
+      "total": 40000.0,
+      "notes": [
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "ica_s73",
+      "mta_s11_deposit",
+      "deposit_civil_route",
+      "lsa_s12_legal_aid",
+      "src_mta_2021_11",
+      "src_mta_2021_10",
+      "src_mta_2021_14",
+      "src_mta_2021_15_p2",
+      "src_mta_2021_24",
+      "src_mta_2021_23",
+      "src_mta_2021_12"
+    ],
+    "retrieval": {
+      "mode": "hybrid (BM25 + dense) + anchor queries",
+      "query": "landlord refusing security deposit refund and threatening tenant The user states that their landlord in Noida is refusing to return their security deposit of 40000. When the user went to ask for the money, the landlord's son pushed them and threatened them. Get the security deposit back and understand whether to approach the police regarding the threats",
+      "hits": [
+        {
+          "id": "src_mta_2021_11",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "11",
+          "title": "",
+          "page": 11,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": "11. (1) The security deposit to be paid by the tenant in advance shall\nbe such as may be agreed upon between the landlord and the tenant\nin the tenancy agreement, which shall ––\nRestriction on\nsub-letting.\nRent payable.\nRevision of rent.\nRent Authority to\ndetermine the\nrevised rent in\ncase of dispute.\nSecurity deposit.\n(a)   not exceed two months rent, in case of residential premises;\nand\n(b) not exceed six months rent, in case of non-residential\npremises.\n(2) The security deposit shall be refunded to the tenant on the date of\ntaking over vacant possession of the premises from the tenant, after\nmaking due deduction of any liability of the tenant.\nCHAPTER IV\nRIGHTS AND OBLIGATIONS OF LANDLORD"
+        },
+        {
+          "id": "src_mta_2021_10",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "10",
+          "title": "",
+          "page": 11,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": "10. In case of any dispute between landlord and tenant regarding\nrevision of rent, the Rent Authority may, on an application made by\nthe landlord or tenant, determine the revised rent and other charges\npayable by the tenant and also fix the date from which such revised\nrent becomes payable."
+        },
+        {
+          "id": "src_mta_2021_14",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "14",
+          "title": "",
+          "page": 12,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": "14. (1) Where the landlord refuses to accept any rent and other\ncharges payable or refuses to give a receipt, the rent and other\ncharges shall be paid to the landlord by postal money order or any\nother method, in such manner as may be prescribed, consecutively\nfor two months, and if the landlord refuses to accept the rent and\nother charges within such period, then the tenant may deposit the\nsame with the Rent Authority in such manner as may be prescribed.\n(2)  Where the tenant is unable to decide to whom the rent is payable\nduring the period of  tenancy agreement, the tenant may, in such\ncase, deposit the rent with the Rent Authority in such manner as may\nbe prescribed.\n(3) Where the rent is"
+        },
+        {
+          "id": "src_mta_2021_15_p2",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "15",
+          "title": "",
+          "page": 13,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": ", subject to the provisions of this section, to be inhabitable:\nProvided that where the rented premises becomes uninhabitable\nas specified in sub-section (5) or this sub-section and the landlord\nfails to carry out the required repairs to make it inhabitable or the said\npremises could not be made inhabitable, then, the security deposit\nand advance rent shall be refunded by the landlord to the tenant\nwithin a period of fifteen days of the expiry of the notice period, after\nmaking due deduction of liability of the tenant, if any.\nExplanation.–– For the purposes of this section, “force\nmajeure” means a situation of war, flood, drought, fire, cyclone,\nearthquake or any other calamity caused by na"
+        },
+        {
+          "id": "src_mta_2021_24",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "24",
+          "title": "",
+          "page": 18,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": "24. (1) Where a landlord exercises the right of recovery of\npossession under sub-section (2) of section 21 or under section 22,\nand he had received any rent or any other payment in advance from\nthe tenant, he shall before recovery of possession, refund to the\ntenant such amount after deducting the rent and other charges due\nto him.\n(2) If the landlord fails to make any refund, he shall be liable to pay\nsimple interest to the tenant at such rate as may be prescribed from\nRefund of\nadvance rent\nby landlord.\ntime to time on the amount which he has omitted or failed to refund."
+        },
+        {
+          "id": "src_mta_2021_23",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "23",
+          "title": "",
+          "page": 18,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": "23. Where the tenant fails to vacate the premises let out on rent in\naccordance with the tenancy agreement on the expiration of the\nperiod of tenancy or termination of tenancy by an order or notice\nunder the provisions of this Act, such tenant shall be liable to pay the\nlandlord ––\n(a) twice the monthly rent for the first two months; and\n(b) four times the monthly rent thereafter till the tenant continues to\noccupy the said premises.\nEnhancement of\nrent  in case of\nrefusal by tenant\nto vacate."
+        },
+        {
+          "id": "src_mta_2021_12",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "12",
+          "title": "RIGHTS AND OBLIGATIONS OF LANDLORD AND TENANT",
+          "page": 12,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": "12. The tenancy agreement shall be signed in duplicate by both the\nlandlord and tenant, and one each of such original signed tenancy\nagreement shall be retained by the landlord and tenant."
+        }
+      ]
+    },
+    "assessment": {
+      "where_type": "deposit",
+      "where_you_stand": "Your landlord in Noida is refusing to return your security deposit of Rs 40,000 [KB:deposit_civil_route], and you face a serious issue because the landlord's son reportedly pushed and threatened you. Since physical threats and violence are involved, this has crossed from a simple civil rental dispute into a potential criminal matter. Your strength is that security deposits must generally be refunded upon handing back possession [KB:src_mta_2021_11], but your weakness right now is the lack of written proof and the safety risk posed by threats. You must handle the safety aspect with priority.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Consult a Lawyer / Legal Aid",
+          "what_to_do": "Because there are threats and physical intimidation involved, speak to a lawyer or approach the District Legal Services Authority (DLSA) for guidance before taking any further action.",
+          "time": "Immediately",
+          "cost": "Free via DLSA or nominal consultation fee",
+          "needs": [
+            "Details of the incident",
+            "Any available evidence"
+          ],
+          "kb_refs": [
+            "lsa_s12_legal_aid",
+            "deposit_civil_route"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Report Threats to Police",
+          "what_to_do": "If you have been physically threatened or pushed, consider filing a police complaint regarding the intimidation and assault for your personal safety.",
+          "time": "As soon as possible",
+          "cost": "Free",
+          "needs": [
+            "Details of the landlord and incident"
+          ],
+          "kb_refs": [
+            "deposit_civil_route"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Send a Written Demand Notice",
+          "what_to_do": "Through a lawyer, send a formal written demand notice to the landlord for the return of your security deposit [KB:deposit_civil_route].",
+          "time": "1-2 weeks",
+          "cost": "Low to moderate (lawyer fee)",
+          "needs": [
+            "Rent agreement",
+            "Bank transfer proof",
+            "Chat records"
+          ],
+          "kb_refs": [
+            "ica_s73",
+            "deposit_civil_route"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Gather any bank statements or UPI receipts showing the Rs 40,000 transfer to the landlord.",
+        "Save any WhatsApp chats, text messages, or call logs where the deposit or the dispute was discussed.",
+        "Write down a detailed timeline of when you vacated the premises and when the threats occurred."
+      ],
+      "what_i_dont_know": [
+        "Whether you have a signed written rent agreement covering the exact terms of the deposit refund.",
+        "Whether Uttar Pradesh has formally implemented specific provisions of the Model Tenancy Act [KB:mta_s11_deposit] locally.",
+        "Whether there are any counter-claims or unpaid rent alleged by the landlord."
+      ],
+      "needs_lawyer": true,
+      "needs_lawyer_reason": "A lawyer is needed because the situation involves physical threats, intimidation, and potential police/criminal angles rather than just a straightforward money recovery.",
+      "reply": "Your situation is serious because it involves not just a disputed security deposit of Rs 40,000, but also physical threats and intimidation from the landlord's side. While tenants generally have a right to get their deposit back after handing over possession [KB:src_mta_2021_11], safety and criminal risks take priority. You should consult a lawyer or contact the District Legal Services Authority (DLSA) at helpline 15100 before taking further steps [KB:lsa_s12_legal_aid] [KB:deposit_civil_route]. Do you have any written records, such as bank transfer proofs or messages, showing that you paid the Rs 40,000 deposit?"
+    },
+    "assessment_raw": {
+      "where_type": "deposit",
+      "where_you_stand": "Your landlord in Noida is refusing to return your security deposit of Rs 40,000 [KB:deposit_civil_route], and you face a serious issue because the landlord's son reportedly pushed and threatened you. Since physical threats and violence are involved, this has crossed from a simple civil rental dispute into a potential criminal matter. Your strength is that security deposits must generally be refunded upon handing back possession [KB:src_mta_2021_11], but your weakness right now is the lack of written proof and the safety risk posed by threats. You must handle the safety aspect with priority.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Consult a Lawyer / Legal Aid",
+          "what_to_do": "Because there are threats and physical intimidation involved, speak to a lawyer or approach the District Legal Services Authority (DLSA) for guidance before taking any further action.",
+          "time": "Immediately",
+          "cost": "Free via DLSA or nominal consultation fee",
+          "needs": [
+            "Details of the incident",
+            "Any available evidence"
+          ],
+          "kb_refs": [
+            "lsa_s12_legal_aid",
+            "deposit_civil_route"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Report Threats to Police",
+          "what_to_do": "If you have been physically threatened or pushed, consider filing a police complaint regarding the intimidation and assault for your personal safety.",
+          "time": "As soon as possible",
+          "cost": "Free",
+          "needs": [
+            "Details of the landlord and incident"
+          ],
+          "kb_refs": [
+            "deposit_civil_route"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Send a Written Demand Notice",
+          "what_to_do": "Through a lawyer, send a formal written demand notice to the landlord for the return of your security deposit [KB:deposit_civil_route].",
+          "time": "1-2 weeks",
+          "cost": "Low to moderate (lawyer fee)",
+          "needs": [
+            "Rent agreement",
+            "Bank transfer proof",
+            "Chat records"
+          ],
+          "kb_refs": [
+            "ica_s73",
+            "deposit_civil_route"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Gather any bank statements or UPI receipts showing the Rs 40,000 transfer to the landlord.",
+        "Save any WhatsApp chats, text messages, or call logs where the deposit or the dispute was discussed.",
+        "Write down a detailed timeline of when you vacated the premises and when the threats occurred."
+      ],
+      "what_i_dont_know": [
+        "Whether you have a signed written rent agreement covering the exact terms of the deposit refund.",
+        "Whether Uttar Pradesh has formally implemented specific provisions of the Model Tenancy Act locally.",
+        "Whether there are any counter-claims or unpaid rent alleged by the landlord."
+      ],
+      "needs_lawyer": true,
+      "needs_lawyer_reason": "A lawyer is needed because the situation involves physical threats, intimidation, and potential police/criminal angles rather than just a straightforward money recovery.",
+      "reply": "Your situation is serious because it involves not just a disputed security deposit of Rs 40,000, but also physical threats and intimidation from the landlord's side. While tenants generally have a right to get their deposit back after handing over possession [KB:src_mta_2021_11], safety and criminal risks take priority. You should consult a lawyer or contact the District Legal Services Authority (DLSA) at helpline 15100 before taking further steps [KB:lsa_s12_legal_aid, KB:deposit_civil_route]. Do you have any written records, such as bank transfer proofs or messages, showing that you paid the Rs 40,000 deposit?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "deposit_civil_route",
+        "lsa_s12_legal_aid",
+        "src_mta_2021_11"
+      ],
+      "support_check": {
+        "checked": 2,
+        "unsupported": []
+      }
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "dep04_threat_police",
+    "secs": 6.3,
+    "prompt_tokens": 4530,
+    "completion_tokens": 1384,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": true,
+    "escalated": true,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 3,
+    "rag_hits": 7,
+    "official_text_citations": 1,
+    "unsupported_citations_dropped": 0,
+    "amounts_ok": "1/1",
+    "amounts_frac": 1.0
+  }
+}

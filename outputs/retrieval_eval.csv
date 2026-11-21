@@ -1,0 +1,4 @@
+config,queries,hit@1,hit@3,hit@5,MRR
+bm25,20,30%,60%,80%,0.47
+hybrid,20,55%,85%,90%,0.70
+hybrid+rerank,20,50%,75%,95%,0.66

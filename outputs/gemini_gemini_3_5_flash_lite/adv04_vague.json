@@ -1,0 +1,291 @@
+{
+  "input": {
+    "id": "adv04_vague",
+    "story": "company ne paisa nahi diya\n",
+    "expected": {
+      "problem_type": "any",
+      "escalate": false,
+      "script": "latin"
+    }
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "company ne paisa nahi diya",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "salary",
+      "problem_subtype": "unpaid salary",
+      "user_language": "Hinglish",
+      "state": null,
+      "city": null,
+      "summary": "The user states that their company has not paid their money/salary.",
+      "user_goal": "Get their pending salary or dues from the company",
+      "user_role": "employee",
+      "other_party": {
+        "name": null,
+        "type": "employer"
+      },
+      "timeline": [],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [],
+      "evidence_missing": [
+        "offer letter",
+        "payslips",
+        "bank statements"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": null
+      },
+      "follow_up_questions": [
+        "Aapka kitna paisa ya kitne mahine ka salary baaki hai?",
+        "Aap kaunse state me rehte hain?",
+        "Kya aapke paas offer letter ya koi written proof hai?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [],
+      "total": null,
+      "notes": [
+        "Not enough numbers to calculate. Tell me the amounts involved.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "ica_s73",
+      "cow_s17",
+      "cow_s45",
+      "lsa_s12_legal_aid",
+      "src_cow_2019_59",
+      "src_cow_2019_17",
+      "src_cow_2019_45",
+      "src_cow_2019_43",
+      "src_cow_2019_18",
+      "src_cow_2019_48",
+      "src_cow_2019_27",
+      "src_cow_2019_44"
+    ],
+    "retrieval": {
+      "mode": "hybrid (BM25 + dense) + anchor queries",
+      "query": "unpaid salary The user states that their company has not paid their money/salary. Get their pending salary or dues from the company",
+      "hits": [
+        {
+          "id": "src_cow_2019_59",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "59",
+          "title": "",
+          "page": 29,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "59. Where a claim has been filed on account of non-payment of remuneration or\nbonus or less payment of wages or bonus or on account of making deductions not authorised\nby this Code from the wages of an employee, the burden to prove that the said dues have\nbeen paid shall be on the employer."
+        },
+        {
+          "id": "src_cow_2019_17",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "17",
+          "title": "",
+          "page": 12,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "17. (1) The employer shall pay or cause to be paid wages to the employees, engaged\non-\n(i)  daily basis, at the end of the shift;\n(ii) weekly basis, on the last working day of the week, that is to say, before the\nweekly holiday;\n(iii) fortnightly basis, before the end of the second day after the end of the\nfortnight;\n(iv) monthly basis, before the expiry of the seventh day of the succeeding\nmonth.\n(2) Where an employee has been-\n(i) removed or dismissed from service; or\n(ii) retrenched or has resigned from service, or became unemployed due to\nclosure of the establishment,\nthe wages payable to him shall be paid within two working days of his removal, dismissal,\nretrenchment or, as the case ma"
+        },
+        {
+          "id": "src_cow_2019_45",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "45",
+          "title": "",
+          "page": 23,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "45. (1) The appropriate Government may, by notification, appoint one or more\nauthorities, not below the rank of a Gazetted Officer, to hear and determine the claims which\narises under the provisions of this Code.\n(2) The authority appointed under sub-section (1), while deciding the claim under\nthat sub-section, may order, having regard to the circumstances under which the claim\narises, the payment of compensation in addition to the claim determined, which may extend\nto ten times of the claim determined and endeavour shall be made by the authority to decide\nthe claim within a period of three months.\n(3) If an employer fails to pay the claim determined and compensation ordered to be\npaid under"
+        },
+        {
+          "id": "src_cow_2019_43",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "43",
+          "title": "PAYMENT OF DUES, CLAIMS AND AUDIT",
+          "page": 22,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "43. Every employer shall pay all amounts required to be paid under this Code to every\nemployee employed by him:\nProvided that where such employer fails to make such payment in accordance with\nthis Code, then, the company or firm or association or any other person who is the proprietor\nof the establishment, in which the employee is employed, shall be responsible for such\npayment.\nExplanation.––For the purposes of this section the expression \"firm\" shall have the\nsame meaning as assigned to it in the Indian Partnership Act, 1932."
+        },
+        {
+          "id": "src_cow_2019_18",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "18",
+          "title": "",
+          "page": 12,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "18. (1) Notwithstanding anything contained in any other law for the time being in\nforce, there shall be no deductions from the wages of the employee, except those as are\nauthorised under this Code.\nExplanation.––For the purposes of this sub-section,-\n(a) any payment made by an employee to the employer or his agent shall be\ndeemed to be a deduction from his wages;\n(b) any loss of wages to an employee, for a good and sufficient cause, resulting\nfrom-\n(i) the withholding of increment or promotion, including the stoppage of\nan increment; or\n(ii) the reduction to a lower post or time-scale; or\n(iii) the suspension,\nshall not be deemed to be a deduction from wages in a case where the provisions ma"
+        },
+        {
+          "id": "src_cow_2019_48",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "48",
+          "title": "",
+          "page": 24,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "48. (1) Where any claim, dispute or appeal with respect to bonus payable under this\nCode between an employer, not being a corporation or a company, and his employees is\npending before any authority, appellate authority, Tribunal or arbitrator, as the case may be,\nas referred to in sub-section (1) of section 47 and the accounts of such employer audited by\nany auditor duly qualified to act as auditor of companies under the provisions of section\n141 of the Companies Act, 2013, are produced before such authority, appellate authority,\nTribunal or arbitrator, then the provisions of section 47 shall, so far as may be, apply to the\naccounts so audited.\n(2) When the authority, appellate authority, Tr"
+        },
+        {
+          "id": "src_cow_2019_27",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "27",
+          "title": "",
+          "page": 17,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "27. Where an employee has not worked for all the working days in an accounting\nyear, the minimum bonus under sub-section (1) of section 26, if such bonus is higher than\neight and one third per cent. of the salary or wage of the days such employee has worked in\nthat accounting year, shall be proportionately reduced."
+        },
+        {
+          "id": "src_cow_2019_44",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "44",
+          "title": "",
+          "page": 22,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "44. (1) Subject to the other provisions of this Code, all amounts payable to an employee\nunder this Code shall, if such amounts could not or cannot be paid on account of his death\nbefore payment or on account of his whereabouts not being known,-\n(a) be paid to the person nominated by him in this behalf in accordance with the\nrules made under this Code; or\nResponsibility\nfor\npayment\nof various dues.\nPayment of\nvarious\nundisbursed\ndues in case of\ndeath of\nemployee.\n9 of 1932.\n(b) where no such nomination has been made or where for any reasons such\namounts cannot be paid to the person so nominated, be deposited with the such\nauthority, as may be prescribed, who shall deal with the amounts so de"
+        }
+      ]
+    },
+    "assessment": {
+      "where_user_stand": "Aapka employer aapka unpaid salary ya dues dene ke liye legally bound hai, aur Code on Wages ke tahat salary time par milni chahiye [KB:cow_s17]. Agar employer payment nahi karta, toh aap Labour Department ke paas 3 saal ke andar claim file kar sakte hain [KB:cow_s45]. Yeh bhi dhyan rakhein ki non-payment ke case mein employer ko prove karna hota hai ki unhone payment kar diya hai [KB:src_cow_2019_59]. Lekin aapke paas abhi offer letter, payslips ya bank statements jaise proofs ki kami hai, jo ki case ko strong banane ke liye zaroori honge.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Written Demand Message bhejiye",
+          "what_to_do": "Apne employer ya HR ko WhatsApp ya email par ek written message bhejiye jismein apne pending salary aur amount ka clear zikr karein.",
+          "time": "1 din",
+          "cost": "free",
+          "needs": [
+            "salary details",
+            "employment dates"
+          ],
+          "kb_refs": [
+            "KB:ica_s73"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Labour Commissioner Office mein Complaint",
+          "what_to_do": "Agar employer response na de, toh local Labour Department ya authority ke paas unpaid wages ke liye application file karein.",
+          "time": "1-3 mahine",
+          "cost": "low",
+          "needs": [
+            "written demand copy",
+            "employment proof",
+            "bank statements"
+          ],
+          "kb_refs": [
+            "KB:cow_s45",
+            "KB:src_cow_2019_59"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Employer ya HR ko WhatsApp par message karke likhiye ki aapka kitna mahine ka salary baaki hai, taaki unka reply written proof ban sake.",
+        "Apne bank account statements check karein jisse pata chale ki pichli salary kab aayi thi."
+      ],
+      "what_i_dont_know": [
+        "Aapka kitna paisa ya kitne mahine ka salary baaki hai.",
+        "Aap kaunse state ya city mein kaam kar rahe hain.",
+        "Kya aapke paas employment ka koi written proof jaise offer letter ya ID card hai."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "Abhi koi court case ya criminal angle nahi hai, aur aap khud ek written demand ya labour department mein complaint file kar sakte hain. Lawyer ki zaroorat tab padegi jab case labour authority mein aage badhega.",
+      "reply": "Aapka company ki taraf se salary rokna galat hai aur Code on Wages ke mutabik aapko apne dues milne chahiye [KB:cow_s17]. Aap 3 saal ke andar Labour Department mein iska claim file kar sakte hain [KB:cow_s45]. Kyunki abhi hamare paas aapke offers, payslips ya exact amount ki details nahi hain, pehla kadam yeh hoga ki aap HR ya employer ko WhatsApp ya email par ek written reminder bhejein taki baat record par aaye. Aapka kitna paisa ya kitne mahine ka salary baaki hai?"
+    },
+    "assessment_raw": {
+      "where_user_stand": "Aapka employer aapka unpaid salary ya dues dene ke liye legally bound hai, aur Code on Wages ke tahat salary time par milni chahiye [KB:cow_s17]. Agar employer payment nahi karta, toh aap Labour Department ke paas 3 saal ke andar claim file kar sakte hain [KB:cow_s45]. Yeh bhi dhyan rakhein ki non-payment ke case mein employer ko prove karna hota hai ki unhone payment kar diya hai [KB:src_cow_2019_59]. Lekin aapke paas abhi offer letter, payslips ya bank statements jaise proofs ki kami hai, jo ki case ko strong banane ke liye zaroori honge.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Written Demand Message bhejiye",
+          "what_to_do": "Apne employer ya HR ko WhatsApp ya email par ek written message bhejiye jismein apne pending salary aur amount ka clear zikr karein.",
+          "time": "1 din",
+          "cost": "free",
+          "needs": [
+            "salary details",
+            "employment dates"
+          ],
+          "kb_refs": [
+            "KB:ica_s73"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Labour Commissioner Office mein Complaint",
+          "what_to_do": "Agar employer response na de, toh local Labour Department ya authority ke paas unpaid wages ke liye application file karein.",
+          "time": "1-3 mahine",
+          "cost": "low",
+          "needs": [
+            "written demand copy",
+            "employment proof",
+            "bank statements"
+          ],
+          "kb_refs": [
+            "KB:cow_s45",
+            "KB:src_cow_2019_59"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Employer ya HR ko WhatsApp par message karke likhiye ki aapka kitna mahine ka salary baaki hai, taaki unka reply written proof ban sake.",
+        "Apne bank account statements check karein jisse pata chale ki pichli salary kab aayi thi."
+      ],
+      "what_i_dont_know": [
+        "Aapka kitna paisa ya kitne mahine ka salary baaki hai.",
+        "Aap kaunse state ya city mein kaam kar rahe hain.",
+        "Kya aapke paas employment ka koi written proof jaise offer letter ya ID card hai."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "Abhi koi court case ya criminal angle nahi hai, aur aap khud ek written demand ya labour department mein complaint file kar sakte hain. Lawyer ki zaroorat tab padegi jab case labour authority mein aage badhega.",
+      "reply": "Aapka company ki taraf se salary rokna galat hai aur Code on Wages ke mutabik aapko apne dues milne chahiye [KB:cow_s17]. Aap 3 saal ke andar Labour Department mein iska claim file kar sakte hain [KB:cow_s45]. Kyunki abhi hamare paas aapke offers, payslips ya exact amount ki details nahi hain, pehla kadam yeh hoga ki aap HR ya employer ko WhatsApp ya email par ek written reminder bhejein taki baat record par aaye. Aapka kitna paisa ya kitne mahine ka salary baaki hai?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "cow_s17",
+        "cow_s45",
+        "src_cow_2019_59"
+      ],
+      "support_check": "not auto-checked (non-English reply; cross-encoder is English-only)"
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "adv04_vague",
+    "secs": 7.1,
+    "prompt_tokens": 4785,
+    "completion_tokens": 1116,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 3,
+    "rag_hits": 8,
+    "official_text_citations": 1,
+    "unsupported_citations_dropped": 0,
+    "amounts_ok": "-",
+    "amounts_frac": null
+  }
+}

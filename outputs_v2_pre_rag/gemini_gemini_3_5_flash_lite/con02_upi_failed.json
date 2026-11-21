@@ -1,0 +1,246 @@
+{
+  "input": {
+    "id": "con02_upi_failed",
+    "story": "Bhai maine 8 October 2026 ko UPI se 15000 bheje, paise account se kat gaye par receiver ko nahi mile. Bank ko complaint ki, 3 hafte ho gaye koi jawab nahi. Kya karun?\n",
+    "expected": {
+      "problem_type": "consumer",
+      "escalate": false,
+      "script": "latin",
+      "amounts": {
+        "order_value": 15000
+      }
+    }
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "Bhai maine 8 October 2026 ko UPI se 15000 bheje, paise account se kat gaye par receiver ko nahi mile. Bank ko complaint ki, 3 hafte ho gaye koi jawab nahi. Kya karun?",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "consumer",
+      "problem_subtype": "failed UPI transaction refund not processed",
+      "user_language": "Hinglish",
+      "state": null,
+      "city": null,
+      "summary": "The user transferred 15000 rupees via UPI on 8 October 2026, but the amount was debited from their account and not credited to the receiver. They filed a complaint with the bank three weeks ago, but have received no response yet.",
+      "user_goal": "Get the failed UPI transaction amount refunded by the bank",
+      "user_role": "consumer",
+      "other_party": {
+        "name": null,
+        "type": "bank"
+      },
+      "timeline": [
+        {
+          "date": "2026-10-08",
+          "event": "Transferred 15000 via UPI, money debited from account but not received by receiver",
+          "proof": "bank statement / UPI transaction screenshot"
+        }
+      ],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": 15000,
+        "amount_refunded": null
+      },
+      "evidence_have": [],
+      "evidence_missing": [
+        "bank statement showing debit",
+        "UPI transaction reference ID / screenshot",
+        "copy of bank complaint"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": null
+      },
+      "follow_up_questions": [
+        "Aap kaunse state mein rehte hain?",
+        "Kya aapke paas bank complaint number ya acknowledgment hai?",
+        "Kya UPI transaction ID ya screenshot available hai?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [
+        "Amount paid: Rs 15,000",
+        "Refund due: Rs 15,000"
+      ],
+      "total": 15000.0,
+      "notes": [
+        "A Consumer Commission can also award compensation and litigation costs - we don't estimate that figure; it depends on the case.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "cpa_consumer_def",
+      "cpa_limitation",
+      "cpa_jurisdiction_2021",
+      "cpa_fee_nil_5lakh",
+      "ecom_grievance_officer",
+      "forum_nch",
+      "forum_ejagriti",
+      "rbi_ios_2026",
+      "ica_s73",
+      "lsa_s12_legal_aid"
+    ],
+    "assessment": {
+      "where_year_stand": null,
+      "where_you_stand": "Aapka Rs 15,000 ka failed UPI transaction ka case kaafi strong hai kyunki aapke paas bank account statement se debit ka proof mil sakta hai [KB:cpa_consumer_def]. Bank ko 3 haftay pehle complaint bhejne ke baad bhi reply na dena deficiency in service maana jaata hai [KB:cpa_consumer_def]. Yeh achhi baat hai ki aapke paas time hai aur aap Consumer Protection Act ke antargat complain kar sakte hain [KB:cpa_limitation]. Lekin abhi aapke paas transaction reference ID / screenshot aur bank complaint ki copy missing hai, jise aapko jald se jald ikattha karna hoga.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Bank aur National Consumer Helpline [KB:forum_nch] par follow-up",
+          "what_to_do": "Apne bank se complaint acknowledgment number maangein aur National Consumer Helpline [KB:forum_nch] (1915 ya consumerhelpline.gov.in) par complaint darj karein.",
+          "time": "1-2 din",
+          "cost": "free",
+          "needs": [
+            "bank statement showing debit",
+            "UPI transaction reference ID / screenshot"
+          ],
+          "kb_refs": [
+            "forum_nch"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "RBI Ombudsman [KB:rbi_ios_2026] par complaint",
+          "what_to_do": "Agar bank 30 din ke andar jawab nahi deta ya reject karta hai, toh RBI ke online portal (cms.rbi.org.in) par free mein complaint file karein.",
+          "time": "1-3 mahine",
+          "cost": "free",
+          "needs": [
+            "bank complaint number",
+            "bank statement showing debit"
+          ],
+          "kb_refs": [
+            "rbi_ios_2026"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "District Consumer Commission mein shikayat",
+          "what_to_do": "Agar wahan bhi solution na mile, toh e-Jagriti portal par online consumer complaint darj karein [KB:forum_ejagriti]. Rs 5 lakh tak ke case ke liye koi court fee nahi hai [KB:cpa_fee_nil_5lakh].",
+          "time": "3-6 mahine",
+          "cost": "free / nil court fee",
+          "needs": [
+            "bank statement showing debit",
+            "copy of bank complaint",
+            "UPI transaction screenshot"
+          ],
+          "kb_refs": [
+            "cpa_fee_nil_5lakh",
+            "forum_ejagriti",
+            "cpa_consumer_def"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Apne bank app (Google Pay, PhonePe, Paytm ya banking app) ki history mein jaakar transaction ID ka screenshot lein.",
+        "Bank statement PDF download karein jisme Rs 15,000 debit hone ki entry saaf dikhe.",
+        "Agar email ya SMS par bank complaint ki koi copy mili ho, toh use safe rakhein."
+      ],
+      "what_i_dont_know": [
+        "Exact UPI transaction reference ID aur bank complaint ka acknowledgment number kya hai.",
+        "Kya bank ne aapki pehli complaint par koi internal status update diya hai ya nahi."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "Yeh ek simple failed UPI transaction ka refund case hai jise aap khud National Consumer Helpline [KB:forum_nch] aur RBI Ombudsman [KB:rbi_ios_2026] ke zariye bina kisi lawyer ke solve kar sakte hain.",
+      "reply": "Namaste! Aapka Rs 15,000 ka failed UPI transaction ka mamla kaafi clear hai. Bank dwara 3 hafte tak jawab na dena deficiency in service kehlata hai [KB:cpa_consumer_def]. Abhi sabse pehle aapko National Consumer Helpline (1915 ya consumerhelpline.gov.in) par free mein complaint karni chahiye [KB:forum_nch]. Agar wahan se baat na bane, toh RBI Ombudsman (cms.rbi.org.in) par complain kar sakte hain kyunki banking transactions ke liye yeh bahut bada zariya hai [KB:rbi_ios_2026]. Isme kisi lawyer ki zaroorat nahi hai aur koi court fee bhi nahi lagti [KB:cpa_fee_nil_5lakh]. Kya aapke paas abhi wo UPI transaction ID ya screenshot aur bank statement available hai?"
+    },
+    "assessment_raw": {
+      "where_year_stand": null,
+      "where_you_stand": "Aapka Rs 15,000 ka failed UPI transaction ka case kaafi strong hai kyunki aapke paas bank account statement se debit ka proof mil sakta hai [KB:cpa_consumer_def]. Bank ko 3 haftay pehle complaint bhejne ke baad bhi reply na dena deficiency in service maana jaata hai [KB:cpa_consumer_def]. Yeh achhi baat hai ki aapke paas time hai aur aap Consumer Protection Act ke antargat complain kar sakte hain [KB:cpa_limitation]. Lekin abhi aapke paas transaction reference ID / screenshot aur bank complaint ki copy missing hai, jise aapko jald se jald ikattha karna hoga.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Bank aur National Consumer Helpline par follow-up",
+          "what_to_do": "Apne bank se complaint acknowledgment number maangein aur National Consumer Helpline (1915 ya consumerhelpline.gov.in) par complaint darj karein.",
+          "time": "1-2 din",
+          "cost": "free",
+          "needs": [
+            "bank statement showing debit",
+            "UPI transaction reference ID / screenshot"
+          ],
+          "kb_refs": [
+            "forum_nch"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "RBI Ombudsman par complaint",
+          "what_to_do": "Agar bank 30 din ke andar jawab nahi deta ya reject karta hai, toh RBI ke online portal (cms.rbi.org.in) par free mein complaint file karein.",
+          "time": "1-3 mahine",
+          "cost": "free",
+          "needs": [
+            "bank complaint number",
+            "bank statement showing debit"
+          ],
+          "kb_refs": [
+            "rbi_ios_2026"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "District Consumer Commission mein shikayat",
+          "what_to_do": "Agar wahan bhi solution na mile, toh e-Jagriti portal par online consumer complaint darj karein [KB:forum_ejagriti]. Rs 5 lakh tak ke case ke liye koi court fee nahi hai [KB:cpa_fee_nil_5lakh].",
+          "time": "3-6 mahine",
+          "cost": "free / nil court fee",
+          "needs": [
+            "bank statement showing debit",
+            "copy of bank complaint",
+            "UPI transaction screenshot"
+          ],
+          "kb_refs": [
+            "cpa_fee_nil_5lakh",
+            "forum_ejagriti",
+            "cpa_consumer_def"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Apne bank app (Google Pay, PhonePe, Paytm ya banking app) ki history mein jaakar transaction ID ka screenshot lein.",
+        "Bank statement PDF download karein jisme Rs 15,000 debit hone ki entry saaf dikhe.",
+        "Agar email ya SMS par bank complaint ki koi copy mili ho, toh use safe rakhein."
+      ],
+      "what_i_dont_know": [
+        "Exact UPI transaction reference ID aur bank complaint ka acknowledgment number kya hai.",
+        "Kya bank ne aapki pehli complaint par koi internal status update diya hai ya nahi."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "Yeh ek simple failed UPI transaction ka refund case hai jise aap khud National Consumer Helpline aur RBI Ombudsman ke zariye bina kisi lawyer ke solve kar sakte hain.",
+      "reply": "Namaste! Aapka Rs 15,000 ka failed UPI transaction ka mamla kaafi clear hai. Bank dwara 3 hafte tak jawab na dena deficiency in service kehlata hai [KB:cpa_consumer_def]. Abhi sabse pehle aapko National Consumer Helpline (1915 ya consumerhelpline.gov.in) par free mein complaint karni chahiye [KB:forum_nch]. Agar wahan se baat na bane, toh RBI Ombudsman (cms.rbi.org.in) par complain kar sakte hain kyunki banking transactions ke liye yeh bahut bada zariya hai [KB:rbi_ios_2026]. Isme kisi lawyer ki zaroorat nahi hai aur koi court fee bhi nahi lagti [KB:cpa_fee_nil_5lakh]. Kya aapke paas abhi wo UPI transaction ID ya screenshot aur bank statement available hai?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "cpa_consumer_def",
+        "cpa_fee_nil_5lakh",
+        "cpa_limitation",
+        "forum_ejagriti",
+        "forum_nch",
+        "rbi_ios_2026"
+      ]
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "con02_upi_failed",
+    "secs": 6.4,
+    "prompt_tokens": 3708,
+    "completion_tokens": 1527,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 6,
+    "amounts_ok": "1/1",
+    "amounts_frac": 1.0
+  }
+}

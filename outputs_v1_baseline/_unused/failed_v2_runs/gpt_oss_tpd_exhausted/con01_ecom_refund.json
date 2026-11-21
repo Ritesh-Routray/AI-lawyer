@@ -1,0 +1,355 @@
+{
+  "input": {
+    "id": "con01_ecom_refund",
+    "story": "I ordered a phone worth Rs 32,999 on an e-commerce site on 2 Sept 2026. It was delivered with a cracked screen, I returned it on 5 Sept and they picked it up, but the refund still hasn't come. Customer care keeps saying 7-10 days. I have the order invoice and pickup receipt. I live in Hyderabad.\n",
+    "expected": {
+      "problem_type": "consumer",
+      "escalate": false,
+      "script": "latin",
+      "amounts": {
+        "order_value": 32999
+      }
+    },
+    "draft": "consumer_complaint"
+  },
+  "output": {
+    "model": "groq:openai/gpt-oss-120b",
+    "masked_story": "I ordered a phone worth Rs 32,999 on an e-commerce site on 2 Sept 2026. It was delivered with a cracked screen, I returned it on 5 Sept and they picked it up, but the refund still hasn't come. Customer care keeps saying 7-10 days. I have the order invoice and pickup receipt. I live in Hyderabad.",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "consumer",
+      "problem_subtype": "e-commerce refund not processed",
+      "user_language": "English",
+      "state": "Telangana",
+      "city": "Hyderabad",
+      "summary": "The user ordered a phone for Rs 32999 on 2 Sep 2026, received it with a cracked screen, returned it on 5 Sep 2026, and has not received the refund despite promises of 7-10 days.",
+      "user_goal": "Obtain the pending refund for the returned phone.",
+      "user_role": "consumer",
+      "other_party": {
+        "name": null,
+        "type": "company"
+      },
+      "timeline": [
+        {
+          "date": "2026-09-02",
+          "event": "Placed order for phone",
+          "proof": "order invoice"
+        },
+        {
+          "date": "2026-09-05",
+          "event": "Returned phone; pickup by e‑commerce courier",
+          "proof": "pickup receipt"
+        },
+        {
+          "date": null,
+          "event": "Refund not received; customer care says 7-10 days",
+          "proof": null
+        }
+      ],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": 32999,
+        "amount_refunded": null
+      },
+      "evidence_have": [
+        "order invoice",
+        "pickup receipt"
+      ],
+      "evidence_missing": [
+        "refund acknowledgment email or reference number",
+        "communication from customer care confirming refund timeline"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": ""
+      },
+      "follow_up_questions": [
+        "Which e‑commerce platform did you order from?",
+        "Do you have any email or chat communication confirming the refund timeline?",
+        "Has the company provided a refund reference number or acknowledgment?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [
+        "Amount paid: Rs 32,999",
+        "Refund due: Rs 32,999"
+      ],
+      "total": 32999.0,
+      "notes": [
+        "A Consumer Commission can also award compensation and litigation costs - we don't estimate that figure; it depends on the case.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "cpa_consumer_def",
+      "cpa_limitation",
+      "cpa_jurisdiction_2021",
+      "cpa_fee_nil_5lakh",
+      "ecom_grievance_officer",
+      "forum_nch",
+      "forum_ejagriti",
+      "rbi_ios_2026",
+      "ica_s73",
+      "lsa_s12_legal_aid"
+    ],
+    "assessment": {
+      "where_you_stand": "You are a consumer under the Consumer Protection Act, 2019 [KB:cpa_consumer_def]. You have clear proof of purchase (order invoice) and return (pickup receipt). The amount (Rs 32,999) is well below the Rs 5 lakh fee‑free limit and within the 2‑year filing period [KB:cpa_limitation]. Weaknesses: you lack a refund acknowledgment or reference number, and you have not yet approached the e‑commerce platform’s grievance officer, which is required before filing a complaint.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Write to the grievance officer",
+          "what_to_do": "Send a formal email or registered post to the platform’s grievance officer stating the order details, defect, return date, and demand the refund within 7‑10 days. Keep a copy for records.",
+          "time": "1‑2 days to draft and send",
+          "cost": "free",
+          "needs": [
+            "order invoice",
+            "pickup receipt",
+            "email or postal address of grievance officer"
+          ],
+          "kb_refs": [
+            "KB:ecom_grievance_officer"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Call the National Consumer Helpline [KB:forum_nch]",
+          "what_to_do": "Dial 1915 or file online at consumerhelpline.gov.in. Provide the same details and ask them to forward a complaint to the company. Note the reference number they give you.",
+          "time": "same day",
+          "cost": "free",
+          "needs": [
+            "order invoice",
+            "pickup receipt",
+            "summary of communication so far"
+          ],
+          "kb_refs": [
+            "KB:forum_nch"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "File a complaint with the District Consumer Commission",
+          "what_to_do": "Use the e‑Jagriti portal to lodge a consumer complaint. Attach the invoice, pickup receipt, and any correspondence (including the grievance‑officer email). No filing fee is required for amounts up to Rs 5 lakh [KB:cpa_fee_nil_5lakh].",
+          "time": "1‑2 weeks for the commission to issue a notice",
+          "cost": "nil filing fee; possible modest court costs for service of notice",
+          "needs": [
+            "order invoice",
+            "pickup receipt",
+            "copy of grievance‑officer email or proof of no response"
+          ],
+          "kb_refs": [
+            "KB:forum_ejagriti",
+            "KB:cpa_jurisdiction_2021",
+            "KB:cpa_fee_nil_5lakh"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Send a legal notice (optional)",
+          "what_to_do": "If the above steps fail, draft a legal notice demanding refund and possible compensation, and send it by registered post. This often prompts payment before court proceedings.",
+          "time": "3‑5 days to prepare and send",
+          "cost": "low (postage, possible lawyer draft fee)",
+          "needs": [
+            "order invoice",
+            "pickup receipt",
+            "all prior communications"
+          ],
+          "kb_refs": [
+            "KB:ica_s73"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Ask the platform to email you a refund acknowledgment with a reference number.",
+        "Take screenshots of any chat with customer care showing the promised 7‑10 day timeline.",
+        "Keep the registered‑post receipt and delivery proof for the grievance‑officer email."
+      ],
+      "what_i_dont_know": [
+        "The exact name and contact details of the e‑commerce platform’s grievance officer.",
+        "Whether the platform has already sent a refund confirmation that you missed.",
+        "If any state‑specific consumer rules in Telangana differ from the central Act."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "The dispute is a straightforward refund claim under the Consumer Protection Act [KB:cpa_consumer_def], with a low monetary value and no court case yet. You can pursue the steps yourself; a lawyer becomes useful only if the commission orders litigation or the company threatens legal action.",
+      "reply": "You are a consumer under the Consumer Protection Act, 2019 [KB:cpa_consumer_def], and you have solid proof of purchase and return. The first step is to write to the e‑commerce platform’s grievance officer, as the rules require a written complaint and give them 48 hours to acknowledge and one month to resolve [KB:ecom_grievance_officer]. If they do not respond, call the free National Consumer Helpline (1915) to have them intervene [KB:forum_nch]. Should these efforts fail, you can file a complaint yourself on the e‑Jagriti portal; there is no filing fee for amounts up to Rs 5 lakh and the District Commission has jurisdiction [KB:cpa_jurisdiction_2021][KB:cpa_fee_nil_5lakh]. Do you have the email address or contact details of the platform’s grievance officer, or would you need help locating it?"
+    },
+    "assessment_raw": {
+      "where_you_stand": "You are a consumer under the Consumer Protection Act, 2019 [KB:cpa_consumer_def]. You have clear proof of purchase (order invoice) and return (pickup receipt). The amount (Rs 32,999) is well below the Rs 5 lakh fee‑free limit and within the 2‑year filing period [KB:cpa_limitation]. Weaknesses: you lack a refund acknowledgment or reference number, and you have not yet approached the e‑commerce platform’s grievance officer, which is required before filing a complaint.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Write to the grievance officer",
+          "what_to_do": "Send a formal email or registered post to the platform’s grievance officer stating the order details, defect, return date, and demand the refund within 7‑10 days. Keep a copy for records.",
+          "time": "1‑2 days to draft and send",
+          "cost": "free",
+          "needs": [
+            "order invoice",
+            "pickup receipt",
+            "email or postal address of grievance officer"
+          ],
+          "kb_refs": [
+            "KB:ecom_grievance_officer"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Call the National Consumer Helpline",
+          "what_to_do": "Dial 1915 or file online at consumerhelpline.gov.in. Provide the same details and ask them to forward a complaint to the company. Note the reference number they give you.",
+          "time": "same day",
+          "cost": "free",
+          "needs": [
+            "order invoice",
+            "pickup receipt",
+            "summary of communication so far"
+          ],
+          "kb_refs": [
+            "KB:forum_nch"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "File a complaint with the District Consumer Commission",
+          "what_to_do": "Use the e‑Jagriti portal to lodge a consumer complaint. Attach the invoice, pickup receipt, and any correspondence (including the grievance‑officer email). No filing fee is required for amounts up to Rs 5 lakh [KB:cpa_fee_nil_5lakh].",
+          "time": "1‑2 weeks for the commission to issue a notice",
+          "cost": "nil filing fee; possible modest court costs for service of notice",
+          "needs": [
+            "order invoice",
+            "pickup receipt",
+            "copy of grievance‑officer email or proof of no response"
+          ],
+          "kb_refs": [
+            "KB:forum_ejagriti",
+            "KB:cpa_jurisdiction_2021",
+            "KB:cpa_fee_nil_5lakh"
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Send a legal notice (optional)",
+          "what_to_do": "If the above steps fail, draft a legal notice demanding refund and possible compensation, and send it by registered post. This often prompts payment before court proceedings.",
+          "time": "3‑5 days to prepare and send",
+          "cost": "low (postage, possible lawyer draft fee)",
+          "needs": [
+            "order invoice",
+            "pickup receipt",
+            "all prior communications"
+          ],
+          "kb_refs": [
+            "KB:ica_s73"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Ask the platform to email you a refund acknowledgment with a reference number.",
+        "Take screenshots of any chat with customer care showing the promised 7‑10 day timeline.",
+        "Keep the registered‑post receipt and delivery proof for the grievance‑officer email."
+      ],
+      "what_i_dont_know": [
+        "The exact name and contact details of the e‑commerce platform’s grievance officer.",
+        "Whether the platform has already sent a refund confirmation that you missed.",
+        "If any state‑specific consumer rules in Telangana differ from the central Act."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "The dispute is a straightforward refund claim under the Consumer Protection Act, with a low monetary value and no court case yet. You can pursue the steps yourself; a lawyer becomes useful only if the commission orders litigation or the company threatens legal action.",
+      "reply": "You are a consumer under the Consumer Protection Act, 2019, and you have solid proof of purchase and return. The first step is to write to the e‑commerce platform’s grievance officer, as the rules require a written complaint and give them 48 hours to acknowledge and one month to resolve [KB:ecom_grievance_officer]. If they do not respond, call the free National Consumer Helpline (1915) to have them intervene [KB:forum_nch]. Should these efforts fail, you can file a complaint yourself on the e‑Jagriti portal; there is no filing fee for amounts up to Rs 5 lakh and the District Commission has jurisdiction [KB:cpa_jurisdiction_2021][KB:cpa_fee_nil_5lakh]. Do you have the email address or contact details of the platform’s grievance officer, or would you need help locating it?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "cpa_consumer_def",
+        "cpa_fee_nil_5lakh",
+        "cpa_jurisdiction_2021",
+        "cpa_limitation",
+        "ecom_grievance_officer",
+        "forum_nch"
+      ]
+    },
+    "draft": {
+      "doc_type": "consumer_complaint",
+      "draft": {
+        "title": "Consumer Complaint before the District Consumer Disputes Redressal Commission, Hyderabad",
+        "body": "Before the Hon’ble District Consumer Disputes Redressal Commission, Hyderabad\n\n1. **Complainant:**\n   Name: [Your Name]\n   Address: [Your Complete Address]\n   Phone: [PHONE_1]\n   Email: [Your Email]\n\n2. **Opposite Party (E‑commerce Seller):**\n   Name: [Company Name]\n   Registered Office: [Company Address]\n   Phone: [Company Phone]\n   Email: [Company Email]\n\n3. **Facts of the Case**\n   1. On 02‑09‑2026, the complainant placed an order for a mobile phone priced at Rs. 32,999 on the e‑commerce platform of the opposite party. (Annexure‑A: Order Invoice)\n   2. The phone was delivered with a cracked screen, which constituted a defect.\n   3. The complainant returned the defective phone on 05‑09‑2026; the e‑commerce courier collected the item. (Annexure‑B: Pickup Receipt)\n   4. Despite repeated follow‑ups, the opposite party has not credited the refund amount of Rs. 32,999. Customer care repeatedly assures that the refund will be processed within 7‑10 days, but the period has elapsed and no refund has been received. (No refund acknowledgment or reference number is available.)\n   5. The complainant lodged a grievance with the e‑commerce platform’s Grievance Officer on [date of grievance] as required under the Consumer Protection (E‑Commerce) Rules, 2020, but no satisfactory resolution was obtained. (Annexure‑C: Grievance communication – placeholder)\n   6. The complainant also approached the National Consumer Helpline (1915) on [date of NCH contact]; the helpline forwarded the complaint but the refund remains pending. (Annexure‑D: NCH reference – placeholder)\n\n4. **Grounds for Complaint**\n   a) The opposite party has committed a *deficiency in service* by delivering a defective product and refusing to refund the amount paid. (Consumer Protection Act, 2019 – sections 2(7), 2(11) [KB:cpa_consumer_def])\n   b) The refusal to refund after the product was returned amounts to an *unfair trade practice* under the same Act. (Consumer Protection Act, 2019 – section 2(47) [KB:cpa_consumer_def])\n   c) The complainant has attempted pre‑litigation redress through the grievance officer and the National Consumer Helpline, as prescribed under the Consumer Protection (E‑Commerce) Rules, 2020 and the NCH guidelines.\n\n5. **Jurisdiction & Limitation**\n   The value of the goods involved is Rs. 32,999, which falls within the jurisdiction of the District Commission (up to Rs. 50 lakh). (Consumer Protection (Jurisdiction of the District Commission, the State Commission and the National Commission) Rules, 2021 – sections 3,4,5 [KB:cpa_jurisdiction_2021])\n   The complaint is filed within two years from the date of the cause of action, complying with the limitation period. (Consumer Protection Act, 2019 – section 69 [KB:cpa_limitation])\n\n6. **Relief Sought**\n   a) Refund of the full amount paid: Rs. 32,999.\n   b) Compensation for the inconvenience and mental agony caused by the delay, as may be determined by the Commission.\n   c) Recovery of all costs incurred in filing and pursuing the complaint, including court fees (nil as per rule) and any other expenses as deemed fit.\n   d) Any other relief that the Hon’ble Commission may deem appropriate in the interest of justice.\n\n7. **Documents Attached**\n   1. Order Invoice (Annexure‑A)\n   2. Pickup Receipt (Annexure‑B)\n   3. Copy of grievance communication with the e‑commerce grievance officer (Annexure‑C) – placeholder\n   4. NCH reference/communication (Annexure‑D) – placeholder\n   5. Affidavit of the complainant (Annexure‑E)\n\n8. **Verification**\n   I, [Your Name], the complainant above, do hereby verify that the contents of this complaint are true to the best of my knowledge and belief, and that no material fact has been concealed.\n   Verified at Hyderabad on this [date of filing] day of [month] 2026.\n   Signature: ______________________\n\nDate: [date of filing]",
+        "explain_in_user_language": "This document is a formal consumer complaint to be filed with the District Consumer Disputes Redressal Commission in Hyderabad. It lists you as the complainant, the e‑commerce seller as the opposite party, and sets out the facts, the deficiency in service, and the relief you are seeking (full refund, compensation and costs). After you fill in the placeholders and attach the listed documents, you can file it online via the e‑Jagriti portal or submit it in person. The Commission will then issue notice to the seller and schedule a hearing.",
+        "attach_checklist": [
+          "Order invoice",
+          "Pickup receipt",
+          "Copy of grievance officer communication (if any)",
+          "National Consumer Helpline reference (if any)",
+          "Affidavit of the complainant"
+        ],
+        "placeholders_to_fill": [
+          "[Your Name]",
+          "[Your Complete Address]",
+          "[Your Email]",
+          "[Company Name]",
+          "[Company Address]",
+          "[Company Phone]",
+          "[Company Email]",
+          "[date of grievance]",
+          "[date of NCH contact]",
+          "[date of filing]",
+          "[month]"
+        ]
+      },
+      "draft_raw": {
+        "title": "Consumer Complaint before the District Consumer Disputes Redressal Commission, Hyderabad",
+        "body": "Before the Hon’ble District Consumer Disputes Redressal Commission, Hyderabad\n\n1. **Complainant:**\n   Name: [Your Name]\n   Address: [Your Complete Address]\n   Phone: [PHONE_1]\n   Email: [Your Email]\n\n2. **Opposite Party (E‑commerce Seller):**\n   Name: [Company Name]\n   Registered Office: [Company Address]\n   Phone: [Company Phone]\n   Email: [Company Email]\n\n3. **Facts of the Case**\n   1. On 02‑09‑2026, the complainant placed an order for a mobile phone priced at Rs. 32,999 on the e‑commerce platform of the opposite party. (Annexure‑A: Order Invoice)\n   2. The phone was delivered with a cracked screen, which constituted a defect.\n   3. The complainant returned the defective phone on 05‑09‑2026; the e‑commerce courier collected the item. (Annexure‑B: Pickup Receipt)\n   4. Despite repeated follow‑ups, the opposite party has not credited the refund amount of Rs. 32,999. Customer care repeatedly assures that the refund will be processed within 7‑10 days, but the period has elapsed and no refund has been received. (No refund acknowledgment or reference number is available.)\n   5. The complainant lodged a grievance with the e‑commerce platform’s Grievance Officer on [date of grievance] as required under the Consumer Protection (E‑Commerce) Rules, 2020, but no satisfactory resolution was obtained. (Annexure‑C: Grievance communication – placeholder)\n   6. The complainant also approached the National Consumer Helpline (1915) on [date of NCH contact]; the helpline forwarded the complaint but the refund remains pending. (Annexure‑D: NCH reference – placeholder)\n\n4. **Grounds for Complaint**\n   a) The opposite party has committed a *deficiency in service* by delivering a defective product and refusing to refund the amount paid. (Consumer Protection Act, 2019 – sections 2(7), 2(11) [KB:cpa_consumer_def])\n   b) The refusal to refund after the product was returned amounts to an *unfair trade practice* under the same Act. (Consumer Protection Act, 2019 – section 2(47) [KB:cpa_consumer_def])\n   c) The complainant has attempted pre‑litigation redress through the grievance officer and the National Consumer Helpline, as prescribed under the Consumer Protection (E‑Commerce) Rules, 2020 and the NCH guidelines.\n\n5. **Jurisdiction & Limitation**\n   The value of the goods involved is Rs. 32,999, which falls within the jurisdiction of the District Commission (up to Rs. 50 lakh). (Consumer Protection (Jurisdiction of the District Commission, the State Commission and the National Commission) Rules, 2021 – sections 3,4,5 [KB:cpa_jurisdiction_2021])\n   The complaint is filed within two years from the date of the cause of action, complying with the limitation period. (Consumer Protection Act, 2019 – section 69 [KB:cpa_limitation])\n\n6. **Relief Sought**\n   a) Refund of the full amount paid: Rs. 32,999.\n   b) Compensation for the inconvenience and mental agony caused by the delay, as may be determined by the Commission.\n   c) Recovery of all costs incurred in filing and pursuing the complaint, including court fees (nil as per rule) and any other expenses as deemed fit.\n   d) Any other relief that the Hon’ble Commission may deem appropriate in the interest of justice.\n\n7. **Documents Attached**\n   1. Order Invoice (Annexure‑A)\n   2. Pickup Receipt (Annexure‑B)\n   3. Copy of grievance communication with the e‑commerce grievance officer (Annexure‑C) – placeholder\n   4. NCH reference/communication (Annexure‑D) – placeholder\n   5. Affidavit of the complainant (Annexure‑E)\n\n8. **Verification**\n   I, [Your Name], the complainant above, do hereby verify that the contents of this complaint are true to the best of my knowledge and belief, and that no material fact has been concealed.\n   Verified at Hyderabad on this [date of filing] day of [month] 2026.\n   Signature: ______________________\n\nDate: [date of filing]",
+        "explain_in_user_language": "This document is a formal consumer complaint to be filed with the District Consumer Disputes Redressal Commission in Hyderabad. It lists you as the complainant, the e‑commerce seller as the opposite party, and sets out the facts, the deficiency in service, and the relief you are seeking (full refund, compensation and costs). After you fill in the placeholders and attach the listed documents, you can file it online via the e‑Jagriti portal or submit it in person. The Commission will then issue notice to the seller and schedule a hearing.",
+        "attach_checklist": [
+          "Order invoice",
+          "Pickup receipt",
+          "Copy of grievance officer communication (if any)",
+          "National Consumer Helpline reference (if any)",
+          "Affidavit of the complainant"
+        ],
+        "placeholders_to_fill": [
+          "[Your Name]",
+          "[Your Complete Address]",
+          "[Your Email]",
+          "[Company Name]",
+          "[Company Address]",
+          "[Company Phone]",
+          "[Company Email]",
+          "[date of grievance]",
+          "[date of NCH contact]",
+          "[date of filing]",
+          "[month]"
+        ]
+      },
+      "guardrail_report": {
+        "removed_count": 0,
+        "items": [],
+        "kb_cited": [
+          "cpa_consumer_def",
+          "cpa_jurisdiction_2021",
+          "cpa_limitation"
+        ]
+      }
+    }
+  },
+  "metrics": {
+    "model": "groq:openai/gpt-oss-120b",
+    "case": "con01_ecom_refund",
+    "secs": 64.4,
+    "prompt_tokens": 5460,
+    "completion_tokens": 3431,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 6,
+    "amounts_ok": "1/1",
+    "amounts_frac": 1.0
+  }
+}

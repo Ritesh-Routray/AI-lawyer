@@ -1,0 +1,261 @@
+{
+  "input": {
+    "id": "con03_old_purchase",
+    "story": "I bought a washing machine for 28000 in January 2024 and it stopped working in February 2024. The company never fixed it despite many calls. Can I file a consumer case now?\n",
+    "expected": {
+      "problem_type": "consumer",
+      "escalate": true,
+      "script": "latin",
+      "amounts": {
+        "order_value": 28000
+      }
+    }
+  },
+  "output": {
+    "model": "groq:openai/gpt-oss-120b",
+    "masked_story": "I bought a washing machine for 28000 in January 2024 and it stopped working in February 2024. The company never fixed it despite many calls. Can I file a consumer case now?",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "consumer",
+      "problem_subtype": "product defect not repaired",
+      "user_language": "English",
+      "state": null,
+      "city": null,
+      "summary": "The user purchased a washing machine for 28000 in January 2024, which stopped working in February 2024. Despite multiple calls to the company, the issue remains unresolved. They are seeking to file a consumer complaint.",
+      "user_goal": "to file a consumer case against the company for non‑repair of the defective washing machine",
+      "user_role": "consumer",
+      "other_party": {
+        "name": null,
+        "type": "company"
+      },
+      "timeline": [
+        {
+          "date": "2024-01",
+          "event": "Purchased washing machine for 28000",
+          "proof": null
+        },
+        {
+          "date": "2024-02",
+          "event": "Washing machine stopped working; made multiple calls to company requesting repair",
+          "proof": null
+        }
+      ],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": 28000,
+        "amount_refunded": null
+      },
+      "evidence_have": [],
+      "evidence_missing": [
+        "purchase receipt or invoice",
+        "warranty card",
+        "records of calls or complaint tickets"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": null
+      },
+      "follow_up_questions": [
+        "Please tell us which state and city you are located in.",
+        "Do you have the purchase receipt or invoice for the washing machine?",
+        "Do you have any warranty card or service call records (e.g., call logs, complaint ticket numbers)?"
+      ]
+    },
+    "flags": [
+      {
+        "code": "TIME_LIMIT",
+        "severity": "lawyer",
+        "message": "The problem started about 2.9 years ago. The usual time limit for this kind of claim is around 2 years - it may be expired or about to expire. See a lawyer quickly."
+      }
+    ],
+    "calculation": {
+      "lines": [
+        "Amount paid: Rs 28,000",
+        "Refund due: Rs 28,000"
+      ],
+      "total": 28000.0,
+      "notes": [
+        "A Consumer Commission can also award compensation and litigation costs - we don't estimate that figure; it depends on the case.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "cpa_consumer_def",
+      "cpa_limitation",
+      "cpa_jurisdiction_2021",
+      "cpa_fee_nil_5lakh",
+      "ecom_grievance_officer",
+      "forum_nch",
+      "forum_ejagriti",
+      "rbi_ios_2026",
+      "ica_s73",
+      "lsa_s12_legal_aid"
+    ],
+    "assessment": {
+      "where_you_stand": "You are a consumer who bought a washing machine for Rs 28,000 in Jan 2024 and it stopped working in Feb 2024. The defect and the company's failure to repair constitute a deficiency in service under the Consumer Protection Act, 2019 [KB:cpa_consumer_def]. You can claim a full refund of Rs 28,000. However, the problem started about 2.9 years ago, exceeding the usual 2‑year limitation period for filing a consumer complaint [KB:cpa_limitation]; this is a red flag and a lawyer should be consulted promptly.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Contact National Consumer Helpline [KB:forum_nch]",
+          "what_to_do": "Call 1915 or file an online complaint at consumerhelpline.gov.in. Provide details of purchase, defect, and all communication attempts. Ask the helpline to forward your grievance to the company and seek a refund.",
+          "time": "Same day to a few days",
+          "cost": "free",
+          "needs": [
+            "purchase receipt or invoice",
+            "warranty card",
+            "call logs or ticket numbers"
+          ],
+          "kb_refs": [
+            "KB:forum_nch"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Write to the company's grievance officer",
+          "what_to_do": "Send a formal written complaint (email or registered post) to the company's grievance officer as required by the E‑Commerce Rules. State the defect, request repair or refund, and give a 15‑day deadline. Keep a copy as proof.",
+          "time": "1‑2 weeks (including waiting for reply)",
+          "cost": "free or nominal post fee",
+          "needs": [
+            "purchase receipt",
+            "warranty card",
+            "record of previous calls"
+          ],
+          "kb_refs": [
+            "KB:ecom_grievance_officer"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "File a consumer complaint with the District Commission",
+          "what_to_do": "If the company does not respond, file a complaint on the e‑Jagriti portal (or in person) under the District Consumer Disputes Redressal Commission. Attach all documents, the grievance officer's reply (if any), and a copy of the claim for Rs 28,000. The filing fee is nil for amounts up to Rs 5 lakh [KB:cpa_fee_nil_5lakh].",
+          "time": "2‑4 weeks for filing, then hearing schedule varies",
+          "cost": "nil filing fee; possible modest court costs",
+          "needs": [
+            "purchase receipt",
+            "warranty card",
+            "call logs/ticket numbers",
+            "copy of grievance officer communication"
+          ],
+          "kb_refs": [
+            "KB:cpa_jurisdiction_2021",
+            "KB:cpa_fee_nil_5lakh"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Ask the retailer for a digital copy of the invoice via email or WhatsApp.",
+        "Locate the warranty card that came with the machine; a scanned copy works.",
+        "Export your phone call logs for February 2024 and any SMS/email exchanges with the company.",
+        "If you have a service ticket number, request the company to email you the ticket details."
+      ],
+      "what_i_dont_know": [
+        "Exact state and city jurisdiction, which may affect filing location.",
+        "Whether the company has already issued any written response or settlement offer.",
+        "If any additional terms in the purchase agreement limit the refund."
+      ],
+      "needs_lawyer": true,
+      "needs_lawyer_reason": "The defect occurred about 2.9 years ago, exceeding the 2‑year limitation period for consumer complaints [KB:cpa_limitation]; a lawyer can assess whether an exception applies and help protect your rights.",
+      "reply": "You are a consumer who bought a washing machine for Rs 28,000 in Jan 2024, and it stopped working a month later. The company's failure to repair is a deficiency in service under the Consumer Protection Act, 2019 [KB:cpa_consumer_def]. You can claim a full refund, but the issue arose almost 3 years ago, which is beyond the normal 2‑year filing limit [KB:cpa_limitation]; this makes a lawyer’s advice urgent. First, call the National Consumer Helpline [KB:forum_nch] (1915) to get free help and have them forward your complaint to the company. Next, send a formal written complaint to the company's grievance officer as required by the E‑Commerce Rules [KB:ecom_grievance_officer] and keep a copy. If there is no satisfactory response, you can file a complaint online on the e‑Jagriti portal with the District Consumer Commission; the filing fee is nil for amounts up to Rs 5 lakh [KB:cpa_fee_nil_5lakh]. Do you have the purchase invoice or warranty card that we can attach to these steps?"
+    },
+    "assessment_raw": {
+      "where_you_stand": "You are a consumer who bought a washing machine for Rs 28,000 in Jan 2024 and it stopped working in Feb 2024. The defect and the company's failure to repair constitute a deficiency in service under the Consumer Protection Act, 2019 [KB:cpa_consumer_def]. You can claim a full refund of Rs 28,000. However, the problem started about 2.9 years ago, exceeding the usual 2‑year limitation period for filing a consumer complaint [KB:cpa_limitation]; this is a red flag and a lawyer should be consulted promptly.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Contact National Consumer Helpline",
+          "what_to_do": "Call 1915 or file an online complaint at consumerhelpline.gov.in. Provide details of purchase, defect, and all communication attempts. Ask the helpline to forward your grievance to the company and seek a refund.",
+          "time": "Same day to a few days",
+          "cost": "free",
+          "needs": [
+            "purchase receipt or invoice",
+            "warranty card",
+            "call logs or ticket numbers"
+          ],
+          "kb_refs": [
+            "KB:forum_nch"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Write to the company's grievance officer",
+          "what_to_do": "Send a formal written complaint (email or registered post) to the company's grievance officer as required by the E‑Commerce Rules. State the defect, request repair or refund, and give a 15‑day deadline. Keep a copy as proof.",
+          "time": "1‑2 weeks (including waiting for reply)",
+          "cost": "free or nominal post fee",
+          "needs": [
+            "purchase receipt",
+            "warranty card",
+            "record of previous calls"
+          ],
+          "kb_refs": [
+            "KB:ecom_grievance_officer"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "File a consumer complaint with the District Commission",
+          "what_to_do": "If the company does not respond, file a complaint on the e‑Jagriti portal (or in person) under the District Consumer Disputes Redressal Commission. Attach all documents, the grievance officer's reply (if any), and a copy of the claim for Rs 28,000. The filing fee is nil for amounts up to Rs 5 lakh [KB:cpa_fee_nil_5lakh].",
+          "time": "2‑4 weeks for filing, then hearing schedule varies",
+          "cost": "nil filing fee; possible modest court costs",
+          "needs": [
+            "purchase receipt",
+            "warranty card",
+            "call logs/ticket numbers",
+            "copy of grievance officer communication"
+          ],
+          "kb_refs": [
+            "KB:cpa_jurisdiction_2021",
+            "KB:cpa_fee_nil_5lakh"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Ask the retailer for a digital copy of the invoice via email or WhatsApp.",
+        "Locate the warranty card that came with the machine; a scanned copy works.",
+        "Export your phone call logs for February 2024 and any SMS/email exchanges with the company.",
+        "If you have a service ticket number, request the company to email you the ticket details."
+      ],
+      "what_i_dont_know": [
+        "Exact state and city jurisdiction, which may affect filing location.",
+        "Whether the company has already issued any written response or settlement offer.",
+        "If any additional terms in the purchase agreement limit the refund."
+      ],
+      "needs_lawyer": true,
+      "needs_lawyer_reason": "The defect occurred about 2.9 years ago, exceeding the 2‑year limitation period for consumer complaints [KB:cpa_limitation]; a lawyer can assess whether an exception applies and help protect your rights.",
+      "reply": "You are a consumer who bought a washing machine for Rs 28,000 in Jan 2024, and it stopped working a month later. The company's failure to repair is a deficiency in service under the Consumer Protection Act, 2019 [KB:cpa_consumer_def]. You can claim a full refund, but the issue arose almost 3 years ago, which is beyond the normal 2‑year filing limit [KB:cpa_limitation]; this makes a lawyer’s advice urgent. First, call the National Consumer Helpline (1915) to get free help and have them forward your complaint to the company. Next, send a formal written complaint to the company's grievance officer as required by the E‑Commerce Rules [KB:ecom_grievance_officer] and keep a copy. If there is no satisfactory response, you can file a complaint online on the e‑Jagriti portal with the District Consumer Commission; the filing fee is nil for amounts up to Rs 5 lakh [KB:cpa_fee_nil_5lakh]. Do you have the purchase invoice or warranty card that we can attach to these steps?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "cpa_consumer_def",
+        "cpa_fee_nil_5lakh",
+        "cpa_limitation",
+        "ecom_grievance_officer"
+      ]
+    }
+  },
+  "metrics": {
+    "model": "groq:openai/gpt-oss-120b",
+    "case": "con03_old_purchase",
+    "secs": 33.6,
+    "prompt_tokens": 3540,
+    "completion_tokens": 1573,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": true,
+    "escalated": true,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 4,
+    "amounts_ok": "1/1",
+    "amounts_frac": 1.0
+  }
+}

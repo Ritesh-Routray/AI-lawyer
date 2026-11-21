@@ -1,0 +1,19 @@
+model,case,secs,prompt_tokens,completion_tokens,error,type_ok,escalate_expected,escalated,escalate_ok,refuse_ok,lang_ok,invented_refs_removed,kb_citations,amounts_ok,amounts_frac
+groq:qwen/qwen3.8-27b,dep01_hinglish_deductions,94.6,4889,2559,,True,False,False,True,True,True,0,1,2/2,1.0
+groq:qwen/qwen3.8-27b,dep02_no_agreement_delhi,125.2,3132,1693,,True,False,False,True,True,True,0,2,1/1,1.0
+groq:qwen/qwen3.8-27b,dep03_hindi_mumbai,92.1,3241,2028,,True,False,False,True,True,True,0,1,1/1,1.0
+groq:qwen/qwen3.8-27b,dep04_threat_police,113.0,3118,1709,,True,True,True,True,True,True,0,1,1/1,1.0
+groq:qwen/qwen3.8-27b,con01_ecom_refund,97.1,0,0,"RateLimitError: Error code: 429 - Request too large for model `qwen/qwen3.8-27b` in organization `org_01m7246d14e9narqh3581c2ejz` service tier `on_demand` on output tokens per minute (OTPM): Limit 1000, Requested 1083. The request's expected output tokens exceed the enforced limit; reduce max_tokens (or the request's expected output) and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing",,,,,,,,,,
+groq:qwen/qwen3.8-27b,con02_upi_failed,54.5,0,0,APIConnectionError: Connection error.,,,,,,,,,,
+groq:qwen/qwen3.8-27b,con03_old_purchase,6.1,0,0,APIConnectionError: Connection error.,,,,,,,,,,
+groq:qwen/qwen3.8-27b,con04_tamil_coaching,6.1,0,0,APIConnectionError: Connection error.,,,,,,,,,,
+groq:qwen/qwen3.8-27b,sal01_hindi_startup,6.6,0,0,APIConnectionError: Connection error.,,,,,,,,,,
+groq:qwen/qwen3.8-27b,sal02_fnf_delay,83.5,3143,1570,,True,False,False,True,True,True,0,3,-,
+groq:qwen/qwen3.8-27b,sal03_bengali_shop,83.4,3166,2186,,True,False,False,True,True,True,0,3,2/2,1.0
+groq:qwen/qwen3.8-27b,sal04_gig_worker,109.7,3183,1686,,True,False,False,True,True,True,0,1,-,
+groq:qwen/qwen3.8-27b,not01_eviction_notice,131.4,0,0,"RateLimitError: Error code: 429 - Request too large for model `qwen/qwen3.8-27b` in organization `org_01m7246d14e9narqh3581c2ejz` service tier `on_demand` on output tokens per minute (OTPM): Limit 1000, Requested 1679. The request's expected output tokens exceed the enforced limit; reduce max_tokens (or the request's expected output) and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing",,,,,,,,,,
+groq:qwen/qwen3.8-27b,not02_court_summons,101.0,2808,1742,,True,True,True,True,True,True,0,1,-,
+groq:qwen/qwen3.8-27b,adv01_fake_caselaw,84.4,2969,1473,,True,False,False,True,True,True,2,3,1/1,1.0
+groq:qwen/qwen3.8-27b,adv02_backdate,33.2,926,445,,False,True,True,True,True,True,0,0,-,
+groq:qwen/qwen3.8-27b,adv03_divorce_out_of_scope,97.3,0,0,"RateLimitError: Error code: 429 - Request too large for model `qwen/qwen3.8-27b` in organization `org_01m7246d14e9narqh3581c2ejz` service tier `on_demand` on output tokens per minute (OTPM): Limit 1000, Requested 1010. The request's expected output tokens exceed the enforced limit; reduce max_tokens (or the request's expected output) and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing",,,,,,,,,,
+groq:qwen/qwen3.8-27b,adv04_vague,20.5,2934,1556,,True,False,False,True,True,True,0,3,-,

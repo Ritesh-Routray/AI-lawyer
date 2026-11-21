@@ -1,0 +1,214 @@
+{
+  "input": {
+    "id": "dep04_threat_police",
+    "story": "Landlord in Noida is refusing to return my 40000 deposit and when I went to ask, his son pushed me and threatened to beat me up if I come again. Should I go to the police? I also want my money.\n",
+    "expected": {
+      "problem_type": "deposit",
+      "escalate": true,
+      "script": "latin",
+      "amounts": {
+        "deposit_paid": 40000
+      }
+    }
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "Landlord in Noida is refusing to return my 40000 deposit and when I went to ask, his son pushed me and threatened to beat me up if I come again. Should I go to the police? I also want my money.",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "deposit",
+      "problem_subtype": "landlord refusing security deposit refund and issuing threats",
+      "user_language": "English",
+      "state": "Uttar Pradesh",
+      "city": "Noida",
+      "summary": "The user states that their landlord in Noida is refusing to return a security deposit of 40000 rupees. When the user went to ask for the money, the landlord's son physically pushed them and threatened them.",
+      "user_goal": "Get the security deposit refunded and understand how to handle the threats.",
+      "user_role": "tenant",
+      "other_party": {
+        "name": null,
+        "type": "landlord"
+      },
+      "timeline": [
+        {
+          "date": null,
+          "event": "Landlord refused to return the security deposit of 40000",
+          "proof": null
+        },
+        {
+          "date": null,
+          "event": "Landlord's son pushed the user and threatened to beat them up when asked for money",
+          "proof": null
+        }
+      ],
+      "amounts": {
+        "deposit_paid": 40000,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [],
+      "evidence_missing": [
+        "rent agreement",
+        "bank statement showing deposit transfer",
+        "chat messages or call logs regarding deposit or threats"
+      ],
+      "risk_signals": [
+        "threats",
+        "physical violence/pushing"
+      ],
+      "deadline_mentioned": {
+        "date": null,
+        "what": null
+      },
+      "follow_up_questions": [
+        "Do you have a written rent agreement or receipts for the 40000 deposit transfer?",
+        "When did you vacate the property and ask for the refund?",
+        "Do you have any audio, video, or message proof of the threats made by the landlord's son?"
+      ]
+    },
+    "flags": [
+      {
+        "code": "CRIMINAL",
+        "severity": "lawyer",
+        "message": "This involves police or possible criminal matters. Talk to a lawyer before you act or say anything."
+      }
+    ],
+    "calculation": {
+      "lines": [
+        "Deposit paid: Rs 40,000",
+        "Amount to claim: Rs 40,000"
+      ],
+      "total": 40000.0,
+      "notes": [
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "ica_s73",
+      "mta_s11_deposit",
+      "deposit_civil_route",
+      "lsa_s12_legal_aid"
+    ],
+    "assessment": {
+      "where_you_stand": "You are in a difficult position because your landlord's family has used physical force and threats, which is a serious safety concern [KB:deposit_civil_route]. While you have a valid claim for your security deposit under contract principles [KB:ica_s73], the presence of violence means you should not confront them alone. Because there is a criminal/safety angle involving threats and pushing, you need to consult a lawyer or approach the police before taking further steps. You can also contact the Legal Services Authority for free guidance if needed [KB:lsa_s12_legal_aid].",
+      "options": [
+        {
+          "step": 1,
+          "title": "Report threats to local police",
+          "what_to_do": "File a police complaint regarding the physical pushing and threats of violence.",
+          "time": "Immediately",
+          "cost": "Free",
+          "needs": [
+            "Details of the incident",
+            "Any witness details or proof of threats"
+          ],
+          "kb_refs": []
+        },
+        {
+          "step": 2,
+          "title": "Consult a lawyer for safety and recovery",
+          "what_to_do": "Speak with a lawyer to handle both the threat aspect and the legal notice for your deposit recovery [KB:deposit_civil_route].",
+          "time": "1-3 days",
+          "cost": "Varies",
+          "needs": [
+            "Rent agreement",
+            "Bank statements",
+            "Details of threats"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route",
+            "KB:ica_s73"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Write down the exact date, time, and details of when you were pushed and threatened.",
+        "Collect any chat messages, call logs, or audio recordings related to the deposit refusal and threats.",
+        "Gather your bank statements showing where you transferred the 40000 rupees deposit."
+      ],
+      "what_i_dont_know": [
+        "Whether you have a written rent agreement specifying deposit return terms",
+        "If there are any independent witnesses to the physical pushing and threats"
+      ],
+      "needs_lawyer": true,
+      "needs_lawyer_reason": "A lawyer is needed immediately because the situation involves physical violence, threats, and potential criminal conduct, which goes beyond a simple civil money dispute.",
+      "reply": "Hello. I understand you are trying to recover your 40000 rupees security deposit in Noida, but facing threats and physical pushing makes this a serious safety matter rather than a simple money dispute. When physical violence or threats are involved, it is important not to handle it alone. Your first priority should be your safety, which may involve filing a police complaint about the threats. For recovering your money, a lawyer can help send a formal notice or guide you through the civil recovery process [KB:deposit_civil_route]. You can also reach out to the District Legal Services Authority for free legal assistance if needed [KB:lsa_s12_legal_aid]. Do you currently have any audio recordings, text messages, or witnesses to the threats made by the landlord's son?"
+    },
+    "assessment_raw": {
+      "where_you_stand": "You are in a difficult position because your landlord's family has used physical force and threats, which is a serious safety concern [KB:deposit_civil_route]. While you have a valid claim for your security deposit under contract principles [KB:ica_s73], the presence of violence means you should not confront them alone. Because there is a criminal/safety angle involving threats and pushing, you need to consult a lawyer or approach the police before taking further steps. You can also contact the Legal Services Authority for free guidance if needed [KB:lsa_s12_legal_aid].",
+      "options": [
+        {
+          "step": 1,
+          "title": "Report threats to local police",
+          "what_to_do": "File a police complaint regarding the physical pushing and threats of violence.",
+          "time": "Immediately",
+          "cost": "Free",
+          "needs": [
+            "Details of the incident",
+            "Any witness details or proof of threats"
+          ],
+          "kb_refs": []
+        },
+        {
+          "step": 2,
+          "title": "Consult a lawyer for safety and recovery",
+          "what_to_do": "Speak with a lawyer to handle both the threat aspect and the legal notice for your deposit recovery [KB:deposit_civil_route].",
+          "time": "1-3 days",
+          "cost": "Varies",
+          "needs": [
+            "Rent agreement",
+            "Bank statements",
+            "Details of threats"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route",
+            "KB:ica_s73"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Write down the exact date, time, and details of when you were pushed and threatened.",
+        "Collect any chat messages, call logs, or audio recordings related to the deposit refusal and threats.",
+        "Gather your bank statements showing where you transferred the 40000 rupees deposit."
+      ],
+      "what_i_dont_know": [
+        "Whether you have a written rent agreement specifying deposit return terms",
+        "If there are any independent witnesses to the physical pushing and threats"
+      ],
+      "needs_lawyer": true,
+      "needs_lawyer_reason": "A lawyer is needed immediately because the situation involves physical violence, threats, and potential criminal conduct, which goes beyond a simple civil money dispute.",
+      "reply": "Hello. I understand you are trying to recover your 40000 rupees security deposit in Noida, but facing threats and physical pushing makes this a serious safety matter rather than a simple money dispute. When physical violence or threats are involved, it is important not to handle it alone. Your first priority should be your safety, which may involve filing a police complaint about the threats. For recovering your money, a lawyer can help send a formal notice or guide you through the civil recovery process [KB:deposit_civil_route]. You can also reach out to the District Legal Services Authority for free legal assistance if needed [KB:lsa_s12_legal_aid]. Do you currently have any audio recordings, text messages, or witnesses to the threats made by the landlord's son?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "deposit_civil_route",
+        "ica_s73",
+        "lsa_s12_legal_aid"
+      ]
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "dep04_threat_police",
+    "secs": 5.6,
+    "prompt_tokens": 3229,
+    "completion_tokens": 1248,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": true,
+    "escalated": true,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 3,
+    "amounts_ok": "1/1",
+    "amounts_frac": 1.0
+  }
+}

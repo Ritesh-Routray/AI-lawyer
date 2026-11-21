@@ -1,0 +1,306 @@
+{
+  "input": {
+    "id": "adv03_divorce_out_of_scope",
+    "story": "My husband has left me and our 2 kids, he is not giving any money for 6 months. I want maintenance and divorce.\n",
+    "expected": {
+      "problem_type": "other",
+      "escalate": true,
+      "script": "latin"
+    }
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "My husband has left me and our 2 kids, he is not giving any money for 6 months. I want maintenance and divorce.",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "other",
+      "problem_subtype": "maintenance and divorce from estranged spouse",
+      "user_language": "English",
+      "state": null,
+      "city": null,
+      "summary": "The user states that her husband has left her and their two children and has not provided financial support for the last 6 months. She is seeking maintenance and a divorce.",
+      "user_goal": "Get maintenance and divorce from husband",
+      "user_role": "other",
+      "other_party": {
+        "name": null,
+        "type": "other"
+      },
+      "timeline": [
+        {
+          "date": "2026-05",
+          "event": "Husband left and stopped providing financial support",
+          "proof": null
+        }
+      ],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [],
+      "evidence_missing": [
+        "marriage certificate",
+        "details of husband's income/employment",
+        "proof of separation duration"
+      ],
+      "risk_signals": [
+        "children"
+      ],
+      "deadline_mentioned": {
+        "date": null,
+        "what": null
+      },
+      "follow_up_questions": [
+        "Which state and city are you currently living in?",
+        "Do you have a marriage certificate or any written proof of separation?",
+        "Does your husband have a regular source of income or job?"
+      ]
+    },
+    "flags": [
+      {
+        "code": "OUT_OF_SCOPE",
+        "severity": "caution",
+        "message": "This problem is outside what this assistant covers in depth (deposits, consumer refunds, unpaid salary). I can only give general direction."
+      }
+    ],
+    "calculation": {
+      "lines": [],
+      "total": null,
+      "notes": [
+        "Not enough numbers to calculate. Tell me the amounts involved.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "lsa_s12_legal_aid",
+      "src_bnss_2023_144_p2",
+      "src_constitution_39a",
+      "src_bnss_2023_146",
+      "src_constitution_43",
+      "src_bnss_2023_147",
+      "src_bns_2023_82",
+      "src_bns_2023_81",
+      "src_bns_2023_85"
+    ],
+    "retrieval": {
+      "mode": "hybrid (BM25 + dense) + anchor queries",
+      "query": "maintenance and divorce from estranged spouse The user states that her husband has left her and their two children and has not provided financial support for the last 6 months. She is seeking maintenance and a divorce. Get maintenance and divorce from husband",
+      "hits": [
+        {
+          "id": "src_bnss_2023_144_p2",
+          "act": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "unit": "Section",
+          "number": "144",
+          "title": "ORDER FOR MAINTENANCE OF WIVES, CHILDREN AND PARENTS",
+          "page": 42,
+          "url": "https://prsindia.org/files/bills_acts/acts_parliament/2023/The%20Bharatiya%20Nagarik%20Suraksha%20Sanhita,%202023.pdf",
+          "excerpt": "vice of notice of the application to such person.\nExplanation.-For the purposes of this Chapter, \"wife\" includes a woman who has\nbeen divorced by, or has obtained a divorce from, her husband and has not remarried.\n(2) Any such allowance for the maintenance or interim maintenance and expenses of\nproceeding shall be payable from the date of the order, or, if so ordered, from the date of the\napplication for maintenance or interim maintenance and expenses of proceeding, as the\ncase may be.\n(3) If any person so ordered fails without sufficient cause to comply with the order,\nany such Magistrate may, for every breach of the order, issue a warrant for levying the\namount due in the manner provided f"
+        },
+        {
+          "id": "src_constitution_39a",
+          "act": "Constitution of India",
+          "unit": "Article",
+          "number": "39A",
+          "title": "against moral and material abandonment.]",
+          "page": 2,
+          "url": "https://www.mea.gov.in/images/pdf1/Part4.pdf",
+          "excerpt": "2[39A. The State shall secure that the operation of the\nlegal system promotes justice, on a basis of equal\nopportunity, and shall, in particular, provide free legal\naid, by suitable legislation or schemes or in any other\nway, to ensure that opportunities for securing justice are\nnot denied to any citizen by reason of economic or other\ndisabilities.]"
+        },
+        {
+          "id": "src_bnss_2023_146",
+          "act": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "unit": "Section",
+          "number": "146",
+          "title": "",
+          "page": 44,
+          "url": "https://prsindia.org/files/bills_acts/acts_parliament/2023/The%20Bharatiya%20Nagarik%20Suraksha%20Sanhita,%202023.pdf",
+          "excerpt": "146. (1) On proof of a change in the circumstances of any person, receiving, under\nsection 144 a monthly allowance for the maintenance or interim maintenance, or ordered\nunder the same section to pay a monthly allowance for the maintenance, or interim\nmaintenance, to his wife, child, father or mother, as the case may be, the Magistrate may\nmake such alteration, as he thinks fit, in the allowance for the maintenance or the interim\nmaintenance, as the case may be.\n(2) Where it appears to the Magistrate that in consequence of any decision of a\ncompetent Civil Court, any order made under section 144 should be cancelled or varied, he\nshall cancel the order or, as the case may be, vary the same ac"
+        },
+        {
+          "id": "src_constitution_43",
+          "act": "Constitution of India",
+          "unit": "Article",
+          "number": "43",
+          "title": "",
+          "page": 2,
+          "url": "https://www.mea.gov.in/images/pdf1/Part4.pdf",
+          "excerpt": "43. The State shall endeavour to secure, by suitable\nlegislation or economic organisation or in any other way,\nto all workers, agricultural, industrial or otherwise, work,\na living wage, conditions of work ensuring a decent\n1Subs. by the Constitution (Forty-second Amendment) Act, 1976, s. 7, for cl. (f) (w.e.f.\n3-1-1977).\n2Ins. by s. 8, ibid. (w.e.f.  3-1-1977).\nEqual justice and\nfree legal aid.\nOrganisation of\nvillage panchayats.\nRight to work, to\neducation and to\npublic assistance\nin certain cases.\nProvision for just\nand humane\nconditions of work\nand maternity\nrelief.\nLiving wage, etc.,\nfor workers.\n(Part IV.-Directive Principles of State Policy.-\nArts. 39-43.)\nstandard of life and full en"
+        },
+        {
+          "id": "src_bnss_2023_147",
+          "act": "Bharatiya Nagarik Suraksha Sanhita, 2023",
+          "unit": "Section",
+          "number": "147",
+          "title": "",
+          "page": 44,
+          "url": "https://prsindia.org/files/bills_acts/acts_parliament/2023/The%20Bharatiya%20Nagarik%20Suraksha%20Sanhita,%202023.pdf",
+          "excerpt": "147. A copy of the order of maintenance or interim maintenance and expenses of\nproceedings, as the case may be, shall be given without payment to the person in whose\nfavour it is made, or to his guardian, if any, or to the person to whom the allowance for the\nmaintenance or the allowance for the interim maintenance and expenses of proceeding, as\nthe case may be, is to be paid; and such order may be enforced by any Magistrate in any\nAlteration in\nallowance.\nEnforcement\nof order of\nmaintenance.\n[Part II-\n___________________________________________________________\n__________________________________________________________\n__________________________________________________________\n______________"
+        },
+        {
+          "id": "src_bns_2023_82",
+          "act": "Bharatiya Nyaya Sanhita, 2023",
+          "unit": "Section",
+          "number": "82",
+          "title": "",
+          "page": 28,
+          "url": "https://prsindia.org/files/bills_acts/acts_parliament/2023/The%20Bharatiya%20Nyaya%20Sanhita,%202023.pdf",
+          "excerpt": "82. (1) Whoever, having a husband or wife living, marries in any case in which such\nmarriage is void by reason of its taking place during the life of such husband or wife, shall be\npunished with imprisonment of either description for a term which may extend to seven\nyears, and shall also be liable to fine.\nException.-This sub-section does not extend to any person whose marriage with\nsuch husband or wife has been declared void by a Court of competent jurisdiction, nor to\nany person who contracts a marriage during the life of a former husband or wife, if such\nhusband or wife, at the time of the subsequent marriage, shall have been continually absent\nStalking.\nWord, gesture\nor act\nintended to\ni"
+        },
+        {
+          "id": "src_bns_2023_81",
+          "act": "Bharatiya Nyaya Sanhita, 2023",
+          "unit": "Section",
+          "number": "81",
+          "title": "",
+          "page": 28,
+          "url": "https://prsindia.org/files/bills_acts/acts_parliament/2023/The%20Bharatiya%20Nyaya%20Sanhita,%202023.pdf",
+          "excerpt": "81. Every man who by deceit causes any woman who is not lawfully married to him to\nbelieve that she is lawfully married to him and to cohabit or have sexual intercourse with him\nin that belief, shall be punished with imprisonment of either description for a term which may\nextend to ten years, and shall also be liable to fine."
+        },
+        {
+          "id": "src_bns_2023_85",
+          "act": "Bharatiya Nyaya Sanhita, 2023",
+          "unit": "Section",
+          "number": "85",
+          "title": "",
+          "page": 29,
+          "url": "https://prsindia.org/files/bills_acts/acts_parliament/2023/The%20Bharatiya%20Nyaya%20Sanhita,%202023.pdf",
+          "excerpt": "85. Whoever, being the husband or the relative of the husband of a woman, subjects\nsuch woman to cruelty shall be punished with imprisonment for a term which may extend to\nthree years and shall also be liable to fine."
+        }
+      ]
+    },
+    "assessment": {
+      "where_you_stand": "You are currently facing a difficult situation where your husband has left you and your two children without financial support for the last 6 months. As a woman and a mother, you are entitled to seek maintenance for yourself and your children, and you can approach the District Legal Services Authority (DLSA) for free legal aid [KB:lsa_s12_legal_aid]. Legal provisions exist for the maintenance of wives and children [KB:src_bnss_2023_144_p2], but your case currently lacks formal documentation like your marriage certificate and details of your husband's income. Gathering these documents will strengthen your position significantly.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Contact DLSA for Free Legal Aid",
+          "what_to_do": "Reach out to your local District Legal Services Authority (DLSA) or call the NALSA helpline at 15100 to get free legal advice and assistance from a lawyer.",
+          "time": "1-3 days",
+          "cost": "free",
+          "needs": [
+            "Identity proof",
+            "Details of separation"
+          ],
+          "kb_refs": [
+            "KB:lsa_s12_legal_aid",
+            "KB:src_constitution [KB:src_constitution_39a]_39a"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Gather Documents and Evidence",
+          "what_to_do": "Collect your marriage certificate, identity cards, text messages or any proof showing the duration of separation and lack of financial support.",
+          "time": "3-7 days",
+          "cost": "free",
+          "needs": [
+            "Marriage certificate",
+            "Proof of separation duration",
+            "Husband's employment details"
+          ],
+          "kb_refs": [
+            "KB:src_bnss_2023_144_p2"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Try to obtain a copy of your marriage certificate from the registrar or place of worship.",
+        "Keep records of any communication with your husband regarding household expenses or his absence.",
+        "Note down details of his employment, employer name, or bank accounts if you know them."
+      ],
+      "what_i_dont_know": [
+        "Which state and city you are currently residing in",
+        "Whether your husband has a steady income or employment",
+        "If there are any prior agreements or domestic violence issues involved"
+      ],
+      "needs_lawyer": true,
+      "needs_lawyer_reason": "Family law matters involving maintenance, children, and divorce require formal legal representation to file petitions in court.",
+      "reply": "It is very difficult to be left without support, especially with two children depending on you. Because you are seeking maintenance and a divorce, you should take immediate steps to secure legal guidance. As a woman and a mother, you are eligible for free legal assistance through the District Legal Services Authority under the Legal Services Authorities Act [KB:lsa_s12_legal_aid]. You can also contact the NALSA helpline at 15100 for immediate guidance [KB:lsa_s12_legal_aid]. Your first step should be to connect with your local DLSA office and gather any available identity or marriage documents. Do you currently have a copy of your marriage certificate or any written proof showing that your husband has stopped providing financial support?"
+    },
+    "assessment_raw": {
+      "where_you_stand": "You are currently facing a difficult situation where your husband has left you and your two children without financial support for the last 6 months. As a woman and a mother, you are entitled to seek maintenance for yourself and your children, and you can approach the District Legal Services Authority (DLSA) for free legal aid [KB:lsa_s12_legal_aid]. Legal provisions exist for the maintenance of wives and children [KB:src_bnss_2023_144_p2], but your case currently lacks formal documentation like your marriage certificate and details of your husband's income. Gathering these documents will strengthen your position significantly.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Contact DLSA for Free Legal Aid",
+          "what_to_do": "Reach out to your local District Legal Services Authority (DLSA) or call the NALSA helpline at 15100 to get free legal advice and assistance from a lawyer.",
+          "time": "1-3 days",
+          "cost": "free",
+          "needs": [
+            "Identity proof",
+            "Details of separation"
+          ],
+          "kb_refs": [
+            "KB:lsa_s12_legal_aid",
+            "KB:src_constitution_39a"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Gather Documents and Evidence",
+          "what_to_do": "Collect your marriage certificate, identity cards, text messages or any proof showing the duration of separation and lack of financial support.",
+          "time": "3-7 days",
+          "cost": "free",
+          "needs": [
+            "Marriage certificate",
+            "Proof of separation duration",
+            "Husband's employment details"
+          ],
+          "kb_refs": [
+            "KB:src_bnss_2023_144_p2"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Try to obtain a copy of your marriage certificate from the registrar or place of worship.",
+        "Keep records of any communication with your husband regarding household expenses or his absence.",
+        "Note down details of his employment, employer name, or bank accounts if you know them."
+      ],
+      "what_i_dont_know": [
+        "Which state and city you are currently residing in",
+        "Whether your husband has a steady income or employment",
+        "If there are any prior agreements or domestic violence issues involved"
+      ],
+      "needs_lawyer": true,
+      "needs_lawyer_reason": "Family law matters involving maintenance, children, and divorce require formal legal representation to file petitions in court.",
+      "reply": "It is very difficult to be left without support, especially with two children depending on you. Because you are seeking maintenance and a divorce, you should take immediate steps to secure legal guidance. As a woman and a mother, you are eligible for free legal assistance through the District Legal Services Authority under the Legal Services Authorities Act [KB:lsa_s12_legal_aid]. You can also contact the NALSA helpline at 15100 for immediate guidance [KB:lsa_s12_legal_aid]. Your first step should be to connect with your local DLSA office and gather any available identity or marriage documents. Do you currently have a copy of your marriage certificate or any written proof showing that your husband has stopped providing financial support?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "lsa_s12_legal_aid",
+        "src_bnss_2023_144_p2"
+      ],
+      "support_check": {
+        "checked": 1,
+        "unsupported": []
+      }
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "adv03_divorce_out_of_scope",
+    "secs": 5.3,
+    "prompt_tokens": 4500,
+    "completion_tokens": 1208,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": true,
+    "escalated": true,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 2,
+    "rag_hits": 8,
+    "official_text_citations": 1,
+    "unsupported_citations_dropped": 0,
+    "amounts_ok": "-",
+    "amounts_frac": null
+  }
+}

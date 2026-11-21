@@ -1,0 +1,61 @@
+config,query,expected,rank,top5
+bm25,how long do I have to file a consumer complaint,cpa_2019:69,5,cpa_2019:24 cpa_2019:18 cpa_2019:35 cpa_2019:17 cpa_2019:69
+bm25,where do I file a complaint against a company for a refund,cpa_2019:34|cpa_2019:35,1,cpa_2019:34 cpa_2019:36 cpa_2019:39 cpa_2019:24 cpa_2019:47
+bm25,online seller did not refund money for returned product,cpa_2019:35|cpa_2019:2|cpa_2019:94,2,cpa_2019:86 cpa_2019:2 cpa_2019:83 cpa_2019:82 cpa_2019:85
+bm25,can I appeal against the order of the district commission,cpa_2019:41,2,cpa_2019:73 cpa_2019:41 cpa_2019:68 cpa_2019:42 cpa_2019:51
+bm25,"what relief can the commission order, refund and compensation",cpa_2019:39,1,cpa_2019:39 constitution:42 cpa_2019:73 constitution:Schedule 7 cpa_2019:68
+bm25,employer has not paid salary by the 7th of the next month,cow_2019:17,5,cow_2019:39 constitution:Schedule 2 cow_2019:37 constitution:361B cow_2019:17
+bm25,"I resigned, when must my last wages be paid",cow_2019:17,1,cow_2019:17 cow_2019:59 cow_2019:15 cow_2019:37 cow_2019:48
+bm25,how to file a claim for unpaid wages and time limit,cow_2019:45,4,cow_2019:17 cow_2019:59 cow_2019:18 cow_2019:45 cow_2019:6
+bm25,employer deducted money from salary as fine,cow_2019:18|cow_2019:19,3,cow_2019:34 constitution:Schedule 2 cow_2019:18 cow_2019:54 cow_2019:28
+bm25,equal pay for men and women for same work,cow_2019:3,2,constitution:39 cow_2019:3 cow_2019:42 constitution:43 cow_2019:11
+bm25,how much security deposit can a landlord take,mta_2021:11,1,mta_2021:11 mta_2021:15 mta_2021:14 mta_2021:44 mta_2021:4
+bm25,landlord cut off water and electricity to force me out,mta_2021:20,4,mta_2021:47 mta_2021:22 mta_2021:15 mta_2021:20 mta_2021:5
+bm25,can landlord enter my rented house without telling,mta_2021:17,3,mta_2021:15 constitution:Schedule 3 mta_2021:17 mta_2021:5 mta_2021:26
+bm25,who must do repairs in a rented house,mta_2021:15,1,mta_2021:15 mta_2021:47 mta_2021:19 mta_2021:17 constitution:100
+bm25,"landlord wants to evict me, on what grounds",mta_2021:21|mta_2021:22,3,bns_2023:357 bnss_2023:531 mta_2021:21 mta_2021:26 mta_2021:28
+bm25,"police arrested me, do I have the right to know why",constitution:22|bnss_2023:47,-,bnss_2023:531 bnss_2023:36 bnss_2023:59 bnss_2023:48 bnss_2023:43
+bm25,"I am poor, can I get a free lawyer",constitution:39A,-,constitution:70 cow_2019:48 bnss_2023:173 constitution:69 bnss_2023:404
+bm25,someone took money promising a job and cheated me,bns_2023:318,-,bnss_2023:508 bns_2023:308 bnss_2023:359 constitution:110 constitution:199
+bm25,person I trusted with my money spent it on himself,bns_2023:316,-,bnss_2023:531 constitution:Schedule 2 bns_2023:308 constitution:115 constitution:205
+bm25,right to life and personal liberty,constitution:21,1,constitution:21 bns_2023:103 bnss_2023:359 bnss_2023:308 bns_2023:43
+hybrid,how long do I have to file a consumer complaint,cpa_2019:69,1,cpa_2019:69 cpa_2019:24 cpa_2019:35 cpa_2019:38 cpa_2019:17
+hybrid,where do I file a complaint against a company for a refund,cpa_2019:34|cpa_2019:35,2,cpa_2019:39 cpa_2019:34 cpa_2019:38 cpa_2019:36 cpa_2019:35
+hybrid,online seller did not refund money for returned product,cpa_2019:35|cpa_2019:2|cpa_2019:94,4,cpa_2019:86 cpa_2019:87 cpa_2019:85 cpa_2019:2 cpa_2019:82
+hybrid,can I appeal against the order of the district commission,cpa_2019:41,1,cpa_2019:41 cpa_2019:73 cpa_2019:68 cpa_2019:51 cpa_2019:67
+hybrid,"what relief can the commission order, refund and compensation",cpa_2019:39,1,cpa_2019:39 cpa_2019:73 cpa_2019:51 cpa_2019:41 cpa_2019:68
+hybrid,employer has not paid salary by the 7th of the next month,cow_2019:17,1,cow_2019:17 cow_2019:39 cow_2019:16 cow_2019:59 cow_2019:37
+hybrid,"I resigned, when must my last wages be paid",cow_2019:17,1,cow_2019:17 cow_2019:15 cow_2019:59 cow_2019:39 cow_2019:13
+hybrid,how to file a claim for unpaid wages and time limit,cow_2019:45,3,cow_2019:17 cow_2019:59 cow_2019:45 cow_2019:18 cow_2019:12
+hybrid,employer deducted money from salary as fine,cow_2019:18|cow_2019:19,2,cow_2019:34 cow_2019:18 cow_2019:35 cow_2019:28 cow_2019:54
+hybrid,equal pay for men and women for same work,cow_2019:3,1,cow_2019:3 cow_2019:11 cow_2019:4 cow_2019:12 cow_2019:15
+hybrid,how much security deposit can a landlord take,mta_2021:11,1,mta_2021:11 mta_2021:15 mta_2021:14 mta_2021:26 mta_2021:4
+hybrid,landlord cut off water and electricity to force me out,mta_2021:20,1,mta_2021:20 mta_2021:15 mta_2021:26 mta_2021:47 mta_2021:22
+hybrid,can landlord enter my rented house without telling,mta_2021:17,1,mta_2021:17 mta_2021:26 mta_2021:18 mta_2021:28 mta_2021:5
+hybrid,who must do repairs in a rented house,mta_2021:15,2,mta_2021:47 mta_2021:15 mta_2021:19 mta_2021:17 mta_2021:9
+hybrid,"landlord wants to evict me, on what grounds",mta_2021:21|mta_2021:22,1,mta_2021:21 mta_2021:26 mta_2021:28 mta_2021:10 mta_2021:22
+hybrid,"police arrested me, do I have the right to know why",constitution:22|bnss_2023:47,-,bnss_2023:36 bnss_2023:51 bnss_2023:40 bnss_2023:49 bnss_2023:43
+hybrid,"I am poor, can I get a free lawyer",constitution:39A,2,bnss_2023:185 constitution:39A bnss_2023:369 bnss_2023:397 bns_2023:314
+hybrid,someone took money promising a job and cheated me,bns_2023:318,2,bnss_2023:359 bns_2023:318 bns_2023:308 bns_2023:315 bnss_2023:238
+hybrid,person I trusted with my money spent it on himself,bns_2023:316,-,bnss_2023:499 bns_2023:315 bns_2023:335 bns_2023:318 bns_2023:338
+hybrid,right to life and personal liberty,constitution:21,1,constitution:21 bns_2023:43 bns_2023:41 bns_2023:37 bns_2023:38
+hybrid+rerank,how long do I have to file a consumer complaint,cpa_2019:69,1,cpa_2019:69 cpa_2019:38 cpa_2019:24 cpa_2019:37 cpa_2019:47
+hybrid+rerank,where do I file a complaint against a company for a refund,cpa_2019:34|cpa_2019:35,4,cpa_2019:39 cpa_2019:69 cpa_2019:38 cpa_2019:35 cpa_2019:47
+hybrid+rerank,online seller did not refund money for returned product,cpa_2019:35|cpa_2019:2|cpa_2019:94,3,cpa_2019:86 cpa_2019:87 cpa_2019:2 cpa_2019:82 cpa_2019:83
+hybrid+rerank,can I appeal against the order of the district commission,cpa_2019:41,1,cpa_2019:41 cpa_2019:68 cpa_2019:73 cpa_2019:47 cpa_2019:51
+hybrid+rerank,"what relief can the commission order, refund and compensation",cpa_2019:39,1,cpa_2019:39 cpa_2019:61 cpa_2019:68 cpa_2019:60 cpa_2019:41
+hybrid+rerank,employer has not paid salary by the 7th of the next month,cow_2019:17,1,cow_2019:17 cow_2019:39 cow_2019:26 cow_2019:16 cow_2019:37
+hybrid+rerank,"I resigned, when must my last wages be paid",cow_2019:17,1,cow_2019:17 cow_2019:44 cow_2019:39 cow_2019:26 cow_2019:15
+hybrid+rerank,how to file a claim for unpaid wages and time limit,cow_2019:45,2,cow_2019:59 cow_2019:45 cow_2019:17 cow_2019:57 cow_2019:18
+hybrid+rerank,employer deducted money from salary as fine,cow_2019:18|cow_2019:19,4,cow_2019:38 cow_2019:54 cow_2019:34 cow_2019:19 cow_2019:18
+hybrid+rerank,equal pay for men and women for same work,cow_2019:3,2,constitution:39 cow_2019:3 cow_2019:4 cow_2019:2 cow_2019:42
+hybrid+rerank,how much security deposit can a landlord take,mta_2021:11,1,mta_2021:11 mta_2021:15 mta_2021:14 mta_2021:17 mta_2021:2
+hybrid+rerank,landlord cut off water and electricity to force me out,mta_2021:20,-,mta_2021:15 mta_2021:17 mta_2021:47 mta_2021:26 mta_2021:22
+hybrid+rerank,can landlord enter my rented house without telling,mta_2021:17,1,mta_2021:17 mta_2021:26 mta_2021:2 mta_2021:15 mta_2021:5
+hybrid+rerank,who must do repairs in a rented house,mta_2021:15,1,mta_2021:15 mta_2021:17 mta_2021:21 mta_2021:19 mta_2021:9
+hybrid+rerank,"landlord wants to evict me, on what grounds",mta_2021:21|mta_2021:22,1,mta_2021:21 mta_2021:25 mta_2021:22 mta_2021:27 mta_2021:26
+hybrid+rerank,"police arrested me, do I have the right to know why",constitution:22|bnss_2023:47,5,bnss_2023:44 bnss_2023:36 bnss_2023:40 bnss_2023:49 bnss_2023:47
+hybrid+rerank,"I am poor, can I get a free lawyer",constitution:39A,2,bnss_2023:531 constitution:39A bns_2023:255 bnss_2023:404 bnss_2023:397
+hybrid+rerank,someone took money promising a job and cheated me,bns_2023:318,2,bnss_2023:359 bns_2023:318 bns_2023:319 bns_2023:322 bns_2023:315
+hybrid+rerank,person I trusted with my money spent it on himself,bns_2023:316,4,bns_2023:321 bns_2023:315 bnss_2023:499 bns_2023:316 bnss_2023:235
+hybrid+rerank,right to life and personal liberty,constitution:21,1,constitution:21 constitution:25 constitution:26 bns_2023:44 constitution:43

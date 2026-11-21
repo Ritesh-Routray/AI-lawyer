@@ -1,0 +1,265 @@
+# Curated legal knowledge base. The ONLY legal provisions the assistant may cite.
+#
+# status:
+#   verified   - checked against an official / primary source (Gazette, India Code, govt portal, regulator)
+#   secondary  - consistent across several reputable secondary sources; official text not yet read
+#   unverified - from general knowledge; shown to the user with a "please verify" tag
+# checked_on: date a human last checked the entry. Re-check before each release.
+# sections / act_aliases feed the post-generation citation validator (ai_lawyer/guardrails.py).
+
+- id: cpa_consumer_def
+  problem_types: [consumer]
+  act: Consumer Protection Act, 2019
+  act_aliases: [Consumer Protection Act, CPA 2019, CPA]
+  sections: ["2(7)", "2(11)", "2(47)"]
+  title: Who is a consumer; deficiency in service; unfair trade practice
+  plain: >
+    If you paid for goods or a service (including online), you are a "consumer". A refund that is
+    not given, a defective product, or a service not delivered as promised can be a "deficiency"
+    or an "unfair trade practice" that a Consumer Commission can act on.
+  source_url: https://www.indiacode.nic.in/handle/123456789/15256
+  status: secondary
+  checked_on: 2026-11-20
+
+- id: cpa_limitation
+  problem_types: [consumer]
+  act: Consumer Protection Act, 2019
+  act_aliases: [Consumer Protection Act, CPA 2019, CPA]
+  sections: ["69"]
+  title: Two-year time limit to file a consumer complaint
+  plain: >
+    A consumer complaint should normally be filed within 2 years from the date the problem arose.
+    A Commission can accept a late complaint only if you show a good reason for the delay.
+  source_url: https://www.indiacode.nic.in/handle/123456789/15256
+  status: secondary
+  checked_on: 2026-11-20
+
+- id: cpa_jurisdiction_2021
+  problem_types: [consumer]
+  act: Consumer Protection (Jurisdiction of the District Commission, the State Commission and the National Commission) Rules, 2021
+  act_aliases: ["Jurisdiction Rules, 2021", Consumer Protection Jurisdiction Rules]
+  sections: ["3", "4", "5"]
+  title: Which Consumer Commission - by amount paid
+  plain: >
+    Where you file depends on the value you PAID for the goods/service: up to Rs 50 lakh - District
+    Commission; above Rs 50 lakh up to Rs 2 crore - State Commission; above Rs 2 crore - National
+    Commission. Almost all everyday cases go to the District Commission.
+  source_url: https://www.thc.nic.in/Central%20Governmental%20Rules/Consumer%20Protection%20(Jurisdiction%20of%20the%20District%20Commission,%20the%20State%20Commission%20and%20the%20National%20Commission)%20Rules,%202021.pdf
+  status: verified
+  checked_on: 2026-11-20
+
+- id: cpa_fee_nil_5lakh
+  problem_types: [consumer]
+  act: Consumer Protection (Consumer Disputes Redressal Commissions) Rules, 2020
+  act_aliases: [Consumer Disputes Redressal Commissions Rules]
+  sections: []
+  title: No court fee for small consumer complaints
+  plain: >
+    For complaints where the value is up to Rs 5 lakh, the District Commission filing fee is nil.
+    You can file yourself; a lawyer is not compulsory.
+  source_url: https://righttoinformation.wiki/how-to-file-consumer-forum-complaint-e-jagriti-dcdrc-india
+  status: secondary
+  checked_on: 2026-11-20
+
+- id: ecom_grievance_officer
+  problem_types: [consumer]
+  act: Consumer Protection (E-Commerce) Rules, 2020
+  act_aliases: [E-Commerce Rules, "E-Commerce Rules, 2020"]
+  sections: ["4"]
+  title: E-commerce grievance officer - 48 hours to acknowledge, 1 month to resolve
+  plain: >
+    Every e-commerce platform must have a grievance officer whose details are on the site. They must
+    acknowledge your complaint within 48 hours and resolve it within one month of receiving it.
+    Complain to the grievance officer in writing first - it creates proof and starts the clock.
+  source_url: https://nyaaya.org/legal-explainer/consumer-complaints-against-e-commerce-platforms/
+  status: secondary
+  checked_on: 2026-11-20
+
+- id: forum_nch
+  problem_types: [consumer]
+  kind: forum
+  act: National Consumer Helpline (Department of Consumer Affairs)
+  act_aliases: [National Consumer Helpline, NCH]
+  sections: []
+  title: National Consumer Helpline - free pre-litigation help
+  plain: >
+    Call 1915 or file at consumerhelpline.gov.in. NCH forwards your complaint to the company and
+    often gets refunds without any case. Free. Good step before going to the Commission.
+  source_url: https://consumerhelpline.gov.in
+  status: unverified
+  checked_on: 2026-11-20
+
+- id: forum_ejagriti
+  problem_types: [consumer]
+  kind: forum
+  act: e-Jagriti portal (Consumer Commissions)
+  act_aliases: [e-Jagriti, e-Daakhil, eDaakhil]
+  sections: []
+  title: File a consumer complaint online - e-Jagriti (replaced e-Daakhil)
+  plain: >
+    Consumer complaints can be filed online on the e-Jagriti portal, which absorbed the older
+    e-Daakhil portal from 1 January 2025. You can file from home and attend some hearings online.
+  source_url: https://e-jagriti.gov.in
+  status: secondary
+  checked_on: 2026-11-20
+
+- id: rbi_ios_2026
+  problem_types: [consumer]
+  kind: forum
+  act: Reserve Bank - Integrated Ombudsman Scheme, 2026
+  act_aliases: [RB-IOS, RBI Ombudsman, Integrated Ombudsman Scheme, Banking Ombudsman]
+  sections: []
+  title: Bank / UPI / wallet complaints - RBI Ombudsman
+  plain: >
+    For failed UPI debits, bank or wallet refund problems: complain to the bank first. If it doesn't
+    reply in 30 days (or the longer time RBI/NPCI rules allow) or rejects it, complain free at
+    cms.rbi.org.in within 1 year of the bank's reply. The 2026 scheme replaced the 2021 scheme from 1 July 2026.
+  source_url: https://www.rbi.org.in/commonman/Upload/English/FAQs/PDFs/RBIOS01072026.pdf
+  status: verified
+  checked_on: 2026-11-20
+
+- id: ica_s73
+  problem_types: [deposit, salary, consumer]
+  act: Indian Contract Act, 1872
+  act_aliases: [Contract Act, Indian Contract Act]
+  sections: ["73"]
+  title: Compensation for breach of contract
+  plain: >
+    If someone breaks an agreement (like returning a deposit or paying agreed salary), the person
+    who suffered can claim compensation for the loss that naturally arose from that breach.
+  source_url: https://www.indiacode.nic.in/handle/123456789/2187
+  status: unverified
+  checked_on: 2026-11-20
+
+- id: mta_s11_deposit
+  problem_types: [deposit]
+  act: Model Tenancy Act, 2021
+  act_aliases: [Model Tenancy Act, MTA]
+  sections: ["11"]
+  title: Security deposit cap (ONLY where your state has adopted this model law)
+  plain: >
+    The Model Tenancy Act caps a residential security deposit at 2 months' rent (6 months for
+    commercial) and expects it to be returned when you hand back the house, minus lawful dues such
+    as unpaid rent or repair of damage beyond normal wear. IMPORTANT: this is a model law - it binds
+    only in states that adopted it; elsewhere your rent agreement and state rent law decide.
+  source_url: https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf
+  status: secondary
+  checked_on: 2026-11-20
+
+- id: deposit_civil_route
+  problem_types: [deposit]
+  kind: guidance
+  act: Civil recovery route (general guidance)
+  act_aliases: [Limitation Act, "Limitation Act, 1963", Small Causes Court]
+  sections: []
+  title: How deposit disputes are usually resolved
+  plain: >
+    Most deposit disputes end with a written demand or a lawyer's legal notice. If not, the tenant can
+    file a civil money recovery suit (Small Causes / civil court of the area), or approach the Rent
+    Authority/Court where the state has a tenancy law that provides one. Money claims generally must
+    be filed within 3 years under the Limitation Act, 1963 - confirm the exact deadline with a lawyer.
+  source_url: https://www.indiacode.nic.in
+  status: unverified
+  checked_on: 2026-11-20
+
+- id: cow_s17
+  problem_types: [salary]
+  act: Code on Wages, 2019
+  act_aliases: [Code on Wages, Wage Code]
+  sections: ["17", "17(1)", "17(2)"]
+  title: Deadline for paying salary and final dues
+  plain: >
+    Monthly salary must be paid before the 7th of the next month. If you were removed, dismissed,
+    retrenched, resigned, or the establishment closed, wages due must be paid within 2 working days.
+    The Code on Wages has been in force since 21 November 2025.
+  source_url: https://www.advocatekhoj.com/library/bareacts/codeonwages/17.php
+  status: secondary
+  checked_on: 2026-11-20
+
+- id: cow_s45
+  problem_types: [salary]
+  act: Code on Wages, 2019
+  act_aliases: [Code on Wages, Wage Code]
+  sections: ["45", "45(1)", "45(6)"]
+  title: Claim unpaid wages before the government authority - 3 years
+  plain: >
+    Unpaid wages can be claimed before the authority appointed by the government (usually through the
+    Labour Department / Labour Commissioner office). The employee, their registered trade union, or an
+    Inspector-cum-Facilitator can file. The claim must be filed within 3 years.
+  source_url: https://www.indiacode.nic.in/bitstream/123456789/15793/1/aA2019-29.pdf
+  status: secondary
+  checked_on: 2026-11-20
+
+- id: cow_s45_compensation
+  problem_types: [salary]
+  act: Code on Wages, 2019
+  act_aliases: [Code on Wages, Wage Code]
+  sections: ["45(2)"]
+  title: Wage authority - decide in 3 months, compensation up to 10 times
+  plain: >
+    The wage authority can order the employer to pay the wages due plus compensation of up to ten
+    times the amount determined, and must try to decide the claim within three months. If the employer
+    still does not pay, the authority sends a recovery certificate to the Collector, who recovers it
+    like land revenue.
+  source_url: https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf#page=23
+  status: verified
+  checked_on: 2026-11-21 (official text, s.45(2)-(3))
+
+- id: cpa_s38_timeline
+  problem_types: [consumer]
+  act: Consumer Protection Act, 2019
+  act_aliases: [Consumer Protection Act, CPA]
+  sections: ["38", "38(7)"]
+  title: Consumer Commission - target 3 months (5 if goods need testing)
+  plain: >
+    The Commission must try to decide a complaint within three months of the other side receiving
+    notice, or five months if goods need lab testing. In practice many cases take longer.
+  source_url: https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf#page=19
+  status: verified
+  checked_on: 2026-11-21 (official text, s.38(7))
+
+- id: lsa_s12_legal_aid
+  problem_types: [deposit, salary, consumer, notice, other]
+  kind: forum
+  act: Legal Services Authorities Act, 1987
+  act_aliases: [Legal Services Authorities Act, NALSA, DLSA, Tele-Law]
+  sections: ["12"]
+  title: Free lawyer through Legal Services Authorities
+  plain: >
+    Women, children, SC/ST members, industrial workmen, people in custody, disaster victims, and people
+    below the income limit set by the state can get a free lawyer from the District Legal Services
+    Authority (DLSA). NALSA helpline: 15100. Tele-Law gives free advice through Common Service Centres.
+  source_url: https://nalsa.gov.in
+  status: unverified
+  checked_on: 2026-11-20
+
+# ---- Traps: things models get wrong. Injected into prompts as "do not" rules. ----
+- id: trap_new_criminal_laws
+  problem_types: [deposit, salary, consumer, notice, other]
+  kind: trap
+  act: Bharatiya Nyaya Sanhita, 2023
+  act_aliases: [BNS, Bharatiya Nyaya Sanhita, BNSS, BSA]
+  sections: []
+  title: IPC / CrPC / Evidence Act were replaced on 1 July 2024
+  plain: >
+    The Indian Penal Code, CrPC and Indian Evidence Act were replaced by the Bharatiya Nyaya Sanhita,
+    Bharatiya Nagarik Suraksha Sanhita and Bharatiya Sakshya Adhiniyam from 1 July 2024. Never cite IPC
+    sections. This assistant does not handle criminal matters - those go to a lawyer.
+  source_url: https://www.indiacode.nic.in
+  status: unverified
+  checked_on: 2026-11-20
+
+- id: trap_payment_of_wages_repealed
+  problem_types: [salary]
+  kind: trap
+  act: Code on Wages, 2019
+  act_aliases: [Code on Wages]
+  sections: []
+  title: Payment of Wages Act, 1936 and Minimum Wages Act are replaced by the Code on Wages
+  plain: >
+    The Payment of Wages Act, 1936, Minimum Wages Act, 1948, Payment of Bonus Act and Equal
+    Remuneration Act were subsumed into the Code on Wages, 2019, in force from 21 November 2025.
+    Do not cite the old Acts for current claims.
+  source_url: https://static.pib.gov.in/WriteReadData/specificdocs/documents/2025/nov/doc20251123703501.pdf
+  status: secondary
+  checked_on: 2026-11-20

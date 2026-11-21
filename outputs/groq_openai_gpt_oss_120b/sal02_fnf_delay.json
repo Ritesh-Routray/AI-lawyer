@@ -1,0 +1,230 @@
+{
+  "input": {
+    "id": "sal02_fnf_delay",
+    "story": "I resigned from an IT company in Gurgaon, last working day 15 Sept 2026. My full and final settlement of about 1,10,000 (last month salary + leave encashment) is still not paid. HR says F&F takes 90 days as per policy.\n",
+    "expected": {
+      "problem_type": "salary",
+      "escalate": false,
+      "script": "latin"
+    }
+  },
+  "output": {
+    "model": "groq:openai/gpt-oss-120b",
+    "masked_story": "I resigned from an IT company in Gurgaon, last working day 15 Sept 2026. My full and final settlement of about 1,10,000 (last month salary + leave encashment) is still not paid. HR says F&F takes 90 days as per policy.",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "salary",
+      "problem_subtype": "final settlement not paid",
+      "user_language": "English",
+      "state": "Haryana",
+      "city": "Gurgaon",
+      "summary": "The user resigned from an IT company in Gurgaon with a last working day on 2026-09-15. Their full and final settlement of about 110000 rupees has not been paid, and HR says it takes 90 days as per policy.",
+      "user_goal": "to receive the pending full and final settlement amount promptly",
+      "user_role": "employee",
+      "other_party": {
+        "name": null,
+        "type": "employer"
+      },
+      "timeline": [
+        {
+          "date": "2026-09-15",
+          "event": "Last working day / resignation effective",
+          "proof": null
+        },
+        {
+          "date": "2026-11-20",
+          "event": "Full and final settlement of 110000 still unpaid; HR says settlement takes 90 days",
+          "proof": null
+        }
+      ],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": 110000,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [],
+      "evidence_missing": [
+        "resignation letter or email",
+        "HR communication stating the 90‑day policy",
+        "salary slips or payslips showing last month salary and leave encashment",
+        "bank statement showing pending amount"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": ""
+      },
+      "follow_up_questions": [
+        "क्या आपने अपना resignation पत्र या ई‑मेल भेजा था? कृपया उसकी तारीख बताइए।",
+        "क्या आपके पास HR से लिखित में 90‑दिन की नीति या भुगतान के बारे में कोई ई‑मेल/पत्र है?",
+        "क्या आप अपने अंतिम वेतन और लीव एन्कैशमेंट की सैलरी स्लिप्स या ऑफ़र लेटर प्रदान कर सकते हैं?",
+        "क्या आपने अपने बैंक स्टेटमेंट में इस बकाया राशि का कोई प्रमाण देखा है?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [
+        "Other dues (leave encashment, reimbursements, etc.): Rs 110,000",
+        "Amount to claim: Rs 110,000"
+      ],
+      "total": 110000.0,
+      "notes": [
+        "Check your offer letter/payslips for the exact gross vs in-hand salary. Gratuity, if any, has separate rules - ask a lawyer.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "ica_s73",
+      "cow_s17",
+      "cow_s45",
+      "lsa_s12_legal_aid"
+    ],
+    "assessment": {
+      "where_you_stand": "You resigned on 15 Sep 2026 and the employer has not paid your full and final settlement of Rs 110,000. Under the Code on Wages, 2019, wages and any final dues must be paid within 2 working days of resignation [KB:cow_s17]. The employer’s 90‑day policy conflicts with this statutory deadline, so you have a strong claim for the unpaid amount. However, you lack written proof of the resignation, the 90‑day policy, and the exact breakup of the dues, which weakens enforcement until you gather those documents.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Send a formal written reminder",
+          "what_to_do": "Draft a polite email or registered letter to HR stating your resignation date, the amount owed (Rs 110,000), and that the Code on Wages [KB:cow_s17] requires payment within 2 days. Attach any salary slips or offer letter you have and request a written response within 7 days.",
+          "time": "1‑2 days to prepare, 7 days for response",
+          "cost": "free (postage may apply)",
+          "needs": [
+            "resignation email/letter copy, any salary slip or offer letter, bank statement showing pending amount"
+          ],
+          "kb_refs": [
+            "KB:cow_s17"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "File a claim with the Labour Department",
+          "what_to_do": "Approach the Labour Commissioner’s office in Gurgaon and submit a written claim for unpaid wages. Include your employment details, resignation proof, salary slips, and the pending amount. The claim must be filed within 3 years [KB:cow_s45].",
+          "time": "2‑3 weeks for processing",
+          "cost": "low (government filing fee, if any)",
+          "needs": [
+            "resignation proof, HR policy email, salary slips, bank statement, identity proof"
+          ],
+          "kb_refs": [
+            "KB:cow_s45"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Seek free legal aid",
+          "what_to_do": "If the employer does not respond, contact the District Legal Services Authority for a free lawyer. Call 15100 or visit a Common Service Centre. The lawyer can help you file a civil suit for recovery of dues.",
+          "time": "1‑2 weeks to get a lawyer assigned",
+          "cost": "free (legal aid)",
+          "needs": [
+            "all documents collected above, proof of income limit if applicable"
+          ],
+          "kb_refs": [
+            "KB:lsa_s12_legal_aid"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Ask HR to confirm your resignation date and the 90‑day policy in writing via email.",
+        "Request a copy of your final salary slip or leave‑encashment statement from payroll.",
+        "Check your bank account for any credit entries and take a screenshot as evidence.",
+        "Save the email thread where you submitted your resignation as proof."
+      ],
+      "what_i_dont_know": [
+        "Exact wording of the employer’s internal policy on settlement timelines.",
+        "Whether any deductions were made lawfully (e.g., for advances).",
+        "If you qualify for free legal aid based on income criteria."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "You can start with a written reminder and a labour‑department claim without a lawyer. A lawyer becomes necessary if the employer contests the claim or you need to file a civil suit.",
+      "reply": "You resigned on 15 Sep 2026 and the company still owes you Rs 110,000 as full and final settlement. The Code on Wages, 2019 says final dues must be paid within 2 working days of resignation [KB:cow_s17], so the employer’s 90‑day claim is not lawful. First, send a polite written reminder to HR, attaching any salary slips or offer letter you have, and ask for payment within a week. If there is no response, you can file a claim with the Labour Commissioner’s office, which must be done within 3 years [KB:cow_s45]. Should the matter remain unresolved, you can approach the District Legal Services Authority for a free lawyer. Do you have a copy of the resignation email or any HR email confirming the 90‑day policy?"
+    },
+    "assessment_raw": {
+      "where_you_stand": "You resigned on 15 Sep 2026 and the employer has not paid your full and final settlement of Rs 110,000. Under the Code on Wages, 2019, wages and any final dues must be paid within 2 working days of resignation [KB:cow_s17]. The employer’s 90‑day policy conflicts with this statutory deadline, so you have a strong claim for the unpaid amount. However, you lack written proof of the resignation, the 90‑day policy, and the exact breakup of the dues, which weakens enforcement until you gather those documents.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Send a formal written reminder",
+          "what_to_do": "Draft a polite email or registered letter to HR stating your resignation date, the amount owed (Rs 110,000), and that the Code on Wages requires payment within 2 days. Attach any salary slips or offer letter you have and request a written response within 7 days.",
+          "time": "1‑2 days to prepare, 7 days for response",
+          "cost": "free (postage may apply)",
+          "needs": [
+            "resignation email/letter copy, any salary slip or offer letter, bank statement showing pending amount"
+          ],
+          "kb_refs": [
+            "KB:cow_s17"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "File a claim with the Labour Department",
+          "what_to_do": "Approach the Labour Commissioner’s office in Gurgaon and submit a written claim for unpaid wages. Include your employment details, resignation proof, salary slips, and the pending amount. The claim must be filed within 3 years [KB:cow_s45].",
+          "time": "2‑3 weeks for processing",
+          "cost": "low (government filing fee, if any)",
+          "needs": [
+            "resignation proof, HR policy email, salary slips, bank statement, identity proof"
+          ],
+          "kb_refs": [
+            "KB:cow_s45"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Seek free legal aid",
+          "what_to_do": "If the employer does not respond, contact the District Legal Services Authority for a free lawyer. Call 15100 or visit a Common Service Centre. The lawyer can help you file a civil suit for recovery of dues.",
+          "time": "1‑2 weeks to get a lawyer assigned",
+          "cost": "free (legal aid)",
+          "needs": [
+            "all documents collected above, proof of income limit if applicable"
+          ],
+          "kb_refs": [
+            "KB:lsa_s12_legal_aid"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Ask HR to confirm your resignation date and the 90‑day policy in writing via email.",
+        "Request a copy of your final salary slip or leave‑encashment statement from payroll.",
+        "Check your bank account for any credit entries and take a screenshot as evidence.",
+        "Save the email thread where you submitted your resignation as proof."
+      ],
+      "what_i_dont_know": [
+        "Exact wording of the employer’s internal policy on settlement timelines.",
+        "Whether any deductions were made lawfully (e.g., for advances).",
+        "If you qualify for free legal aid based on income criteria."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "You can start with a written reminder and a labour‑department claim without a lawyer. A lawyer becomes necessary if the employer contests the claim or you need to file a civil suit.",
+      "reply": "You resigned on 15 Sep 2026 and the company still owes you Rs 110,000 as full and final settlement. The Code on Wages, 2019 says final dues must be paid within 2 working days of resignation [KB:cow_s17], so the employer’s 90‑day claim is not lawful. First, send a polite written reminder to HR, attaching any salary slips or offer letter you have, and ask for payment within a week. If there is no response, you can file a claim with the Labour Commissioner’s office, which must be done within 3 years [KB:cow_s45]. Should the matter remain unresolved, you can approach the District Legal Services Authority for a free lawyer. Do you have a copy of the resignation email or any HR email confirming the 90‑day policy?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "cow_s17",
+        "cow_s45"
+      ]
+    }
+  },
+  "metrics": {
+    "model": "groq:openai/gpt-oss-120b",
+    "case": "sal02_fnf_delay",
+    "secs": 35.0,
+    "prompt_tokens": 3161,
+    "completion_tokens": 1799,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 2,
+    "amounts_ok": "-",
+    "amounts_frac": null
+  }
+}

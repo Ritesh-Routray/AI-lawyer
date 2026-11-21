@@ -1,0 +1,302 @@
+{
+  "input": {
+    "id": "not01_eviction_notice",
+    "story": "I got this letter from my landlord's lawyer: \"Take notice that my client hereby terminates your tenancy and calls upon you to vacate the premises within 30 days failing which my client shall initiate eviction proceedings.\" What does it mean? I have paid all rent.\n",
+    "expected": {
+      "problem_type": "notice",
+      "escalate": true,
+      "script": "latin"
+    }
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "I got this letter from my landlord's lawyer: \"Take notice that my client hereby terminates your tenancy and calls upon you to vacate the premises within 30 days failing which my client shall initiate eviction proceedings.\" What does it mean? I have paid all rent.",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "notice",
+      "problem_subtype": "landlord termination and eviction notice",
+      "user_language": "English",
+      "state": null,
+      "city": null,
+      "summary": "The user received a legal notice from their landlord's lawyer terminating their tenancy and demanding they vacate the premises within 30 days or face eviction proceedings. The user states they have paid all rent.",
+      "user_goal": "Understand what the legal notice means and how to respond",
+      "user_role": "tenant",
+      "other_party": {
+        "name": null,
+        "type": "landlord"
+      },
+      "timeline": [
+        {
+          "date": "2026-11-20",
+          "event": "Received legal notice from landlord's lawyer terminating tenancy and demanding vacation within 30 days",
+          "proof": "legal notice letter"
+        }
+      ],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [
+        "legal notice letter"
+      ],
+      "evidence_missing": [
+        "rent agreement",
+        "receipts of rent payments",
+        "previous communication with landlord"
+      ],
+      "risk_signals": [
+        "eviction proceedings threatened"
+      ],
+      "deadline_mentioned": {
+        "date": null,
+        "what": "Vacate the premises within 30 days of the notice"
+      },
+      "follow_up_questions": [
+        "Which Indian state and city are you currently living in?",
+        "Do you have a written rent agreement, and what does it say about notice periods and lease duration?",
+        "Do you have rent receipts or bank statements proving that all your rent has been paid?"
+      ]
+    },
+    "flags": [
+      {
+        "code": "CRIMINAL",
+        "severity": "lawyer",
+        "message": "This involves police or possible criminal matters. Talk to a lawyer before you act or say anything."
+      },
+      {
+        "code": "LAWYER_NOTICE",
+        "severity": "lawyer",
+        "message": "You've received a formal notice that threatens legal proceedings. Reply in writing within the time it gives, and have a lawyer (free via DLSA / 15100) check your reply - what you write now can be used later."
+      }
+    ],
+    "calculation": {
+      "lines": [],
+      "total": null,
+      "notes": [
+        "Not enough numbers to calculate. Tell me the amounts involved.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "lsa_s12_legal_aid",
+      "src_mta_2021_23",
+      "src_mta_2021_21",
+      "src_constitution_39a",
+      "src_mta_2021_22",
+      "src_mta_2021_25",
+      "src_constitution_43",
+      "src_mta_2021_5",
+      "src_mta_2021_15_p2"
+    ],
+    "retrieval": {
+      "mode": "hybrid (BM25 + dense) + anchor queries",
+      "query": "landlord termination and eviction notice The user received a legal notice from their landlord's lawyer terminating their tenancy and demanding they vacate the premises within 30 days or face eviction proceedings. The user states they have paid all rent. Understand what the legal notice means and how to respond",
+      "hits": [
+        {
+          "id": "src_mta_2021_23",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "23",
+          "title": "",
+          "page": 18,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": "23. Where the tenant fails to vacate the premises let out on rent in\naccordance with the tenancy agreement on the expiration of the\nperiod of tenancy or termination of tenancy by an order or notice\nunder the provisions of this Act, such tenant shall be liable to pay the\nlandlord ––\n(a) twice the monthly rent for the first two months; and\n(b) four times the monthly rent thereafter till the tenant continues to\noccupy the said premises.\nEnhancement of\nrent  in case of\nrefusal by tenant\nto vacate."
+        },
+        {
+          "id": "src_mta_2021_21",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "21",
+          "title": "1882",
+          "page": 16,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": "21. (1) A tenant shall not be evicted during the continuance of\ntenancy agreement unless otherwise agreed to in writing by the\nlandlord and tenant, except in accordance with the provisions of sub-\nsection (2) or in accordance with the provisions of section 22.\n(2) The Rent Court may, on an application made to it by the landlord\nin such manner as may be prescribed, make an order for eviction\nand recovery of possession of the premises on one or more of the\nfollowing grounds, namely: -\n(a) that the tenant does not agree to pay the rent payable under\nsection 8;\n(b) that the tenant has not paid the arrears of rent and other\ncharges payable in full as specified in sub-section (1) of section\n13 for"
+        },
+        {
+          "id": "src_constitution_39a",
+          "act": "Constitution of India",
+          "unit": "Article",
+          "number": "39A",
+          "title": "against moral and material abandonment.]",
+          "page": 2,
+          "url": "https://www.mea.gov.in/images/pdf1/Part4.pdf",
+          "excerpt": "2[39A. The State shall secure that the operation of the\nlegal system promotes justice, on a basis of equal\nopportunity, and shall, in particular, provide free legal\naid, by suitable legislation or schemes or in any other\nway, to ensure that opportunities for securing justice are\nnot denied to any citizen by reason of economic or other\ndisabilities.]"
+        },
+        {
+          "id": "src_mta_2021_22",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "22",
+          "title": "",
+          "page": 18,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": "22. (1) Notwithstanding anything contained in this Act or any other\nlaw for the time being in force, in case of death of the landlord, where\nthere is a bonafide requirement of the premises let out on rent by the\nlegal heirs of the landlord during the period of tenancy, such legal\nheirs may file an application in this behalf for eviction and recovery of\npossession of the said premises before the Rent Court in such form\nand manner, as may be prescribed.\n(2) The Rent Court may, on an application made to it under sub-\nsection (1), if it is satisfied that the legal heirs of the deceased\nlandlord are in bonafide requirement of the premises let out on rent,\npass necessary orders against the tenant "
+        },
+        {
+          "id": "src_mta_2021_25",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "25",
+          "title": "",
+          "page": 19,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": "25. In any proceedings for recovery of possession on any ground\nother than that referred to in clause (a) or clause (b) of sub-section\n(2) of section 21, where the tenant contests the claim for eviction, the\nlandlord may at any stage of the proceedings apply to the Rent Court\nto direct the tenant to pay him the rent payable, as under section 8,\nand the Rent Court may order the tenant to make such payment and\nall other charges due from the tenant along with penal charges, if\nany, due to delay in payment, in accordance with the provisions of\nsub-section (1) of section 14.\nPayment of\nrent during\neviction\nproceedings."
+        },
+        {
+          "id": "src_constitution_43",
+          "act": "Constitution of India",
+          "unit": "Article",
+          "number": "43",
+          "title": "",
+          "page": 2,
+          "url": "https://www.mea.gov.in/images/pdf1/Part4.pdf",
+          "excerpt": "43. The State shall endeavour to secure, by suitable\nlegislation or economic organisation or in any other way,\nto all workers, agricultural, industrial or otherwise, work,\na living wage, conditions of work ensuring a decent\n1Subs. by the Constitution (Forty-second Amendment) Act, 1976, s. 7, for cl. (f) (w.e.f.\n3-1-1977).\n2Ins. by s. 8, ibid. (w.e.f.  3-1-1977).\nEqual justice and\nfree legal aid.\nOrganisation of\nvillage panchayats.\nRight to work, to\neducation and to\npublic assistance\nin certain cases.\nProvision for just\nand humane\nconditions of work\nand maternity\nrelief.\nLiving wage, etc.,\nfor workers.\n(Part IV.-Directive Principles of State Policy.-\nArts. 39-43.)\nstandard of life and full en"
+        },
+        {
+          "id": "src_mta_2021_5",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "5",
+          "title": "",
+          "page": 10,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": "5. (1) Every tenancy entered into after the commencement of this Act\nshall be valid for a period as agreed upon between the landlord and\nthe tenant and as specified in the tenancy agreement.\n(2) The tenant may request the landlord for renewal or extension of\nthe tenancy, within the period agreed to in the tenancy agreement,\nand if agreeable to the landlord, may enter into a new tenancy\nagreement with the landlord on mutually agreed terms and\nconditions.\n(3) Where a tenancy for a fixed term ends and has not been renewed\nor the tenant fails to vacate the premises at the end of such tenancy,\nthen such tenant shall be liable to pay an enhanced rent to the\nlandlord as provided in section 23.\nProv"
+        },
+        {
+          "id": "src_mta_2021_15_p2",
+          "act": "Model Tenancy Act, 2021",
+          "unit": "Section",
+          "number": "15",
+          "title": "",
+          "page": 13,
+          "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+          "excerpt": ", subject to the provisions of this section, to be inhabitable:\nProvided that where the rented premises becomes uninhabitable\nas specified in sub-section (5) or this sub-section and the landlord\nfails to carry out the required repairs to make it inhabitable or the said\npremises could not be made inhabitable, then, the security deposit\nand advance rent shall be refunded by the landlord to the tenant\nwithin a period of fifteen days of the expiry of the notice period, after\nmaking due deduction of liability of the tenant, if any.\nExplanation.–– For the purposes of this section, “force\nmajeure” means a situation of war, flood, drought, fire, cyclone,\nearthquake or any other calamity caused by na"
+        }
+      ]
+    },
+    "assessment": {
+      "where_you_stand": "You have received a legal notice from your landlord's lawyer terminating your tenancy and demanding you vacate within 30 days. Since you have received a formal notice threatening legal proceedings, you need to handle this carefully and respond in writing within the given time. While you state all rent is paid, you are missing your rent agreement and payment receipts to prove this. Because a formal notice with eviction threats is involved, you should consult a lawyer immediately [KB:lsa_s12_legal_aid].",
+      "options": [
+        {
+          "step": 1,
+          "title": "Gather your documents",
+          "what_to_do": "Collect your rent agreement, bank statements, or any written messages showing you paid rent on time.",
+          "time": "1-2 days",
+          "cost": "free",
+          "needs": [
+            "Rent agreement",
+            "Bank statements",
+            "Receipts"
+          ],
+          "kb_refs": []
+        },
+        {
+          "step": 2,
+          "title": "Contact Legal Aid or a Lawyer",
+          "what_to_do": "Since you received a lawyer's notice threatening eviction, contact the District Legal Services Authority (DLSA) or call the NALSA helpline at 15100 for free legal advice.",
+          "time": "1-2 days",
+          "cost": "free",
+          "needs": [
+            "Legal notice letter",
+            "Payment proofs"
+          ],
+          "kb_refs": [
+            "KB:lsa_s12_legal_aid"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Check your bank statements for rent transfer entries matching the monthly rent amounts.",
+        "Look for WhatsApp messages or emails where the landlord acknowledged receiving your rent."
+      ],
+      "what_i_dont_know": [
+        "Which Indian state you are in, as local rent control laws may apply.",
+        "What your written rent agreement states about notice periods and lease duration."
+      ],
+      "needs_lawyer": true,
+      "needs_lawyer_reason": "You have received a formal legal notice threatening eviction proceedings, and what you write in response can be used against you later.",
+      "reply": "You have received a formal legal notice from your landlord demanding that you vacate the premises within 30 days. Even though you state that all your rent has been paid, receiving a lawyer's notice means you must respond carefully and within the given time limit. Because legal proceedings have been threatened, it is important to consult a lawyer before you reply or take any action. You can access free legal advice through the District Legal Services Authority or by calling the NALSA helpline at 15100 [KB:lsa_s12_legal_aid]. Do you have a written rent agreement and bank statements or receipts to prove that your rent payments are fully cleared?"
+    },
+    "assessment_raw": {
+      "where_you_stand": "You have received a legal notice from your landlord's lawyer terminating your tenancy and demanding you vacate within 30 days. Since you have received a formal notice threatening legal proceedings, you need to handle this carefully and respond in writing within the given time. While you state all rent is paid, you are missing your rent agreement and payment receipts to prove this. Because a formal notice with eviction threats is involved, you should consult a lawyer immediately [KB:lsa_s12_legal_aid].",
+      "options": [
+        {
+          "step": 1,
+          "title": "Gather your documents",
+          "what_to_do": "Collect your rent agreement, bank statements, or any written messages showing you paid rent on time.",
+          "time": "1-2 days",
+          "cost": "free",
+          "needs": [
+            "Rent agreement",
+            "Bank statements",
+            "Receipts"
+          ],
+          "kb_refs": []
+        },
+        {
+          "step": 2,
+          "title": "Contact Legal Aid or a Lawyer",
+          "what_to_do": "Since you received a lawyer's notice threatening eviction, contact the District Legal Services Authority (DLSA) or call the NALSA helpline at 15100 for free legal advice.",
+          "time": "1-2 days",
+          "cost": "free",
+          "needs": [
+            "Legal notice letter",
+            "Payment proofs"
+          ],
+          "kb_refs": [
+            "KB:lsa_s12_legal_aid"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Check your bank statements for rent transfer entries matching the monthly rent amounts.",
+        "Look for WhatsApp messages or emails where the landlord acknowledged receiving your rent."
+      ],
+      "what_i_dont_know": [
+        "Which Indian state you are in, as local rent control laws may apply.",
+        "What your written rent agreement states about notice periods and lease duration."
+      ],
+      "needs_lawyer": true,
+      "needs_lawyer_reason": "You have received a formal legal notice threatening eviction proceedings, and what you write in response can be used against you later.",
+      "reply": "You have received a formal legal notice from your landlord demanding that you vacate the premises within 30 days. Even though you state that all your rent has been paid, receiving a lawyer's notice means you must respond carefully and within the given time limit. Because legal proceedings have been threatened, it is important to consult a lawyer before you reply or take any action. You can access free legal advice through the District Legal Services Authority or by calling the NALSA helpline at 15100 [KB:lsa_s12_legal_aid]. Do you have a written rent agreement and bank statements or receipts to prove that your rent payments are fully cleared?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "lsa_s12_legal_aid"
+      ],
+      "support_check": {
+        "checked": 0,
+        "unsupported": []
+      }
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "not01_eviction_notice",
+    "secs": 5.0,
+    "prompt_tokens": 4770,
+    "completion_tokens": 1119,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": true,
+    "escalated": true,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 1,
+    "rag_hits": 8,
+    "official_text_citations": 0,
+    "unsupported_citations_dropped": 0,
+    "amounts_ok": "-",
+    "amounts_frac": null
+  }
+}

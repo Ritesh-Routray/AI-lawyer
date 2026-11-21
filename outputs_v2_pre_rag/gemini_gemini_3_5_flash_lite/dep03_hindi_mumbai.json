@@ -1,0 +1,198 @@
+{
+  "input": {
+    "id": "dep03_hindi_mumbai",
+    "story": "मैंने मुंबई में फ्लैट किराए पर लिया था। किराया 25000 और डिपॉजिट 1,00,000 रुपये था। जुलाई 2026 में घर खाली किया। मकान मालिक कहता है नया किरायेदार आएगा तब पैसे देगा। मेरे पास रजिस्टर्ड एग्रीमेंट और बैंक ट्रांसफर की रसीद है।\n",
+    "expected": {
+      "problem_type": "deposit",
+      "escalate": false,
+      "script": "devanagari",
+      "amounts": {
+        "deposit_paid": 100000
+      }
+    }
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "मैंने मुंबई में फ्लैट किराए पर लिया था। किराया 25000 और डिपॉजिट 1,00,000 रुपये था। जुलाई 2026 में घर खाली किया। मकान मालिक कहता है नया किरायेदार आएगा तब पैसे देगा। मेरे पास रजिस्टर्ड एग्रीमेंट और बैंक ट्रांसफर की रसीद है।",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "deposit",
+      "problem_subtype": "landlord refusing to return security deposit after vacating",
+      "user_language": "Hindi written in Devanagari script (not Roman letters), the way the person wrote",
+      "state": "Maharashtra",
+      "city": "Mumbai",
+      "summary": "The user rented a flat in Mumbai with a monthly rent of 25000 and a security deposit of 100000 rupees. They vacated the house in July 2026, but the landlord is withholding the deposit until a new tenant is found. The user possesses a registered agreement and bank transfer receipts.",
+      "user_goal": "To get the security deposit refunded from the landlord",
+      "user_role": "tenant",
+      "other_party": {
+        "name": null,
+        "type": "landlord"
+      },
+      "timeline": [
+        {
+          "date": "2026-07",
+          "event": "Vacated the rented flat in Mumbai",
+          "proof": "Registered agreement and bank transfer receipt"
+        }
+      ],
+      "amounts": {
+        "deposit_paid": 100000,
+        "deductions_claimed": null,
+        "monthly_rent": 25000,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [
+        "registered agreement",
+        "bank transfer receipt"
+      ],
+      "evidence_missing": [
+        "written notice or chat/messages asking for the deposit return",
+        "flat inspection or handover report"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": null
+      },
+      "follow_up_questions": [
+        "क्या मकान मालिक को डिपॉजिट वापसी के लिए कोई लिखित नोटिस या मैसेज भेजा था?",
+        "क्या घर खाली करते समय कोई हैंडओवर या निरीक्षण रसीद (inspection report) बनाई गई थी?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [
+        "Deposit paid: Rs 100,000",
+        "Amount to claim: Rs 100,000"
+      ],
+      "total": 100000.0,
+      "notes": [
+        "Your deposit (Rs 100,000) is more than 2 months' rent (Rs 50,000). The Model Tenancy Act caps it at 2 months, but only in states that adopted it.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "ica_s73",
+      "mta_s11_deposit",
+      "deposit_civil_route",
+      "lsa_s12_legal_aid"
+    ],
+    "assessment": {
+      "where_user_stand": "आपकी स्थिति काफी मजबूत है क्योंकि आपके पास रजिस्टर्ड एग्रीमेंट और बैंक ट्रांसफर की रसीद है, जिससे यह साबित होता है कि आपने 100,000 रुपये का डिपॉजिट दिया था [KB:deposit_civil_route]। मकान मालिक का यह कहना कि वह नया टेनेंट मिलने के बाद डिपॉजिट देगा, कानूनन सही नहीं है। हालांकि, कमी यह है कि आपने अभी तक कोई लिखित नोटिस या मैसेज नहीं भेजा है [KB:deposit_civil_route]।",
+      "options": [
+        {
+          "step": 1,
+          "title": "लिखित मांग (Written Demand)",
+          "what_to_do": "मकान मालिक को व्हाट्सएप या ईमेल पर साफ़ शब्दों में डिपॉजिट वापसी का लिखित अनुरोध भेजें और एग्रीमेंट का हवाला दें।",
+          "time": "1-2 दिन",
+          "cost": "फ्री",
+          "needs": [
+            "रजिस्टर्ड एग्रीमेंट",
+            "बैंक रसीद"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "वकील का नोटिस (Legal Notice)",
+          "what_to_do": "यदि मकान मालिक पैसे न लौटाए, तो किसी वकील के माध्यम से कानूनी नोटिस भेजें [KB:deposit_civil_route]।",
+          "time": "1 सप्ताह",
+          "cost": "कम",
+          "needs": [
+            "रजिस्टर्ड एग्रीमेंट",
+            "बैंक रसीद",
+            "मकान मालिक को भेजे गए मैसेज का स्क्रीनशॉट"
+          ],
+          "kb_refs": [
+            "KB:ica_s73",
+            "KB:deposit_civil_route"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "मकान मालिक को तुरंत व्हाट्सएप पर मैसेज करके डिपॉजिट की मांग करें ताकि लिखित सबूत बन सके।"
+      ],
+      "what_i_dont_know": [
+        "क्या महाराष्ट्र सरकार ने मॉडल टेनेंसी एक्ट को पूरी तरह से अपनाया है या स्थानीय रेंट एक्ट लागू होता है।"
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "अभी कोई कोर्ट केस या पुलिस मामला नहीं है। पहले आप खुद लिखित मांग कर सकते हैं, वकील की जरूरत केवल कानूनी नोटिस या कोर्ट जाने के समय पड़ेगी।",
+      "reply": "नमस्ते! आपकी स्थिति काफी मजबूत है क्योंकि आपके पास रजिस्टर्ड एग्रीमेंट और बैंक ट्रांसफर की रसीद है [KB:deposit_civil_route]। मकान मालिक का यह कहना कि नया टेनेंट मिलने पर पैसे मिलेंगे, कानूनन सही नहीं है। चूंकि मकान मालिक डिपॉजिट नहीं लौटा रहा है, आप सबसे पहले उसे व्हाट्सएप या लिखित में डिपॉजिट वापसी का मैसेज भेजें [KB:deposit_civil_route]। इसके बाद भी बात न बने तो कानूनी नोटिस भेजा जा सकता है [KB:deposit_civil_route]। क्या आपने घर खाली करते समय कोई हैंडओवर रसीद या लिखित बात की थी?"
+    },
+    "assessment_raw": {
+      "where_user_stand": "आपकी स्थिति काफी मजबूत है क्योंकि आपके पास रजिस्टर्ड एग्रीमेंट और बैंक ट्रांसफर की रसीद है, जिससे यह साबित होता है कि आपने 100,000 रुपये का डिपॉजिट दिया था [KB:deposit_civil_route]। मकान मालिक का यह कहना कि वह नया टेनेंट मिलने के बाद डिपॉजिट देगा, कानूनन सही नहीं है। हालांकि, कमी यह है कि आपने अभी तक कोई लिखित नोटिस या मैसेज नहीं भेजा है [KB:deposit_civil_route]।",
+      "options": [
+        {
+          "step": 1,
+          "title": "लिखित मांग (Written Demand)",
+          "what_to_do": "मकान मालिक को व्हाट्सएप या ईमेल पर साफ़ शब्दों में डिपॉजिट वापसी का लिखित अनुरोध भेजें और एग्रीमेंट का हवाला दें।",
+          "time": "1-2 दिन",
+          "cost": "फ्री",
+          "needs": [
+            "रजिस्टर्ड एग्रीमेंट",
+            "बैंक रसीद"
+          ],
+          "kb_refs": [
+            "KB:deposit_civil_route"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "वकील का नोटिस (Legal Notice)",
+          "what_to_do": "यदि मकान मालिक पैसे न लौटाए, तो किसी वकील के माध्यम से कानूनी नोटिस भेजें [KB:deposit_civil_route]।",
+          "time": "1 सप्ताह",
+          "cost": "कम",
+          "needs": [
+            "रजिस्टर्ड एग्रीमेंट",
+            "बैंक रसीद",
+            "मकान मालिक को भेजे गए मैसेज का स्क्रीनशॉट"
+          ],
+          "kb_refs": [
+            "KB:ica_s73",
+            "KB:deposit_civil_route"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "मकान मालिक को तुरंत व्हाट्सएप पर मैसेज करके डिपॉजिट की मांग करें ताकि लिखित सबूत बन सके।"
+      ],
+      "what_i_dont_know": [
+        "क्या महाराष्ट्र सरकार ने मॉडल टेनेंसी एक्ट को पूरी तरह से अपनाया है या स्थानीय रेंट एक्ट लागू होता है।"
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "अभी कोई कोर्ट केस या पुलिस मामला नहीं है। पहले आप खुद लिखित मांग कर सकते हैं, वकील की जरूरत केवल कानूनी नोटिस या कोर्ट जाने के समय पड़ेगी।",
+      "reply": "नमस्ते! आपकी स्थिति काफी मजबूत है क्योंकि आपके पास रजिस्टर्ड एग्रीमेंट और बैंक ट्रांसफर की रसीद है [KB:deposit_civil_route]। मकान मालिक का यह कहना कि नया टेनेंट मिलने पर पैसे मिलेंगे, कानूनन सही नहीं है। चूंकि मकान मालिक डिपॉजिट नहीं लौटा रहा है, आप सबसे पहले उसे व्हाट्सएप या लिखित में डिपॉजिट वापसी का मैसेज भेजें [KB:deposit_civil_route]। इसके बाद भी बात न बने तो कानूनी नोटिस भेजा जा सकता है [KB:deposit_civil_route]। क्या आपने घर खाली करते समय कोई हैंडओवर रसीद या लिखित बात की थी?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "deposit_civil_route"
+      ]
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "dep03_hindi_mumbai",
+    "secs": 4.6,
+    "prompt_tokens": 3266,
+    "completion_tokens": 1161,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 1,
+    "amounts_ok": "1/1",
+    "amounts_frac": 1.0
+  }
+}

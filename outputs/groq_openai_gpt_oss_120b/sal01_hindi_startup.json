@@ -1,0 +1,301 @@
+{
+  "input": {
+    "id": "sal01_hindi_startup",
+    "story": "मैं पुणे में एक स्टार्टअप में काम करता था, सैलरी 35000 महीना थी। अगस्त से अक्टूबर 2026 तक की सैलरी नहीं मिली। 31 अक्टूबर को मैंने इस्तीफा दे दिया। HR कहता है पैसे नहीं हैं, बाद में देंगे। मेरे पास ऑफर लेटर और पुरानी सैलरी स्लिप हैं।\n",
+    "expected": {
+      "problem_type": "salary",
+      "escalate": false,
+      "script": "devanagari",
+      "amounts": {
+        "monthly_salary": 35000,
+        "months_unpaid": 3
+      }
+    },
+    "draft": "legal_notice"
+  },
+  "output": {
+    "model": "groq:openai/gpt-oss-120b",
+    "masked_story": "मैं पुणे में एक स्टार्टअप में काम करता था, सैलरी 35000 महीना थी। अगस्त से अक्टूबर 2026 तक की सैलरी नहीं मिली। 31 अक्टूबर को मैंने इस्तीफा दे दिया। HR कहता है पैसे नहीं हैं, बाद में देंगे। मेरे पास ऑफर लेटर और पुरानी सैलरी स्लिप हैं।",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "salary",
+      "problem_subtype": "unpaid salary",
+      "user_language": "Hindi",
+      "state": "Maharashtra",
+      "city": "Pune",
+      "summary": "The user worked at a startup in Pune with a monthly salary of 35000 rupees. Salary for August, September, and October 2026 was not received. The user resigned on 31 October 2026 and HR promised later payment.",
+      "user_goal": "Receive the unpaid salary for August to October 2026",
+      "user_role": "employee",
+      "other_party": {
+        "name": null,
+        "type": "employer"
+      },
+      "timeline": [
+        {
+          "date": "2026-08-01",
+          "event": "Start of unpaid salary period (August salary not received)",
+          "proof": null
+        },
+        {
+          "date": "2026-09-01",
+          "event": "September salary not received",
+          "proof": null
+        },
+        {
+          "date": "2026-10-01",
+          "event": "October salary not received",
+          "proof": null
+        },
+        {
+          "date": "2026-10-31",
+          "event": "Resigned and informed HR",
+          "proof": null
+        }
+      ],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": 35000,
+        "months_unpaid": 3,
+        "other_dues": null,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [
+        "offer letter",
+        "old salary slips"
+      ],
+      "evidence_missing": [
+        "salary slips for August-October 2026",
+        "email or written communication from HR promising payment"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": ""
+      },
+      "follow_up_questions": [
+        "क्या आपके पास अगस्त‑अक्टूबर 2026 की सैलरी स्लिप या बैंक स्टेटमेंट है?",
+        "HR ने आपको लिखित में भुगतान का वादा किया है क्या?",
+        "कंपनी का नाम और आपके मैनेजर/HR का नाम क्या है?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [
+        "Monthly salary Rs 35,000 x 3 unpaid month(s) = Rs 105,000",
+        "Amount to claim: Rs 105,000"
+      ],
+      "total": 105000.0,
+      "notes": [
+        "Check your offer letter/payslips for the exact gross vs in-hand salary. Gratuity, if any, has separate rules - ask a lawyer.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "ica_s73",
+      "cow_s17",
+      "cow_s45",
+      "lsa_s12_legal_aid"
+    ],
+    "assessment": {
+      "where_you_stand": "आपके पास ऑफर लेटर और पुराने सैलरी स्लिप हैं, जो रोजगार संबंध और वेतन की राशि साबित करते हैं. अगस्त‑अक्टूबर 2026 के वेतन नहीं मिले, जो Code on Wages, 2019 की धारा 17 के तहत 7 तारीख से पहले देना अनिवार्य है, और धारा 45 के अनुसार आप 3 साल के भीतर दावा कर सकते हैं [KB:cow_s17][KB:cow_s45]. आपके पास अभी तक अगस्त‑अक्टूबर की सैलरी स्लिप या HR का लिखित वादा नहीं है, जिससे प्रमाण में कमी है.",
+      "options": [
+        {
+          "step": 1,
+          "title": "HR को लिखित मांग पत्र भेजें",
+          "what_to_do": "एक ईमेल या पत्र लिखें जिसमें आप अगस्त‑अक्टूबर के बकाया वेतन (₹105,000) का उल्लेख करें, ऑफर लेटर और पुराने स्लिप संलग्न करें, और 7 दिनों के भीतर भुगतान का अनुरोध करें.",
+          "time": "1-2 दिन",
+          "cost": "free",
+          "needs": [
+            "HR का ईमेल/पता, ऑफर लेटर, पुराने सैलरी स्लिप"
+          ],
+          "kb_refs": [
+            "KB:cow_s17"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "लेबर विभाग में शिकायत दर्ज करें",
+          "what_to_do": "पुणे के लेबर कमिश्नर कार्यालय में ‘वेतन बकाया’ की शिकायत फॉर्म भरें, सभी उपलब्ध दस्तावेज (ऑफर लेटर, पुराने स्लिप, लिखित मांग पत्र की कॉपी) संलग्न करें. फॉर्म जमा करने के बाद आपको रजिस्ट्रेशन नंबर मिलेगा.",
+          "time": "1-2 हफ्ते",
+          "cost": "सरकारी शुल्क (कम) या मुफ्त, यदि आप पात्र हैं तो Legal Aid से मदद ले सकते हैं",
+          "needs": [
+            "ऑफ़र लेटर, पुराने स्लिप, HR को भेजा गया मांग पत्र, पहचान प्रमाण"
+          ],
+          "kb_refs": [
+            "KB:cow_s45",
+            "KB:lsa_s12_legal_aid"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "कर्मचारी न्यायालय में केस दायर करें",
+          "what_to_do": "यदि लेबर विभाग से समाधान नहीं मिलता, तो पुणे में स्थित श्रम न्यायालय में बकाया वेतन के लिए मुकदमा दायर करें. वकील की मदद से शिकायत पत्र तैयार करें, सभी दस्तावेज संलग्न करें, और कोर्ट फीस जमा करें.",
+          "time": "2-3 महीने",
+          "cost": "court fee + वकील शुल्क (यदि आप स्वयं नहीं कर सकते तो Legal Aid से सहायता ले सकते हैं)",
+          "needs": [
+            "सभी दस्तावेज, लिखित मांग पत्र, शिकायत पत्र का ड्राफ्ट"
+          ],
+          "kb_refs": [
+            "KB:cow_s45",
+            "KB:lsa_s12_legal_aid"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "HR को WhatsApp या ईमेल पर लिखित रूप में बकाया वेतन का वादा करने को कहें और उसकी स्क्रीनशॉट रखें.",
+        "बैंक स्टेटमेंट में अगस्त‑अक्टूबर के महीने में वेतन न मिलने की प्रविष्टि दिखाएँ.",
+        "यदि कंपनी ने कोई भुगतान किया हो तो ट्रांसफ़र स्लिप या चेक की कॉपी रखें."
+      ],
+      "what_i_dont_know": [
+        "कंपनी के अंदरूनी नियम या वेतन संरचना में कोई विशेष कटौती लागू हुई थी या नहीं.",
+        "आपके रोजगार अनुबंध में कोई अतिरिक्त शर्तें (जैसे प्रॉबेशन क्लॉज़) हैं या नहीं."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "पहले चरण (लिखित मांग और लेबर विभाग में शिकायत) आप स्वयं कर सकते हैं. यदि इनसे समाधान नहीं मिलता तो वकील की मदद आवश्यक होगी.",
+      "reply": "आपके पास ऑफर लेटर और पुराने सैलरी स्लिप हैं, जो आपके वेतन अधिकार को साबित करते हैं. Code on Wages, 2019 के अनुसार वेतन अगली महीने की 7 तारीख तक देना अनिवार्य है, और आप 3 साल के भीतर लेबर विभाग में दावा कर सकते हैं [KB:cow_s17][KB:cow_s45]. सबसे पहले, HR को एक लिखित ईमेल/पत्र भेजें जिसमें बकाया ₹105,000 का उल्लेख हो और 7 दिनों में भुगतान का अनुरोध करें. यदि जवाब नहीं मिलता, तो पुणे लेबर कमिश्नर के पास शिकायत दर्ज करें, सभी दस्तावेज संलग्न करें. यह प्रक्रिया मुफ्त या कम लागत वाली है, और आप स्वयं कर सकते हैं. क्या आप HR को लिखित मांग पत्र भेजने के लिए तैयार हैं?"
+    },
+    "assessment_raw": {
+      "where_you_stand": "आपके पास ऑफर लेटर और पुराने सैलरी स्लिप हैं, जो रोजगार संबंध और वेतन की राशि साबित करते हैं. अगस्त‑अक्टूबर 2026 के वेतन नहीं मिले, जो Code on Wages, 2019 की धारा 17 के तहत 7 तारीख से पहले देना अनिवार्य है, और धारा 45 के अनुसार आप 3 साल के भीतर दावा कर सकते हैं [KB:cow_s17][KB:cow_s45]. आपके पास अभी तक अगस्त‑अक्टूबर की सैलरी स्लिप या HR का लिखित वादा नहीं है, जिससे प्रमाण में कमी है.",
+      "options": [
+        {
+          "step": 1,
+          "title": "HR को लिखित मांग पत्र भेजें",
+          "what_to_do": "एक ईमेल या पत्र लिखें जिसमें आप अगस्त‑अक्टूबर के बकाया वेतन (₹105,000) का उल्लेख करें, ऑफर लेटर और पुराने स्लिप संलग्न करें, और 7 दिनों के भीतर भुगतान का अनुरोध करें.",
+          "time": "1-2 दिन",
+          "cost": "free",
+          "needs": [
+            "HR का ईमेल/पता, ऑफर लेटर, पुराने सैलरी स्लिप"
+          ],
+          "kb_refs": [
+            "KB:cow_s17"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "लेबर विभाग में शिकायत दर्ज करें",
+          "what_to_do": "पुणे के लेबर कमिश्नर कार्यालय में ‘वेतन बकाया’ की शिकायत फॉर्म भरें, सभी उपलब्ध दस्तावेज (ऑफर लेटर, पुराने स्लिप, लिखित मांग पत्र की कॉपी) संलग्न करें. फॉर्म जमा करने के बाद आपको रजिस्ट्रेशन नंबर मिलेगा.",
+          "time": "1-2 हफ्ते",
+          "cost": "सरकारी शुल्क (कम) या मुफ्त, यदि आप पात्र हैं तो Legal Aid से मदद ले सकते हैं",
+          "needs": [
+            "ऑफ़र लेटर, पुराने स्लिप, HR को भेजा गया मांग पत्र, पहचान प्रमाण"
+          ],
+          "kb_refs": [
+            "KB:cow_s45",
+            "KB:lsa_s12_legal_aid"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "कर्मचारी न्यायालय में केस दायर करें",
+          "what_to_do": "यदि लेबर विभाग से समाधान नहीं मिलता, तो पुणे में स्थित श्रम न्यायालय में बकाया वेतन के लिए मुकदमा दायर करें. वकील की मदद से शिकायत पत्र तैयार करें, सभी दस्तावेज संलग्न करें, और कोर्ट फीस जमा करें.",
+          "time": "2-3 महीने",
+          "cost": "court fee + वकील शुल्क (यदि आप स्वयं नहीं कर सकते तो Legal Aid से सहायता ले सकते हैं)",
+          "needs": [
+            "सभी दस्तावेज, लिखित मांग पत्र, शिकायत पत्र का ड्राफ्ट"
+          ],
+          "kb_refs": [
+            "KB:cow_s45",
+            "KB:lsa_s12_legal_aid"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "HR को WhatsApp या ईमेल पर लिखित रूप में बकाया वेतन का वादा करने को कहें और उसकी स्क्रीनशॉट रखें.",
+        "बैंक स्टेटमेंट में अगस्त‑अक्टूबर के महीने में वेतन न मिलने की प्रविष्टि दिखाएँ.",
+        "यदि कंपनी ने कोई भुगतान किया हो तो ट्रांसफ़र स्लिप या चेक की कॉपी रखें."
+      ],
+      "what_i_dont_know": [
+        "कंपनी के अंदरूनी नियम या वेतन संरचना में कोई विशेष कटौती लागू हुई थी या नहीं.",
+        "आपके रोजगार अनुबंध में कोई अतिरिक्त शर्तें (जैसे प्रॉबेशन क्लॉज़) हैं या नहीं."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "पहले चरण (लिखित मांग और लेबर विभाग में शिकायत) आप स्वयं कर सकते हैं. यदि इनसे समाधान नहीं मिलता तो वकील की मदद आवश्यक होगी.",
+      "reply": "आपके पास ऑफर लेटर और पुराने सैलरी स्लिप हैं, जो आपके वेतन अधिकार को साबित करते हैं. Code on Wages, 2019 के अनुसार वेतन अगली महीने की 7 तारीख तक देना अनिवार्य है, और आप 3 साल के भीतर लेबर विभाग में दावा कर सकते हैं [KB:cow_s17][KB:cow_s45]. सबसे पहले, HR को एक लिखित ईमेल/पत्र भेजें जिसमें बकाया ₹105,000 का उल्लेख हो और 7 दिनों में भुगतान का अनुरोध करें. यदि जवाब नहीं मिलता, तो पुणे लेबर कमिश्नर के पास शिकायत दर्ज करें, सभी दस्तावेज संलग्न करें. यह प्रक्रिया मुफ्त या कम लागत वाली है, और आप स्वयं कर सकते हैं. क्या आप HR को लिखित मांग पत्र भेजने के लिए तैयार हैं?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "cow_s17",
+        "cow_s45"
+      ]
+    },
+    "draft": {
+      "doc_type": "legal_notice",
+      "draft": {
+        "title": "Legal Notice for Unpaid Salary (August – October 2026)",
+        "body": "Date: [date]\n\nFrom:\n[Your Name]\n[Your Address]\n[Phone: [PHONE_1]]\n[Email: [EMAIL_1]]\n\nTo:\n[Employer Name]\n[Employer Address]\n\nSubject: Demand for Payment of Unpaid Salary for August, September and October 2026\n\n1. I was employed by the above‑named employer as a [designation] at its startup located in Pune, Maharashtra, with a monthly salary of Rs. 35,000 as per the offer letter attached.\n2. The salary for the months of August, September and October 2026 was not paid despite the employer’s obligation to pay wages before the 7th of the following month.\n3. I resigned from my position on 31 October 2026 and informed the HR department of my resignation. The HR representative verbally assured that the pending salaries would be cleared subsequently.\n4. To date, no payment has been received for the three months, amounting to Rs. 105,000 (Rs. 35,000 x 3 months).\n5. The failure to pay the salary constitutes a breach of the employment contract and a violation of the Code on Wages, 2019, which mandates payment of wages within the stipulated time‑frame.\n\nLegal Basis:\n- Section 73 of the Indian Contract Act, 1872 [KB:ica_s73] – entitlement to compensation for breach of contract.\n- Section 17 of the Code on Wages, 2019 [KB:cow_s17] – salary must be paid before the 7th of the next month; on resignation, wages due must be paid within two working days.\n\nDemand:\nYou are hereby directed to pay the total outstanding amount of Rs. 105,000 (Rupees One Lakh Five Thousand only) within fifteen (15) days from the receipt of this notice, i.e., by [date – 15 days from notice].\n\nConsequences of Non‑Compliance:\nIf the amount is not paid within the stipulated period, I will be constrained to initiate legal proceedings, including filing a claim for unpaid wages before the Labour Commissioner under Section 45 of the Code on Wages, 2019 [KB:cow_s45], and may also seek compensation as per Section 73 of the Indian Contract Act, 1872. Such action may result in additional costs and interest as determined by the appropriate authority.\n\nPlease treat this notice as a final opportunity to settle the matter amicably.\n\nYours faithfully,\n\n________________________\n[Your Name]\n[Signature]\n",
+        "explain_in_user_language": "यह नोटिस आपके नियोक्ता को अगस्त‑अक्टूबर 2026 की बकाया वेतन (₹1,05,000) देने का औपचारिक अनुरोध है। इसमें भारतीय अनुबंध अधिनियम की धारा 73 और वेतन कोड की धारा 17 के आधार पर आपका अधिकार बताया गया है। यदि 15 दिनों के भीतर भुगतान नहीं किया गया तो आप लेबर कमिश्नर के पास केस दायर कर सकते हैं। नोटिस भेजने के बाद नियोक्ता को भुगतान करना होगा, नहीं तो कानूनी कार्रवाई शुरू होगी।",
+        "attach_checklist": [
+          "Offer letter",
+          "Old salary slips (pre‑August 2026)",
+          "Resignation email/letter dated 31 Oct 2026",
+          "Any written communication from HR promising payment (if available)"
+        ],
+        "placeholders_to_fill": [
+          "[date]",
+          "[Your Name]",
+          "[Your Address]",
+          "[PHONE_1]",
+          "[EMAIL_1]",
+          "[Employer Name]",
+          "[Employer Address]",
+          "[designation]",
+          "[date – 15 days from notice]"
+        ]
+      },
+      "draft_raw": {
+        "title": "Legal Notice for Unpaid Salary (August – October 2026)",
+        "body": "Date: [date]\n\nFrom:\n[Your Name]\n[Your Address]\n[Phone: [PHONE_1]]\n[Email: [EMAIL_1]]\n\nTo:\n[Employer Name]\n[Employer Address]\n\nSubject: Demand for Payment of Unpaid Salary for August, September and October 2026\n\n1. I was employed by the above‑named employer as a [designation] at its startup located in Pune, Maharashtra, with a monthly salary of Rs. 35,000 as per the offer letter attached.\n2. The salary for the months of August, September and October 2026 was not paid despite the employer’s obligation to pay wages before the 7th of the following month.\n3. I resigned from my position on 31 October 2026 and informed the HR department of my resignation. The HR representative verbally assured that the pending salaries would be cleared subsequently.\n4. To date, no payment has been received for the three months, amounting to Rs. 105,000 (Rs. 35,000 x 3 months).\n5. The failure to pay the salary constitutes a breach of the employment contract and a violation of the Code on Wages, 2019, which mandates payment of wages within the stipulated time‑frame.\n\nLegal Basis:\n- Section 73 of the Indian Contract Act, 1872 [KB:ica_s73] – entitlement to compensation for breach of contract.\n- Section 17 of the Code on Wages, 2019 [KB:cow_s17] – salary must be paid before the 7th of the next month; on resignation, wages due must be paid within two working days.\n\nDemand:\nYou are hereby directed to pay the total outstanding amount of Rs. 105,000 (Rupees One Lakh Five Thousand only) within fifteen (15) days from the receipt of this notice, i.e., by [date – 15 days from notice].\n\nConsequences of Non‑Compliance:\nIf the amount is not paid within the stipulated period, I will be constrained to initiate legal proceedings, including filing a claim for unpaid wages before the Labour Commissioner under Section 45 of the Code on Wages, 2019 [KB:cow_s45], and may also seek compensation as per Section 73 of the Indian Contract Act, 1872. Such action may result in additional costs and interest as determined by the appropriate authority.\n\nPlease treat this notice as a final opportunity to settle the matter amicably.\n\nYours faithfully,\n\n________________________\n[Your Name]\n[Signature]\n",
+        "explain_in_user_language": "यह नोटिस आपके नियोक्ता को अगस्त‑अक्टूबर 2026 की बकाया वेतन (₹1,05,000) देने का औपचारिक अनुरोध है। इसमें भारतीय अनुबंध अधिनियम की धारा 73 और वेतन कोड की धारा 17 के आधार पर आपका अधिकार बताया गया है। यदि 15 दिनों के भीतर भुगतान नहीं किया गया तो आप लेबर कमिश्नर के पास केस दायर कर सकते हैं। नोटिस भेजने के बाद नियोक्ता को भुगतान करना होगा, नहीं तो कानूनी कार्रवाई शुरू होगी।",
+        "attach_checklist": [
+          "Offer letter",
+          "Old salary slips (pre‑August 2026)",
+          "Resignation email/letter dated 31 Oct 2026",
+          "Any written communication from HR promising payment (if available)"
+        ],
+        "placeholders_to_fill": [
+          "[date]",
+          "[Your Name]",
+          "[Your Address]",
+          "[PHONE_1]",
+          "[EMAIL_1]",
+          "[Employer Name]",
+          "[Employer Address]",
+          "[designation]",
+          "[date – 15 days from notice]"
+        ]
+      },
+      "guardrail_report": {
+        "removed_count": 0,
+        "items": [],
+        "kb_cited": [
+          "cow_s17",
+          "cow_s45",
+          "ica_s73"
+        ]
+      }
+    }
+  },
+  "metrics": {
+    "model": "groq:openai/gpt-oss-120b",
+    "case": "sal01_hindi_startup",
+    "secs": 54.2,
+    "prompt_tokens": 4621,
+    "completion_tokens": 2495,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 2,
+    "amounts_ok": "2/2",
+    "amounts_frac": 1.0
+  }
+}

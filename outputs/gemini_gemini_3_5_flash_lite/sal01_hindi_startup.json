@@ -1,0 +1,369 @@
+{
+  "input": {
+    "id": "sal01_hindi_startup",
+    "story": "मैं पुणे में एक स्टार्टअप में काम करता था, सैलरी 35000 महीना थी। अगस्त से अक्टूबर 2026 तक की सैलरी नहीं मिली। 31 अक्टूबर को मैंने इस्तीफा दे दिया। HR कहता है पैसे नहीं हैं, बाद में देंगे। मेरे पास ऑफर लेटर और पुरानी सैलरी स्लिप हैं।\n",
+    "expected": {
+      "problem_type": "salary",
+      "escalate": false,
+      "script": "devanagari",
+      "amounts": {
+        "monthly_salary": 35000,
+        "months_unpaid": 3
+      }
+    },
+    "draft": "legal_notice"
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "मैं पुणे में एक स्टार्टअप में काम करता था, सैलरी 35000 महीना थी। अगस्त से अक्टूबर 2026 तक की सैलरी नहीं मिली। 31 अक्टूबर को मैंने इस्तीफा दे दिया। HR कहता है पैसे नहीं हैं, बाद में देंगे। मेरे पास ऑफर लेटर और पुरानी सैलरी स्लिप हैं।",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "salary",
+      "problem_subtype": "unpaid salary and resignation dues",
+      "user_language": "Hindi written in Devanagari script (not Roman letters), the way the person wrote",
+      "state": "Maharashtra",
+      "city": "Pune",
+      "summary": "The user worked at a startup in Pune with a monthly salary of 35000 rupees. They did not receive their salary from August 2026 to October 2026 and resigned on October 31, 2026, but the HR claims there are no funds right now.",
+      "user_goal": "To recover unpaid salary for August, September, and October 2026.",
+      "user_role": "employee",
+      "other_party": {
+        "name": null,
+        "type": "employer"
+      },
+      "timeline": [
+        {
+          "date": "2026-08",
+          "event": "Salary unpaid for August",
+          "proof": null
+        },
+        {
+          "date": "2026-09",
+          "event": "Salary unpaid for September",
+          "proof": null
+        },
+        {
+          "date": "2026-10-31",
+          "event": "User resigned from the startup, HR stated funds are not available",
+          "proof": null
+        }
+      ],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": 35000,
+        "months_unpaid": 3,
+        "other_dues": null,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [
+        "offer letter",
+        "old salary slips"
+      ],
+      "evidence_missing": [
+        "bank statements showing unpaid months",
+        "resignation email or acceptance letter",
+        "written communication with HR regarding unpaid dues"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": null
+      },
+      "follow_up_questions": [
+        "क्या आपके पास HR की कोई लिखित बात या चैट है जिसमें उन्होंने पैसे देने से मना किया है?",
+        "क्या आपने अगस्त से अक्टूबर तक की अटेंडेंस या बैंक स्टेटमेंट का कोई सबूत रखा है?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [
+        "Monthly salary Rs 35,000 x 3 unpaid month(s) = Rs 105,000",
+        "Amount to claim: Rs 105,000"
+      ],
+      "total": 105000.0,
+      "notes": [
+        "Check your offer letter/payslips for the exact gross vs in-hand salary. Gratuity, if any, has separate rules - ask a lawyer.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "ica_s73",
+      "cow_s17",
+      "cow_s45",
+      "lsa_s12_legal_aid",
+      "src_cow_2019_17",
+      "src_cow_2019_45",
+      "src_cow_2019_59",
+      "src_cow_2019_18",
+      "src_cow_2019_48",
+      "src_cow_2019_54",
+      "src_cow_2019_56_p2",
+      "src_cow_2019_43"
+    ],
+    "retrieval": {
+      "mode": "hybrid (BM25 + dense) + anchor queries",
+      "query": "unpaid salary and resignation dues The user worked at a startup in Pune with a monthly salary of 35000 rupees. They did not receive their salary from August 2026 to October 2026 and resigned on October 31, 2026, but the HR claims there are no funds right now. To recover unpaid salary for August, September, and October 2026.",
+      "hits": [
+        {
+          "id": "src_cow_2019_17",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "17",
+          "title": "",
+          "page": 12,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "17. (1) The employer shall pay or cause to be paid wages to the employees, engaged\non-\n(i)  daily basis, at the end of the shift;\n(ii) weekly basis, on the last working day of the week, that is to say, before the\nweekly holiday;\n(iii) fortnightly basis, before the end of the second day after the end of the\nfortnight;\n(iv) monthly basis, before the expiry of the seventh day of the succeeding\nmonth.\n(2) Where an employee has been-\n(i) removed or dismissed from service; or\n(ii) retrenched or has resigned from service, or became unemployed due to\nclosure of the establishment,\nthe wages payable to him shall be paid within two working days of his removal, dismissal,\nretrenchment or, as the case ma"
+        },
+        {
+          "id": "src_cow_2019_45",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "45",
+          "title": "",
+          "page": 23,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "45. (1) The appropriate Government may, by notification, appoint one or more\nauthorities, not below the rank of a Gazetted Officer, to hear and determine the claims which\narises under the provisions of this Code.\n(2) The authority appointed under sub-section (1), while deciding the claim under\nthat sub-section, may order, having regard to the circumstances under which the claim\narises, the payment of compensation in addition to the claim determined, which may extend\nto ten times of the claim determined and endeavour shall be made by the authority to decide\nthe claim within a period of three months.\n(3) If an employer fails to pay the claim determined and compensation ordered to be\npaid under"
+        },
+        {
+          "id": "src_cow_2019_59",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "59",
+          "title": "",
+          "page": 29,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "59. Where a claim has been filed on account of non-payment of remuneration or\nbonus or less payment of wages or bonus or on account of making deductions not authorised\nby this Code from the wages of an employee, the burden to prove that the said dues have\nbeen paid shall be on the employer."
+        },
+        {
+          "id": "src_cow_2019_18",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "18",
+          "title": "",
+          "page": 12,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "18. (1) Notwithstanding anything contained in any other law for the time being in\nforce, there shall be no deductions from the wages of the employee, except those as are\nauthorised under this Code.\nExplanation.––For the purposes of this sub-section,-\n(a) any payment made by an employee to the employer or his agent shall be\ndeemed to be a deduction from his wages;\n(b) any loss of wages to an employee, for a good and sufficient cause, resulting\nfrom-\n(i) the withholding of increment or promotion, including the stoppage of\nan increment; or\n(ii) the reduction to a lower post or time-scale; or\n(iii) the suspension,\nshall not be deemed to be a deduction from wages in a case where the provisions ma"
+        },
+        {
+          "id": "src_cow_2019_48",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "48",
+          "title": "",
+          "page": 24,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "48. (1) Where any claim, dispute or appeal with respect to bonus payable under this\nCode between an employer, not being a corporation or a company, and his employees is\npending before any authority, appellate authority, Tribunal or arbitrator, as the case may be,\nas referred to in sub-section (1) of section 47 and the accounts of such employer audited by\nany auditor duly qualified to act as auditor of companies under the provisions of section\n141 of the Companies Act, 2013, are produced before such authority, appellate authority,\nTribunal or arbitrator, then the provisions of section 47 shall, so far as may be, apply to the\naccounts so audited.\n(2) When the authority, appellate authority, Tr"
+        },
+        {
+          "id": "src_cow_2019_54",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "54",
+          "title": "",
+          "page": 27,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "54. (1) Any employer who-\n(a) pays to any employee less than the amount due to such employee under the\nprovisions of this Code shall be punishable with fine which may extend to fifty\nthousand rupees;\n(b) having been convicted of an offence under clause (a) is again found guilty\nof similar offence under this clause, within five years from the date of the commission\nof the first or subsequent offence, he shall, on the second and the subsequent\ncommission of the offence, be punishable with imprisonment for a term which may\nextend to three months or with fine which may extend to one lakh rupees, or with\nboth;\n(c) contravenes any other provision of this Code or any rule made or order\nmade or issu"
+        },
+        {
+          "id": "src_cow_2019_56_p2",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "56",
+          "title": "",
+          "page": 28,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "TER IX\nMISCELLANEOUS"
+        },
+        {
+          "id": "src_cow_2019_43",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "43",
+          "title": "PAYMENT OF DUES, CLAIMS AND AUDIT",
+          "page": 22,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "43. Every employer shall pay all amounts required to be paid under this Code to every\nemployee employed by him:\nProvided that where such employer fails to make such payment in accordance with\nthis Code, then, the company or firm or association or any other person who is the proprietor\nof the establishment, in which the employee is employed, shall be responsible for such\npayment.\nExplanation.––For the purposes of this section the expression \"firm\" shall have the\nsame meaning as assigned to it in the Indian Partnership Act, 1932."
+        }
+      ]
+    },
+    "assessment": {
+      "where_type": "salary",
+      "where_you_stand": "आपकी स्थिति मजबूत है क्योंकि पुणे के स्टार्टअप में अगस्त से अक्टूबर 2026 तक का 35000 रुपये प्रति महीने का वेतन (कुल 105,000 रुपये) कंपनी द्वारा नहीं दिया गया है। Code on Wages, 2019 के अनुसार इस्तीफे के बाद 2 कामकाजी दिनों के भीतर पूरा वेतन मिलना चाहिए था [KB:src_cow_2019_17], और कंपनी के पास फंड न होने का बहाना वेतन रोकने का वैध कारण नहीं है। आपके पास ऑफर लेटर और पुरानी सैलरी स्लिप्स हैं, जो आपके रोजगार का प्रमाण हैं। हालांकि, यदि एचआर के साथ हुई बातचीत या बैंक स्टेटमेंट का लिखित प्रमाण नहीं है, तो यह कमजोरी हो सकती है, लेकिन इस कानून के तहत यह साबित करने की जिम्मेदारी employer पर है कि उसने भुगतान कर दिया है [KB:src_cow_2019_59], और आप 3 साल के भीतर श्रम विभाग के समक्ष दावा कर सकते हैं [KB:cow_s45].",
+      "options": [
+        {
+          "step": 1,
+          "title": "लिखित मांग पत्र भेजें",
+          "what_to_do": "एचआर और मैनेजमेंट को ईमेल या लिखित रूप में अपना बकाया वेतन (105,000 रुपये) तुरंत देने का अनुरोध करें और Code on Wages [KB:cow_s17] का हवाला दें।",
+          "time": "1-2 दिन",
+          "cost": "फ्री",
+          "needs": [
+            "ऑफर लेटर",
+            "सैलरी स्लिप"
+          ],
+          "kb_refs": [
+            "KB:src_cow_2019_17"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "श्रम विभाग (Labour Commissioner) के पास शिकायत दर्ज करें",
+          "what_to_do": "यदि कंपनी पैसे देने से मना करती है, तो पुणे के स्थानीय श्रम कार्यालय में वेतन भुगतान न होने की आधिकारिक शिकायत दर्ज करें।",
+          "time": "1-3 महीने",
+          "cost": "कम / फ्री",
+          "needs": [
+            "ऑफर लेटर",
+            "सैलरी स्लिप",
+            "इस्तीफे का सबूत"
+          ],
+          "kb_refs": [
+            "KB:cow_s45",
+            "KB:src_cow_2019_45"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "एचआर को व्हाट्सएप या ईमेल पर मैसेज भेजकर कन्फर्म करें कि अगस्त से अक्टूबर तक का वेतन बकाया है ताकि लिखित रिकॉर्ड बन सके।",
+        "अपने बैंक खाते का स्टेटमेंट निकाल कर रखें जिससे यह साबित हो सके कि पिछले महीनों में वेतन जमा नहीं हुआ है।"
+      ],
+      "what_i_dont_know": [
+        "क्या आपके पास इस्तीफे की ईमेल या लिखित स्वीकृति है?",
+        "क्या कंपनी के पास रोजगार समझौते में कोई ऐसी शर्त थी जो इस भुगतान को प्रभावित करे?"
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "चूंकि यह स्पष्ट वेतन बकाया मामला है और अभी तक कोई अदालत का मामला या पुलिस शिकायत नहीं हुई है, आप पहले स्वयं श्रम विभाग में शिकायत दर्ज कर सकते हैं। यदि कंपनी कानूनी नोटिस भेजती है या मामला ज्यादा उलझता है, तब वकील की जरूरत पड़ेगी।",
+      "reply": "नमस्ते! आपका मामला काफी स्पष्ट है। पुणे के स्टार्टअप में अगस्त से अक्टूबर 2026 तक का आपका 35000 रुपये प्रति महीने के हिसाब से कुल 105,000 रुपये का वेतन बकाया है। कानून के मुताबिक इस्तीफा देने के 2 दिन के भीतर पूरा हिसाब मिलना चाहिए था [KB:src_cow_2019_17], और 'फंड नहीं है' यह कंपनी का बहाना कानूनन सही नहीं है। आपके पास ऑफर लेटर और सैलरी स्लिप्स हैं, जो आपके पक्ष को मजबूत करती हैं। सबसे पहले आपको कंपनी को लिखित में मेल या मैसेज भेजकर बकाया राशि की मांग करनी चाहिए। यदि वे मना करते हैं, तो आप श्रम विभाग (Labour Commissioner office) में शिकायत दर्ज कर सकते हैं [KB:cow_s45]। क्या आपके पास एचआर की कोई ऐसी चैट या ईमेल है जिसमें उन्होंने पैसे देने से मना किया है?"
+    },
+    "assessment_raw": {
+      "where_type": "salary",
+      "where_you_stand": "आपकी स्थिति मजबूत है क्योंकि पुणे के स्टार्टअप में अगस्त से अक्टूबर 2026 तक का 35000 रुपये प्रति महीने का वेतन (कुल 105,000 रुपये) कंपनी द्वारा नहीं दिया गया है। Code on Wages, 2019 के अनुसार इस्तीफे के बाद 2 कामकाजी दिनों के भीतर पूरा वेतन मिलना चाहिए था [KB:src_cow_2019_17], और कंपनी के पास फंड न होने का बहाना वेतन रोकने का वैध कारण नहीं है। आपके पास ऑफर लेटर और पुरानी सैलरी स्लिप्स हैं, जो आपके रोजगार का प्रमाण हैं। हालांकि, यदि एचआर के साथ हुई बातचीत या बैंक स्टेटमेंट का लिखित प्रमाण नहीं है, तो यह कमजोरी हो सकती है, लेकिन इस कानून के तहत यह साबित करने की जिम्मेदारी employer पर है कि उसने भुगतान कर दिया है [KB:src_cow_2019_59], और आप 3 साल के भीतर श्रम विभाग के समक्ष दावा कर सकते हैं [KB:cow_s45].",
+      "options": [
+        {
+          "step": 1,
+          "title": "लिखित मांग पत्र भेजें",
+          "what_to_do": "एचआर और मैनेजमेंट को ईमेल या लिखित रूप में अपना बकाया वेतन (105,000 रुपये) तुरंत देने का अनुरोध करें और Code on Wages का हवाला दें।",
+          "time": "1-2 दिन",
+          "cost": "फ्री",
+          "needs": [
+            "ऑफर लेटर",
+            "सैलरी स्लिप"
+          ],
+          "kb_refs": [
+            "KB:src_cow_2019_17"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "श्रम विभाग (Labour Commissioner) के पास शिकायत दर्ज करें",
+          "what_to_do": "यदि कंपनी पैसे देने से मना करती है, तो पुणे के स्थानीय श्रम कार्यालय में वेतन भुगतान न होने की आधिकारिक शिकायत दर्ज करें।",
+          "time": "1-3 महीने",
+          "cost": "कम / फ्री",
+          "needs": [
+            "ऑफर लेटर",
+            "सैलरी स्लिप",
+            "इस्तीफे का सबूत"
+          ],
+          "kb_refs": [
+            "KB:cow_s45",
+            "KB:src_cow_2019_45"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "एचआर को व्हाट्सएप या ईमेल पर मैसेज भेजकर कन्फर्म करें कि अगस्त से अक्टूबर तक का वेतन बकाया है ताकि लिखित रिकॉर्ड बन सके।",
+        "अपने बैंक खाते का स्टेटमेंट निकाल कर रखें जिससे यह साबित हो सके कि पिछले महीनों में वेतन जमा नहीं हुआ है।"
+      ],
+      "what_i_dont_know": [
+        "क्या आपके पास इस्तीफे की ईमेल या लिखित स्वीकृति है?",
+        "क्या कंपनी के पास रोजगार समझौते में कोई ऐसी शर्त थी जो इस भुगतान को प्रभावित करे?"
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "चूंकि यह स्पष्ट वेतन बकाया मामला है और अभी तक कोई अदालत का मामला या पुलिस शिकायत नहीं हुई है, आप पहले स्वयं श्रम विभाग में शिकायत दर्ज कर सकते हैं। यदि कंपनी कानूनी नोटिस भेजती है या मामला ज्यादा उलझता है, तब वकील की जरूरत पड़ेगी।",
+      "reply": "नमस्ते! आपका मामला काफी स्पष्ट है। पुणे के स्टार्टअप में अगस्त से अक्टूबर 2026 तक का आपका 35000 रुपये प्रति महीने के हिसाब से कुल 105,000 रुपये का वेतन बकाया है। कानून के मुताबिक इस्तीफा देने के 2 दिन के भीतर पूरा हिसाब मिलना चाहिए था [KB:src_cow_2019_17], और 'फंड नहीं है' यह कंपनी का बहाना कानूनन सही नहीं है। आपके पास ऑफर लेटर और सैलरी स्लिप्स हैं, जो आपके पक्ष को मजबूत करती हैं। सबसे पहले आपको कंपनी को लिखित में मेल या मैसेज भेजकर बकाया राशि की मांग करनी चाहिए। यदि वे मना करते हैं, तो आप श्रम विभाग (Labour Commissioner office) में शिकायत दर्ज कर सकते हैं [KB:cow_s45]। क्या आपके पास एचआर की कोई ऐसी चैट या ईमेल है जिसमें उन्होंने पैसे देने से मना किया है?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "cow_s45",
+        "src_cow_2019_17",
+        "src_cow_2019_59"
+      ],
+      "support_check": "not auto-checked (non-English reply; cross-encoder is English-only)"
+    },
+    "draft": {
+      "doc_type": "legal_notice",
+      "draft": {
+        "title": "Legal Notice for Recovery of Unpaid Salary and Dues",
+        "body": "Date: [Current Date]\n\nFrom:\n[Your Name]\n[Your Address]\nPhone: [PHONE_1]\n\nTo:\n[Employer/Startup Name or HR Name]\n[Company Address, Pune, Maharashtra]\n\nSubject: Legal Demand Notice for Payment of Unpaid Salary amounting to Rs. 105,000\n\nDear Sir/Madam,\n\n1. That the undersigned, [Your Name], was employed with your startup located in Pune, Maharashtra, under an agreed monthly salary of Rs. 35,000, as per the offer letter and terms of employment.\n\n2. That the undersigned diligently performed duties, but has not received salary for the months of August 2026, September 2026, and October 2026, totaling 3 unpaid months of service.\n\n3. That the undersigned formally resigned from service on October 31, 2026. At the time of resignation, the HR department stated that funds were not available, which does not absolve the establishment of its statutory and contractual liabilities to clear pending wages.\n\n4. That as per Section 17(2) of the Code on Wages, 2019 [KB:cow_s17], where an employee has resigned from service, the wages payable must be paid within two working days of the resignation. Furthermore, under Section 17(1) of the Code on Wages, 2019 [KB:cow_s17], monthly salary must be paid before the expiry of the seventh day of the succeeding month. The failure to pay the earned wages also constitutes a breach of the employment agreement under Section 73 of the Indian Contract Act, 1872 [KB:ica_s73].\n\n5. That the total calculated amount due and payable by you to the undersigned is Rs. 105,000 (Monthly salary Rs. 35,000 x 3 unpaid months).\n\n6. You are hereby called upon to pay the full and final calculated amount of Rs. 105,000 within 15 days of receiving this notice.\n\n7. In the event of your failure to clear the said dues within the stipulated 15 days, the undersigned shall be constrained to initiate lawful next steps, including filing a claim before the appointed authority under Section 45 of the Code on Wages, 2019 [KB:cow_s45] and taking further legal proceedings for recovery along with applicable compensation.\n\nSincerely,\n\n[Your Signature]\n[Your Name]",
+        "explain_in_user_language": "यह दस्तावेज़ आपकी बकाया सैलरी वसूलने के लिए एक कानूनी नोटिस है। इसमें अगस्त, सितंबर और अक्टूबर 2026 के महीनों की 35,000 रुपये प्रति माह के हिसाब से कुल 1,05,000 रुपये की बकाया राशि का जिक्र किया गया है। इसमें कंपनी को 15 दिन के भीतर पैसे चुकाने के लिए कहा गया है। अगर कंपनी पैसे नहीं देती है, तो आप लेबर डिपार्टमेंट या सक्षम प्राधिकारी के पास शिकायत दर्ज करने जैसे कानूनी कदम उठा सकते हैं। नोटिस भेजने के बाद आपको 15 दिन का इंतजार करना होगा।",
+        "attach_checklist": [
+          "Offer letter",
+          "Old salary slips",
+          "Bank statements (if available)",
+          "Copy of resignation or any communication with HR"
+        ],
+        "placeholders_to_fill": [
+          "[Current Date]",
+          "[Your Name]",
+          "[Your Address]",
+          "[PHONE_1]",
+          "[Employer/Startup Name or HR Name]",
+          "[Company Address, Pune, Maharashtra]",
+          "[Your Signature]"
+        ]
+      },
+      "draft_raw": {
+        "title": "Legal Notice for Recovery of Unpaid Salary and Dues",
+        "body": "Date: [Current Date]\n\nFrom:\n[Your Name]\n[Your Address]\nPhone: [PHONE_1]\n\nTo:\n[Employer/Startup Name or HR Name]\n[Company Address, Pune, Maharashtra]\n\nSubject: Legal Demand Notice for Payment of Unpaid Salary amounting to Rs. 105,000\n\nDear Sir/Madam,\n\n1. That the undersigned, [Your Name], was employed with your startup located in Pune, Maharashtra, under an agreed monthly salary of Rs. 35,000, as per the offer letter and terms of employment.\n\n2. That the undersigned diligently performed duties, but has not received salary for the months of August 2026, September 2026, and October 2026, totaling 3 unpaid months of service.\n\n3. That the undersigned formally resigned from service on October 31, 2026. At the time of resignation, the HR department stated that funds were not available, which does not absolve the establishment of its statutory and contractual liabilities to clear pending wages.\n\n4. That as per Section 17(2) of the Code on Wages, 2019 [KB:cow_s17], where an employee has resigned from service, the wages payable must be paid within two working days of the resignation. Furthermore, under Section 17(1) of the Code on Wages, 2019 [KB:cow_s17], monthly salary must be paid before the expiry of the seventh day of the succeeding month. The failure to pay the earned wages also constitutes a breach of the employment agreement under Section 73 of the Indian Contract Act, 1872 [KB:ica_s73].\n\n5. That the total calculated amount due and payable by you to the undersigned is Rs. 105,000 (Monthly salary Rs. 35,000 x 3 unpaid months).\n\n6. You are hereby called upon to pay the full and final calculated amount of Rs. 105,000 within 15 days of receiving this notice.\n\n7. In the event of your failure to clear the said dues within the stipulated 15 days, the undersigned shall be constrained to initiate lawful next steps, including filing a claim before the appointed authority under Section 45 of the Code on Wages, 2019 [KB:cow_s45] and taking further legal proceedings for recovery along with applicable compensation.\n\nSincerely,\n\n[Your Signature]\n[Your Name]",
+        "explain_in_user_language": "यह दस्तावेज़ आपकी बकाया सैलरी वसूलने के लिए एक कानूनी नोटिस है। इसमें अगस्त, सितंबर और अक्टूबर 2026 के महीनों की 35,000 रुपये प्रति माह के हिसाब से कुल 1,05,000 रुपये की बकाया राशि का जिक्र किया गया है। इसमें कंपनी को 15 दिन के भीतर पैसे चुकाने के लिए कहा गया है। अगर कंपनी पैसे नहीं देती है, तो आप लेबर डिपार्टमेंट या सक्षम प्राधिकारी के पास शिकायत दर्ज करने जैसे कानूनी कदम उठा सकते हैं। नोटिस भेजने के बाद आपको 15 दिन का इंतजार करना होगा।",
+        "attach_checklist": [
+          "Offer letter",
+          "Old salary slips",
+          "Bank statements (if available)",
+          "Copy of resignation or any communication with HR"
+        ],
+        "placeholders_to_fill": [
+          "[Current Date]",
+          "[Your Name]",
+          "[Your Address]",
+          "[PHONE_1]",
+          "[Employer/Startup Name or HR Name]",
+          "[Company Address, Pune, Maharashtra]",
+          "[Your Signature]"
+        ]
+      },
+      "guardrail_report": {
+        "removed_count": 0,
+        "items": [],
+        "kb_cited": [
+          "cow_s17",
+          "cow_s45",
+          "ica_s73"
+        ]
+      }
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "sal01_hindi_startup",
+    "secs": 10.0,
+    "prompt_tokens": 8217,
+    "completion_tokens": 2359,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 3,
+    "rag_hits": 8,
+    "official_text_citations": 2,
+    "unsupported_citations_dropped": 0,
+    "amounts_ok": "2/2",
+    "amounts_frac": 1.0
+  }
+}

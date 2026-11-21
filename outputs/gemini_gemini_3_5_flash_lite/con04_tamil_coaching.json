@@ -1,0 +1,308 @@
+{
+  "input": {
+    "id": "con04_tamil_coaching",
+    "story": "நான் சென்னையில் ஒரு கோச்சிங் சென்டரில் 45000 ரூபாய் கட்டினேன். இரண்டு வாரத்தில் வகுப்புகளை நிறுத்திவிட்டார்கள். பணத்தை திருப்பி தர மறுக்கிறார்கள். ரசீது என்னிடம் உள்ளது.\n",
+    "expected": {
+      "problem_type": "consumer",
+      "escalate": false,
+      "script": "tamil",
+      "amounts": {
+        "order_value": 45000
+      }
+    }
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "நான் சென்னையில் ஒரு கோச்சிங் சென்டரில் 45000 ரூபாய் கட்டினேன். இரண்டு வாரத்தில் வகுப்புகளை நிறுத்திவிட்டார்கள். பணத்தை திருப்பி தர மறுக்கிறார்கள். ரசீது என்னிடம் உள்ளது.",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "consumer",
+      "problem_subtype": "coaching class refund not processed",
+      "user_language": "Tamil written in Tamil script (not Roman letters), the way the person wrote",
+      "state": "Tamil Nadu",
+      "city": "Chennai",
+      "summary": "The user paid 45000 rupees to a coaching center in Chennai. The classes were stopped within two weeks, and the center is refusing to refund the money. The user possesses a receipt.",
+      "user_goal": "Get a refund of the 45000 rupees paid for the coaching classes",
+      "user_role": "consumer",
+      "other_party": {
+        "name": null,
+        "type": "company"
+      },
+      "timeline": [
+        {
+          "date": null,
+          "event": "Paid 45000 rupees to coaching center and classes stopped after two weeks",
+          "proof": "Receipt"
+        }
+      ],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": 45000,
+        "amount_refunded": 0
+      },
+      "evidence_have": [
+        "Receipt"
+      ],
+      "evidence_missing": [
+        "Written communication or email asking for refund",
+        "Terms and conditions or refund policy of the coaching center"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": null
+      },
+      "follow_up_questions": [
+        "கோச்சிங் சென்டர் பெயர் என்ன?",
+        "பணம் செலுத்திய தேதி என்ன?",
+        "பணத்தைத் திருப்பித் தருமாறு எழுத்துப்பூர்வமாக ஏதேனும் கோரிக்கை வைத்துள்ளீர்களா?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [
+        "Amount paid: Rs 45,000",
+        "Refund due: Rs 45,000"
+      ],
+      "total": 45000.0,
+      "notes": [
+        "A Consumer Commission can also award compensation and litigation costs - we don't estimate that figure; it depends on the case.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "cpa_consumer_def",
+      "cpa_limitation",
+      "cpa_jurisdiction_2021",
+      "cpa_fee_nil_5lakh",
+      "ecom_grievance_officer",
+      "forum_nch",
+      "forum_ejagriti",
+      "rbi_ios_2026",
+      "ica_s73",
+      "lsa_s12_legal_aid",
+      "src_cpa_2019_88",
+      "src_cpa_2019_69",
+      "src_cpa_2019_35",
+      "src_cpa_2019_89",
+      "src_cpa_2019_34",
+      "src_cpa_2019_47_p2",
+      "src_cpa_2019_20",
+      "src_cpa_2019_72"
+    ],
+    "retrieval": {
+      "mode": "hybrid (BM25 + dense) + anchor queries",
+      "query": "coaching class refund not processed The user paid 45000 rupees to a coaching center in Chennai. The classes were stopped within two weeks, and the center is refusing to refund the money. The user possesses a receipt. Get a refund of the 45000 rupees paid for the coaching classes",
+      "hits": [
+        {
+          "id": "src_cpa_2019_88",
+          "act": "Consumer Protection Act, 2019",
+          "unit": "Section",
+          "number": "88",
+          "title": "OFFENCES AND PENALTIES",
+          "page": 33,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+          "excerpt": "88. Whoever, fails to comply with any direction of the Central Authority under\nsections 20 and 21, shall be punished with imprisonment for a term which may extend to six\nmonths or with fine which may extend to twenty lakh rupees, or with both."
+        },
+        {
+          "id": "src_cpa_2019_69",
+          "act": "Consumer Protection Act, 2019",
+          "unit": "Section",
+          "number": "69",
+          "title": "",
+          "page": 28,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+          "excerpt": "69. (1) The District Commission, the State Commission or the National Commission\nshall not admit a complaint unless it is filed within two years from the date on which the\ncause of action has arisen.\n(2) Notwithstanding anything contained in sub-section (1), a complaint may be\nentertained after the period specified in sub-section (1), if the complainant satisfies the\nDistrict Commission, the State Commission or the National Commission, as the case may be,\nthat he had sufficient cause for not filing the complaint within such period:\nProvided that no such complaint shall be entertained unless the District Commission\nor the State Commission or the National Commission, as the case may be, record"
+        },
+        {
+          "id": "src_cpa_2019_35",
+          "act": "Consumer Protection Act, 2019",
+          "unit": "Section",
+          "number": "35",
+          "title": "",
+          "page": 18,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+          "excerpt": "35. (1) A complaint, in relation to any goods sold or delivered or agreed to be sold or\ndelivered or any service provided or agreed to be provided, may be filed with a District\nCommission by-\n(a) the consumer,-\n(i) to whom such goods are sold or delivered or agreed to be sold or\ndelivered or such service is provided or agreed to be provided; or\n(ii) who alleges unfair trade practice in respect of such goods or service;\n(b) any recognised consumer association, whether the consumer to whom such\ngoods are sold or delivered or agreed to be sold or delivered or such service is provided\nor agreed to be provided, or who alleges unfair trade practice in respect of such goods\nor service, is a member "
+        },
+        {
+          "id": "src_cpa_2019_89",
+          "act": "Consumer Protection Act, 2019",
+          "unit": "Section",
+          "number": "89",
+          "title": "",
+          "page": 33,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+          "excerpt": "89. Any manufacturer or service provider who causes a false or misleading\nadvertisement to be made which is prejudicial to the interest of consumers shall be punished\nwith imprisonment for a term which may extend to two years and with fine which may extend\nto ten lakh rupees; and for every subsequent offence, be punished with imprisonment for a\nterm which may extend to five years and with fine which may extend to fifty lakh rupees."
+        },
+        {
+          "id": "src_cpa_2019_34",
+          "act": "Consumer Protection Act, 2019",
+          "unit": "Section",
+          "number": "34",
+          "title": "",
+          "page": 17,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+          "excerpt": "34. (1) Subject to the other provisions of this Act, the District Commission shall have\njurisdiction to entertain complaints where the value of the goods or services paid as\nconsideration does not exceed one crore rupees:\nProvided that where the Central Government deems it necessary so to do, it may\nprescribe such other value, as it deems fit.\n(2) A complaint shall be instituted in a District Commission within the local limits of\nwhose jurisdiction,-\n(a) the opposite party or each of the opposite parties, where there are more than\none, at the time of the institution of the complaint, ordinarily resides or carries on\nbusiness or has a branch office or personally works for gain; or\n(b) any of "
+        },
+        {
+          "id": "src_cpa_2019_47_p2",
+          "act": "Consumer Protection Act, 2019",
+          "unit": "Section",
+          "number": "47",
+          "title": "",
+          "page": 23,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+          "excerpt": "that the President or the other members, as the case may be, shall give\nopinion on the point or points so referred within a period of one month from the date of such\nreference.\n(4) A complaint shall be instituted in a State Commission within the limits of whose\njurisdiction,-\n(a) the opposite party or each of the opposite parties, where there are more than\none, at the time of the institution of the complaint, ordinarily resides or carries on\nbusiness or has a branch office or personally works for gain; or\n(b) any of the opposite parties, where there are more than one, at the time of the\ninstitution of the complaint, actually and voluntarily resides, or carries on business or\nhas a branch off"
+        },
+        {
+          "id": "src_cpa_2019_20",
+          "act": "Consumer Protection Act, 2019",
+          "unit": "Section",
+          "number": "20",
+          "title": "",
+          "page": 14,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+          "excerpt": "20. Where the Central Authority is satisfied on the basis of investigation that there is\nsufficient evidence to show violation of consumer rights or unfair trade practice by a person,\nit may pass such order as may be necessary, including-\n(a) recalling of goods or withdrawal of services which are dangerous, hazardous\nor unsafe;\n(b) reimbursement of the prices of goods or services so recalled to purchasers of\nsuch goods or services; and\n(c) discontinuation of practices which are unfair and prejudicial to consumers'\ninterest:\nProvided that the Central Authority shall give the person an opportunity of being\nheard before passing an order under this section."
+        },
+        {
+          "id": "src_cpa_2019_72",
+          "act": "Consumer Protection Act, 2019",
+          "unit": "Section",
+          "number": "72",
+          "title": "",
+          "page": 29,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+          "excerpt": "72. (1) Whoever fails to comply with any order made by the District Commission or the\nState Commission or the National Commission, as the case may be, shall be punishable with\nimprisonment for a term which shall not be less than one month, but which may extend to\nthree years, or with fine, which shall not be less than twenty-five thousand rupees, but\nwhich may extend to one lakh rupees, or with both.\n(2) Notwithstanding anything contained in the Code of Criminal Procedure, 1973, the\nDistrict Commission, the State Commission or the National Commission, as the case may be,\nshall have the power of a Judicial Magistrate of first class for the trial of offences under\nsub-section (1), and on confe"
+        }
+      ]
+    },
+    "assessment": {
+      "where_you_stand": "நீங்கள் கோச்சிங் சென்டருக்கு செலுத்திய 45,000 ரூபாய் கட்டணம் மற்றும் வகுப்புகள் பாதியில் நிறுத்தப்பட்ட விவகாரத்தில், நுகர்வோர் பாதுகாப்பு சட்டத்தின்படி [KB:cpa_consumer_def] நீங்கள் நுகர்வோர் ஆவீர்கள். வகுப்புகளை நிறுத்திவிட்டு பணத்தைத் திருப்பிக் தராதது சேவை குறைபாடாகும். உங்களிடம் பணம் செலுத்தியதற்கான ரசீது இருப்பது பலமான ஆதாரமாகும். இருப்பினும், கோச்சிங் சென்டரிடம் பணத்தைத் திருப்பிக் கோரி எழுத்துப்பூர்வமான கோரிக்கை அல்லது அவர்களின் விதிமுறைகள் (terms and conditions) உங்களிடம் இல்லாதது சிறிய பலவீனமாகும். பிரச்சன ஏற்பட்ட நாளிலிருந்து இரண்டு ஆண்டுகளுக்குள் [KB:cpa_limitation] [KB:src_cpa_2019_69] நீங்கள் மாவட்ட நுகர்வோர் ஆணையத்தில் [KB:cpa_jurisdiction_2021] [KB:src_cpa_2019_34] வழக்கு தொடரலாம்.",
+      "options": [
+        {
+          "step": 1,
+          "title": "தேசிய நுகர்வோர் உதவி மையம் (NCH)",
+          "what_to_do": "1915 என்ற எண்ணை அழைத்து அல்லது consumerhelpline.gov.in இணையதளம் மூலம் புகார் அளிக்கவும்.",
+          "time": "1-2 வாரங்கள்",
+          "cost": "free",
+          "needs": [
+            "Receipt"
+          ],
+          "kb_refs": [
+            "KB:forum_nch"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "e-Jagriti [KB:forum_ejagriti] போர்ட்டலில் நுகர்வோர் புகார்",
+          "what_to_do": "e-Jagriti [KB:forum_ejagriti] இணையதளம் வழியாக மாவட்ட நுகர்வோர் ஆணையத்தில் முறைப்படி புகார் பதிவு செய்யவும்.",
+          "time": "சில வாரங்கள் முதல் மாதங்கள் வரை",
+          "cost": "free",
+          "needs": [
+            "Receipt",
+            "Written communication or email asking for refund"
+          ],
+          "kb_refs": [
+            "KB:forum_ejagriti",
+            "KB:cpa_fee_nil_5lakh",
+            "KB:src_cpa_2019_35"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "கோச்சிங் சென்டரை வாட்ஸ்அப் அல்லது மின்னஞ்சல் மூலம் தொடர்பு கொண்டு, பணத்தை திருப்பிக் கேட்பது குறித்து எழுத்துப்பூர்வமான பதру பெற முயற்சிக்கவும்."
+      ],
+      "what_i_dont_know": [
+        "கோச்சிங் சென்டரின் விதிமுறைகள் மற்றும் நிபந்தனைகளில் (Terms and Conditions) வகுப்புகள் பாதியில் நின்றால் பணப்பிடித்தம் பற்றிய விதிகள் உள்ளதா என்பது எனக்குத் தெரியாது."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "இது 5 லட்சம் ரூபாய்க்கும் குறைவான நுகர்வோர் பிரச்சனை என்பதால், நீங்களே கட்டணமின்றி நுகர்வோர் ஆணையத்தில் புகார் அளிக்கலாம் [KB:cpa_fee_nil_5lakh]. வழக்கறிஞர் கட்டாயமில்லை.",
+      "reply": "வணக்கம்! நீங்கள் கோச்சிங் சென்டருக்கு செலுத்திய 45,000 ரூபாய் கட்டணத்தை திருப்பிக் தராதது நுகர்வோர் பாதுகாப்பு சட்டத்தின்படி [KB:cpa_consumer_def] சேவை குறைபாடாகும். உங்களிடம் ரசீது இருப்பது நல்ல பலம். ஆனால் பணத்தைத் திருப்பிக் கேட்பது தொடர்பான எழுத்துப்பூர்வமான கடிதம் அல்லது மின்னஞ்சல் உங்களிடம் இல்லை. நீங்கள் இரண்டு ஆண்டுகளுக்குள் [KB:cpa_limitation] [KB:src_cpa_2019_69] மாவட்ட நுகர்வோர் ஆணையத்தில் [KB:cpa_jurisdiction_2021] [KB:src_cpa_2019_34] புகார் அளிக்கலாம். 5 லட்சம் ரூபாய் வரை உள்ள வழக்குகளுக்கு நீதிமன்ற கட்டணம் கிடையாது [KB:cpa_fee_nil_5lakh]. முதல் படியாக, நேஷனல் கன்ஸ்யூமர் ஹெல்ப்லைன் (NCH) [KB:forum_nch] மூலம் புகார் அளிக்கலாம் அல்லது e-Jagriti portal [KB:forum_ejagriti] வழியாக நேரடியாக நுகர்வோர் கோர்ட்டில் புகார் பதிவு செய்யலாம் [KB:src_cpa_2019_35]. கோச்சிங் சென்டரிடம் பணத்தைத் திருப்பிக் கேட்பது தொடர்பாக வாட்ஸ்அப் அல்லது மின்னஞ்சல் மூலம் ஏதேனும் பேசி இருக்கிறீர்களா?"
+    },
+    "assessment_raw": {
+      "where_you_stand": "நீங்கள் கோச்சிங் சென்டருக்கு செலுத்திய 45,000 ரூபாய் கட்டணம் மற்றும் வகுப்புகள் பாதியில் நிறுத்தப்பட்ட விவகாரத்தில், நுகர்வோர் பாதுகாப்பு சட்டத்தின்படி [KB:cpa_consumer_def] நீங்கள் நுகர்வோர் ஆவீர்கள். வகுப்புகளை நிறுத்திவிட்டு பணத்தைத் திருப்பிக் தராதது சேவை குறைபாடாகும். உங்களிடம் பணம் செலுத்தியதற்கான ரசீது இருப்பது பலமான ஆதாரமாகும். இருப்பினும், கோச்சிங் சென்டரிடம் பணத்தைத் திருப்பிக் கோரி எழுத்துப்பூர்வமான கோரிக்கை அல்லது அவர்களின் விதிமுறைகள் (terms and conditions) உங்களிடம் இல்லாதது சிறிய பலவீனமாகும். பிரச்சன ஏற்பட்ட நாளிலிருந்து இரண்டு ஆண்டுகளுக்குள் [KB:cpa_limitation, KB:src_cpa_2019_69] நீங்கள் மாவட்ட நுகர்வோர் ஆணையத்தில் [KB:cpa_jurisdiction_2021, KB:src_cpa_2019_34] வழக்கு தொடரலாம்.",
+      "options": [
+        {
+          "step": 1,
+          "title": "தேசிய நுகர்வோர் உதவி மையம் (NCH)",
+          "what_to_do": "1915 என்ற எண்ணை அழைத்து அல்லது consumerhelpline.gov.in இணையதளம் மூலம் புகார் அளிக்கவும்.",
+          "time": "1-2 வாரங்கள்",
+          "cost": "free",
+          "needs": [
+            "Receipt"
+          ],
+          "kb_refs": [
+            "KB:forum_nch"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "e-Jagriti போர்ட்டலில் நுகர்வோர் புகார்",
+          "what_to_do": "e-Jagriti இணையதளம் வழியாக மாவட்ட நுகர்வோர் ஆணையத்தில் முறைப்படி புகார் பதிவு செய்யவும்.",
+          "time": "சில வாரங்கள் முதல் மாதங்கள் வரை",
+          "cost": "free",
+          "needs": [
+            "Receipt",
+            "Written communication or email asking for refund"
+          ],
+          "kb_refs": [
+            "KB:forum_ejagriti",
+            "KB:cpa_fee_nil_5lakh",
+            "KB:src_cpa_2019_35"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "கோச்சிங் சென்டரை வாட்ஸ்அப் அல்லது மின்னஞ்சல் மூலம் தொடர்பு கொண்டு, பணத்தை திருப்பிக் கேட்பது குறித்து எழுத்துப்பூர்வமான பதру பெற முயற்சிக்கவும்."
+      ],
+      "what_i_dont_know": [
+        "கோச்சிங் சென்டரின் விதிமுறைகள் மற்றும் நிபந்தனைகளில் (Terms and Conditions) வகுப்புகள் பாதியில் நின்றால் பணப்பிடித்தம் பற்றிய விதிகள் உள்ளதா என்பது எனக்குத் தெரியாது."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "இது 5 லட்சம் ரூபாய்க்கும் குறைவான நுகர்வோர் பிரச்சனை என்பதால், நீங்களே கட்டணமின்றி நுகர்வோர் ஆணையத்தில் புகார் அளிக்கலாம் [KB:cpa_fee_nil_5lakh]. வழக்கறிஞர் கட்டாயமில்லை.",
+      "reply": "வணக்கம்! நீங்கள் கோச்சிங் சென்டருக்கு செலுத்திய 45,000 ரூபாய் கட்டணத்தை திருப்பிக் தராதது நுகர்வோர் பாதுகாப்பு சட்டத்தின்படி [KB:cpa_consumer_def] சேவை குறைபாடாகும். உங்களிடம் ரசீது இருப்பது நல்ல பலம். ஆனால் பணத்தைத் திருப்பிக் கேட்பது தொடர்பான எழுத்துப்பூர்வமான கடிதம் அல்லது மின்னஞ்சல் உங்களிடம் இல்லை. நீங்கள் இரண்டு ஆண்டுகளுக்குள் [KB:cpa_limitation, KB:src_cpa_2019_69] மாவட்ட நுகர்வோர் ஆணையத்தில் [KB:cpa_jurisdiction_2021, KB:src_cpa_2019_34] புகார் அளிக்கலாம். 5 லட்சம் ரூபாய் வரை உள்ள வழக்குகளுக்கு நீதிமன்ற கட்டணம் கிடையாது [KB:cpa_fee_nil_5lakh]. முதல் படியாக, நேஷனல் கன்ஸ்யூமர் ஹெல்ப்லைன் (NCH) [KB:forum_nch] மூலம் புகார் அளிக்கலாம் அல்லது e-Jagriti portal [KB:forum_ejagriti] வழியாக நேரடியாக நுகர்வோர் கோர்ட்டில் புகார் பதிவு செய்யலாம் [KB:src_cpa_2019_35]. கோச்சிங் சென்டரிடம் பணத்தைத் திருப்பிக் கேட்பது தொடர்பாக வாட்ஸ்அப் அல்லது மின்னஞ்சல் மூலம் ஏதேனும் பேசி இருக்கிறீர்களா?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "cpa_consumer_def",
+        "cpa_fee_nil_5lakh",
+        "cpa_jurisdiction_2021",
+        "cpa_limitation",
+        "forum_ejagriti",
+        "forum_nch",
+        "src_cpa_2019_34",
+        "src_cpa_2019_35",
+        "src_cpa_2019_69"
+      ],
+      "support_check": "not auto-checked (non-English reply; cross-encoder is English-only)"
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "con04_tamil_coaching",
+    "secs": 9.3,
+    "prompt_tokens": 5424,
+    "completion_tokens": 1453,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 9,
+    "rag_hits": 8,
+    "official_text_citations": 3,
+    "unsupported_citations_dropped": 0,
+    "amounts_ok": "1/1",
+    "amounts_frac": 1.0
+  }
+}

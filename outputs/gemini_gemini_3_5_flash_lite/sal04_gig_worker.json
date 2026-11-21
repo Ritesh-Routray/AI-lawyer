@@ -1,0 +1,338 @@
+{
+  "input": {
+    "id": "sal04_gig_worker",
+    "story": "I deliver food for an app in Jaipur. They deactivated my ID last week and are holding 8,500 of my earnings for the last 2 weeks. Support just sends automated replies. Am I an employee? Can I claim salary?\n",
+    "expected": {
+      "problem_type": "salary",
+      "escalate": false,
+      "script": "latin"
+    }
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "I deliver food for an app in Jaipur. They deactivated my ID last week and are holding 8,500 of my earnings for the last 2 weeks. Support just sends automated replies. Am I an employee? Can I claim salary?",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "salary",
+      "problem_subtype": "delivery app withheld earnings after ID deactivation",
+      "user_language": "English",
+      "state": "Rajasthan",
+      "city": "Jaipur",
+      "summary": "The user works as a food delivery executive for an app in Jaipur. Their ID was deactivated last week and the platform is withholding 8,500 rupees of their earnings for the last two weeks with only automated responses from support.",
+      "user_goal": "Retrieve unpaid earnings and understand employment/payment rights",
+      "user_role": "employee",
+      "other_party": {
+        "name": null,
+        "type": "platform"
+      },
+      "timeline": [
+        {
+          "date": "2026-11-W3",
+          "event": "ID deactivated and earnings withheld",
+          "proof": null
+        }
+      ],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": 8500,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [],
+      "evidence_missing": [
+        "delivery app agreement or terms of service",
+        "payment history or bank statements showing previous payouts",
+        "screenshots of earnings dashboard showing the withheld amount"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": null
+      },
+      "follow_up_questions": [
+        "Do you have screenshots of your earnings dashboard showing the 8,500 rupees balance?",
+        "Did you receive any official email or message explaining why your ID was deactivated?",
+        "Do you have a copy of the contract or terms of service you agreed to when joining the delivery app?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [
+        "Other dues (leave encashment, reimbursements, etc.): Rs 8,500",
+        "Amount to claim: Rs 8,500"
+      ],
+      "total": 8500.0,
+      "notes": [
+        "Check your offer letter/payslips for the exact gross vs in-hand salary. Gratuity, if any, has separate rules - ask a lawyer.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "ica_s73",
+      "cow_s17",
+      "cow_s45",
+      "lsa_s12_legal_aid",
+      "src_cow_2019_29",
+      "src_cow_2019_17",
+      "src_cow_2019_45",
+      "src_constitution_366_p4",
+      "src_cow_2019_18",
+      "src_cow_2019_48",
+      "src_cow_2019_59",
+      "src_cow_2019_23"
+    ],
+    "retrieval": {
+      "mode": "hybrid (BM25 + dense) + anchor queries",
+      "query": "delivery app withheld earnings after ID deactivation The user works as a food delivery executive for an app in Jaipur. Their ID was deactivated last week and the platform is withholding 8,500 rupees of their earnings for the last two weeks with only automated responses from support. Retrieve unpaid earnings and understand employment/payment rights",
+      "hits": [
+        {
+          "id": "src_cow_2019_29",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "29",
+          "title": "",
+          "page": 17,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "29. Notwithstanding anything contained in this Code, an employee shall be disqualified\nfrom receiving bonus under this Code, if he is dismissed from service for––\n(a) fraud; or\n(b) riotous or violent behaviour while on the premises of the establishment; or\n(c) theft, misappropriation or sabotage of any property of the establishment; or\n(d) conviction for sexual harassment."
+        },
+        {
+          "id": "src_cow_2019_17",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "17",
+          "title": "",
+          "page": 12,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "17. (1) The employer shall pay or cause to be paid wages to the employees, engaged\non-\n(i)  daily basis, at the end of the shift;\n(ii) weekly basis, on the last working day of the week, that is to say, before the\nweekly holiday;\n(iii) fortnightly basis, before the end of the second day after the end of the\nfortnight;\n(iv) monthly basis, before the expiry of the seventh day of the succeeding\nmonth.\n(2) Where an employee has been-\n(i) removed or dismissed from service; or\n(ii) retrenched or has resigned from service, or became unemployed due to\nclosure of the establishment,\nthe wages payable to him shall be paid within two working days of his removal, dismissal,\nretrenchment or, as the case ma"
+        },
+        {
+          "id": "src_cow_2019_45",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "45",
+          "title": "",
+          "page": 23,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "45. (1) The appropriate Government may, by notification, appoint one or more\nauthorities, not below the rank of a Gazetted Officer, to hear and determine the claims which\narises under the provisions of this Code.\n(2) The authority appointed under sub-section (1), while deciding the claim under\nthat sub-section, may order, having regard to the circumstances under which the claim\narises, the payment of compensation in addition to the claim determined, which may extend\nto ten times of the claim determined and endeavour shall be made by the authority to decide\nthe claim within a period of three months.\n(3) If an employer fails to pay the claim determined and compensation ordered to be\npaid under"
+        },
+        {
+          "id": "src_constitution_366_p4",
+          "act": "Constitution of India",
+          "unit": "Article",
+          "number": "366",
+          "title": "",
+          "page": 5,
+          "url": "https://www.mea.gov.in/images/pdf1/Part19.pdf",
+          "excerpt": "instalments;\n(d) a tax on the transfer of the right to use\nany goods for any purpose (whether or not for a\nspecified period) for cash, deferred payment or\nother valuable consideration;\n(e) a tax on the supply of goods by any\nunincorporated association or body of persons\nto a member thereof for cash, deferred payment\nor other valuable consideration;\n1Cl. (26A) was ins. by  the Constitution (Forty-second Amendment) Act, 1976,  s. 54\n(w.e.f. 1-2-1977) and omitted by the Constitution (Forty-third Amendment) Act, 1977, s. 11\n(w.e.f.  13-4-1978).\n2Ins. by  the Constitution (Forty-sixth Amendment) Act, 1982,  s. 4.\n(f) a tax on the supply, by way of or as part\nof any service or in any other manner\n"
+        },
+        {
+          "id": "src_cow_2019_18",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "18",
+          "title": "",
+          "page": 12,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "18. (1) Notwithstanding anything contained in any other law for the time being in\nforce, there shall be no deductions from the wages of the employee, except those as are\nauthorised under this Code.\nExplanation.––For the purposes of this sub-section,-\n(a) any payment made by an employee to the employer or his agent shall be\ndeemed to be a deduction from his wages;\n(b) any loss of wages to an employee, for a good and sufficient cause, resulting\nfrom-\n(i) the withholding of increment or promotion, including the stoppage of\nan increment; or\n(ii) the reduction to a lower post or time-scale; or\n(iii) the suspension,\nshall not be deemed to be a deduction from wages in a case where the provisions ma"
+        },
+        {
+          "id": "src_cow_2019_48",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "48",
+          "title": "",
+          "page": 24,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "48. (1) Where any claim, dispute or appeal with respect to bonus payable under this\nCode between an employer, not being a corporation or a company, and his employees is\npending before any authority, appellate authority, Tribunal or arbitrator, as the case may be,\nas referred to in sub-section (1) of section 47 and the accounts of such employer audited by\nany auditor duly qualified to act as auditor of companies under the provisions of section\n141 of the Companies Act, 2013, are produced before such authority, appellate authority,\nTribunal or arbitrator, then the provisions of section 47 shall, so far as may be, apply to the\naccounts so audited.\n(2) When the authority, appellate authority, Tr"
+        },
+        {
+          "id": "src_cow_2019_59",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "59",
+          "title": "",
+          "page": 29,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "59. Where a claim has been filed on account of non-payment of remuneration or\nbonus or less payment of wages or bonus or on account of making deductions not authorised\nby this Code from the wages of an employee, the burden to prove that the said dues have\nbeen paid shall be on the employer."
+        },
+        {
+          "id": "src_cow_2019_23",
+          "act": "Code on Wages, 2019",
+          "unit": "Section",
+          "number": "23",
+          "title": "",
+          "page": 15,
+          "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+          "excerpt": "23. Deductions under clause (f) of sub-section (2) of section 18 for recovery of\nadvances given to an employee shall be subject to the following conditions, namely:––\n(a) recovery of advance of money given to an employee before the employment\nbegan shall be made from the first payment of wages to him in respect of a complete\nwage-period but no recovery shall be made of such advances given for travelling\nexpenses;\n(b) recovery of advance of money given to an employee after the employment\nbegan shall be subject to such conditions as may be prescribed;\n(c) recovery of advances of wages to an employee not already earned shall be\nsubject to such conditions as may be prescribed."
+        }
+      ]
+    },
+    "assessment": {
+      "where_you_stand": "As a delivery executive, your withheld earnings of 8,500 rupees are protected under wage rules, requiring final dues to be paid promptly . Your position is strong regarding the delivery of work, but your main weakness is the lack of written proof or a formal agreement currently in hand. The platform must justify any deductions or withheld amounts, as unauthorized deductions are prohibited [KB:src_cow_2019_18]. You have up to 3 years to file a formal claim for unpaid wages before the designated labour authority [KB:cow_s45].",
+      "options": [
+        {
+          "step": 1,
+          "title": "Send a written message or email to support",
+          "what_to_do": "Request a clear explanation for the ID deactivation and demand immediate release of your 8,500 rupees earnings.",
+          "time": "1-2 days",
+          "cost": "free",
+          "needs": [
+            "screenshots of earnings dashboard"
+          ],
+          "kb_refs": [
+            "KB:src_cow_2019_17"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Approach the Labour Department",
+          "what_to_do": "File a formal application for unpaid wages before the authority appointed under the Code on Wages [KB:cow_s17] if the platform fails to respond.",
+          "time": "1-3 weeks",
+          "cost": "free / low",
+          "needs": [
+            "screenshots of earnings dashboard",
+            "bank statements showing previous payouts"
+          ],
+          "kb_refs": [
+            "KB:cow_s45",
+            "KB:src_cow_2019_45"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Seek free legal aid",
+          "what_to_do": "Contact the District Legal Services Authority (DLSA) for guidance if the platform continues to ignore your claims.",
+          "time": "1 week",
+          "cost": "free",
+          "needs": [
+            "ID proof",
+            "earnings screenshots"
+          ],
+          "kb_refs": [
+            "KB:lsa_s12_legal_aid"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Take clear screenshots of your earnings dashboard showing the 8,500 rupees balance before your access is completely blocked.",
+        "Save any automated messages or emails received from the delivery app regarding your ID deactivation.",
+        "Gather bank statements showing past payments received from the platform to prove your working relationship."
+      ],
+      "what_i_dont_know": [
+        "The exact terms of service or independent contractor agreement you signed with the delivery platform.",
+        "Whether the platform claims any specific policy violation or operational damage that led to the deactivation and withholding of funds."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "You can start by contacting support and filing a complaint with the labour authority yourself. A lawyer is not needed at this initial stage unless the platform initiates legal proceedings against you.",
+      "reply": "Your position is clear: the delivery platform has withheld 8,500 rupees of your earnings after deactivating your ID, and you have the right to demand your final dues . Since you currently only receive automated responses, your best first step is to gather screenshots of your earnings dashboard and send a formal written demand via email or in-app support. If they do not release your money, you can file a claim before the labour authority within 3 years [KB:cow_s45]. Do you currently have screenshots of your earnings dashboard showing the 8,500 rupees balance?"
+    },
+    "assessment_raw": {
+      "where_you_stand": "As a delivery executive, your withheld earnings of 8,500 rupees are protected under wage rules, requiring final dues to be paid promptly [KB:src_cow_2019_17]. Your position is strong regarding the delivery of work, but your main weakness is the lack of written proof or a formal agreement currently in hand. The platform must justify any deductions or withheld amounts, as unauthorized deductions are prohibited [KB:src_cow_2019_18]. You have up to 3 years to file a formal claim for unpaid wages before the designated labour authority [KB:cow_s45].",
+      "options": [
+        {
+          "step": 1,
+          "title": "Send a written message or email to support",
+          "what_to_do": "Request a clear explanation for the ID deactivation and demand immediate release of your 8,500 rupees earnings.",
+          "time": "1-2 days",
+          "cost": "free",
+          "needs": [
+            "screenshots of earnings dashboard"
+          ],
+          "kb_refs": [
+            "KB:src_cow_2019_17"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Approach the Labour Department",
+          "what_to_do": "File a formal application for unpaid wages before the authority appointed under the Code on Wages if the platform fails to respond.",
+          "time": "1-3 weeks",
+          "cost": "free / low",
+          "needs": [
+            "screenshots of earnings dashboard",
+            "bank statements showing previous payouts"
+          ],
+          "kb_refs": [
+            "KB:cow_s45",
+            "KB:src_cow_2019_45"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Seek free legal aid",
+          "what_to_do": "Contact the District Legal Services Authority (DLSA) for guidance if the platform continues to ignore your claims.",
+          "time": "1 week",
+          "cost": "free",
+          "needs": [
+            "ID proof",
+            "earnings screenshots"
+          ],
+          "kb_refs": [
+            "KB:lsa_s12_legal_aid"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Take clear screenshots of your earnings dashboard showing the 8,500 rupees balance before your access is completely blocked.",
+        "Save any automated messages or emails received from the delivery app regarding your ID deactivation.",
+        "Gather bank statements showing past payments received from the platform to prove your working relationship."
+      ],
+      "what_i_dont_know": [
+        "The exact terms of service or independent contractor agreement you signed with the delivery platform.",
+        "Whether the platform claims any specific policy violation or operational damage that led to the deactivation and withholding of funds."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "You can start by contacting support and filing a complaint with the labour authority yourself. A lawyer is not needed at this initial stage unless the platform initiates legal proceedings against you.",
+      "reply": "Your position is clear: the delivery platform has withheld 8,500 rupees of your earnings after deactivating your ID, and you have the right to demand your final dues [KB:src_cow_2019_17]. Since you currently only receive automated responses, your best first step is to gather screenshots of your earnings dashboard and send a formal written demand via email or in-app support. If they do not release your money, you can file a claim before the labour authority within 3 years [KB:cow_s45]. Do you currently have screenshots of your earnings dashboard showing the 8,500 rupees balance?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "cow_s45",
+        "src_cow_2019_17",
+        "src_cow_2019_18"
+      ],
+      "support_check": {
+        "checked": 3,
+        "unsupported": [
+          {
+            "id": "src_cow_2019_17",
+            "claim": "As a delivery executive, your withheld earnings of 8,500 rupees are protected under wage rules, requiring final dues to be paid promptly .",
+            "score": -6.95
+          },
+          {
+            "id": "src_cow_2019_17",
+            "claim": "Your position is clear: the delivery platform has withheld 8,500 rupees of your earnings after deactivating your ID, and you have the right to demand your final dues .",
+            "score": -10.84
+          }
+        ]
+      }
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "sal04_gig_worker",
+    "secs": 6.0,
+    "prompt_tokens": 5103,
+    "completion_tokens": 1302,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 3,
+    "rag_hits": 8,
+    "official_text_citations": 2,
+    "unsupported_citations_dropped": 2,
+    "amounts_ok": "-",
+    "amounts_frac": null
+  }
+}

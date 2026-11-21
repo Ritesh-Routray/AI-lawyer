@@ -1,0 +1,57 @@
+# Primary legal texts for retrieval (RAG). Downloaded by `python scripts/fetch_corpus.py`.
+# India Code (indiacode.nic.in) is the canonical source but timed out from our network (HTTP 504),
+# so we use official/government mirrors and PRS Legislative Research copies of the Gazette text.
+# unit: what a citable chunk is called ("Section" for Acts/Rules, "Article" for the Constitution)
+
+- id: bns_2023
+  title: Bharatiya Nyaya Sanhita, 2023
+  aliases: [BNS, Bharatiya Nyaya Sanhita]
+  unit: Section
+  problem_types: [notice, other]   # criminal law: only for notices / out-of-scope triage, never to advise on deposit/refund/salary
+  publisher: PRS Legislative Research (copy of Gazette text, Act 45 of 2023)
+  urls: ["https://prsindia.org/files/bills_acts/acts_parliament/2023/The%20Bharatiya%20Nyaya%20Sanhita,%202023.pdf"]
+
+- id: bnss_2023
+  title: Bharatiya Nagarik Suraksha Sanhita, 2023
+  aliases: [BNSS, Bharatiya Nagarik Suraksha Sanhita]
+  unit: Section
+  problem_types: [notice, other]
+  publisher: PRS Legislative Research (copy of Gazette text, Act 46 of 2023)
+  urls: ["https://prsindia.org/files/bills_acts/acts_parliament/2023/The%20Bharatiya%20Nagarik%20Suraksha%20Sanhita,%202023.pdf"]
+
+- id: cpa_2019
+  title: Consumer Protection Act, 2019
+  aliases: [Consumer Protection Act, CPA 2019]
+  unit: Section
+  problem_types: [consumer, notice]
+  publisher: PRS Legislative Research (copy of Gazette text, Act 35 of 2019)
+  urls: ["https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf"]
+
+- id: cow_2019
+  title: Code on Wages, 2019
+  aliases: [Code on Wages, Wage Code]
+  unit: Section
+  problem_types: [salary, notice]
+  publisher: PRS Legislative Research - Bill 184-C of 2019 as passed by Lok Sabha (enacted unchanged as Act 29 of 2019; verify against Gazette)
+  urls: ["https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf"]
+
+# cow_rules_2026 removed: the PRS file at that URL is an analysis note, not the rules text (found while checking extraction).
+
+- id: mta_2021
+  title: Model Tenancy Act, 2021
+  aliases: [Model Tenancy Act, MTA]
+  unit: Section
+  problem_types: [deposit, notice]
+  publisher: Urban Development Dept, Govt of NCT of Delhi (Hindi-English diglot). A MODEL law - binds only where a state adopted it.
+  urls: ["https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf"]
+
+- id: constitution
+  title: Constitution of India
+  aliases: [Constitution of India, Constitution]
+  unit: Article
+  problem_types: [deposit, consumer, salary, notice, other]
+  publisher: Ministry of External Affairs, Govt of India (Parts and Schedules). Check legislative.gov.in for the latest amended text.
+  urls_pattern: "https://www.mea.gov.in/images/pdf1/{name}.pdf"
+  names: [Part1, Part2, Part3, Part4, Part5, Part6, Part7, Part8, Part9, Part10, Part11, Part12, Part13, Part14,
+          Part15, Part16, Part17, Part18, Part19, Part20, Part21, Part22,
+          S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, S11, S12]

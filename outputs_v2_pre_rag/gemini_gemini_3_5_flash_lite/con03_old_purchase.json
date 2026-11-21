@@ -1,0 +1,230 @@
+{
+  "input": {
+    "id": "con03_old_purchase",
+    "story": "I bought a washing machine for 28000 in January 2024 and it stopped working in February 2024. The company never fixed it despite many calls. Can I file a consumer case now?\n",
+    "expected": {
+      "problem_type": "consumer",
+      "escalate": true,
+      "script": "latin",
+      "amounts": {
+        "order_value": 28000
+      }
+    }
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "I bought a washing machine for 28000 in January 2024 and it stopped working in February 2024. The company never fixed it despite many calls. Can I file a consumer case now?",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "consumer",
+      "problem_subtype": "defective appliance and lack of service",
+      "user_language": "English",
+      "state": null,
+      "city": null,
+      "summary": "The user purchased a washing machine for 28000 in January 2024, which stopped working a month later in February 2024. Despite multiple calls, the company failed to repair or resolve the issue.",
+      "user_goal": "File a consumer case to get a resolution or refund",
+      "user_role": "consumer",
+      "other_party": {
+        "name": null,
+        "type": "company"
+      },
+      "timeline": [
+        {
+          "date": "2024-01",
+          "event": "Purchased washing machine for 28000",
+          "proof": null
+        },
+        {
+          "date": "2024-02",
+          "event": "Washing machine stopped working and customer service was contacted multiple times without resolution",
+          "proof": null
+        }
+      ],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": null,
+        "order_value": 28000,
+        "amount_refunded": null
+      },
+      "evidence_have": [],
+      "evidence_missing": [
+        "purchase invoice",
+        "warranty card",
+        "service request numbers or call logs"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": null
+      },
+      "follow_up_questions": [
+        "Which Indian state are you located in?",
+        "Do you have the purchase invoice and warranty card for the washing machine?",
+        "Do you have any written records, complaint numbers, or emails of your communication with the company?"
+      ]
+    },
+    "flags": [
+      {
+        "code": "TIME_LIMIT",
+        "severity": "lawyer",
+        "message": "The problem started about 2.9 years ago. The usual time limit for this kind of claim is around 2 years - it may be expired or about to expire. See a lawyer quickly."
+      }
+    ],
+    "calculation": {
+      "lines": [
+        "Amount paid: Rs 28,000",
+        "Refund due: Rs 28,000"
+      ],
+      "total": 28000.0,
+      "notes": [
+        "A Consumer Commission can also award compensation and litigation costs - we don't estimate that figure; it depends on the case.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "cpa_consumer_def",
+      "cpa_limitation",
+      "cpa_jurisdiction_2021",
+      "cpa_fee_nil_5lakh",
+      "ecom_grievance_officer",
+      "forum_nch",
+      "forum_ejagriti",
+      "rbi_ios_2026",
+      "ica_s73",
+      "lsa_s12_legal_aid"
+    ],
+    "assessment": {
+      "where_you_stand": "You purchased a defective washing machine for Rs 28,000 in January 2024 and faced a lack of service since February 2024 [KB:cpa_consumer_def]. Because the issue started nearly 2.9 years ago, you are past the standard 2-year time limit to file a consumer complaint [KB:cpa_limitation], which is a significant weakness unless you can show a good reason for the delay. However, you can still attempt to resolve this or consult a professional because the rule engine notes the time limit has passed. Since the claim value is up to Rs 5 lakh, the District Commission filing fee is nil and no lawyer is compulsory if you proceed [KB:cpa_fee_nil_5lakh], but given the delay, legal advice is strongly recommended.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Contact National Consumer Helpline [KB:forum_nch]",
+          "what_to_do": "File a pre-litigation complaint at consumerhelpline.gov.in or call 1915 to see if the company responds.",
+          "time": "1-2 weeks",
+          "cost": "free",
+          "needs": [
+            "purchase invoice",
+            "service request numbers"
+          ],
+          "kb_refs": [
+            "forum_nch"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "File a complaint on e-Jagriti [KB:forum_ejagriti] portal",
+          "what_to_do": "File a formal consumer complaint online on the e-Jagriti portal if informal steps fail, keeping in mind the delay issue [KB:forum_ejagriti].",
+          "time": "1-3 months",
+          "cost": "free up to 5 lakh [KB:cpa_fee_nil_5lakh]",
+          "needs": [
+            "purchase invoice",
+            "warranty card",
+            "service logs",
+            "delay explanation"
+          ],
+          "kb_refs": [
+            "cpa_consumer_def",
+            "cpa_limitation",
+            "cpa_jurisdiction_2021",
+            "cpa_fee_nil_5lakh",
+            "forum_ejagriti"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Search your email, SMS, or bank statements to find the digital purchase invoice or payment receipt.",
+        "Gather any call logs, WhatsApp chats, or service request numbers showing you contacted the company."
+      ],
+      "what_i_dont_know": [
+        "Whether the consumer commission will accept the delay beyond the standard 2-year period.",
+        "If you have valid written proof of your purchase and complaints."
+      ],
+      "needs_lawyer": true,
+      "needs_lawyer_reason": "The problem started about 2.9 years ago, which exceeds the standard 2-year time limit for consumer complaints [KB:cpa_limitation], meaning you need a lawyer to see if an exception or condonation of delay can be filed.",
+      "reply": "You purchased a washing machine in January 2024 that broke down immediately, and the company failed to repair it [KB:cpa_consumer_def]. However, because this happened nearly 2.9 years ago, you are past the normal 2-year time limit to file a consumer complaint [KB:cpa_limitation]. A consumer commission may reject a late complaint unless you have a very good reason for the delay. For claims under Rs 5 lakh, the filing fee is nil and you can file yourself [KB:cpa_fee_nil_5lakh], but given the time elapsed, consulting a lawyer is important to check if your delay can be condoned. You can also try free pre-litigation help through the National Consumer Helpline [KB:forum_nch]. Do you have any records or purchase invoices from January 2024 to prove when you bought the machine?"
+    },
+    "assessment_raw": {
+      "where_you_stand": "You purchased a defective washing machine for Rs 28,000 in January 2024 and faced a lack of service since February 2024 [KB:cpa_consumer_def]. Because the issue started nearly 2.9 years ago, you are past the standard 2-year time limit to file a consumer complaint [KB:cpa_limitation], which is a significant weakness unless you can show a good reason for the delay. However, you can still attempt to resolve this or consult a professional because the rule engine notes the time limit has passed. Since the claim value is up to Rs 5 lakh, the District Commission filing fee is nil and no lawyer is compulsory if you proceed [KB:cpa_fee_nil_5lakh], but given the delay, legal advice is strongly recommended.",
+      "options": [
+        {
+          "step": 1,
+          "title": "Contact National Consumer Helpline",
+          "what_to_do": "File a pre-litigation complaint at consumerhelpline.gov.in or call 1915 to see if the company responds.",
+          "time": "1-2 weeks",
+          "cost": "free",
+          "needs": [
+            "purchase invoice",
+            "service request numbers"
+          ],
+          "kb_refs": [
+            "forum_nch"
+          ]
+        },
+        {
+          "step": 2,
+          "title": "File a complaint on e-Jagriti portal",
+          "what_to_do": "File a formal consumer complaint online on the e-Jagriti portal if informal steps fail, keeping in mind the delay issue [KB:forum_ejagriti].",
+          "time": "1-3 months",
+          "cost": "free up to 5 lakh [KB:cpa_fee_nil_5lakh]",
+          "needs": [
+            "purchase invoice",
+            "warranty card",
+            "service logs",
+            "delay explanation"
+          ],
+          "kb_refs": [
+            "cpa_consumer_def",
+            "cpa_limitation",
+            "cpa_jurisdiction_2021",
+            "cpa_fee_nil_5lakh",
+            "forum_ejagriti"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Search your email, SMS, or bank statements to find the digital purchase invoice or payment receipt.",
+        "Gather any call logs, WhatsApp chats, or service request numbers showing you contacted the company."
+      ],
+      "what_i_dont_know": [
+        "Whether the consumer commission will accept the delay beyond the standard 2-year period.",
+        "If you have valid written proof of your purchase and complaints."
+      ],
+      "needs_lawyer": true,
+      "needs_lawyer_reason": "The problem started about 2.9 years ago, which exceeds the standard 2-year time limit for consumer complaints [KB:cpa_limitation], meaning you need a lawyer to see if an exception or condonation of delay can be filed.",
+      "reply": "You purchased a washing machine in January 2024 that broke down immediately, and the company failed to repair it [KB:cpa_consumer_def]. However, because this happened nearly 2.9 years ago, you are past the normal 2-year time limit to file a consumer complaint [KB:cpa_limitation]. A consumer commission may reject a late complaint unless you have a very good reason for the delay. For claims under Rs 5 lakh, the filing fee is nil and you can file yourself [KB:cpa_fee_nil_5lakh], but given the time elapsed, consulting a lawyer is important to check if your delay can be condoned. You can also try free pre-litigation help through the National Consumer Helpline [KB:forum_nch]. Do you have any records or purchase invoices from January 2024 to prove when you bought the machine?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "cpa_consumer_def",
+        "cpa_fee_nil_5lakh",
+        "cpa_limitation",
+        "forum_ejagriti",
+        "forum_nch"
+      ]
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "con03_old_purchase",
+    "secs": 5.4,
+    "prompt_tokens": 3797,
+    "completion_tokens": 1353,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": true,
+    "escalated": true,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 5,
+    "amounts_ok": "1/1",
+    "amounts_frac": 1.0
+  }
+}

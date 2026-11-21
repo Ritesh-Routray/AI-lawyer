@@ -1,0 +1,22 @@
+# Retrieval benchmark: does search return the section a lawyer would point to?
+# expected: list of "source_id:number" - a hit if ANY appears in the top k.
+- {pt: consumer, q: "how long do I have to file a consumer complaint", expected: ["cpa_2019:69"]}
+- {pt: consumer, q: "where do I file a complaint against a company for a refund", expected: ["cpa_2019:34", "cpa_2019:35"]}
+- {pt: consumer, q: "online seller did not refund money for returned product", expected: ["cpa_2019:35", "cpa_2019:2", "cpa_2019:94"]}
+- {pt: consumer, q: "can I appeal against the order of the district commission", expected: ["cpa_2019:41"]}
+- {pt: consumer, q: "what relief can the commission order, refund and compensation", expected: ["cpa_2019:39"]}
+- {pt: salary, q: "employer has not paid salary by the 7th of the next month", expected: ["cow_2019:17"]}
+- {pt: salary, q: "I resigned, when must my last wages be paid", expected: ["cow_2019:17"]}
+- {pt: salary, q: "how to file a claim for unpaid wages and time limit", expected: ["cow_2019:45"]}
+- {pt: salary, q: "employer deducted money from salary as fine", expected: ["cow_2019:18", "cow_2019:19"]}
+- {pt: salary, q: "equal pay for men and women for same work", expected: ["cow_2019:3"]}
+- {pt: deposit, q: "how much security deposit can a landlord take", expected: ["mta_2021:11"]}
+- {pt: deposit, q: "landlord cut off water and electricity to force me out", expected: ["mta_2021:20"]}
+- {pt: deposit, q: "can landlord enter my rented house without telling", expected: ["mta_2021:17"]}
+- {pt: deposit, q: "who must do repairs in a rented house", expected: ["mta_2021:15"]}
+- {pt: notice, q: "landlord wants to evict me, on what grounds", expected: ["mta_2021:21", "mta_2021:22"]}
+- {pt: notice, q: "police arrested me, do I have the right to know why", expected: ["constitution:22", "bnss_2023:47"]}
+- {pt: notice, q: "I am poor, can I get a free lawyer", expected: ["constitution:39A"]}
+- {pt: other, q: "someone took money promising a job and cheated me", expected: ["bns_2023:318"]}
+- {pt: other, q: "person I trusted with my money spent it on himself", expected: ["bns_2023:316"]}
+- {pt: other, q: "right to life and personal liberty", expected: ["constitution:21"]}

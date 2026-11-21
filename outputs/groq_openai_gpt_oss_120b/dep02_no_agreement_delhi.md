@@ -1,0 +1,117 @@
+# dep02_no_agreement_delhi  (groq:openai/gpt-oss-120b)
+
+## Input
+
+I rented a room in Laxmi Nagar, Delhi for 11 months. Paid 20,000 deposit in cash to the owner, no rent agreement, only WhatsApp chats where he mentions "your deposit". Left on 30 Sept 2026. Now he doesn't pick up calls.
+
+## Reply shown to user
+
+You paid a Rs 20,000 security deposit on 30 Oct 2025 and left the room on 30 Sep 2026. The landlord has not returned the money and is not replying. You have WhatsApp chats showing the payment, which lets you claim the full amount under contract law [KB:ica_s73]. Your main weakness is the lack of a written receipt or rent agreement. 
+
+First, send a polite written demand (email or message) asking for the deposit back within 7 days and attach the chat screenshots. If there is no response, the next step is to have a lawyer send a formal legal notice. Should the landlord still ignore you, you can file a small‑claims suit in the Delhi Small Causes Court, which is still within the 3‑year limitation period [KB:deposit_civil_route]. 
+
+Do you have any message where the landlord acknowledges receiving the Rs 20,000 deposit?
+
+## Red flags (rule engine)
+
+## Case file
+
+```json
+
+{
+ "problem_type": "deposit",
+ "problem_subtype": "security deposit not returned",
+ "user_language": "English",
+ "state": "Delhi",
+ "city": "Delhi",
+ "summary": "The user rented a room in Laxmi Nagar, Delhi for 11 months, paid a cash security deposit of 20000 rupees, and left on 30 September 2026. The landlord is now unresponsive and has not returned the deposit.",
+ "user_goal": "to recover the 20000 rupee security deposit",
+ "user_role": "tenant",
+ "other_party": {
+  "name": null,
+  "type": "landlord"
+ },
+ "timeline": [
+  {
+   "date": "2025-10-30",
+   "event": "Moved into the room and paid 20000 deposit in cash",
+   "proof": "WhatsApp chats mentioning \"your deposit\""
+  },
+  {
+   "date": "2026-09-30",
+   "event": "Vacated the room and attempted to contact landlord",
+   "proof": null
+  }
+ ],
+ "amounts": {
+  "deposit_paid": 20000,
+  "deductions_claimed": null,
+  "monthly_rent": null,
+  "monthly_salary": null,
+  "months_unpaid": null,
+  "other_dues": null,
+  "order_value": null,
+  "amount_refunded": null
+ },
+ "evidence_have": [
+  "WhatsApp chats"
+ ],
+ "evidence_missing": [
+  "rent agreement",
+  "receipt or written acknowledgment of deposit payment"
+ ],
+ "risk_signals": [],
+ "deadline_mentioned": {
+  "date": null,
+  "what": null
+ },
+ "follow_up_questions": [
+  "What was the exact date you moved into the room?",
+  "What is the landlord's full name or any contact details you have?",
+  "Do you have any written acknowledgment (message, receipt) that confirms the 20000 rupee deposit amount?",
+  "Did you receive any notice or statement about deductions from the deposit?"
+ ]
+}
+
+```
+
+## Calculation (code)
+
+- Deposit paid: Rs 20,000
+
+- Amount to claim: Rs 20,000
+
+## Where you stand
+
+You paid a cash security deposit of Rs 20,000 when you moved in on 30 Oct 2025 and vacated on 30 Sep 2026. The landlord has not returned the deposit and is not responding. You have WhatsApp chats showing the deposit was paid, but you lack a written receipt or rent agreement. Under contract law you can claim the amount you paid as compensation for the landlord’s breach [KB:ica_s73]. The deposit amount is within the usual cap and there is no evidence of lawful deductions, so you have a reasonable claim, though the missing written proof may be a weakness.
+
+## Options
+
+1. **Send a polite written demand** (1‑2 days, free): Draft a short message/email stating the amount paid, request return of Rs 20,000 within 7 days, and mention you may take legal steps if not received. Attach screenshots of the WhatsApp chat as proof.
+
+2. **Legal notice through a lawyer** (1 week to prepare, low (lawyer fee for notice)): If no response, engage a lawyer to send a formal legal notice. The notice will cite breach of contract and demand payment within a reasonable period.
+
+3. **File a civil money recovery suit** (2‑4 weeks for filing, then months for hearing, court fee (minimal) + lawyer fee): Approach the Small Causes Court in Delhi and file a suit for recovery of Rs 20,000. Include the chat proof and a sworn statement. The claim is within the 3‑year limitation period [KB:deposit_civil_route].
+
+## What I don't know
+
+- Exact wording of any tenancy law specific to Delhi that may affect the cap on deposits.
+
+- Whether the landlord ever gave a written acknowledgment of the deposit.
+
+## Needs lawyer: False - The dispute is a simple monetary claim; you can start with a written demand and, if needed, a lawyer’s notice before going to court.
+
+## Guardrail report
+
+```json
+
+{
+ "removed_count": 0,
+ "items": [],
+ "kb_cited": [
+  "deposit_civil_route",
+  "ica_s73"
+ ]
+}
+
+```

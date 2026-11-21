@@ -1,0 +1,275 @@
+{
+ "bns_2023.pdf": {
+  "source_id": "bns_2023",
+  "url": "https://prsindia.org/files/bills_acts/acts_parliament/2023/The%20Bharatiya%20Nyaya%20Sanhita,%202023.pdf",
+  "bytes": 1382923,
+  "sha256": "67c92f7869420685e6cdc29b1bdde19fff91312b10241b3ed3e1163c5399600b",
+  "downloaded": "2026-11-21"
+ },
+ "bnss_2023.pdf": {
+  "source_id": "bnss_2023",
+  "url": "https://prsindia.org/files/bills_acts/acts_parliament/2023/The%20Bharatiya%20Nagarik%20Suraksha%20Sanhita,%202023.pdf",
+  "bytes": 2033181,
+  "sha256": "5e60e2afe30d0fe7eca4f8126301146b76c86a444e690581f81eb564843517fe",
+  "downloaded": "2026-11-21"
+ },
+ "cpa_2019.pdf": {
+  "source_id": "cpa_2019",
+  "url": "https://prsindia.org/files/bills_acts/bills_parliament/2021/Consumer%20Protection%20Act%202019.pdf",
+  "bytes": 1236998,
+  "sha256": "0ae7f82ab5b77d50087cd4cd2dd2dbc12755c0bdb31371fdefd042b020d50756",
+  "downloaded": "2026-11-21"
+ },
+ "cow_2019.pdf": {
+  "source_id": "cow_2019",
+  "url": "https://prsindia.org/files/bills_acts/bills_parliament/1970/Code%20on%20Wages,%202019%20as%20passed%20by%20LS.pdf",
+  "bytes": 151140,
+  "sha256": "a87a31ca719e2910fc32d1f85c0b77b36627e4013c11a5f594dcce033dce838f",
+  "downloaded": "2026-11-21"
+ },
+ "mta_2021.pdf": {
+  "source_id": "mta_2021",
+  "url": "https://udd.delhi.gov.in/sites/default/files/UD/generic_multiple_files/mta_hindi_english.pdf",
+  "bytes": 765470,
+  "sha256": "7f43a7fecec2392674b5b629ec31a6fa15e4c154fd14103da2a84ddcb4018baf",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__Part1.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/Part1.pdf",
+  "bytes": 37036,
+  "sha256": "fe8a24b1ef5bde9729eb934ea27e7542d2c6f67feccde24bac7c3f6469ec285f",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__Part2.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/Part2.pdf",
+  "bytes": 36864,
+  "sha256": "3110e4812fc153484f917770e3d859d4b86e49bac699946c3192cc40f7ac9bc7",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__Part3.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/Part3.pdf",
+  "bytes": 69840,
+  "sha256": "55cd26906636a921368568684f2ddfe6fca19ba149982a895e494c40587817ac",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__Part4.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/Part4.pdf",
+  "bytes": 44662,
+  "sha256": "efe52b8bbaf2ee58fc6c25c93bcad3547a32cad96973965b04fde4238fd69286",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__Part5.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/Part5.pdf",
+  "bytes": 146657,
+  "sha256": "62bc38a9e700c5faaa8dcb24b7dd6b2eec019e4fa54a42fab38dd61cc0cfcbbb",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__Part6.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/Part6.pdf",
+  "bytes": 133355,
+  "sha256": "6e3af016bdc2a461221b80349b6e3a94e93957522592644b05ed216823492035",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__Part7.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/Part7.pdf",
+  "bytes": 23618,
+  "sha256": "f0ece3058b5fe6f38411743b0bdfd2ac3b49f2f2d0ce8ac4eccc4dc0b7527ffe",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__Part8.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/Part8.pdf",
+  "bytes": 50871,
+  "sha256": "f4bd5d6279d09df43044ae03571068c5aabec75ac334cf855031c3bee7108bb8",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__Part9.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/Part9.pdf",
+  "bytes": 76331,
+  "sha256": "c32e055474a47d776b48a5c39414ce5bd8adc7aaf0086a79c96482e80921fd23",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__Part10.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/Part10.pdf",
+  "bytes": 37052,
+  "sha256": "761feb8db77efdfe29e918c1406ff5ada4d5ff824b7d22c520038a25b62b874f",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__Part11.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/Part11.pdf",
+  "bytes": 50634,
+  "sha256": "ee0f9b0ed4eb8d758243298df37e2876e90a0d050ed98adcaa4f40c8181d6533",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__Part12.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/Part12.pdf",
+  "bytes": 77202,
+  "sha256": "8c2626d0eac8117c289ff37f4aaaade04fae5c295a880e0ca2eeebf7845dedeb",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__Part13.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/Part13.pdf",
+  "bytes": 36890,
+  "sha256": "fbf19b79bbf7248c08d959a2421058a24954cdcbc9089160dbe6bf7c410eb781",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__Part14.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/Part14.pdf",
+  "bytes": 67754,
+  "sha256": "0705d54ccff335074413bd56ede0db76df36e14198132948fae6266ba8159c30",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__Part15.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/Part15.pdf",
+  "bytes": 39475,
+  "sha256": "b246fed342139e00ebc1f39ca88f96241eb6c8aaae350b6a7e5424728d20fb6a",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__Part16.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/Part16.pdf",
+  "bytes": 62150,
+  "sha256": "c7c08cb8abbf10f7512cde88348ebb5bfc25714e480de8c0f39fa0751b9ec592",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__Part17.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/Part17.pdf",
+  "bytes": 44604,
+  "sha256": "7a319cad70fdadedf0dcf48be96ea18d0644291a78290df58fd700ac6db37db0",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__Part18.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/Part18.pdf",
+  "bytes": 60343,
+  "sha256": "80c1c1f848aed5bf1eefcf2e5adb2c31a421fa94f92af9a223d160411cb07429",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__Part19.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/Part19.pdf",
+  "bytes": 53533,
+  "sha256": "81c137b1767344ef72f4cae7516f838ddd482a76321e06a11d64892686e0e9dd",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__Part20.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/Part20.pdf",
+  "bytes": 36464,
+  "sha256": "4a513752c58762e606f005c67a00cf93335687fb91af54a56a15ad627dc842b5",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__Part21.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/Part21.pdf",
+  "bytes": 88594,
+  "sha256": "5c6d106f1e3093957a0f2d7ffc86c6944b5ba615434d1826ed332dcefbfdd6f4",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__Part22.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/Part22.pdf",
+  "bytes": 35934,
+  "sha256": "0e64b831d0c1c22d2631990660bb12573c8403c592558aad0d56aa345aa118d1",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__S1.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/S1.pdf",
+  "bytes": 50594,
+  "sha256": "71ce66771ec9b115645668761068d03a4103b171917367b7edbb3438e4baa679",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__S2.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/S2.pdf",
+  "bytes": 48774,
+  "sha256": "a361041de1244372a187c3b3c6f2c39a5043fbc78059120515c4e1beaccfc175",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__S3.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/S3.pdf",
+  "bytes": 40321,
+  "sha256": "fa567a7ff00e5f5eba53cb8ce98bad2ec3a0e50e99c8e7c3e1233dd406c010e7",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__S4.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/S4.pdf",
+  "bytes": 38817,
+  "sha256": "96dcf7e96a6b2a3e0a98f9c16d731367de45dafb0352664e513e02fc22d79e04",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__S5.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/S5.pdf",
+  "bytes": 42998,
+  "sha256": "db300092baaf8cf72a4bef3404bdcca144f31481eec623ae5c7e9f31078346f6",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__S6.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/S6.pdf",
+  "bytes": 96627,
+  "sha256": "1f7c71718fcb70404b6b3ad0f6fdbc8ca5536b8b39d9148dfb30e2d6483d375c",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__S7.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/S7.pdf",
+  "bytes": 64221,
+  "sha256": "cab831d65bbc3d2074fee2fa99a3978a156406661547c6e75b1ef50929eb085b",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__S8.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/S8.pdf",
+  "bytes": 35436,
+  "sha256": "3a983759bd4dcd1c9c1a49dba57e438f7ee6d8e1f20c4fb5cc7f6bbca075827c",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__S9.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/S9.pdf",
+  "bytes": 63892,
+  "sha256": "1afde93237aac02238b4a2f15cb458bb05273ecb30e69a196542343a6d5b480e",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__S10.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/S10.pdf",
+  "bytes": 43420,
+  "sha256": "e5aa938cb5df959990eb2a895eb754aba97fa1c89a802e52419ef9c4eee5642c",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__S11.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/S11.pdf",
+  "bytes": 36411,
+  "sha256": "1c84b52028d137f04557eb59225de7a9b367458393f0aeddc80a65829e21b60f",
+  "downloaded": "2026-11-21"
+ },
+ "constitution__S12.pdf": {
+  "source_id": "constitution",
+  "url": "https://www.mea.gov.in/images/pdf1/S12.pdf",
+  "bytes": 25724,
+  "sha256": "21de6feb752ba34fe5c2d7f08d56687fbc10eedc624b9548160ecb5fceb87eb7",
+  "downloaded": "2026-11-21"
+ }
+}

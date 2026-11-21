@@ -1,0 +1,225 @@
+{
+  "input": {
+    "id": "sal04_gig_worker",
+    "story": "I deliver food for an app in Jaipur. They deactivated my ID last week and are holding 8,500 of my earnings for the last 2 weeks. Support just sends automated replies. Am I an employee? Can I claim salary?\n",
+    "expected": {
+      "problem_type": "salary",
+      "escalate": false,
+      "script": "latin"
+    }
+  },
+  "output": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "masked_story": "I deliver food for an app in Jaipur. They deactivated my ID last week and are holding 8,500 of my earnings for the last 2 weeks. Support just sends automated replies. Am I an employee? Can I claim salary?",
+    "pii_mapping_keys": [],
+    "case": {
+      "problem_type": "salary",
+      "problem_subtype": "delivery app withheld earnings after ID deactivation",
+      "user_language": "English",
+      "state": "Rajasthan",
+      "city": "Jaipur",
+      "summary": "The user works as a food delivery executive for an app in Jaipur. Their ID was deactivated last week and the platform is withholding 8,500 rupees of earnings for the last two weeks with only automated support replies.",
+      "user_goal": "Get back the withheld earnings and understand their status and rights",
+      "user_role": "employee",
+      "other_party": {
+        "name": null,
+        "type": "platform"
+      },
+      "timeline": [
+        {
+          "date": "2026-11-13",
+          "event": "ID deactivated and last 2 weeks earnings withheld",
+          "proof": null
+        }
+      ],
+      "amounts": {
+        "deposit_paid": null,
+        "deductions_claimed": null,
+        "monthly_rent": null,
+        "monthly_salary": null,
+        "months_unpaid": null,
+        "other_dues": 8500,
+        "order_value": null,
+        "amount_refunded": null
+      },
+      "evidence_have": [],
+      "evidence_missing": [
+        "delivery partner agreement or contract",
+        "payment history or bank statements showing previous payouts",
+        "screenshots of app dashboard showing withheld amount and support chats"
+      ],
+      "risk_signals": [],
+      "deadline_mentioned": {
+        "date": null,
+        "what": null
+      },
+      "follow_up_questions": [
+        "Do you have a copy of your delivery partner agreement or contract with the app?",
+        "Do you have screenshots showing the withheld amount of 8,500 rupees in your app dashboard?",
+        "Do you have bank statements showing your previous payouts from this app?"
+      ]
+    },
+    "flags": [],
+    "calculation": {
+      "lines": [
+        "Other dues (leave encashment, reimbursements, etc.): Rs 8,500",
+        "Amount to claim: Rs 8,500"
+      ],
+      "total": 8500.0,
+      "notes": [
+        "Check your offer letter/payslips for the exact gross vs in-hand salary. Gratuity, if any, has separate rules - ask a lawyer.",
+        "Interest on delayed money may be claimable; the rate is for a lawyer/court to decide, so we don't add it here."
+      ]
+    },
+    "kb_ids_given": [
+      "ica_s73",
+      "cow_s17",
+      "cow_s45",
+      "lsa_s12_legal_aid"
+    ],
+    "assessment": {
+      "where_user_stand": "You are in a strong position to recover your earned money of Rs 8,500 because companies cannot withhold wages for completed work even if an ID is deactivated [KB:cow_s17]. Your main strength is that the Code on Wages allows you to claim unpaid dues within 3 years [KB:cow_s45]. Your weakness is that you currently lack formal proof like screenshots, bank statements, or a delivery agreement, which makes it harder to prove the exact amount owed before the Labour Department [KB:cow_s45].",
+      "options": [
+        {
+          "step": 1,
+          "title": "Gather Evidence and Screenshots",
+          "what_to_do": "Take clear screenshots of your app dashboard showing the blocked earnings of Rs 8,500 and download your bank statements showing past payments from the company.",
+          "time": "1-2 hours",
+          "cost": "free",
+          "needs": [
+            "screenshots of app dashboard",
+            "bank statements showing previous payouts"
+          ],
+          "kb_refs": []
+        },
+        {
+          "step": 2,
+          "title": "Send a Written Demand",
+          "what_to_do": "Send a formal written request via email or registered post to the platform's support or grievance officer demanding your withheld earnings within 7 days.",
+          "time": "1 day",
+          "cost": "low",
+          "needs": [
+            "screenshots of withheld earnings",
+            "registered mobile number/email ID"
+          ],
+          "kb_refs": [
+            "KB:ica_s73"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "File a Labour Department Complaint",
+          "what_to_do": "If the company fails to pay, file a formal claim for unpaid wages before the Labour Commissioner office in Jaipur under the Code on Wages [KB:cow_s45].",
+          "time": "1-3 weeks",
+          "cost": "free / low",
+          "needs": [
+            "delivery partner agreement",
+            "screenshots",
+            "bank statements"
+          ],
+          "kb_refs": [
+            "KB:cow_s17",
+            "KB:cow_s45"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Take high-resolution screenshots of the exact screen showing Rs 8,500 balance and your profile page.",
+        "Export your past bank statements highlighting previous salary deposits from the delivery app.",
+        "Save all automated support chat replies as proof that you attempted to resolve the issue."
+      ],
+      "what_i_dont_know": [
+        "Whether your delivery partner agreement contains a mandatory private arbitration clause instead of standard labour court routes.",
+        "The exact reason provided internally by the platform for your ID deactivation."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "No court case or police involvement exists yet, and you can initiate a formal wage claim or grievance yourself through the Labour Department.",
+      "reply": "Hello! Having your delivery ID deactivated and your earnings of Rs 8,500 withheld is very stressful, but the law protects your right to receive wages for work already done. Under the Code on Wages, final dues must be cleared promptly when an engagement ends, and you have up to 3 years to file a formal claim [KB:cow_s17, KB:cow_s45]. To get started, you should immediately gather proof by taking screenshots of your app dashboard showing the withheld amount and downloading bank statements showing past payouts. Next, send a written demand to the platform. If they do not respond, you can file a complaint at the Labour Commissioner office in Jaipur [KB:cow_s45]. Do you currently have screenshots of the withheld Rs 8,500 on your app dashboard?"
+    },
+    "assessment_raw": {
+      "where_user_stand": "You are in a strong position to recover your earned money of Rs 8,500 because companies cannot withhold wages for completed work even if an ID is deactivated [KB:cow_s17]. Your main strength is that the Code on Wages allows you to claim unpaid dues within 3 years [KB:cow_s45]. Your weakness is that you currently lack formal proof like screenshots, bank statements, or a delivery agreement, which makes it harder to prove the exact amount owed before the Labour Department [KB:cow_s45].",
+      "options": [
+        {
+          "step": 1,
+          "title": "Gather Evidence and Screenshots",
+          "what_to_do": "Take clear screenshots of your app dashboard showing the blocked earnings of Rs 8,500 and download your bank statements showing past payments from the company.",
+          "time": "1-2 hours",
+          "cost": "free",
+          "needs": [
+            "screenshots of app dashboard",
+            "bank statements showing previous payouts"
+          ],
+          "kb_refs": []
+        },
+        {
+          "step": 2,
+          "title": "Send a Written Demand",
+          "what_to_do": "Send a formal written request via email or registered post to the platform's support or grievance officer demanding your withheld earnings within 7 days.",
+          "time": "1 day",
+          "cost": "low",
+          "needs": [
+            "screenshots of withheld earnings",
+            "registered mobile number/email ID"
+          ],
+          "kb_refs": [
+            "KB:ica_s73"
+          ]
+        },
+        {
+          "step": 3,
+          "title": "File a Labour Department Complaint",
+          "what_to_do": "If the company fails to pay, file a formal claim for unpaid wages before the Labour Commissioner office in Jaipur under the Code on Wages [KB:cow_s45].",
+          "time": "1-3 weeks",
+          "cost": "free / low",
+          "needs": [
+            "delivery partner agreement",
+            "screenshots",
+            "bank statements"
+          ],
+          "kb_refs": [
+            "KB:cow_s17",
+            "KB:cow_s45"
+          ]
+        }
+      ],
+      "proof_tips": [
+        "Take high-resolution screenshots of the exact screen showing Rs 8,500 balance and your profile page.",
+        "Export your past bank statements highlighting previous salary deposits from the delivery app.",
+        "Save all automated support chat replies as proof that you attempted to resolve the issue."
+      ],
+      "what_i_dont_know": [
+        "Whether your delivery partner agreement contains a mandatory private arbitration clause instead of standard labour court routes.",
+        "The exact reason provided internally by the platform for your ID deactivation."
+      ],
+      "needs_lawyer": false,
+      "needs_lawyer_reason": "No court case or police involvement exists yet, and you can initiate a formal wage claim or grievance yourself through the Labour Department.",
+      "reply": "Hello! Having your delivery ID deactivated and your earnings of Rs 8,500 withheld is very stressful, but the law protects your right to receive wages for work already done. Under the Code on Wages, final dues must be cleared promptly when an engagement ends, and you have up to 3 years to file a formal claim [KB:cow_s17, KB:cow_s45]. To get started, you should immediately gather proof by taking screenshots of your app dashboard showing the withheld amount and downloading bank statements showing past payouts. Next, send a written demand to the platform. If they do not respond, you can file a complaint at the Labour Commissioner office in Jaipur [KB:cow_s45]. Do you currently have screenshots of the withheld Rs 8,500 on your app dashboard?"
+    },
+    "guardrail_report": {
+      "removed_count": 0,
+      "items": [],
+      "kb_cited": [
+        "cow_s17",
+        "cow_s45"
+      ]
+    }
+  },
+  "metrics": {
+    "model": "gemini:gemini-3.5-flash-lite",
+    "case": "sal04_gig_worker",
+    "secs": 11.1,
+    "prompt_tokens": 3232,
+    "completion_tokens": 1349,
+    "error": null,
+    "type_ok": true,
+    "escalate_expected": false,
+    "escalated": false,
+    "escalate_ok": true,
+    "refuse_ok": true,
+    "lang_ok": true,
+    "invented_refs_removed": 0,
+    "kb_citations": 2,
+    "amounts_ok": "-",
+    "amounts_frac": null
+  }
+}
