@@ -103,3 +103,7 @@ Raw, unedited outputs go to `outputs/<model>/<case>.json|.md`. Metrics go to `ou
   - The citation support check runs only on English replies.
   - Loading the embedding and reranking models takes about 40 seconds the first time; after that, each search takes about 0.3 seconds.
 - This is not legal advice. Free legal aid: NALSA **15100**.
+
+## Author
+
+Ritesh Routray (123CR0831, Ceramic Engineering). Built for Kuku FM's AI Generalist assignment, Problem 2.
